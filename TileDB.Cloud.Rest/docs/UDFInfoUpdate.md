@@ -1,0 +1,23 @@
+
+# TileDB.Cloud.Rest.Model.UDFInfoUpdate
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **string** | name of udf | [optional] 
+**Language** | **UDFLanguage** |  | [optional] 
+**_Version** | **string** | Type-specific version | [optional] 
+**ImageName** | **string** | Docker image name to use for udf | [optional] 
+**Type** | **UDFType** |  | [optional] 
+**Exec** | **string** | Type-specific executable text | [optional] 
+**ExecRaw** | **string** | optional raw text to store of serialized function, used for showing in UI | [optional] 
+**Readme** | **string** | Markdown readme of udfs | [optional] 
+**LicenseId** | **string** | License identifier from SPDX License List or Custom | [optional] 
+**LicenseText** | **string** | License text | [optional] 
+**Tags** | **List&lt;string&gt;** | optional tags for udf | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
+
