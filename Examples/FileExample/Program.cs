@@ -6,16 +6,19 @@ namespace FileExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            TileDB.Cloud.Rest.Client.Configuration cfg = new TileDB.Cloud.Rest.Client.Configuration();
+            var cfg = (new TileDB.Cloud.Config()).GetConfig();
 
-            cfg.BasePath = "https://api.tiledb.com/v1";
-            string rest_token = System.Environment.GetEnvironmentVariable("TILEDB_REST_TOKEN");
-            cfg.AccessToken = rest_token;
-
-             TileDB.Cloud.Rest.Model.User userprofile = TileDB.Cloud.RestUtil.GetUser(cfg);
-             System.Console.WriteLine("{0}", userprofile.ToJson());
-
+            TileDB.Cloud.Rest.Model.User userprofile = TileDB.Cloud.RestUtil.GetUser(cfg);
+            Console.WriteLine("{0}", userprofile.ToJson());
+            
+            var arrayList = TileDB.Cloud.RestUtil.ListArrays(userprofile.Username, cfg: cfg);
+            Console.WriteLine("{0}", arrayList.ToJson());
+            
+            var listPublicArrays = TileDB.Cloud.RestUtil.ListPublicArrays(userprofile.Username, cfg: cfg);
+            Console.WriteLine("{0}", listPublicArrays.ToJson());
+            
+            var listSharedArrays = TileDB.Cloud.RestUtil.ListSharedArrays(userprofile.Username, cfg: cfg);
+            Console.WriteLine("{0}", listSharedArrays.ToJson());
         }
     }
 }
