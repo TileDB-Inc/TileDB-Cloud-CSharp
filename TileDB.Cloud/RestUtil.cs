@@ -21,22 +21,49 @@ namespace TileDB.Cloud
             return apiInstance.GetArrayMetadata(name_space, array);
         }
 
-        public static Rest.Model.ArrayBrowserData ListArrays(string name_space, string permissions, List<string> tags, List<string> exclude_tags, string search,
-    List<string> file_types, List<string> exclude_file_types, int? page = default(int?), int? per_page = default(int?), Rest.Client.Configuration cfg = null)
+        public static Rest.Model.ArrayBrowserData ListArrays(
+            string name_space, 
+            string permissions = default(string), 
+            List<string> tags = default(List<string>), 
+            List<string> exclude_tags = default(List<string>), 
+            string search = default(string), 
+            List<string> file_types = default(List<string>), 
+            List<string> exclude_file_types = default(List<string>), 
+            int? page = default(int?), 
+            int? per_page = default(int?),
+            Rest.Client.Configuration cfg = null)
         {
             Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
             return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
         }
 
-        public static Rest.Model.ArrayBrowserData ListPublicArrays(string name_space, string permissions, List<string> tags, List<string> exclude_tags, string search,
-    List<string> file_types, List<string> exclude_file_types, int? page = default(int?), int? per_page = default(int?), Rest.Client.Configuration cfg = null)
+        public static Rest.Model.ArrayBrowserData ListPublicArrays(
+            string name_space, 
+            string permissions = default(string), 
+            List<string> tags = default(List<string>), 
+            List<string> exclude_tags = default(List<string>), 
+            string search = default(string),
+            List<string> file_types = default(List<string>), 
+            List<string> exclude_file_types = default(List<string>), 
+            int? page = default(int?), 
+            int? per_page = default(int?), 
+            Rest.Client.Configuration cfg = null)
         {
             Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
             return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
         }
 
-        public static Rest.Model.ArrayBrowserData ListSharedArrays(string name_space, string permissions, List<string> tags, List<string> exclude_tags, string search,
-    List<string> file_types, List<string> exclude_file_types, int? page = default(int?), int? per_page =default(int?), Rest.Client.Configuration cfg = null)
+        public static Rest.Model.ArrayBrowserData ListSharedArrays(
+            string name_space, 
+            string permissions = default(string), 
+            List<string> tags = default(List<string>), 
+            List<string> exclude_tags = default(List<string>), 
+            string search = default(string),
+            List<string> file_types = default(List<string>), 
+            List<string> exclude_file_types = default(List<string>), 
+            int? page = default(int?), 
+            int? per_page =default(int?), 
+            Rest.Client.Configuration cfg = null)
         {
             Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
             return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
