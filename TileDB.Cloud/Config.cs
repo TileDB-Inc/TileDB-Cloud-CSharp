@@ -36,7 +36,7 @@ namespace TileDB.Cloud
         const string REST_USERNAME = "TILEDB_REST_USERNAME";
         const string REST_PASSWORD = "TILEDB_REST_PASSWORD";
 
-        public static string DefaultHost = "https://api.tiledb.com";
+        public static string DefaultHost = "https://api.tiledb.com/v1";
 
         public static string DefaultConfigFile =
             Path.Join(GetFolderPath(SpecialFolder.UserProfile), ".tiledb", "cloud.json");
@@ -66,14 +66,14 @@ namespace TileDB.Cloud
             string username = GetEnvironmentVariable(REST_USERNAME);
             string password = GetEnvironmentVariable(REST_PASSWORD);
 
-            bool VerifySSL = true;
+   //         bool VerifySSL = true;
 
-            if (!File.Exists(configFile))
+            RestConfig restConfig = new RestConfig();
+            if (File.Exists(configFile))
             {
-                return false;
-            }
+                restConfig = JsonConvert.DeserializeObject<RestConfig>(File.ReadAllText(configFile));
 
-            RestConfig restConfig = JsonConvert.DeserializeObject<RestConfig>(File.ReadAllText(configFile));
+            }
 
             if (String.IsNullOrEmpty(username))
             {
@@ -114,10 +114,13 @@ namespace TileDB.Cloud
                     if (!String.IsNullOrEmpty(restConfig.ApiKey.Key))
                     {
                         token = restConfig.ApiKey.Key;
-                        _config.ApiKey = new Dictionary<string, string>();
-                        _config.ApiKey.Add("X-TILEDB-REST-API-KEY", token);
                     }
                 }
+            }
+            if(!String.IsNullOrEmpty(token))
+            {
+                _config.AddApiKey("X-TILEDB-REST-API-KEY", token);
+                _config.AccessToken = token;
             }
 
             if (String.IsNullOrEmpty(token) && String.IsNullOrEmpty(username))
@@ -131,8 +134,9 @@ namespace TileDB.Cloud
             }
             else
             {
-                _config.BasePath = host;
+                _config.BasePath = host ;
             }
+
 
             return true;
         }

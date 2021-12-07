@@ -9,20 +9,42 @@ namespace TileDB.Cloud
     public class RestUtil
     {
         #region Array
-        public static void DeleteArray(string username, string array, string contentType, Rest.Client.Configuration cfg = null)
+        public static void DeleteArray(string uri, string contentType)
         {
-            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
-            apiInstance.DeleteArray(username, array, contentType);
+            string[] items = uri.Split(":", StringSplitOptions.RemoveEmptyEntries);
+            if (items.Length < 2)
+            {
+                return;
+            }
+            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
+            string username = array_names[0];
+            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
+
+            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            apiInstance.DeleteArray(username, array_name, contentType);
         }
 
-        public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string name_space, string array, Rest.Client.Configuration cfg = null)
+        public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string uri)
         {
-            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
-            return apiInstance.GetArrayMetadata(name_space, array);
+            if(string.IsNullOrEmpty(uri))
+            {
+                return new Rest.Model.ArrayInfo();
+            }
+            string[] items = uri.Split(":",StringSplitOptions.RemoveEmptyEntries);
+            if(items.Length<2)
+            {
+                return new Rest.Model.ArrayInfo();
+            }
+            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
+            string username = array_names[0];
+            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
+
+            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            return apiInstance.GetArrayMetadata(username, array_name);
         }
 
         public static Rest.Model.ArrayBrowserData ListArrays(
-            string name_space, 
+            string username, 
             string permissions = default(string), 
             List<string> tags = default(List<string>), 
             List<string> exclude_tags = default(List<string>), 
@@ -30,15 +52,14 @@ namespace TileDB.Cloud
             List<string> file_types = default(List<string>), 
             List<string> exclude_file_types = default(List<string>), 
             int? page = default(int?), 
-            int? per_page = default(int?),
-            Rest.Client.Configuration cfg = null)
+            int? per_page = default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
-            return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
         }
 
         public static Rest.Model.ArrayBrowserData ListPublicArrays(
-            string name_space, 
+            string username, 
             string permissions = default(string), 
             List<string> tags = default(List<string>), 
             List<string> exclude_tags = default(List<string>), 
@@ -46,15 +67,14 @@ namespace TileDB.Cloud
             List<string> file_types = default(List<string>), 
             List<string> exclude_file_types = default(List<string>), 
             int? page = default(int?), 
-            int? per_page = default(int?), 
-            Rest.Client.Configuration cfg = null)
+            int? per_page = default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
-            return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            return apiInstance.ArraysBrowserPublicGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
         }
 
         public static Rest.Model.ArrayBrowserData ListSharedArrays(
-            string name_space, 
+            string username, 
             string permissions = default(string), 
             List<string> tags = default(List<string>), 
             List<string> exclude_tags = default(List<string>), 
@@ -62,40 +82,46 @@ namespace TileDB.Cloud
             List<string> file_types = default(List<string>), 
             List<string> exclude_file_types = default(List<string>), 
             int? page = default(int?), 
-            int? per_page =default(int?), 
-            Rest.Client.Configuration cfg = null)
+            int? per_page =default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = new Rest.Api.ArrayApi(cfg);
-            return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            return apiInstance.ArraysBrowserSharedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
         }
         #endregion Array
 
-        #region Client
-
-        #endregion Client
+ 
 
         #region Files
-        public static TileDB.Cloud.Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri, string name = null, Rest.Client.Configuration cfg = null)
+        public static TileDB.Cloud.Rest.Model.FileCreated CreateFile(string username, string input_uri, string output_uri, string name = null)
         {
-            TileDB.Cloud.Rest.Api.FilesApi apiInstance = new Rest.Api.FilesApi(cfg);
+            TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
             TileDB.Cloud.Rest.Model.FileCreate fileCreate = new Rest.Model.FileCreate(input_uri, output_uri, name);
-            return apiInstance.HandleCreateFile(name_space, fileCreate, null);
+            return apiInstance.HandleCreateFile(username, fileCreate, null);
         }
 
-        public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string uri, string output_uri, Rest.Client.Configuration cfg = null)
+        public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string uri, string output_uri)
         {
-            TileDB.Cloud.Rest.Api.FilesApi apiInstance = new Rest.Api.FilesApi(cfg);
+            string[] items = uri.Split(":", StringSplitOptions.RemoveEmptyEntries);
+            if (items.Length < 2)
+            {
+                return new Rest.Model.FileExported();
+            }
+            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
+            string username = array_names[0];
+            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
+
+            TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
             TileDB.Cloud.Rest.Model.FileExport fileExport = new Rest.Model.FileExport(output_uri);
-            string name_space = uri.Split(":")[0];
-            return apiInstance.HandleExportFile(name_space, uri, fileExport);
+            
+            return apiInstance.HandleExportFile(username, array_name, fileExport);
         }
 
         #endregion Files 
 
         #region User
-        public static Rest.Model.User GetUser(Rest.Client.Configuration cfg = null) 
+        public static Rest.Model.User GetUser() 
         {
-            Rest.Api.UserApi apiInstance = new Rest.Api.UserApi(cfg);
+            Rest.Api.UserApi apiInstance = TileDB.Cloud.Client.GetInstance().GetUserApi();
             return apiInstance.GetUser();
         }
  
