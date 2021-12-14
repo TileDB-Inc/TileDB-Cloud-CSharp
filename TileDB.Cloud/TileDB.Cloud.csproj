@@ -5,11 +5,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	<PackageReference Include="JsonSubTypes" Version="1.6.0" />
+	<PackageReference Include="Polly" Version="7.2.2" />
+	<PackageReference Include="RestSharp" Version="105.1.0" />
+	<PackageReference Include="TileDB.CSharp" Version="2.4.7" />
   </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Platforms>x64</Platforms>
+	  <PackageId>TileDB.Cloud</PackageId>
+	  <Version>0.1.0</Version>
+	  <Authors>TileDB</Authors>
+	  <Company>TileDB Inc</Company>	  
+    <!-- don't compile everything under path by default -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>  
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- compile files in ./ -->
+    <Compile Include="*.cs" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputPath>./lib</OutputPath>
+  </PropertyGroup>  
 
 </Project>
