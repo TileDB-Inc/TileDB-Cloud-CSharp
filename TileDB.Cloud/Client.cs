@@ -1,3 +1,5 @@
+using Polly;
+
 namespace TileDB.Cloud
 {
     public class Client
@@ -129,5 +131,90 @@ namespace TileDB.Cloud
             _userApi = new Rest.Api.UserApi(_cfg.GetConfig());
 
         }
+
+        #region Retry Policy
+        private int GetPositiveIntConfigValue(string key)
+        {
+            int result = 0;
+
+            if (_cfg != null && _cfg.GetConfig() != null && _cfg.GetConfig().ApiKey.ContainsKey(key))
+            {
+                string str = _cfg.GetConfig().ApiKey[key];
+                if (int.TryParse(str, out int v))
+                {
+                    if (v > 0)
+                    {
+                        result = v;
+                    }
+                }
+            }
+
+
+            return result;
+        }
+        public int GetRetryNumber()
+        {
+            int retryNumber = 3; //default value
+
+            string key = "rest.retries";
+            int v = GetPositiveIntConfigValue(key);
+            if(v>0)
+            {
+                retryNumber = v;
+            }
+  
+            return retryNumber;
+        }
+
+        public int GetSleepMilliseconds()
+        {
+            int result = 1000;
+            string key = "rest.sleepmilliseconds";
+            int v = GetPositiveIntConfigValue(key);
+            if(v>0)
+            {
+                result = v;
+            }
+            return result;
+        }
+
+        public int GetTimeoutSeconds()
+        {
+            int result = 3600;
+            string key = "rest.timeoutseconds";
+            int v = GetPositiveIntConfigValue(key);
+            if (v > 0)
+            {
+                result = v;
+            }
+            return result;
+        }
+
+
+   
+        public Polly.Wrap.AsyncPolicyWrap GetRetryAsyncPolicyWrap()
+        {
+            int retryNumber = GetRetryNumber();
+            int retrySleep = GetSleepMilliseconds();
+            int timeoutSeconds = GetTimeoutSeconds();
+            var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
+                .WaitAndRetryAsync(retryNumber, retryAttemp => System.TimeSpan.FromMilliseconds(retryNumber * retrySleep));
+            var timeout = Polly.Policy.TimeoutAsync(timeoutSeconds);
+            return Polly.Policy.WrapAsync(retry, timeout);
+        }
+
+        public Polly.Wrap.PolicyWrap GetRetryPolicyWrap()
+        {
+            int retryNumber = GetRetryNumber();
+            int retrySleep = GetSleepMilliseconds();
+            int timeoutSeconds = GetTimeoutSeconds();
+            var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
+                .WaitAndRetry(retryNumber, retryAttemp => System.TimeSpan.FromMilliseconds( retryNumber * retrySleep));
+            var timeout = Polly.Policy.Timeout(timeoutSeconds);
+            return Polly.Policy.Wrap(retry, timeout);
+        }
+
+        #endregion Retry Policy
+
     }
 }

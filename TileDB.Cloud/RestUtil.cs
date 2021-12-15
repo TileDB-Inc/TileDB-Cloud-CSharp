@@ -21,7 +21,13 @@ namespace TileDB.Cloud
             string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
 
             TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
-            apiInstance.DeleteArray(username, array_name, contentType);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            policywrap.Execute(
+                () => { apiInstance.DeleteArray(username, array_name, contentType); }
+                );
+
+            return ;
         }
 
         public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string uri)
@@ -40,7 +46,13 @@ namespace TileDB.Cloud
             string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
 
             TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
-            return apiInstance.GetArrayMetadata(username, array_name);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.ArrayInfo>(
+                () => { return apiInstance.GetArrayMetadata(username, array_name); }
+                );
+
+            return policyResult.Result;
         }
 
         public static Rest.Model.ArrayBrowserData ListArrays(
@@ -55,7 +67,13 @@ namespace TileDB.Cloud
             int? per_page = default(int?))
         {
             Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
-            return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => { return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
+                );
+
+            return policyResult.Result;     
         }
 
         public static Rest.Model.ArrayBrowserData ListPublicArrays(
@@ -70,7 +88,13 @@ namespace TileDB.Cloud
             int? per_page = default(int?))
         {
             Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
-            return apiInstance.ArraysBrowserPublicGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => { return apiInstance.ArraysBrowserPublicGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
+                );
+
+            return policyResult.Result;
         }
 
         public static Rest.Model.ArrayBrowserData ListSharedArrays(
@@ -85,7 +109,13 @@ namespace TileDB.Cloud
             int? per_page =default(int?))
         {
             Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
-            return apiInstance.ArraysBrowserSharedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => { return apiInstance.ArraysBrowserSharedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
+             );
+
+            return policyResult.Result;
         }
         #endregion Array
 
@@ -96,7 +126,13 @@ namespace TileDB.Cloud
         {
             TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
             TileDB.Cloud.Rest.Model.FileCreate fileCreate = new Rest.Model.FileCreate(input_uri, output_uri, name);
-            return apiInstance.HandleCreateFile(username, fileCreate, null);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileCreated>(
+                () => { return apiInstance.HandleCreateFile(username, fileCreate, null); }
+             );
+
+            return policyResult.Result;
         }
 
         public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string uri, string output_uri)
@@ -112,8 +148,13 @@ namespace TileDB.Cloud
 
             TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
             TileDB.Cloud.Rest.Model.FileExport fileExport = new Rest.Model.FileExport(output_uri);
-            
-            return apiInstance.HandleExportFile(username, array_name, fileExport);
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileExported>(
+                () => { return apiInstance.HandleExportFile(username, array_name, fileExport); }
+             );
+
+            return policyResult.Result;  
         }
 
         #endregion Files 
@@ -122,7 +163,13 @@ namespace TileDB.Cloud
         public static Rest.Model.User GetUser() 
         {
             Rest.Api.UserApi apiInstance = TileDB.Cloud.Client.GetInstance().GetUserApi();
-            return apiInstance.GetUser();
+
+            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult =  policywrap.ExecuteAndCapture<Rest.Model.User>(
+                () => { return apiInstance.GetUser(); }
+                );
+
+            return policyResult.Result;
         }
  
         #endregion User
