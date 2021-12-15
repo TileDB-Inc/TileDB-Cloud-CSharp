@@ -19,6 +19,7 @@ The version of the OpenAPI document: 2.2.19
     <AssemblyName>TileDB.Cloud.Rest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Authors>TileDB</Authors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@ The version of the OpenAPI document: 2.2.19
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Authors>TileDB</Authors>
     <DocumentationFile>bin\Debug\TileDB.Cloud.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,6 +39,7 @@ The version of the OpenAPI document: 2.2.19
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Authors>TileDB</Authors>
     <DocumentationFile>bin\Release\TileDB.Cloud.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
