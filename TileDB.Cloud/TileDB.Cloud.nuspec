@@ -13,7 +13,13 @@
     <copyright>$copyright$</copyright>
     <tags>tiledb cloud</tags>
     <dependencies>
-      <group targetFramework=".net5.0" />
+      <group targetFramework=".net5.0" >
+        <dependency id="TileDB.CSharp" version="2.4.7" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
+        <dependency id="JsonSubTypes" version="1.6.0" />
+        <dependency id="RestSharp" version="105.1.0" />
+        <dependency id="Polly" version="7.2.2" />        
+      </group>
     </dependencies>
   </metadata>
   <files>
