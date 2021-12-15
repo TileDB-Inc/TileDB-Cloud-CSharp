@@ -11,7 +11,7 @@
     <description>CSharp REST Api of TileDB cloud</description>
     <releaseNotes>This package is the csharp REST Api for TileDB cloud.</releaseNotes>
     <copyright>$copyright$</copyright>
-    <tags>tiledb</tags>
+    <tags>tiledb cloud</tags>
     <dependencies>
       <group targetFramework=".net5.0" />
     </dependencies>
