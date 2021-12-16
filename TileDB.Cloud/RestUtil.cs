@@ -9,46 +9,29 @@ namespace TileDB.Cloud
     public class RestUtil
     {
         #region Array
-        public static void DeleteArray(string uri, string contentType)
+        public static void DeleteArray(string username, string uri, string contentType)
         {
-            string[] items = uri.Split(":", StringSplitOptions.RemoveEmptyEntries);
-            if (items.Length < 2)
-            {
-                return;
-            }
-            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
-            string username = array_names[0];
-            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
-
             TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
 
             Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
             policywrap.Execute(
-                () => { apiInstance.DeleteArray(username, array_name, contentType); }
+                () => { apiInstance.DeleteArray(username, uri, contentType); }
                 );
             return ;
         }
 
-        public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string uri)
+        public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string username, string uri)
         {
             if(string.IsNullOrEmpty(uri))
             {
                 return new Rest.Model.ArrayInfo();
             }
-            string[] items = uri.Split(":",StringSplitOptions.RemoveEmptyEntries);
-            if(items.Length<2)
-            {
-                return new Rest.Model.ArrayInfo();
-            }
-            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
-            string username = array_names[0];
-            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
 
             TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
 
             Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.ArrayInfo>(
-                () => { return apiInstance.GetArrayMetadata(username, array_name); }
+                () => { return apiInstance.GetArrayMetadata(username, uri); }
                 );
             if(policyResult.FinalException != null)
             {
@@ -149,23 +132,14 @@ namespace TileDB.Cloud
             return policyResult.Result;
         }
 
-        public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string uri, string output_uri)
+        public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string username, string input_uri, string output_uri)
         {
-            string[] items = uri.Split(":", StringSplitOptions.RemoveEmptyEntries);
-            if (items.Length < 2)
-            {
-                return new Rest.Model.FileExported();
-            }
-            string[] array_names = items[1].Split("/", StringSplitOptions.RemoveEmptyEntries);
-            string username = array_names[0];
-            string array_name = String.Join('/', array_names, 1, array_names.Length - 1);
-
             TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
             TileDB.Cloud.Rest.Model.FileExport fileExport = new Rest.Model.FileExport(output_uri);
 
             Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileExported>(
-                () => { return apiInstance.HandleExportFile(username, array_name, fileExport); }
+                () => { return apiInstance.HandleExportFile(username, input_uri, fileExport); }
              );
             if (policyResult.FinalException != null)
             {

@@ -10,7 +10,9 @@ namespace FileExample
 
             //If you already set environment variable TILEDB_REST_TOKEN, you don't need 
             // to set any parameter for Login
-            TileDB.Cloud.Client.Login();
+            string host = "https://api.tiledb.com/v1";
+            string api_key = System.Environment.GetEnvironmentVariable("REST_TOKEN_KEY");
+            TileDB.Cloud.Client.Login(token:api_key,host:host);
 
             TileDB.Cloud.Rest.Model.User user_details = TileDB.Cloud.RestUtil.GetUser();
             Console.WriteLine("{0}", user_details.ToJson());
@@ -20,30 +22,31 @@ namespace FileExample
             //TileDB File details
             string tiledb_file_name = "VLDB17_TileDB_Example";
             string tiledb_file_s3_uri = user_details.DefaultS3Path + "/" + tiledb_file_name;
-            string uri = "tiledb://" + user_details.Username + "/" + tiledb_file_s3_uri;
 
-            // Export details
-            string export_local_path = "exported.pdf";
-            string export_s3_uri = user_details.DefaultS3Path + "/" + "exported.pdf";
-            try
+            var arrayinfo = TileDB.Cloud.RestUtil.GetArrayInfo(user_details.Username, tiledb_file_s3_uri);
+            if (arrayinfo != null)
             {
-                var arrayinfo = TileDB.Cloud.RestUtil.GetArrayInfo(uri);
-                TileDB.Cloud.RestUtil.DeleteArray(uri, "application/json");
+                System.Console.WriteLine("{0}", arrayinfo.ToJson());
+                System.Console.WriteLine("Now start to delete {0}", tiledb_file_s3_uri);
+                TileDB.Cloud.RestUtil.DeleteArray(user_details.Username, tiledb_file_s3_uri, "application/json");
             }
-            catch(TileDB.Cloud.Rest.Client.ApiException apiexception)
+            else
             {
-                System.Console.WriteLine("got exception:{0},{1} not exist!", uri,apiexception.Message);
+                System.Console.WriteLine("can not find uri: {0}", tiledb_file_s3_uri);
             }
+
+
+
 
             #region File Creation
-            try
+            var file_details = TileDB.Cloud.RestUtil.CreateFile(user_details.Username, original_file, tiledb_file_s3_uri, tiledb_file_name);
+            if (file_details == null)
             {
-                System.Console.WriteLine("start to create a file... username:{0},input_uri:{1},output_uri:{2},name:{3}", user_details.Username, original_file, tiledb_file_s3_uri, tiledb_file_name);
-                var file_details = TileDB.Cloud.RestUtil.CreateFile(user_details.Username, original_file, uri, tiledb_file_name);
+                System.Console.WriteLine("failed to create file:{0}", tiledb_file_s3_uri);
             }
-            catch (TileDB.Cloud.Rest.Client.ApiException apiexception)
+            else
             {
-                System.Console.WriteLine("got exception:{0}", apiexception.Message);
+                System.Console.WriteLine("{0}", file_details.ToJson());
             }
             #endregion FileCreation
 
@@ -59,14 +62,18 @@ namespace FileExample
 
             #endregion Searching the Catalog
 
-            #region Export File
-            try
+            #region Export File Array to S3 
+            // Export details
+            string export_s3_uri = user_details.DefaultS3Path + "/" + "exported.pdf";
+
+            var file_exported = TileDB.Cloud.RestUtil.ExportFile(user_details.Username, tiledb_file_s3_uri, export_s3_uri);
+            if (file_exported == null)
             {
-                var file_created = TileDB.Cloud.RestUtil.ExportFile(uri, export_s3_uri);
+                System.Console.WriteLine("failed export from {0} to {1}", tiledb_file_s3_uri, export_s3_uri);
             }
-            catch (TileDB.Cloud.Rest.Client.ApiException apiexception)
+            else
             {
-                System.Console.WriteLine("got exception:{0}", apiexception.Message);
+                System.Console.WriteLine("{0}", file_exported.ToJson());
             }
             #endregion Export File
 
