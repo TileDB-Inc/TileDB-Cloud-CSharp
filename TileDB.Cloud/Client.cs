@@ -198,7 +198,13 @@ namespace TileDB.Cloud
             int retrySleep = GetSleepMilliseconds();
             int timeoutSeconds = GetTimeoutSeconds();
             var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
-                .WaitAndRetryAsync(retryNumber, retryAttemp => System.TimeSpan.FromMilliseconds(retryNumber * retrySleep));
+                .WaitAndRetryAsync(retryNumber, 
+                retryAttemp => System.TimeSpan.FromMilliseconds(retryNumber * retrySleep),
+                (ex, timeSpan, context) =>
+                {
+                    System.Console.WriteLine("Caught exception and start to retry! {0}", ex.Message);
+                }
+                );
             var timeout = Polly.Policy.TimeoutAsync(timeoutSeconds);
             return Polly.Policy.WrapAsync(retry, timeout);
         }
@@ -209,7 +215,13 @@ namespace TileDB.Cloud
             int retrySleep = GetSleepMilliseconds();
             int timeoutSeconds = GetTimeoutSeconds();
             var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
-                .WaitAndRetry(retryNumber, retryAttemp => System.TimeSpan.FromMilliseconds( retryNumber * retrySleep));
+                .WaitAndRetry(retryNumber, 
+                retryAttemp => System.TimeSpan.FromMilliseconds( retryNumber * retrySleep),
+                (ex,timeSpan,context) => 
+                {
+                    System.Console.WriteLine("Caught exception and start to retry! {0}",ex.Message);
+                }
+                );
             var timeout = Polly.Policy.Timeout(timeoutSeconds);
             return Polly.Policy.Wrap(retry, timeout);
         }

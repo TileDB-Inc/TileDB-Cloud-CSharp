@@ -26,7 +26,6 @@ namespace TileDB.Cloud
             policywrap.Execute(
                 () => { apiInstance.DeleteArray(username, array_name, contentType); }
                 );
-
             return ;
         }
 
@@ -51,7 +50,10 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.ArrayInfo>(
                 () => { return apiInstance.GetArrayMetadata(username, array_name); }
                 );
-
+            if(policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;
         }
 
@@ -72,7 +74,10 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
                 );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;     
         }
 
@@ -93,7 +98,10 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserPublicGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
                 );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;
         }
 
@@ -114,7 +122,10 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserSharedGet(page, per_page, search, username, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
              );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;
         }
         #endregion Array
@@ -131,7 +142,10 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileCreated>(
                 () => { return apiInstance.HandleCreateFile(username, fileCreate, null); }
              );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;
         }
 
@@ -153,8 +167,36 @@ namespace TileDB.Cloud
             var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileExported>(
                 () => { return apiInstance.HandleExportFile(username, array_name, fileExport); }
              );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;  
+        }
+
+        public static void SaveLocalFileToFileArray(string uri, string local_file, string mime_type, string mime_coding, TileDB.Context ctx)
+        {
+            if (ctx == null)
+            {
+                TileDB.Config cfg = new TileDB.Config();
+                ctx = new TileDB.Context(cfg);
+            }
+            TileDB.VFS vfs = new TileDB.VFS(ctx);
+            if (vfs.is_dir(uri))
+            {
+                vfs.remove_dir(uri);
+            }
+            TileDB.ArrayUtil.save_file_from_path(uri, local_file, mime_type, mime_coding, ctx);
+        }
+
+        public static void ExportFileArrayToLocalFile(string uri, string local_path, TileDB.Context ctx) 
+        {
+            if(ctx==null)
+            {
+                TileDB.Config cfg = new TileDB.Config();
+                ctx = new TileDB.Context(cfg);
+            }
+            TileDB.ArrayUtil.export_file_to_path(uri, local_path, 0, ctx);
         }
 
         #endregion Files 
@@ -168,7 +210,10 @@ namespace TileDB.Cloud
             var policyResult =  policywrap.ExecuteAndCapture<Rest.Model.User>(
                 () => { return apiInstance.GetUser(); }
                 );
-
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
             return policyResult.Result;
         }
  

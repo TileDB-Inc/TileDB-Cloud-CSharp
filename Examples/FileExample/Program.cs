@@ -38,7 +38,8 @@ namespace FileExample
             #region File Creation
             try
             {
-                var file_details = TileDB.Cloud.RestUtil.CreateFile(user_details.Username, original_file, tiledb_file_s3_uri, tiledb_file_name);
+                System.Console.WriteLine("start to create a file... username:{0},input_uri:{1},output_uri:{2},name:{3}", user_details.Username, original_file, tiledb_file_s3_uri, tiledb_file_name);
+                var file_details = TileDB.Cloud.RestUtil.CreateFile(user_details.Username, original_file, uri, tiledb_file_name);
             }
             catch (TileDB.Cloud.Rest.Client.ApiException apiexception)
             {
