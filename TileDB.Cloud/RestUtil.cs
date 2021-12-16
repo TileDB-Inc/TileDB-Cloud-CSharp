@@ -88,6 +88,40 @@ namespace TileDB.Cloud
             return policyResult.Result;
         }
 
+        // Summary:
+        //     Fetch a list of all arrays that have been shared with the user
+        //
+        // Parameters:
+        //   username: string
+        //     namespace (optional)
+        //
+        //   permissions: string
+        //     permissions valid values include read, read_write, write, admin (optional)
+        //
+        //   tags: List<string>
+        //     tag to search for, more than one can be included (optional)
+        //
+        //   exclude_tags: List<string>
+        //     tags to exclude matching array in results, more than one can be included (optional)
+        //
+        //   search: string
+        //     search string that will look at name, namespace or description fields (optional)
+        //
+        //   file_types: List<string>
+        //     file_type to search for, more than one can be included (optional)
+        //
+        //   exclude_file_types: List<string>
+        //     file_type to exclude matching array in results, more than one can be included
+        //     (optional)
+        //
+        //   page: int
+        //     pagination offset (optional)
+        //
+        //   perPage: int
+        //     pagination limit (optional)
+        //
+        // Returns:
+        //     ArrayBrowserData
         public static Rest.Model.ArrayBrowserData ListSharedArrays(
             string username, 
             string permissions = default(string), 
