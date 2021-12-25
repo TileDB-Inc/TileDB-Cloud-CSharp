@@ -5,7 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <Platforms>x64</Platforms>
 	  <PackageId>TileDB.Cloud</PackageId>
-	  <Version>0.1.2</Version>
+	  <Version>0.1.3</Version>
 	  <Authors>TileDB</Authors>
 	  <Company>TileDB Inc</Company>	  
     <!-- don't compile everything under path by default -->
@@ -27,7 +27,7 @@
     <PackageReference Include="JsonSubTypes" Version="1.6.0" />
     <PackageReference Include="RestSharp" Version="105.1.0" />
 	<PackageReference Include="Polly" Version="7.2.2" />
-	<PackageReference Include="TileDB.CSharp" Version="2.4.7" />
+	<PackageReference Include="TileDB.CSharp" Version="2.4.8" />
   </ItemGroup>  
 
   <ItemGroup>

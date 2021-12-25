@@ -26,10 +26,41 @@ namespace TileDB.Cloud
 
             if(!string.IsNullOrEmpty(host)) 
             {
-                cfg.GetConfig().BasePath = host;
+                if (host.EndsWith("/v1"))
+                {
+                    host = host.Remove(host.Length - "/v1".Length);
+                }
+                else if (host.EndsWith("/v1/"))
+                {
+                    host = host.Remove(host.Length - "/v1/".Length);
+                }
+                cfg.GetConfig().BasePath = host + "/v1";
             }
 
             //Save configuration to json
+            string cloud_config_dir = Config.DefaultConfigDir;
+            if(!System.IO.Directory.Exists(cloud_config_dir))
+            {
+                try
+                {
+                    var dirinfo = System.IO.Directory.CreateDirectory(cloud_config_dir);
+                    System.Console.WriteLine("created driectory:{0}", dirinfo.ToString());
+                }
+                catch (System.IO.IOException ioe)
+                {
+                    System.Console.WriteLine("caught IOException:{0}", ioe.Message);
+                }
+                catch (System.UnauthorizedAccessException uae)
+                {
+                    System.Console.WriteLine("caught UnauthorizedAccessException:{0}", uae.Message);
+                }
+                catch (System.Exception e)
+                {
+                    System.Console.WriteLine("caught Exception:{0}", e.Message);
+                }
+                
+            }
+
             string cloud_json_file = Config.DefaultConfigFile;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             System.IO.StringWriter sw = new System.IO.StringWriter(sb);
@@ -49,8 +80,17 @@ namespace TileDB.Cloud
 
                 if(!string.IsNullOrEmpty(cfg.GetConfig().BasePath)) 
                 {
+                    string temp_host = cfg.GetConfig().BasePath;
+                    if (temp_host.EndsWith("/v1"))
+                    {
+                        temp_host = temp_host.Remove(temp_host.Length - "/v1".Length);
+                    }
+                    else if (temp_host.EndsWith("/v1/"))
+                    {
+                        temp_host = temp_host.Remove(temp_host.Length - "/v1/".Length);
+                    }
                     jsonWritter.WritePropertyName("host");
-                    jsonWritter.WriteValue(cfg.GetConfig().BasePath);
+                    jsonWritter.WriteValue(temp_host);
                 }
 
                 if(!string.IsNullOrEmpty(cfg.GetConfig().Username)) 

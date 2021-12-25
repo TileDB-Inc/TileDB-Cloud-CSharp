@@ -10,9 +10,10 @@ namespace FileExample
 
             //If you already set environment variable TILEDB_REST_TOKEN, you don't need 
             // to set any parameter for Login
-            string host = "https://api.tiledb.com/v1";
-            string api_key = System.Environment.GetEnvironmentVariable("REST_TOKEN_KEY");
-            TileDB.Cloud.Client.Login(token:api_key,host:host);
+            //string host = "https://api.tiledb.com";
+            //string api_key = System.Environment.GetEnvironmentVariable("REST_TOKEN_KEY");
+            //TileDB.Cloud.Client.Login(token:api_key,host:host);
+            TileDB.Cloud.Client.Login();
 
             TileDB.Cloud.Rest.Model.User user_details = TileDB.Cloud.RestUtil.GetUser();
             Console.WriteLine("{0}", user_details.ToJson());
