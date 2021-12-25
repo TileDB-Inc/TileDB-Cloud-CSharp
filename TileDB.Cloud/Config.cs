@@ -36,7 +36,9 @@ namespace TileDB.Cloud
         const string REST_USERNAME = "TILEDB_REST_USERNAME";
         const string REST_PASSWORD = "TILEDB_REST_PASSWORD";
 
-        public static string DefaultHost = "https://api.tiledb.com/v1";
+        public static string DefaultHost = "https://api.tiledb.com";
+
+        public static string DefaultConfigDir = Path.Join(GetFolderPath(SpecialFolder.UserProfile), ".tiledb");
 
         public static string DefaultConfigFile =
             Path.Join(GetFolderPath(SpecialFolder.UserProfile), ".tiledb", "cloud.json");
@@ -46,6 +48,7 @@ namespace TileDB.Cloud
         public Config()
         {
             _config = new TileDB.Cloud.Rest.Client.Configuration();
+            System.Console.WriteLine("start to load configuration...");
             LoadConfiguration();
         }
 
@@ -99,13 +102,6 @@ namespace TileDB.Cloud
                 }
             }
 
-            // if (host.EndsWith("/v1"))
-            // {
-            //     host = host.Remove(host.Length - "/v1".Length);
-            // } else if (host.EndsWith("/v1/"))
-            // {
-            //     host = host.Remove(host.Length - "/v1/".Length);
-            // }
 
             if (String.IsNullOrEmpty(token))
             {
@@ -130,13 +126,18 @@ namespace TileDB.Cloud
 
             if (String.IsNullOrEmpty(host))
             {
-                _config.BasePath = DefaultHost;
+                host = DefaultHost;
             }
-            else
+            if (host.EndsWith("/v1"))
             {
-                _config.BasePath = host ;
+                host = host.Remove(host.Length - "/v1".Length);
+            }
+            else if (host.EndsWith("/v1/"))
+            {
+                host = host.Remove(host.Length - "/v1/".Length);
             }
 
+            _config.BasePath = host + "/v1";
 
             return true;
         }
