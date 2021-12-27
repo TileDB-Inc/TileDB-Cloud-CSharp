@@ -166,6 +166,7 @@ namespace TileDB.Cloud
             return policyResult.Result;
         }
 
+
         public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string username, string input_uri, string output_uri)
         {
             TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
@@ -182,7 +183,8 @@ namespace TileDB.Cloud
             return policyResult.Result;  
         }
 
-        public static void SaveLocalFileToFileArray(string uri, string local_file, string mime_type, string mime_coding, TileDB.Context ctx)
+        [Obsolete("Plase use TileDB.CoreUtil.SaveFileToArray method.", false)]
+        public static void SaveLocalFileToFileArray(TileDB.Context ctx, string uri, string local_file, string mime_type, string mime_coding)
         {
             if (ctx == null)
             {
@@ -194,17 +196,18 @@ namespace TileDB.Cloud
             {
                 vfs.remove_dir(uri);
             }
-            TileDB.ArrayUtil.save_file_from_path(uri, local_file, mime_type, mime_coding, ctx);
+            TileDB.ArrayUtil.save_file_from_path(ctx, uri, local_file, mime_type, mime_coding);
         }
 
-        public static void ExportFileArrayToLocalFile(string uri, string local_path, TileDB.Context ctx) 
+        [Obsolete("Plase use TileDB.CoreUtil.ExportArrayToFile method.", false)]
+        public static void ExportFileArrayToLocalFile(TileDB.Context ctx, string uri, string local_path) 
         {
             if(ctx==null)
             {
                 TileDB.Config cfg = new TileDB.Config();
                 ctx = new TileDB.Context(cfg);
             }
-            TileDB.ArrayUtil.export_file_to_path(uri, local_path, 0, ctx);
+            TileDB.ArrayUtil.export_file_to_path(ctx, uri, local_path, 0);
         }
 
         #endregion Files 
