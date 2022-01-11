@@ -27,7 +27,7 @@ var arrayinfo = TileDB.Cloud.RestUtil.GetArrayInfo(user_details.Username, tiledb
 if(arrayinfo != null) {
     System.Console.WriteLine("{0}", arrayinfo.ToJson());
     System.Console.WriteLine("Now start to delete {0}",tiledb_file_s3_uri );
-    TileDB.Cloud.RestUtil.DeleteArray(user_details.Username, tiledb_file_s3_uri, "application/json");
+//    TileDB.Cloud.RestUtil.DeleteArray(user_details.Username, tiledb_file_s3_uri, "application/json");
 }
 else {
     System.Console.WriteLine("can not find uri: {0}", tiledb_file_s3_uri);
@@ -146,9 +146,9 @@ cfg2.set("vfs.s3.region", "us-east-2");
 TileDB.Context ctx2 = new TileDB.Context(cfg2);
 
 //export file array to local file, The function in RestUtil will be deprecated
-//TileDB.Cloud.RestUtil.ExportFileArrayToLocalFile(ctx2, "s3://stefan-region-test/image_tdb", "image_exported.tiff");
-TileDB.CoreUtil.ExportArrayToFile(ctx2, "s3://stefan-region-test/image_tdb", "image_exported.tiff" );
+//TileDB.Cloud.RestUtil.ExportFileArrayToLocalFile(ctx2, "input_cloud_array_uri", "image_exported.tiff");
+TileDB.CoreUtil.ExportArrayToFile(ctx2, "input_cloud_array_uri", "image_exported.tiff" );
 
 //export local file image_exported.tiff
-//TileDB.Cloud.RestUtil.SaveLocalFileToFileArray(ctx2, "s3://tiledb-bin/image_tdb", "image_exported.tiff","","");
-TileDB.CoreUtil.SaveFileToArray(ctx2,"s3://tiledb-bin/image_tdb", "image_exported.tiff","","");
+//TileDB.Cloud.RestUtil.SaveLocalFileToFileArray(ctx2, "output_array_uri", "image_exported.tiff","","");
+TileDB.CoreUtil.SaveFileToArray(ctx2,"output_array_uri", "image_exported.tiff","","");
