@@ -10,9 +10,8 @@ WORKDIR /app
 RUN cd /app && \
    mkdir example_metadata
 COPY --from=build /app/example_metadata /app/example_metadata
-RUN cd /app/example_metadata 
-
-WORKDIR /app/example_metadata
-RUN dotnet metadata.dll
+ 
+ 
+RUN dotnet /app/example_metadata/metadata.dll
 
  
