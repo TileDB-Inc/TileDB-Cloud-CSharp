@@ -1,11 +1,13 @@
-## build and run docker container from Dockerfile
+
+## 1. build and run docker container from Dockerfile
 ### checkout all source files to local
 ```
 git clone https://github.com/TileDB-Inc/TileDB-Cloud-CSharp.git -b bd/ch13414-webapi-example
-```
-### build container
-```
 cd TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi
+```
+### change TILEDB_REST_TOKEN and TILEDB_REST_HOST in Dockerfile and build container
+```
+
 docker build -t testwebapi -f Dockerfile .
 ```
 ### run container
@@ -18,8 +20,8 @@ docker run -it -p 5000:80 testwebapi
 http://localhost:5000/api/User
 ```
 
-## build and run docker container from gitDockerfile
-### build container
+## 2. build and run docker container from gitDockerfile
+### change TILEDB_REST_TOKEN and TILEDB_REST_HOST in gitDockerfile and build container
 ```
 docker build -t testwebapi -f gitDockerfile .
 ```
