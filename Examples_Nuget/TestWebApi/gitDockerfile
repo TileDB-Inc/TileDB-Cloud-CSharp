@@ -6,12 +6,12 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["TestWebApi.csproj", "."]
-RUN dotnet restore "./TestWebApi.csproj"
-COPY . .
-#RUN cd /src &&\
-#  git clone https://github.com/TileDB-Inc/TileDB-Cloud-CSharp.git -b bd/ch13414-webapi-example  
-#COPY TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi .
+#COPY ["TestWebApi.csproj", "."]
+#RUN dotnet restore "./TestWebApi.csproj"
+#COPY . .
+RUN cd /src &&\
+  git clone https://github.com/TileDB-Inc/TileDB-Cloud-CSharp.git -b bd/ch13414-webapi-example  
+COPY TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi .
 
 WORKDIR "/src/."
 
