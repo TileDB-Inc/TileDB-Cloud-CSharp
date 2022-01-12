@@ -10,11 +10,10 @@ WORKDIR /src
 #RUN dotnet restore "./TestWebApi.csproj"
 #COPY . .
 RUN cd /src &&\
-  git clone https://github.com/TileDB-Inc/TileDB-Cloud-CSharp.git -b bd/ch13414-webapi-example  
-COPY TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi .
-
-WORKDIR "/src/."
-
+  git clone https://github.com/TileDB-Inc/TileDB-Cloud-CSharp.git -b bd/ch13414-webapi-example  && \
+  cd TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi
+ 
+WORKDIR "/src/TileDB-Cloud-CSharp/Examples_Nuget/TestWebApi"
 RUN dotnet build "TestWebApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
