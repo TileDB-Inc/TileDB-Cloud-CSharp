@@ -117,6 +117,20 @@ namespace TileDB.Cloud
             _instance = new Client(cfg);
 
         }
+
+        public static TileDB.Context GetContext()
+        {
+            TileDB.Cloud.Config cloud_cfg = new TileDB.Cloud.Config();
+            TileDB.Config cfg = new TileDB.Config();
+            cfg.set("rest.username", cloud_cfg.Username);
+            cfg.set("rest.password", cloud_cfg.Password);
+            cfg.set("rest.token", cloud_cfg.Token);
+            cfg.set("rest.server_address", cloud_cfg.Host);
+
+            return new TileDB.Context(cfg);
+
+        }
+
         private static Client _instance = null;
         public static Client GetInstance()
         {

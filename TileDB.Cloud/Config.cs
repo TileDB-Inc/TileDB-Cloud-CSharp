@@ -44,9 +44,11 @@ namespace TileDB.Cloud
             Path.Join(GetFolderPath(SpecialFolder.UserProfile), ".tiledb", "cloud.json");
 
         private TileDB.Cloud.Rest.Client.Configuration _config;
+        private string _host;
 
         public Config()
         {
+            _host = DefaultHost;
             _config = new TileDB.Cloud.Rest.Client.Configuration();
             System.Console.WriteLine("start to load configuration...");
             LoadConfiguration();
@@ -55,6 +57,36 @@ namespace TileDB.Cloud
         public TileDB.Cloud.Rest.Client.Configuration GetConfig()
         {
             return _config;
+        }
+
+        public string Host { 
+            get
+            {
+                return _host;
+            } 
+        }
+        public string Token
+        {
+            get
+            {
+                return _config.AccessToken;
+            }
+        }
+
+        public string Username
+        {
+            get
+            {
+                return _config.Username;
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return _config.Password;
+            }
         }
 
         private bool LoadConfiguration(string configFile = "")
@@ -136,10 +168,12 @@ namespace TileDB.Cloud
             {
                 host = host.Remove(host.Length - "/v1/".Length);
             }
-
+            _host = host;
             _config.BasePath = host + "/v1";
 
             return true;
         }
     }
+ 
+
 }
