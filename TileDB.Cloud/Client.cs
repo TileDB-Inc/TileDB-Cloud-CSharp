@@ -44,7 +44,7 @@ namespace TileDB.Cloud
                 try
                 {
                     var dirinfo = System.IO.Directory.CreateDirectory(cloud_config_dir);
-                    System.Console.WriteLine("created driectory:{0}", dirinfo.ToString());
+                    System.Console.WriteLine("created directory:{0}", dirinfo.ToString());
                 }
                 catch (System.IO.IOException ioe)
                 {
