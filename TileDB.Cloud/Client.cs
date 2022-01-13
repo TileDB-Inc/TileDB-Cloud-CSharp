@@ -65,8 +65,6 @@ namespace TileDB.Cloud
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             System.IO.StringWriter sw = new System.IO.StringWriter(sb);
 
-
-
             using(Newtonsoft.Json.JsonWriter jsonWritter = new Newtonsoft.Json.JsonTextWriter(sw)) 
             {
                 jsonWritter.Formatting = Newtonsoft.Json.Formatting.Indented;
