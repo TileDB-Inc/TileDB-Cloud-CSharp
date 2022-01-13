@@ -64,6 +64,7 @@ namespace TileDB.Cloud
             string cloud_json_file = Config.DefaultConfigFile;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             System.IO.StringWriter sw = new System.IO.StringWriter(sb);
+
             using(Newtonsoft.Json.JsonWriter jsonWritter = new Newtonsoft.Json.JsonTextWriter(sw)) 
             {
                 jsonWritter.Formatting = Newtonsoft.Json.Formatting.Indented;
@@ -115,8 +116,46 @@ namespace TileDB.Cloud
             System.IO.File.WriteAllText(cloud_json_file, sb.ToString());
 
             _instance = new Client(cfg);
+ 
+            TileDB.Config tdb_config = new TileDB.Config();
+            if (!string.IsNullOrEmpty(cfg.GetConfig().Username))
+            {
+                tdb_config.set("rest.username", cfg.GetConfig().Username);
+            }
+            if (!string.IsNullOrEmpty(cfg.GetConfig().Password)) {
+                tdb_config.set("rest.password", cfg.GetConfig().Password);
+            }
 
+            if (!string.IsNullOrEmpty(cfg.GetConfig().AccessToken)) {
+                tdb_config.set("rest.token", cfg.GetConfig().AccessToken);
+            }
+
+            if (!string.IsNullOrEmpty(cfg.GetConfig().BasePath)) {
+                string temp_host = cfg.GetConfig().BasePath;
+                if (temp_host.EndsWith("/v1"))
+                {
+                    temp_host = temp_host.Remove(temp_host.Length - "/v1".Length);
+                }
+                else if (temp_host.EndsWith("/v1/"))
+                {
+                    temp_host = temp_host.Remove(temp_host.Length - "/v1/".Length);
+                }
+                if(!string.IsNullOrEmpty(temp_host))
+                {
+                    tdb_config.set("rest.server_address", temp_host);
+                }
+                
+            }
+                            
+            _context = new TileDB.Context(tdb_config);
         }
+
+        private static TileDB.Context _context = new TileDB.Context(new TileDB.Config());
+        public static TileDB.Context GetContext()
+        {
+            return _context;
+        }
+
         private static Client _instance = null;
         public static Client GetInstance()
         {
