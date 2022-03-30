@@ -178,6 +178,10 @@ namespace TileDB.Cloud
         protected TileDB.Cloud.Rest.Api.UdfApi _udfApi = null;
         protected TileDB.Cloud.Rest.Api.UserApi _userApi = null;
 
+        public TileDB.Cloud.Config GetConfig()
+        {
+            return _cfg;
+        }
         public TileDB.Cloud.Rest.Client.ApiClient GetApiClient()
         {
             return _apiClient;
@@ -198,6 +202,9 @@ namespace TileDB.Cloud
         public Client(TileDB.Cloud.Config cfg)
         {
             _cfg = cfg;
+
+            //Set timeout for restclient to 3600 seconds
+            _cfg.GetConfig().Timeout = 3600000;
 
             _apiClient = new Rest.Client.ApiClient(_cfg.GetConfig());
             _arrayApi = new Rest.Api.ArrayApi(_cfg.GetConfig());
