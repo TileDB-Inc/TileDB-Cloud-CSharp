@@ -183,31 +183,29 @@ namespace TileDB.Cloud
             return policyResult.Result;  
         }
 
-        [Obsolete("Plase use TileDB.CoreUtil.SaveFileToArray method.", false)]
-        public static void SaveLocalFileToFileArray(TileDB.Context ctx, string uri, string local_file, string mime_type, string mime_coding)
+        [Obsolete("Plase use TileDB.CSharp.File.SaveFileToArray method.", false)]
+        public static void SaveLocalFileToFileArray(TileDB.CSharp.Context ctx, string uri, string local_file, string mime_type, string mime_coding)
         {
             if (ctx == null)
             {
-                TileDB.Config cfg = new TileDB.Config();
-                ctx = new TileDB.Context(cfg);
+                ctx = TileDB.CSharp.Context.GetDefault();
             }
-            TileDB.VFS vfs = new TileDB.VFS(ctx);
-            if (vfs.is_dir(uri))
+            TileDB.CSharp.VFS vfs = new TileDB.CSharp.VFS(ctx);
+            if (vfs.IsDir(uri))
             {
-                vfs.remove_dir(uri);
+                vfs.RemoveDir(uri);
             }
-            TileDB.ArrayUtil.save_file_from_path(ctx, uri, local_file, mime_type, mime_coding);
+            TileDB.CSharp.File.SaveFileToArray(ctx, uri, local_file, mime_type, mime_coding);
         }
 
         [Obsolete("Plase use TileDB.CoreUtil.ExportArrayToFile method.", false)]
-        public static void ExportFileArrayToLocalFile(TileDB.Context ctx, string uri, string local_path) 
+        public static void ExportFileArrayToLocalFile(TileDB.CSharp.Context ctx, string uri, string local_path) 
         {
             if(ctx==null)
             {
-                TileDB.Config cfg = new TileDB.Config();
-                ctx = new TileDB.Context(cfg);
+                ctx = TileDB.CSharp.Context.GetDefault();
             }
-            TileDB.ArrayUtil.export_file_to_path(ctx, uri, local_path, 0);
+            TileDB.CSharp.File.ExportArrayToFile(ctx, uri, local_path);
         }
 
         #endregion Files 
