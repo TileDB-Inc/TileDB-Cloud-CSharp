@@ -199,32 +199,34 @@ namespace TileDB.Cloud
             return policyResult.Result;  
         }
 
-        [Obsolete("Plase use TileDB.CoreUtil.SaveFileToArray method.", false)]
-        public static void SaveLocalFileToFileArray(TileDB.CSharp.Context ctx, string uri, string local_file, string mime_type, string mime_coding)
-        {
-            if (ctx == null)
-            {
-                TileDB.CSharp.Config cfg = new TileDB.CSharp.Config();
-                ctx = new TileDB.CSharp.Context(cfg);
-            }
-            TileDB.CSharp.VFS vfs = new TileDB.CSharp.VFS(ctx);
-            if (vfs.IsDir(uri))
-            {
-                vfs.RemoveDir(uri);
-            }
-            TileDB.CSharp.ArrayUtil.save_file_from_path(ctx, uri, local_file, mime_type, mime_coding);
-        }
+        //ToDo: Replace after adding support for save_file_from_path in TileDB.CSharp
+        //[Obsolete("Plase use TileDB.CoreUtil.SaveFileToArray method.", false)]
+        //public static void SaveLocalFileToFileArray(TileDB.CSharp.Context ctx, string uri, string local_file, string mime_type, string mime_coding)
+        //{
+        //    if (ctx == null)
+        //    {
+        //        TileDB.CSharp.Config cfg = new TileDB.CSharp.Config();
+        //        ctx = new TileDB.CSharp.Context(cfg);
+        //    }
+        //    TileDB.CSharp.VFS vfs = new TileDB.CSharp.VFS(ctx);
+        //    if (vfs.IsDir(uri))
+        //    {
+        //        vfs.RemoveDir(uri);
+        //    }
+        //    TileDB.CSharp.ArrayUtil.save_file_from_path(ctx, uri, local_file, mime_type, mime_coding);
+        //}
 
-        [Obsolete("Plase use TileDB.CoreUtil.ExportArrayToFile method.", false)]
-        public static void ExportFileArrayToLocalFile(TileDB.CSharp.Context ctx, string uri, string local_path) 
-        {
-            if(ctx==null)
-            {
-                TileDB.CSharp.Config cfg = new TileDB.CSharp.Config();
-                ctx = new TileDB.CSharp.Context(cfg);
-            }
-            TileDB.CSharp.ArrayUtil.export_file_to_path(ctx, uri, local_path, 0);
-        }
+        //ToDo: Replace after adding support for export_file_to_path in TileDB.CSharp
+        //[Obsolete("Plase use TileDB.CoreUtil.ExportArrayToFile method.", false)]
+        //public static void ExportFileArrayToLocalFile(TileDB.CSharp.Context ctx, string uri, string local_path) 
+        //{
+        //    if(ctx==null)
+        //    {
+        //        TileDB.CSharp.Config cfg = new TileDB.CSharp.Config();
+        //        ctx = new TileDB.CSharp.Context(cfg);
+        //    }
+        //    TileDB.CSharp.ArrayUtil.export_file_to_path(ctx, uri, local_path, 0);
+        //}
 
         #endregion Files 
 
