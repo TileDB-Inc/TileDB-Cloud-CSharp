@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TileDB.Cloud
 {
@@ -11,7 +8,7 @@ namespace TileDB.Cloud
         #region Array
 
         /// <summary>
-        /// Deleate an array.
+        /// Delete an array.
         /// </summary>
         /// <param name="array_uri"></param>
         public static void DeleteArray(string array_uri)
@@ -21,16 +18,16 @@ namespace TileDB.Cloud
                 return;
             }
             var (name_space, array_name) = SplitUri(array_uri);
-            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
             string contentType = "application/json";
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             policywrap.Execute(
                 () => { apiInstance.DeleteArray(name_space, array_name, contentType); }
                 );
             return ;
         }
 
-        public static TileDB.Cloud.Rest.Model.ArrayInfo GetArrayInfo(string array_uri)
+        public static Rest.Model.ArrayInfo GetArrayInfo(string array_uri)
         {
             if(string.IsNullOrEmpty(array_uri))
             {
@@ -38,10 +35,10 @@ namespace TileDB.Cloud
             }
             var (name_space, array_name) = SplitUri(array_uri);
 
-            TileDB.Cloud.Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.ArrayInfo>(
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayInfo>(
                 () => { return apiInstance.GetArrayMetadata(name_space, array_name); }
                 );
             if(policyResult.FinalException != null)
@@ -52,7 +49,7 @@ namespace TileDB.Cloud
         }
 
         /// <summary>
-        /// List public arrays in a name_space.
+        /// List owned arrays in a name_space.
         /// </summary>
         /// <param name="name_space"></param>
         /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
@@ -75,9 +72,9 @@ namespace TileDB.Cloud
             int? page = default(int?), 
             int? per_page = default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
                 );
@@ -112,9 +109,9 @@ namespace TileDB.Cloud
             int? page = default(int?), 
             int? per_page = default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
                 );
@@ -126,7 +123,7 @@ namespace TileDB.Cloud
         }
 
         /// <summary>
-        /// List public arrays in a name_space.
+        /// List shared arrays in a name_space.
         /// </summary>
         /// <param name="name_space"></param>
         /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
@@ -149,9 +146,9 @@ namespace TileDB.Cloud
             int? page = default(int?), 
             int? per_page =default(int?))
         {
-            Rest.Api.ArrayApi apiInstance = TileDB.Cloud.Client.GetInstance().GetArrayApi();
+            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
                 () => { return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
              );
@@ -163,16 +160,14 @@ namespace TileDB.Cloud
         }
         #endregion Array
 
- 
-
         #region Files
-        public static TileDB.Cloud.Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri, string name = null)
+        public static Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri, string name = null)
         {
-            TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
-            TileDB.Cloud.Rest.Model.FileCreate fileCreate = new Rest.Model.FileCreate(input_uri, output_uri, name);
+            Rest.Api.FilesApi apiInstance = Client.GetInstance().GetFilesApi();
+            Rest.Model.FileCreate fileCreate = new Rest.Model.FileCreate(input_uri, output_uri, name);
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileCreated>(
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.FileCreated>(
                 () => { return apiInstance.HandleCreateFile(name_space, fileCreate, null); }
              );
             if (policyResult.FinalException != null)
@@ -183,13 +178,13 @@ namespace TileDB.Cloud
         }
 
 
-        public static TileDB.Cloud.Rest.Model.FileExported ExportFile(string name_space, string input_uri, string output_uri)
+        public static Rest.Model.FileExported ExportFile(string name_space, string input_uri, string output_uri)
         {
-            TileDB.Cloud.Rest.Api.FilesApi apiInstance = TileDB.Cloud.Client.GetInstance().GetFilesApi();
-            TileDB.Cloud.Rest.Model.FileExport fileExport = new Rest.Model.FileExport(output_uri);
+            Rest.Api.FilesApi apiInstance = Client.GetInstance().GetFilesApi();
+            Rest.Model.FileExport fileExport = new Rest.Model.FileExport(output_uri);
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<TileDB.Cloud.Rest.Model.FileExported>(
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.FileExported>(
                 () => { return apiInstance.HandleExportFile(name_space, input_uri, fileExport); }
              );
             if (policyResult.FinalException != null)
@@ -230,12 +225,214 @@ namespace TileDB.Cloud
 
         #endregion Files 
 
+        #region Groups
+        /// <summary>
+        /// Delete a group.
+        /// </summary>
+        /// <param name="group_uri"></param>
+        public static void DeleteGroup(string group_uri)
+        {
+            if (string.IsNullOrEmpty(group_uri))
+            {
+                return;
+            }
+            var (name_space, group_name) = SplitUri(group_uri);
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            policywrap.Execute(
+                () => { apiInstance.DeleteGroup(name_space, group_name); }
+                );
+            return;
+        }
+
+        /// <summary>
+        /// Get group info.
+        /// </summary>
+        /// <param name="group_uri"></param>
+        public static Rest.Model.GroupInfo GetGroupInfo(string group_uri)
+        {
+            if (string.IsNullOrEmpty(group_uri))
+            {
+                return new Rest.Model.GroupInfo();
+            }
+            var (name_space, group_name) = SplitUri(group_uri);
+
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupInfo>(
+                () => { return apiInstance.GetGroup(name_space, group_name); }
+                );
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+            return policyResult.Result;
+        }
+
+        /// <summary>
+        /// List owned groups in a name_space.
+        /// </summary>
+        /// <param name="group_uri"></param>
+        /// <param name="name_space"></param>
+        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
+        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="member_type">member type to search for, more than one can be included (optional)</param>
+        /// <param name="exclude_member_type">member type to exclude matching groups in results, more than one can be included (optional)</param>
+        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
+        /// <param name="page">pagination offset (optional)</param>
+        /// <param name="per_page">pagination limit (optional)</param>
+        /// <returns></returns>
+        public static Rest.Model.GroupContents GetGroupContents(
+            string group_uri,
+            string name_space = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
+            List<string> member_type = default(List<string>),
+            List<string> exclude_member_type = default(List<string>),
+            string search = default(string),
+            int? page = default(int?),
+            int? per_page = default(int?))
+        {
+            if (string.IsNullOrEmpty(group_uri))
+            {
+                return new Rest.Model.GroupContents();
+            }
+            var (group_name_space, group_name) = SplitUri(group_uri);
+
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupContents>(
+                () => { return apiInstance.GetGroupContents(group_name_space, group_name, page, per_page, name_space, search, null, tags, exclude_tags, member_type, exclude_member_type); }
+                );
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+            return policyResult.Result;
+        }
+
+        /// <summary>
+        /// List owned groups in a name_space.
+        /// </summary>
+        /// <param name="name_space"></param>
+        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
+        /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
+        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
+        /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
+        /// <param name="page">pagination offset (optional)</param>
+        /// <param name="per_page">pagination limit (optional)</param>
+        /// <returns></returns>
+        public static Rest.Model.GroupBrowserData ListGroups(
+            string name_space,
+            string permissions = default(string),
+            string parent = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
+            string search = default(string),
+            bool? flat = default(bool?),
+            int? page = default(int?),
+            int? per_page = default(int?))
+        {
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
+                () => { return apiInstance.ListOwnedGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
+                );
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+            return policyResult.Result;
+        }
+
+        /// <summary>
+        /// List public groups in a name_space.
+        /// </summary>
+        /// <param name="name_space"></param>
+        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
+        /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
+        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
+        /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
+        /// <param name="page">pagination offset (optional)</param>
+        /// <param name="per_page">pagination limit (optional)</param>
+        /// <returns></returns>
+        public static Rest.Model.GroupBrowserData ListPublicGroups(
+            string name_space,
+            string permissions = default(string),
+            string parent = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
+            string search = default(string),
+            List<string> file_types = default(List<string>),
+            List<string> exclude_file_types = default(List<string>),
+            bool? flat = default(bool?),
+            int? page = default(int?),
+            int? per_page = default(int?))
+        {
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
+                () => { return apiInstance.ListPublicGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
+                );
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+            return policyResult.Result;
+        }
+
+        /// <summary>
+        /// List shared groups in a name_space.
+        /// </summary>
+        /// <param name="name_space"></param>
+        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
+        /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
+        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
+        /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
+        /// <param name="page">pagination offset (optional)</param>
+        /// <param name="per_page">pagination limit (optional)</param>
+        /// <returns></returns>
+        public static Rest.Model.GroupBrowserData ListSharedGroups(
+            string name_space,
+            string permissions = default(string),
+            string parent = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
+            string search = default(string),
+            bool? flat = default(bool?),
+            int? page = default(int?),
+            int? per_page = default(int?))
+        {
+            Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
+
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
+                () => { return apiInstance.ListSharedGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
+             );
+            if (policyResult.FinalException != null)
+            {
+                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+            return policyResult.Result;
+        }
+        #endregion Groups
+
         #region User
         public static Rest.Model.User GetUser() 
         {
-            Rest.Api.UserApi apiInstance = TileDB.Cloud.Client.GetInstance().GetUserApi();
+            Rest.Api.UserApi apiInstance = Client.GetInstance().GetUserApi();
 
-            Polly.Wrap.PolicyWrap policywrap = TileDB.Cloud.Client.GetInstance().GetRetryPolicyWrap();
+            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult =  policywrap.ExecuteAndCapture<Rest.Model.User>(
                 () => { return apiInstance.GetUser(); }
                 );
