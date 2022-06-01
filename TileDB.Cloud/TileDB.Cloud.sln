@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31410.357
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TileDB.Cloud", "TileDB.Cloud.csproj", "{A647C669-8337-4E1C-9D38-3FFC756F58B7}"
 EndProject
@@ -13,8 +13,8 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|Any CPU.Build.0 = Debug|x64
 		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|x64.ActiveCfg = Debug|x64
 		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Debug|x64.Build.0 = Debug|x64
 		{A647C669-8337-4E1C-9D38-3FFC756F58B7}.Release|Any CPU.ActiveCfg = Release|Any CPU

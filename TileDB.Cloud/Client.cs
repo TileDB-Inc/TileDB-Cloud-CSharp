@@ -117,17 +117,17 @@ namespace TileDB.Cloud
 
             _instance = new Client(cfg);
  
-            TileDB.Config tdb_config = new TileDB.Config();
+            TileDB.CSharp.Config tdb_config = new TileDB.CSharp.Config();
             if (!string.IsNullOrEmpty(cfg.GetConfig().Username))
             {
-                tdb_config.set("rest.username", cfg.GetConfig().Username);
+                tdb_config.Set("rest.username", cfg.GetConfig().Username);
             }
             if (!string.IsNullOrEmpty(cfg.GetConfig().Password)) {
-                tdb_config.set("rest.password", cfg.GetConfig().Password);
+                tdb_config.Set("rest.password", cfg.GetConfig().Password);
             }
 
             if (!string.IsNullOrEmpty(cfg.GetConfig().AccessToken)) {
-                tdb_config.set("rest.token", cfg.GetConfig().AccessToken);
+                tdb_config.Set("rest.token", cfg.GetConfig().AccessToken);
             }
 
             if (!string.IsNullOrEmpty(cfg.GetConfig().BasePath)) {
@@ -142,16 +142,16 @@ namespace TileDB.Cloud
                 }
                 if(!string.IsNullOrEmpty(temp_host))
                 {
-                    tdb_config.set("rest.server_address", temp_host);
+                    tdb_config.Set("rest.server_address", temp_host);
                 }
                 
             }
                             
-            _context = new TileDB.Context(tdb_config);
+            _context = new TileDB.CSharp.Context(tdb_config);
         }
 
-        private static TileDB.Context _context = new TileDB.Context(new TileDB.Config());
-        public static TileDB.Context GetContext()
+        private static TileDB.CSharp.Context _context = new TileDB.CSharp.Context(new TileDB.CSharp.Config());
+        public static TileDB.CSharp.Context GetContext()
         {
             return _context;
         }
