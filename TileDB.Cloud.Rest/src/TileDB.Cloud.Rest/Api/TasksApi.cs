@@ -35,7 +35,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         List<Object> RunSQL (string _namespace, SQLParameters sql, string acceptEncoding = default(string));
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         ApiResponse<List<Object>> RunSQLWithHttpInfo (string _namespace, SQLParameters sql, string acceptEncoding = default(string));
         /// <summary>
         /// 
@@ -57,7 +57,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <returns>ArrayTask</returns>
         ArrayTask TaskIdGet (string id);
 
@@ -68,7 +68,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <returns>ApiResponse of ArrayTask</returns>
         ApiResponse<ArrayTask> TaskIdGetWithHttpInfo (string id);
         /// <summary>
@@ -78,7 +78,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Retrieve results of an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>string</returns>
         string TaskIdResultGet (string id, string acceptEncoding = default(string));
@@ -90,7 +90,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Retrieve results of an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> TaskIdResultGetWithHttpInfo (string id, string acceptEncoding = default(string));
@@ -154,7 +154,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
+        /// <returns>Task of List<Object></returns>
         System.Threading.Tasks.Task<List<Object>> RunSQLAsync (string _namespace, SQLParameters sql, string acceptEncoding = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayTask</returns>
         System.Threading.Tasks.Task<ArrayTask> TaskIdGetAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
@@ -189,7 +189,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayTask)</returns>
         System.Threading.Tasks.Task<ApiResponse<ArrayTask>> TaskIdGetWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
@@ -200,7 +200,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Retrieve results of an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of string</returns>
@@ -213,7 +213,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Retrieve results of an array task
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (string)</returns>
@@ -385,7 +385,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         public List<Object> RunSQL (string _namespace, SQLParameters sql, string acceptEncoding = default(string))
         {
              ApiResponse<List<Object>> localVarResponse = RunSQLWithHttpInfo(_namespace, sql, acceptEncoding);
@@ -399,7 +399,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         public ApiResponse<List<Object>> RunSQLWithHttpInfo (string _namespace, SQLParameters sql, string acceptEncoding = default(string))
         {
             // verify the required parameter '_namespace' is set
@@ -480,7 +480,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
+        /// <returns>Task of List<Object></returns>
         public async System.Threading.Tasks.Task<List<Object>> RunSQLAsync (string _namespace, SQLParameters sql, string acceptEncoding = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<Object>> localVarResponse = await RunSQLWithHttpInfoAsync(_namespace, sql, acceptEncoding, cancellationToken);
@@ -573,7 +573,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <returns>ArrayTask</returns>
         public ArrayTask TaskIdGet (string id)
         {
@@ -585,7 +585,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <returns>ApiResponse of ArrayTask</returns>
         public ApiResponse<ArrayTask> TaskIdGetWithHttpInfo (string id)
         {
@@ -650,7 +650,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayTask</returns>
         public async System.Threading.Tasks.Task<ArrayTask> TaskIdGetAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
@@ -664,7 +664,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to fetch</param>
+        /// <param name="id">task ID to fetch</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayTask)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ArrayTask>> TaskIdGetWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
@@ -730,7 +730,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Retrieve results of an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>string</returns>
         public string TaskIdResultGet (string id, string acceptEncoding = default(string))
@@ -743,7 +743,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Retrieve results of an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of string</returns>
         public ApiResponse<string> TaskIdResultGetWithHttpInfo (string id, string acceptEncoding = default(string))
@@ -810,7 +810,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Retrieve results of an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of string</returns>
@@ -825,7 +825,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Retrieve results of an array task
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">task id to retrieve stored results</param>
+        /// <param name="id">task ID to retrieve stored results</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (string)</returns>

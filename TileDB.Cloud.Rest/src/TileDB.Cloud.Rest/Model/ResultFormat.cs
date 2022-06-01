@@ -25,31 +25,55 @@ using OpenAPIDateConverter = TileDB.Cloud.Rest.Client.OpenAPIDateConverter;
 namespace TileDB.Cloud.Rest.Model
 {
     /// <summary>
-    /// Results type
+    /// Data format of a result
     /// </summary>
-    /// <value>Results type</value>
+    /// <value>Data format of a result</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
     public enum ResultFormat
     {
         /// <summary>
-        /// Enum Native for value: native
+        /// Enum Pythonpickle for value: python_pickle
         /// </summary>
-        [EnumMember(Value = "native")]
-        Native = 1,
+        [EnumMember(Value = "python_pickle")]
+        Pythonpickle = 1,
+
+        /// <summary>
+        /// Enum Rserialization for value: r_serialization
+        /// </summary>
+        [EnumMember(Value = "r_serialization")]
+        Rserialization = 2,
 
         /// <summary>
         /// Enum Json for value: json
         /// </summary>
         [EnumMember(Value = "json")]
-        Json = 2,
+        Json = 3,
 
         /// <summary>
         /// Enum Arrow for value: arrow
         /// </summary>
         [EnumMember(Value = "arrow")]
-        Arrow = 3
+        Arrow = 4,
+
+        /// <summary>
+        /// Enum Bytes for value: bytes
+        /// </summary>
+        [EnumMember(Value = "bytes")]
+        Bytes = 5,
+
+        /// <summary>
+        /// Enum Tiledbjson for value: tiledb_json
+        /// </summary>
+        [EnumMember(Value = "tiledb_json")]
+        Tiledbjson = 6,
+
+        /// <summary>
+        /// Enum Native for value: native
+        /// </summary>
+        [EnumMember(Value = "native")]
+        Native = 7
 
     }
 

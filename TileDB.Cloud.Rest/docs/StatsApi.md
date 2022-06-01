@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.StatsApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetTiledbStats
 
-> InlineResponse200 GetTiledbStats ()
+> GetTiledbStats200Response GetTiledbStats ()
 
 
 
@@ -31,7 +31,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                InlineResponse200 result = apiInstance.GetTiledbStats();
+                GetTiledbStats200Response result = apiInstance.GetTiledbStats();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -64,7 +64,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**GetTiledbStats200Response**](GetTiledbStats200Response.md)
 
 ### Authorization
 

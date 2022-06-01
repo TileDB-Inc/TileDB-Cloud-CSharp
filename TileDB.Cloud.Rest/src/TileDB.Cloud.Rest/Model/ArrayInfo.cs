@@ -38,7 +38,7 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayInfo" /> class.
         /// </summary>
-        /// <param name="id">unique id of registered array.</param>
+        /// <param name="id">unique ID of registered array.</param>
         /// <param name="fileType">fileType.</param>
         /// <param name="fileProperties">map of file properties created for this array.</param>
         /// <param name="uri">uri of array.</param>
@@ -61,9 +61,9 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="licenseText">License text.</param>
         /// <param name="readOnly">Suggests if the array is in read_only mode.</param>
         /// <param name="isFavorite">Indicates whether the array is in user favorites.</param>
-        /// <param name="favoriteUuid">The favorite UUID if the array if is_favorite is true.</param>
-        public ArrayInfo(string id = default(string), FileType? fileType = default(FileType?), Dictionary<string, string> fileProperties = default(Dictionary<string, string>), string uri = default(string), string _namespace = default(string), decimal size = default(decimal), DateTime lastAccessed = default(DateTime), string description = default(string), string name = default(string), List<ArrayActions> allowedActions = default(List<ArrayActions>), List<Pricing> pricing = default(List<Pricing>), List<Subscription> subscriptions = default(List<Subscription>), string logo = default(string), string accessCredentialsName = default(string), string type = default(string), decimal shareCount = default(decimal), bool publicShare = default(bool), string tiledbUri = default(string), List<string> tags = default(List<string>), string licenseId = default(string), string licenseText = default(string), bool? readOnly = default(bool?), bool isFavorite = default(bool), string favoriteUuid = default(string))
+        public ArrayInfo(string id = default(string), FileType? fileType = default(FileType?), Dictionary<string, string> fileProperties = default(Dictionary<string, string>), string uri = default(string), string _namespace = default(string), decimal? size = default(decimal?), DateTime lastAccessed = default(DateTime), string description = default(string), string name = default(string), List<ArrayActions> allowedActions = default(List<ArrayActions>), List<Pricing> pricing = default(List<Pricing>), List<Subscription> subscriptions = default(List<Subscription>), string logo = default(string), string accessCredentialsName = default(string), string type = default(string), decimal shareCount = default(decimal), bool publicShare = default(bool), string tiledbUri = default(string), List<string> tags = default(List<string>), string licenseId = default(string), string licenseText = default(string), bool? readOnly = default(bool?), bool isFavorite = default(bool))
         {
+            this.Size = size;
             this.Description = description;
             this.ReadOnly = readOnly;
             this.Id = id;
@@ -89,13 +89,12 @@ namespace TileDB.Cloud.Rest.Model
             this.LicenseText = licenseText;
             this.ReadOnly = readOnly;
             this.IsFavorite = isFavorite;
-            this.FavoriteUuid = favoriteUuid;
         }
 
         /// <summary>
-        /// unique id of registered array
+        /// unique ID of registered array
         /// </summary>
-        /// <value>unique id of registered array</value>
+        /// <value>unique ID of registered array</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -125,8 +124,8 @@ namespace TileDB.Cloud.Rest.Model
         /// size in bytes of array
         /// </summary>
         /// <value>size in bytes of array</value>
-        [DataMember(Name="size", EmitDefaultValue=false)]
-        public decimal Size { get; set; }
+        [DataMember(Name="size", EmitDefaultValue=true)]
+        public decimal? Size { get; set; }
 
         /// <summary>
         /// Datetime array was last accessed in UTC
@@ -255,13 +254,6 @@ namespace TileDB.Cloud.Rest.Model
         public bool IsFavorite { get; set; }
 
         /// <summary>
-        /// The favorite UUID if the array if is_favorite is true
-        /// </summary>
-        /// <value>The favorite UUID if the array if is_favorite is true</value>
-        [DataMember(Name="favorite_uuid", EmitDefaultValue=false)]
-        public string FavoriteUuid { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -293,7 +285,6 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  LicenseText: ").Append(LicenseText).Append("\n");
             sb.Append("  ReadOnly: ").Append(ReadOnly).Append("\n");
             sb.Append("  IsFavorite: ").Append(IsFavorite).Append("\n");
-            sb.Append("  FavoriteUuid: ").Append(FavoriteUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -452,11 +443,6 @@ namespace TileDB.Cloud.Rest.Model
                     this.IsFavorite == input.IsFavorite ||
                     (this.IsFavorite != null &&
                     this.IsFavorite.Equals(input.IsFavorite))
-                ) && 
-                (
-                    this.FavoriteUuid == input.FavoriteUuid ||
-                    (this.FavoriteUuid != null &&
-                    this.FavoriteUuid.Equals(input.FavoriteUuid))
                 );
         }
 
@@ -517,8 +503,6 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.ReadOnly.GetHashCode();
                 if (this.IsFavorite != null)
                     hashCode = hashCode * 59 + this.IsFavorite.GetHashCode();
-                if (this.FavoriteUuid != null)
-                    hashCode = hashCode * 59 + this.FavoriteUuid.GetHashCode();
                 return hashCode;
             }
         }

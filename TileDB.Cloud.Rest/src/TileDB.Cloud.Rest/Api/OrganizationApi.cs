@@ -79,7 +79,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>List<AWSAccessCredentials></returns>
         List<AWSAccessCredentials> CheckAWSAccessCredentials (string _namespace);
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>ApiResponse of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>ApiResponse of List<AWSAccessCredentials></returns>
         ApiResponse<List<AWSAccessCredentials>> CheckAWSAccessCredentialsWithHttpInfo (string _namespace);
         /// <summary>
         /// 
@@ -166,7 +166,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns></returns>
         void DeleteOrganization (string organization);
 
@@ -177,7 +177,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteOrganizationWithHttpInfo (string organization);
         /// <summary>
@@ -210,7 +210,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get all organizations that the user is member of
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Organization&gt;</returns>
+        /// <returns>List<Organization></returns>
         List<Organization> GetAllOrganizations ();
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get all organizations that the user is member of
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Organization&gt;</returns>
+        /// <returns>ApiResponse of List<Organization></returns>
         ApiResponse<List<Organization>> GetAllOrganizationsWithHttpInfo ();
         /// <summary>
         /// 
@@ -229,7 +229,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>Organization</returns>
         Organization GetOrganization (string organization);
 
@@ -240,7 +240,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>ApiResponse of Organization</returns>
         ApiResponse<Organization> GetOrganizationWithHttpInfo (string organization);
         /// <summary>
@@ -298,7 +298,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <returns></returns>
         void UpdateOrganization (string organization, Organization organizationDetails);
@@ -310,7 +310,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateOrganizationWithHttpInfo (string organization, Organization organizationDetails);
@@ -400,7 +400,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>Task of List<AWSAccessCredentials></returns>
         System.Threading.Tasks.Task<List<AWSAccessCredentials>> CheckAWSAccessCredentialsAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -494,7 +494,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteOrganizationAsync (string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -506,7 +506,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOrganizationWithHttpInfoAsync (string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -543,7 +543,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Organization&gt;</returns>
+        /// <returns>Task of List<Organization></returns>
         System.Threading.Tasks.Task<List<Organization>> GetAllOrganizationsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -563,7 +563,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Organization</returns>
         System.Threading.Tasks.Task<Organization> GetOrganizationAsync (string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -575,7 +575,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Organization)</returns>
         System.Threading.Tasks.Task<ApiResponse<Organization>> GetOrganizationWithHttpInfoAsync (string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -638,7 +638,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -651,7 +651,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
@@ -1165,7 +1165,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>List<AWSAccessCredentials></returns>
         public List<AWSAccessCredentials> CheckAWSAccessCredentials (string _namespace)
         {
              ApiResponse<List<AWSAccessCredentials>> localVarResponse = CheckAWSAccessCredentialsWithHttpInfo(_namespace);
@@ -1177,7 +1177,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>ApiResponse of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>ApiResponse of List<AWSAccessCredentials></returns>
         public ApiResponse<List<AWSAccessCredentials>> CheckAWSAccessCredentialsWithHttpInfo (string _namespace)
         {
             // verify the required parameter '_namespace' is set
@@ -1243,7 +1243,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>Task of List<AWSAccessCredentials></returns>
         public async System.Threading.Tasks.Task<List<AWSAccessCredentials>> CheckAWSAccessCredentialsAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<AWSAccessCredentials>> localVarResponse = await CheckAWSAccessCredentialsWithHttpInfoAsync(_namespace, cancellationToken);
@@ -1828,7 +1828,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns></returns>
         public void DeleteOrganization (string organization)
         {
@@ -1839,7 +1839,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteOrganizationWithHttpInfo (string organization)
         {
@@ -1904,7 +1904,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteOrganizationAsync (string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -1917,7 +1917,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOrganizationWithHttpInfoAsync (string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -2150,7 +2150,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get all organizations that the user is member of
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Organization&gt;</returns>
+        /// <returns>List<Organization></returns>
         public List<Organization> GetAllOrganizations ()
         {
              ApiResponse<List<Organization>> localVarResponse = GetAllOrganizationsWithHttpInfo();
@@ -2161,7 +2161,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get all organizations that the user is member of
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Organization&gt;</returns>
+        /// <returns>ApiResponse of List<Organization></returns>
         public ApiResponse<List<Organization>> GetAllOrganizationsWithHttpInfo ()
         {
 
@@ -2222,7 +2222,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Organization&gt;</returns>
+        /// <returns>Task of List<Organization></returns>
         public async System.Threading.Tasks.Task<List<Organization>> GetAllOrganizationsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<Organization>> localVarResponse = await GetAllOrganizationsWithHttpInfoAsync(cancellationToken);
@@ -2295,7 +2295,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>Organization</returns>
         public Organization GetOrganization (string organization)
         {
@@ -2307,7 +2307,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <returns>ApiResponse of Organization</returns>
         public ApiResponse<Organization> GetOrganizationWithHttpInfo (string organization)
         {
@@ -2372,7 +2372,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Organization</returns>
         public async System.Threading.Tasks.Task<Organization> GetOrganizationAsync (string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -2386,7 +2386,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Organization)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Organization>> GetOrganizationWithHttpInfoAsync (string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -2816,7 +2816,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <returns></returns>
         public void UpdateOrganization (string organization, Organization organizationDetails)
@@ -2828,7 +2828,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateOrganizationWithHttpInfo (string organization, Organization organizationDetails)
@@ -2906,7 +2906,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -2920,7 +2920,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">organization name or id</param>
+        /// <param name="organization">organization name or ID</param>
         /// <param name="organizationDetails">organization details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>

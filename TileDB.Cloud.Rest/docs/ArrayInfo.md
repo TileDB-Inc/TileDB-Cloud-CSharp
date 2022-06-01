@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | unique id of registered array | [optional] 
+**Id** | **string** | unique ID of registered array | [optional] 
 **FileType** | **FileType** |  | [optional] 
 **FileProperties** | **Dictionary&lt;string, string&gt;** | map of file properties created for this array | [optional] 
 **Uri** | **string** | uri of array | [optional] 
 **Namespace** | **string** | namespace array is in | [optional] 
-**Size** | **decimal** | size in bytes of array | [optional] 
+**Size** | **decimal?** | size in bytes of array | [optional] 
 **LastAccessed** | **DateTime** | Datetime array was last accessed in UTC | [optional] 
 **Description** | **string** | description of array | [optional] 
 **Name** | **string** | name of array | [optional] 
@@ -29,7 +29,6 @@ Name | Type | Description | Notes
 **LicenseText** | **string** | License text | [optional] 
 **ReadOnly** | **bool?** | Suggests if the array is in read_only mode | [optional] 
 **IsFavorite** | **bool** | Indicates whether the array is in user favorites | [optional] 
-**FavoriteUuid** | **string** | The favorite UUID if the array if is_favorite is true | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

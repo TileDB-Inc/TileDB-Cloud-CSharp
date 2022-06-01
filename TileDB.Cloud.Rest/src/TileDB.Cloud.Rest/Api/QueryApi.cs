@@ -155,7 +155,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// send a query to run against a specified array/URI registered to a group/project, returns json results
+        /// send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -170,7 +170,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// send a query to run against a specified array/URI registered to a group/project, returns json results
+        /// send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -320,7 +320,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// send a query to run against a specified array/URI registered to a group/project, returns json results
+        /// send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -336,7 +336,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// send a query to run against a specified array/URI registered to a group/project, returns json results
+        /// send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1357,7 +1357,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  send a query to run against a specified array/URI registered to a group/project, returns json results
+        ///  send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1373,7 +1373,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  send a query to run against a specified array/URI registered to a group/project, returns json results
+        ///  send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1463,7 +1463,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  send a query to run against a specified array/URI registered to a group/project, returns json results
+        ///  send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1481,7 +1481,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  send a query to run against a specified array/URI registered to a group/project, returns json results
+        ///  send a query to run against a specified array/URI registered to a group/project, returns JSON results
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>

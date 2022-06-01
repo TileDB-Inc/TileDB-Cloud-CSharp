@@ -32,9 +32,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <returns></returns>
-        void AddArrayFavorite (FavoriteCreate body = default(FavoriteCreate));
+        void AddArrayFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -43,9 +44,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddArrayFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate));
+        ApiResponse<Object> AddArrayFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -53,9 +55,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <returns></returns>
-        void AddMLModelFavorite (FavoriteCreate body = default(FavoriteCreate));
+        void AddMLModelFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -64,9 +67,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddMLModelFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate));
+        ApiResponse<Object> AddMLModelFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -74,9 +78,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <returns></returns>
-        void AddNotebookFavorite (FavoriteCreate body = default(FavoriteCreate));
+        void AddNotebookFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -85,9 +90,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddNotebookFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate));
+        ApiResponse<Object> AddNotebookFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -95,9 +101,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <returns></returns>
-        void AddUDFFavorite (FavoriteCreate body = default(FavoriteCreate));
+        void AddUDFFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -106,9 +113,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddUDFFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate));
+        ApiResponse<Object> AddUDFFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -116,9 +124,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <returns></returns>
-        void DeleteArrayFavorite (string id);
+        void DeleteArrayFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -127,9 +136,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteArrayFavoriteWithHttpInfo (string id);
+        ApiResponse<Object> DeleteArrayFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -137,9 +147,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <returns></returns>
-        void DeleteMLModelFavorite (string id);
+        void DeleteMLModelFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -148,9 +159,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteMLModelFavoriteWithHttpInfo (string id);
+        ApiResponse<Object> DeleteMLModelFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -158,9 +170,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <returns></returns>
-        void DeleteNotebookFavorite (string id);
+        void DeleteNotebookFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -169,9 +182,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteNotebookFavoriteWithHttpInfo (string id);
+        ApiResponse<Object> DeleteNotebookFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -179,9 +193,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <returns></returns>
-        void DeleteUDFFavorite (string id);
+        void DeleteUDFFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -190,30 +205,10 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteUDFFavoriteWithHttpInfo (string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific array favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns>ArrayFavorite</returns>
-        ArrayFavorite GetArrayFavorite (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific array favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns>ApiResponse of ArrayFavorite</returns>
-        ApiResponse<ArrayFavorite> GetArrayFavoriteWithHttpInfo (string id);
+        ApiResponse<Object> DeleteUDFFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -224,7 +219,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the array</param>
         /// <param name="name">The name of the array</param>
         /// <returns>ArrayFavorite</returns>
-        ArrayFavorite GetArrayFavoriteForArray (string _namespace, string name);
+        ArrayFavorite GetArrayFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -236,28 +231,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the array</param>
         /// <param name="name">The name of the array</param>
         /// <returns>ApiResponse of ArrayFavorite</returns>
-        ApiResponse<ArrayFavorite> GetArrayFavoriteForArrayWithHttpInfo (string _namespace, string name);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific ML model favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns>MLModelFavorite</returns>
-        MLModelFavorite GetMLModelFavorite (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific ML model favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns>ApiResponse of MLModelFavorite</returns>
-        ApiResponse<MLModelFavorite> GetMLModelFavoriteWithHttpInfo (string id);
+        ApiResponse<ArrayFavorite> GetArrayFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -268,7 +242,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the ML model</param>
         /// <param name="name">The name of the ML model</param>
         /// <returns>MLModelFavorite</returns>
-        MLModelFavorite GetMLModelFavoriteForMLModel (string _namespace, string name);
+        MLModelFavorite GetMLModelFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -280,28 +254,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the ML model</param>
         /// <param name="name">The name of the ML model</param>
         /// <returns>ApiResponse of MLModelFavorite</returns>
-        ApiResponse<MLModelFavorite> GetMLModelFavoriteForMLModelWithHttpInfo (string _namespace, string name);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific notebook favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns>NotebookFavorite</returns>
-        NotebookFavorite GetNotebookFavorite (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific notebook favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns>ApiResponse of NotebookFavorite</returns>
-        ApiResponse<NotebookFavorite> GetNotebookFavoriteWithHttpInfo (string id);
+        ApiResponse<MLModelFavorite> GetMLModelFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -312,7 +265,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the notebook</param>
         /// <param name="name">The name of the notebook</param>
         /// <returns>NotebookFavorite</returns>
-        NotebookFavorite GetNotebookFavoriteForNotebook (string _namespace, string name);
+        NotebookFavorite GetNotebookFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -324,28 +277,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the notebook</param>
         /// <param name="name">The name of the notebook</param>
         /// <returns>ApiResponse of NotebookFavorite</returns>
-        ApiResponse<NotebookFavorite> GetNotebookFavoriteForNotebookWithHttpInfo (string _namespace, string name);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific UDF favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns>UDFFavorite</returns>
-        UDFFavorite GetUDFFavorite (string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific UDF favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns>ApiResponse of UDFFavorite</returns>
-        ApiResponse<UDFFavorite> GetUDFFavoriteWithHttpInfo (string id);
+        ApiResponse<NotebookFavorite> GetNotebookFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
@@ -356,7 +288,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the UDF</param>
         /// <param name="name">The name of the UDF</param>
         /// <returns>UDFFavorite</returns>
-        UDFFavorite GetUDFFavoriteForUDF (string _namespace, string name);
+        UDFFavorite GetUDFFavorite (string _namespace, string name);
 
         /// <summary>
         /// 
@@ -368,12 +300,12 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the UDF</param>
         /// <param name="name">The name of the UDF</param>
         /// <returns>ApiResponse of UDFFavorite</returns>
-        ApiResponse<UDFFavorite> GetUDFFavoriteForUDFWithHttpInfo (string _namespace, string name);
+        ApiResponse<UDFFavorite> GetUDFFavoriteWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all array favorites of connected user
+        /// Fetch a page of array favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -385,7 +317,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all array favorites of connected user
+        /// Fetch a page of array favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -399,7 +331,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite array uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>List<ArrayFavorite></returns>
         List<ArrayFavorite> ListArrayFavoritesUUIDs ();
 
         /// <summary>
@@ -409,13 +341,13 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite array uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayFavorite></returns>
         ApiResponse<List<ArrayFavorite>> ListArrayFavoritesUUIDsWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all ML models favorites of connected user
+        /// Fetch a page of ML models favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -427,7 +359,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all ML models favorites of connected user
+        /// Fetch a page of ML models favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -441,7 +373,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite ML models uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>List<MLModelFavorite></returns>
         List<MLModelFavorite> ListMLModelFavoritesUUIDs ();
 
         /// <summary>
@@ -451,13 +383,13 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite ML models uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<MLModelFavorite></returns>
         ApiResponse<List<MLModelFavorite>> ListMLModelFavoritesUUIDsWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all notebook favorites of connected user
+        /// Fetch a page of notebook favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -470,7 +402,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all notebook favorites of connected user
+        /// Fetch a page of notebook favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -485,7 +417,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite notebook uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>List<NotebookFavorite></returns>
         List<NotebookFavorite> ListNotebookFavoritesUUIDs ();
 
         /// <summary>
@@ -495,13 +427,13 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite notebook uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<NotebookFavorite></returns>
         ApiResponse<List<NotebookFavorite>> ListNotebookFavoritesUUIDsWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all UDF favorites of connected user
+        /// Fetch a page of UDF favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -513,7 +445,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all UDF favorites of connected user
+        /// Fetch a page of UDF favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -527,7 +459,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite UDF uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;UDFFavorite&gt;</returns>
+        /// <returns>List<UDFFavorite></returns>
         List<UDFFavorite> ListUDFFavoritesUUIDs ();
 
         /// <summary>
@@ -537,7 +469,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch all favorite UDF uuids of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;UDFFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<UDFFavorite></returns>
         ApiResponse<List<UDFFavorite>> ListUDFFavoritesUUIDsWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
@@ -548,10 +480,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddArrayFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task AddArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -560,10 +493,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddArrayFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -571,10 +505,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddMLModelFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task AddMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -583,10 +518,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddMLModelFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -594,10 +530,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddNotebookFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task AddNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -606,10 +543,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddNotebookFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -617,10 +555,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddUDFFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task AddUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -629,10 +568,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Add a new UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddUDFFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -640,10 +580,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteArrayFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -652,10 +593,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific array favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteArrayFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -663,10 +605,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteMLModelFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -675,10 +618,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific ML model favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMLModelFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -686,10 +630,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteNotebookFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -698,10 +643,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific notebook favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNotebookFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -709,10 +655,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteUDFFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task DeleteUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -721,33 +668,11 @@ namespace TileDB.Cloud.Rest.Api
         /// Delete specific UDF favorite
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific array favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ArrayFavorite</returns>
-        System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific array favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ArrayFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -759,7 +684,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayFavorite</returns>
-        System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteForArrayAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -772,30 +697,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteForArrayWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific ML model favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of MLModelFavorite</returns>
-        System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific ML model favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (MLModelFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -807,7 +709,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of MLModelFavorite</returns>
-        System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteForMLModelAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -820,30 +722,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (MLModelFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteForMLModelWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific notebook favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of NotebookFavorite</returns>
-        System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific notebook favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (NotebookFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -855,7 +734,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of NotebookFavorite</returns>
-        System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteForNotebookAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -868,30 +747,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (NotebookFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteForNotebookWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific UDF favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of UDFFavorite</returns>
-        System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Fetch specific UDF favorite of a user
-        /// </remarks>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (UDFFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -903,7 +759,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of UDFFavorite</returns>
-        System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteForUDFAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -916,12 +772,12 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (UDFFavorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteForUDFWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all array favorites of connected user
+        /// Fetch a page of array favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -934,7 +790,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all array favorites of connected user
+        /// Fetch a page of array favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -950,7 +806,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>Task of List<ArrayFavorite></returns>
         System.Threading.Tasks.Task<List<ArrayFavorite>> ListArrayFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -967,7 +823,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all ML models favorites of connected user
+        /// Fetch a page of ML models favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -980,7 +836,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all ML models favorites of connected user
+        /// Fetch a page of ML models favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -996,7 +852,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>Task of List<MLModelFavorite></returns>
         System.Threading.Tasks.Task<List<MLModelFavorite>> ListMLModelFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1013,7 +869,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all notebook favorites of connected user
+        /// Fetch a page of notebook favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -1027,7 +883,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all notebook favorites of connected user
+        /// Fetch a page of notebook favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -1044,7 +900,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>Task of List<NotebookFavorite></returns>
         System.Threading.Tasks.Task<List<NotebookFavorite>> ListNotebookFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1061,7 +917,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all UDF favorites of connected user
+        /// Fetch a page of UDF favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -1074,7 +930,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch all UDF favorites of connected user
+        /// Fetch a page of UDF favorites of connected user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -1090,7 +946,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;UDFFavorite&gt;</returns>
+        /// <returns>Task of List<UDFFavorite></returns>
         System.Threading.Tasks.Task<List<UDFFavorite>> ListUDFFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1218,1467 +1074,1366 @@ namespace TileDB.Cloud.Rest.Api
         ///  Add a new array favorite
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
         /// <returns></returns>
-        public void AddArrayFavorite (FavoriteCreate body = default(FavoriteCreate))
+        public void AddArrayFavorite (string _namespace, string name)
         {
-             AddArrayFavoriteWithHttpInfo(body);
+             AddArrayFavoriteWithHttpInfo(_namespace, name);
         }
 
         /// <summary>
         ///  Add a new array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddArrayFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate))
-        {
-
-            var localVarPath = "/arrays/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddArrayFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await AddArrayFavoriteWithHttpInfoAsync(body, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Add a new array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddArrayFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/arrays/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns></returns>
-        public void AddMLModelFavorite (FavoriteCreate body = default(FavoriteCreate))
-        {
-             AddMLModelFavoriteWithHttpInfo(body);
-        }
-
-        /// <summary>
-        ///  Add a new ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddMLModelFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate))
-        {
-
-            var localVarPath = "/ml_models/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddMLModelFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await AddMLModelFavoriteWithHttpInfoAsync(body, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Add a new ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddMLModelFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/ml_models/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns></returns>
-        public void AddNotebookFavorite (FavoriteCreate body = default(FavoriteCreate))
-        {
-             AddNotebookFavoriteWithHttpInfo(body);
-        }
-
-        /// <summary>
-        ///  Add a new notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddNotebookFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate))
-        {
-
-            var localVarPath = "/notebooks/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddNotebookFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await AddNotebookFavoriteWithHttpInfoAsync(body, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Add a new notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddNotebookFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/notebooks/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns></returns>
-        public void AddUDFFavorite (FavoriteCreate body = default(FavoriteCreate))
-        {
-             AddUDFFavoriteWithHttpInfo(body);
-        }
-
-        /// <summary>
-        ///  Add a new UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddUDFFavoriteWithHttpInfo (FavoriteCreate body = default(FavoriteCreate))
-        {
-
-            var localVarPath = "/udfs/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Add a new UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddUDFFavoriteAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await AddUDFFavoriteWithHttpInfoAsync(body, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Add a new UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddUDFFavoriteWithHttpInfoAsync (FavoriteCreate body = default(FavoriteCreate), CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var localVarPath = "/udfs/favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns></returns>
-        public void DeleteArrayFavorite (string id)
-        {
-             DeleteArrayFavoriteWithHttpInfo(id);
-        }
-
-        /// <summary>
-        ///  Delete specific array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteArrayFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteArrayFavorite");
-
-            var localVarPath = "/arrays/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteArrayFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await DeleteArrayFavoriteWithHttpInfoAsync(id, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Delete specific array favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteArrayFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteArrayFavorite");
-
-            var localVarPath = "/arrays/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns></returns>
-        public void DeleteMLModelFavorite (string id)
-        {
-             DeleteMLModelFavoriteWithHttpInfo(id);
-        }
-
-        /// <summary>
-        ///  Delete specific ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteMLModelFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteMLModelFavorite");
-
-            var localVarPath = "/ml_models/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteMLModelFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await DeleteMLModelFavoriteWithHttpInfoAsync(id, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Delete specific ML model favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMLModelFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteMLModelFavorite");
-
-            var localVarPath = "/ml_models/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns></returns>
-        public void DeleteNotebookFavorite (string id)
-        {
-             DeleteNotebookFavoriteWithHttpInfo(id);
-        }
-
-        /// <summary>
-        ///  Delete specific notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteNotebookFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteNotebookFavorite");
-
-            var localVarPath = "/notebooks/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteNotebookFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await DeleteNotebookFavoriteWithHttpInfoAsync(id, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Delete specific notebook favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNotebookFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteNotebookFavorite");
-
-            var localVarPath = "/notebooks/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns></returns>
-        public void DeleteUDFFavorite (string id)
-        {
-             DeleteUDFFavoriteWithHttpInfo(id);
-        }
-
-        /// <summary>
-        ///  Delete specific UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteUDFFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteUDFFavorite");
-
-            var localVarPath = "/udfs/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Delete specific UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteUDFFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             await DeleteUDFFavoriteWithHttpInfoAsync(id, cancellationToken);
-
-        }
-
-        /// <summary>
-        ///  Delete specific UDF favorite
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->DeleteUDFFavorite");
-
-            var localVarPath = "/udfs/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  Fetch specific array favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns>ArrayFavorite</returns>
-        public ArrayFavorite GetArrayFavorite (string id)
-        {
-             ApiResponse<ArrayFavorite> localVarResponse = GetArrayFavoriteWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Fetch specific array favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <returns>ApiResponse of ArrayFavorite</returns>
-        public ApiResponse<ArrayFavorite> GetArrayFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetArrayFavorite");
-
-            var localVarPath = "/arrays/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ArrayFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ArrayFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ArrayFavorite)));
-        }
-
-        /// <summary>
-        ///  Fetch specific array favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ArrayFavorite</returns>
-        public async System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<ArrayFavorite> localVarResponse = await GetArrayFavoriteWithHttpInfoAsync(id, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  Fetch specific array favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the array favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (ArrayFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetArrayFavorite");
-
-            var localVarPath = "/arrays/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetArrayFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ArrayFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (ArrayFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ArrayFavorite)));
-        }
-
-        /// <summary>
-        ///  Fetch array favorite of a specific array
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">The namespace of the array</param>
         /// <param name="name">The name of the array</param>
-        /// <returns>ArrayFavorite</returns>
-        public ArrayFavorite GetArrayFavoriteForArray (string _namespace, string name)
-        {
-             ApiResponse<ArrayFavorite> localVarResponse = GetArrayFavoriteForArrayWithHttpInfo(_namespace, name);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Fetch array favorite of a specific array
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_namespace">The namespace of the array</param>
-        /// <param name="name">The name of the array</param>
-        /// <returns>ApiResponse of ArrayFavorite</returns>
-        public ApiResponse<ArrayFavorite> GetArrayFavoriteForArrayWithHttpInfo (string _namespace, string name)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> AddArrayFavoriteWithHttpInfo (string _namespace, string name)
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetArrayFavoriteForArray");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddArrayFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetArrayFavoriteForArray");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddArrayFavorite");
+
+            var localVarPath = "/arrays/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddArrayFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task AddArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await AddArrayFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Add a new array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddArrayFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddArrayFavorite");
+
+            var localVarPath = "/arrays/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddArrayFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <returns></returns>
+        public void AddMLModelFavorite (string _namespace, string name)
+        {
+             AddMLModelFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Add a new ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> AddMLModelFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddMLModelFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddMLModelFavorite");
+
+            var localVarPath = "/ml_models/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddMLModelFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task AddMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await AddMLModelFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Add a new ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddMLModelFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddMLModelFavorite");
+
+            var localVarPath = "/ml_models/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddMLModelFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <returns></returns>
+        public void AddNotebookFavorite (string _namespace, string name)
+        {
+             AddNotebookFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Add a new notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> AddNotebookFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddNotebookFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddNotebookFavorite");
+
+            var localVarPath = "/notebooks/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddNotebookFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task AddNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await AddNotebookFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Add a new notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddNotebookFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddNotebookFavorite");
+
+            var localVarPath = "/notebooks/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddNotebookFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <returns></returns>
+        public void AddUDFFavorite (string _namespace, string name)
+        {
+             AddUDFFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Add a new UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> AddUDFFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddUDFFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddUDFFavorite");
+
+            var localVarPath = "/udfs/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddUDFFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Add a new UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task AddUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await AddUDFFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Add a new UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->AddUDFFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->AddUDFFavorite");
+
+            var localVarPath = "/udfs/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddUDFFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <returns></returns>
+        public void DeleteArrayFavorite (string _namespace, string name)
+        {
+             DeleteArrayFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Delete specific array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteArrayFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteArrayFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteArrayFavorite");
+
+            var localVarPath = "/arrays/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteArrayFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteArrayFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Delete specific array favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteArrayFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteArrayFavorite");
+
+            var localVarPath = "/arrays/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteArrayFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <returns></returns>
+        public void DeleteMLModelFavorite (string _namespace, string name)
+        {
+             DeleteMLModelFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Delete specific ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteMLModelFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteMLModelFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteMLModelFavorite");
+
+            var localVarPath = "/ml_models/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteMLModelFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteMLModelFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Delete specific ML model favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the ML model</param>
+        /// <param name="name">The name of the ML model</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteMLModelFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteMLModelFavorite");
+
+            var localVarPath = "/ml_models/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteMLModelFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <returns></returns>
+        public void DeleteNotebookFavorite (string _namespace, string name)
+        {
+             DeleteNotebookFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Delete specific notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteNotebookFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteNotebookFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteNotebookFavorite");
+
+            var localVarPath = "/notebooks/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteNotebookFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteNotebookFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Delete specific notebook favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="name">The name of the notebook</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteNotebookFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteNotebookFavorite");
+
+            var localVarPath = "/notebooks/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteNotebookFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <returns></returns>
+        public void DeleteUDFFavorite (string _namespace, string name)
+        {
+             DeleteUDFFavoriteWithHttpInfo(_namespace, name);
+        }
+
+        /// <summary>
+        ///  Delete specific UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteUDFFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteUDFFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteUDFFavorite");
+
+            var localVarPath = "/udfs/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteUDFFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Delete specific UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteUDFFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
+
+        }
+
+        /// <summary>
+        ///  Delete specific UDF favorite
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the UDF</param>
+        /// <param name="name">The name of the UDF</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->DeleteUDFFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->DeleteUDFFavorite");
+
+            var localVarPath = "/udfs/favorites/{namespace}/{name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteUDFFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  Fetch array favorite of a specific array
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <returns>ArrayFavorite</returns>
+        public ArrayFavorite GetArrayFavorite (string _namespace, string name)
+        {
+             ApiResponse<ArrayFavorite> localVarResponse = GetArrayFavoriteWithHttpInfo(_namespace, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Fetch array favorite of a specific array
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the array</param>
+        /// <param name="name">The name of the array</param>
+        /// <returns>ApiResponse of ArrayFavorite</returns>
+        public ApiResponse<ArrayFavorite> GetArrayFavoriteWithHttpInfo (string _namespace, string name)
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetArrayFavorite");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetArrayFavorite");
 
             var localVarPath = "/arrays/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2725,7 +2480,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetArrayFavoriteForArray", localVarResponse);
+                Exception exception = ExceptionFactory("GetArrayFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2742,9 +2497,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayFavorite</returns>
-        public async System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteForArrayAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ArrayFavorite> GetArrayFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ArrayFavorite> localVarResponse = await GetArrayFavoriteForArrayWithHttpInfoAsync(_namespace, name, cancellationToken);
+             ApiResponse<ArrayFavorite> localVarResponse = await GetArrayFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2757,14 +2512,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteForArrayWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ArrayFavorite>> GetArrayFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetArrayFavoriteForArray");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetArrayFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetArrayFavoriteForArray");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetArrayFavorite");
 
             var localVarPath = "/arrays/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2811,7 +2566,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetArrayFavoriteForArray", localVarResponse);
+                Exception exception = ExceptionFactory("GetArrayFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2821,172 +2576,15 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch specific ML model favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns>MLModelFavorite</returns>
-        public MLModelFavorite GetMLModelFavorite (string id)
-        {
-             ApiResponse<MLModelFavorite> localVarResponse = GetMLModelFavoriteWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Fetch specific ML model favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <returns>ApiResponse of MLModelFavorite</returns>
-        public ApiResponse<MLModelFavorite> GetMLModelFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetMLModelFavorite");
-
-            var localVarPath = "/ml_models/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MLModelFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (MLModelFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MLModelFavorite)));
-        }
-
-        /// <summary>
-        ///  Fetch specific ML model favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of MLModelFavorite</returns>
-        public async System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<MLModelFavorite> localVarResponse = await GetMLModelFavoriteWithHttpInfoAsync(id, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  Fetch specific ML model favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the ML model favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (MLModelFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetMLModelFavorite");
-
-            var localVarPath = "/ml_models/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetMLModelFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MLModelFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (MLModelFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MLModelFavorite)));
-        }
-
-        /// <summary>
         ///  Fetch ML model favorite of a specific ML model
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">The namespace of the ML model</param>
         /// <param name="name">The name of the ML model</param>
         /// <returns>MLModelFavorite</returns>
-        public MLModelFavorite GetMLModelFavoriteForMLModel (string _namespace, string name)
+        public MLModelFavorite GetMLModelFavorite (string _namespace, string name)
         {
-             ApiResponse<MLModelFavorite> localVarResponse = GetMLModelFavoriteForMLModelWithHttpInfo(_namespace, name);
+             ApiResponse<MLModelFavorite> localVarResponse = GetMLModelFavoriteWithHttpInfo(_namespace, name);
              return localVarResponse.Data;
         }
 
@@ -2997,14 +2595,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the ML model</param>
         /// <param name="name">The name of the ML model</param>
         /// <returns>ApiResponse of MLModelFavorite</returns>
-        public ApiResponse<MLModelFavorite> GetMLModelFavoriteForMLModelWithHttpInfo (string _namespace, string name)
+        public ApiResponse<MLModelFavorite> GetMLModelFavoriteWithHttpInfo (string _namespace, string name)
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetMLModelFavoriteForMLModel");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetMLModelFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetMLModelFavoriteForMLModel");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetMLModelFavorite");
 
             var localVarPath = "/ml_models/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3051,7 +2649,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetMLModelFavoriteForMLModel", localVarResponse);
+                Exception exception = ExceptionFactory("GetMLModelFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3068,9 +2666,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of MLModelFavorite</returns>
-        public async System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteForMLModelAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<MLModelFavorite> GetMLModelFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<MLModelFavorite> localVarResponse = await GetMLModelFavoriteForMLModelWithHttpInfoAsync(_namespace, name, cancellationToken);
+             ApiResponse<MLModelFavorite> localVarResponse = await GetMLModelFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -3083,14 +2681,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the ML model</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (MLModelFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteForMLModelWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<MLModelFavorite>> GetMLModelFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetMLModelFavoriteForMLModel");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetMLModelFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetMLModelFavoriteForMLModel");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetMLModelFavorite");
 
             var localVarPath = "/ml_models/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3137,7 +2735,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetMLModelFavoriteForMLModel", localVarResponse);
+                Exception exception = ExceptionFactory("GetMLModelFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3147,172 +2745,15 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch specific notebook favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns>NotebookFavorite</returns>
-        public NotebookFavorite GetNotebookFavorite (string id)
-        {
-             ApiResponse<NotebookFavorite> localVarResponse = GetNotebookFavoriteWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Fetch specific notebook favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <returns>ApiResponse of NotebookFavorite</returns>
-        public ApiResponse<NotebookFavorite> GetNotebookFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetNotebookFavorite");
-
-            var localVarPath = "/notebooks/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NotebookFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (NotebookFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NotebookFavorite)));
-        }
-
-        /// <summary>
-        ///  Fetch specific notebook favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of NotebookFavorite</returns>
-        public async System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<NotebookFavorite> localVarResponse = await GetNotebookFavoriteWithHttpInfoAsync(id, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  Fetch specific notebook favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the notebook favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (NotebookFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetNotebookFavorite");
-
-            var localVarPath = "/notebooks/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetNotebookFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NotebookFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (NotebookFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NotebookFavorite)));
-        }
-
-        /// <summary>
         ///  Fetch notebook favorite of a specific notebook
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">The namespace of the notebook</param>
         /// <param name="name">The name of the notebook</param>
         /// <returns>NotebookFavorite</returns>
-        public NotebookFavorite GetNotebookFavoriteForNotebook (string _namespace, string name)
+        public NotebookFavorite GetNotebookFavorite (string _namespace, string name)
         {
-             ApiResponse<NotebookFavorite> localVarResponse = GetNotebookFavoriteForNotebookWithHttpInfo(_namespace, name);
+             ApiResponse<NotebookFavorite> localVarResponse = GetNotebookFavoriteWithHttpInfo(_namespace, name);
              return localVarResponse.Data;
         }
 
@@ -3323,14 +2764,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the notebook</param>
         /// <param name="name">The name of the notebook</param>
         /// <returns>ApiResponse of NotebookFavorite</returns>
-        public ApiResponse<NotebookFavorite> GetNotebookFavoriteForNotebookWithHttpInfo (string _namespace, string name)
+        public ApiResponse<NotebookFavorite> GetNotebookFavoriteWithHttpInfo (string _namespace, string name)
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetNotebookFavoriteForNotebook");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetNotebookFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetNotebookFavoriteForNotebook");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetNotebookFavorite");
 
             var localVarPath = "/notebooks/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3377,7 +2818,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetNotebookFavoriteForNotebook", localVarResponse);
+                Exception exception = ExceptionFactory("GetNotebookFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3394,9 +2835,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of NotebookFavorite</returns>
-        public async System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteForNotebookAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<NotebookFavorite> GetNotebookFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<NotebookFavorite> localVarResponse = await GetNotebookFavoriteForNotebookWithHttpInfoAsync(_namespace, name, cancellationToken);
+             ApiResponse<NotebookFavorite> localVarResponse = await GetNotebookFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -3409,14 +2850,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the notebook</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (NotebookFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteForNotebookWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<NotebookFavorite>> GetNotebookFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetNotebookFavoriteForNotebook");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetNotebookFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetNotebookFavoriteForNotebook");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetNotebookFavorite");
 
             var localVarPath = "/notebooks/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3463,7 +2904,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetNotebookFavoriteForNotebook", localVarResponse);
+                Exception exception = ExceptionFactory("GetNotebookFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3473,172 +2914,15 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch specific UDF favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns>UDFFavorite</returns>
-        public UDFFavorite GetUDFFavorite (string id)
-        {
-             ApiResponse<UDFFavorite> localVarResponse = GetUDFFavoriteWithHttpInfo(id);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Fetch specific UDF favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <returns>ApiResponse of UDFFavorite</returns>
-        public ApiResponse<UDFFavorite> GetUDFFavoriteWithHttpInfo (string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetUDFFavorite");
-
-            var localVarPath = "/udfs/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UDFFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (UDFFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UDFFavorite)));
-        }
-
-        /// <summary>
-        ///  Fetch specific UDF favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of UDFFavorite</returns>
-        public async System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-             ApiResponse<UDFFavorite> localVarResponse = await GetUDFFavoriteWithHttpInfoAsync(id, cancellationToken);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  Fetch specific UDF favorite of a user
-        /// </summary>
-        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The uuid of the UDF favorite</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (UDFFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteWithHttpInfoAsync (string id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling FavoritesApi->GetUDFFavorite");
-
-            var localVarPath = "/udfs/favorites/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
-            {
-                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
-            }
-            // authentication (BasicAuth) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, cancellationToken);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUDFFavorite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UDFFavorite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (UDFFavorite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UDFFavorite)));
-        }
-
-        /// <summary>
         ///  Fetch UDF favorite of a specific UDF
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">The namespace of the UDF</param>
         /// <param name="name">The name of the UDF</param>
         /// <returns>UDFFavorite</returns>
-        public UDFFavorite GetUDFFavoriteForUDF (string _namespace, string name)
+        public UDFFavorite GetUDFFavorite (string _namespace, string name)
         {
-             ApiResponse<UDFFavorite> localVarResponse = GetUDFFavoriteForUDFWithHttpInfo(_namespace, name);
+             ApiResponse<UDFFavorite> localVarResponse = GetUDFFavoriteWithHttpInfo(_namespace, name);
              return localVarResponse.Data;
         }
 
@@ -3649,14 +2933,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">The namespace of the UDF</param>
         /// <param name="name">The name of the UDF</param>
         /// <returns>ApiResponse of UDFFavorite</returns>
-        public ApiResponse<UDFFavorite> GetUDFFavoriteForUDFWithHttpInfo (string _namespace, string name)
+        public ApiResponse<UDFFavorite> GetUDFFavoriteWithHttpInfo (string _namespace, string name)
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetUDFFavoriteForUDF");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetUDFFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetUDFFavoriteForUDF");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetUDFFavorite");
 
             var localVarPath = "/udfs/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3703,7 +2987,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUDFFavoriteForUDF", localVarResponse);
+                Exception exception = ExceptionFactory("GetUDFFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3720,9 +3004,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of UDFFavorite</returns>
-        public async System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteForUDFAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<UDFFavorite> GetUDFFavoriteAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<UDFFavorite> localVarResponse = await GetUDFFavoriteForUDFWithHttpInfoAsync(_namespace, name, cancellationToken);
+             ApiResponse<UDFFavorite> localVarResponse = await GetUDFFavoriteWithHttpInfoAsync(_namespace, name, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -3735,14 +3019,14 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="name">The name of the UDF</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (UDFFavorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteForUDFWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<UDFFavorite>> GetUDFFavoriteWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
-                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetUDFFavoriteForUDF");
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FavoritesApi->GetUDFFavorite");
             // verify the required parameter 'name' is set
             if (name == null)
-                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetUDFFavoriteForUDF");
+                throw new ApiException(400, "Missing required parameter 'name' when calling FavoritesApi->GetUDFFavorite");
 
             var localVarPath = "/udfs/favorites/{namespace}/{name}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3789,7 +3073,7 @@ namespace TileDB.Cloud.Rest.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUDFFavoriteForUDF", localVarResponse);
+                Exception exception = ExceptionFactory("GetUDFFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3799,7 +3083,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all array favorites of connected user
+        ///  Fetch a page of array favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -3812,7 +3096,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all array favorites of connected user
+        ///  Fetch a page of array favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -3876,7 +3160,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all array favorites of connected user
+        ///  Fetch a page of array favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -3891,7 +3175,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all array favorites of connected user
+        ///  Fetch a page of array favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -3959,7 +3243,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite array uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>List<ArrayFavorite></returns>
         public List<ArrayFavorite> ListArrayFavoritesUUIDs ()
         {
              ApiResponse<List<ArrayFavorite>> localVarResponse = ListArrayFavoritesUUIDsWithHttpInfo();
@@ -3970,7 +3254,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite array uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayFavorite></returns>
         public ApiResponse<List<ArrayFavorite>> ListArrayFavoritesUUIDsWithHttpInfo ()
         {
 
@@ -4031,7 +3315,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayFavorite&gt;</returns>
+        /// <returns>Task of List<ArrayFavorite></returns>
         public async System.Threading.Tasks.Task<List<ArrayFavorite>> ListArrayFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<ArrayFavorite>> localVarResponse = await ListArrayFavoritesUUIDsWithHttpInfoAsync(cancellationToken);
@@ -4101,7 +3385,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all ML models favorites of connected user
+        ///  Fetch a page of ML models favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4114,7 +3398,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all ML models favorites of connected user
+        ///  Fetch a page of ML models favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4178,7 +3462,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all ML models favorites of connected user
+        ///  Fetch a page of ML models favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4193,7 +3477,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all ML models favorites of connected user
+        ///  Fetch a page of ML models favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4261,7 +3545,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite ML models uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>List<MLModelFavorite></returns>
         public List<MLModelFavorite> ListMLModelFavoritesUUIDs ()
         {
              ApiResponse<List<MLModelFavorite>> localVarResponse = ListMLModelFavoritesUUIDsWithHttpInfo();
@@ -4272,7 +3556,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite ML models uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<MLModelFavorite></returns>
         public ApiResponse<List<MLModelFavorite>> ListMLModelFavoritesUUIDsWithHttpInfo ()
         {
 
@@ -4333,7 +3617,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;MLModelFavorite&gt;</returns>
+        /// <returns>Task of List<MLModelFavorite></returns>
         public async System.Threading.Tasks.Task<List<MLModelFavorite>> ListMLModelFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<MLModelFavorite>> localVarResponse = await ListMLModelFavoritesUUIDsWithHttpInfoAsync(cancellationToken);
@@ -4403,7 +3687,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all notebook favorites of connected user
+        ///  Fetch a page of notebook favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -4417,7 +3701,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all notebook favorites of connected user
+        ///  Fetch a page of notebook favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -4483,7 +3767,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all notebook favorites of connected user
+        ///  Fetch a page of notebook favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -4499,7 +3783,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all notebook favorites of connected user
+        ///  Fetch a page of notebook favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDashboard">return only dashboards (optional)</param>
@@ -4569,7 +3853,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite notebook uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>List<NotebookFavorite></returns>
         public List<NotebookFavorite> ListNotebookFavoritesUUIDs ()
         {
              ApiResponse<List<NotebookFavorite>> localVarResponse = ListNotebookFavoritesUUIDsWithHttpInfo();
@@ -4580,7 +3864,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite notebook uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<NotebookFavorite></returns>
         public ApiResponse<List<NotebookFavorite>> ListNotebookFavoritesUUIDsWithHttpInfo ()
         {
 
@@ -4641,7 +3925,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;NotebookFavorite&gt;</returns>
+        /// <returns>Task of List<NotebookFavorite></returns>
         public async System.Threading.Tasks.Task<List<NotebookFavorite>> ListNotebookFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<NotebookFavorite>> localVarResponse = await ListNotebookFavoritesUUIDsWithHttpInfoAsync(cancellationToken);
@@ -4711,7 +3995,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all UDF favorites of connected user
+        ///  Fetch a page of UDF favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4724,7 +4008,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all UDF favorites of connected user
+        ///  Fetch a page of UDF favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4788,7 +4072,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all UDF favorites of connected user
+        ///  Fetch a page of UDF favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4803,7 +4087,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch all UDF favorites of connected user
+        ///  Fetch a page of UDF favorites of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -4871,7 +4155,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite UDF uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;UDFFavorite&gt;</returns>
+        /// <returns>List<UDFFavorite></returns>
         public List<UDFFavorite> ListUDFFavoritesUUIDs ()
         {
              ApiResponse<List<UDFFavorite>> localVarResponse = ListUDFFavoritesUUIDsWithHttpInfo();
@@ -4882,7 +4166,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch all favorite UDF uuids of connected user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;UDFFavorite&gt;</returns>
+        /// <returns>ApiResponse of List<UDFFavorite></returns>
         public ApiResponse<List<UDFFavorite>> ListUDFFavoritesUUIDsWithHttpInfo ()
         {
 
@@ -4943,7 +4227,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;UDFFavorite&gt;</returns>
+        /// <returns>Task of List<UDFFavorite></returns>
         public async System.Threading.Tasks.Task<List<UDFFavorite>> ListUDFFavoritesUUIDsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<UDFFavorite>> localVarResponse = await ListUDFFavoritesUUIDsWithHttpInfoAsync(cancellationToken);

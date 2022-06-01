@@ -48,14 +48,14 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invitation" /> class.
         /// </summary>
-        /// <param name="id">Unique id of invitation added to magic link.</param>
+        /// <param name="id">Unique ID of invitation added to magic link.</param>
         /// <param name="invitationType">invitationType.</param>
         /// <param name="ownerNamespaceUuid">Namespace of the owner of the invitation (user or organization).</param>
-        /// <param name="userNamespaceUuid">Unique id of the user accepted the invitation.</param>
-        /// <param name="organizationUserUuid">Unique id of the organization user accepted the invitation.</param>
+        /// <param name="userNamespaceUuid">Unique ID of the user accepted the invitation.</param>
+        /// <param name="organizationUserUuid">Unique ID of the organization user accepted the invitation.</param>
         /// <param name="organizationName">Name of the organization, does not persist in database.</param>
         /// <param name="organizationRole">organizationRole.</param>
-        /// <param name="arrayUuid">Unique id of the array.</param>
+        /// <param name="arrayUuid">Unique ID of the array.</param>
         /// <param name="arrayName">Name of the array, does not persist in database.</param>
         /// <param name="email">Email of the individual we send the invitation to.</param>
         /// <param name="actions">A comma separated list of ArrayActions or NamespaceActions.</param>
@@ -83,9 +83,9 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// Unique id of invitation added to magic link
+        /// Unique ID of invitation added to magic link
         /// </summary>
-        /// <value>Unique id of invitation added to magic link</value>
+        /// <value>Unique ID of invitation added to magic link</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -98,16 +98,16 @@ namespace TileDB.Cloud.Rest.Model
         public string OwnerNamespaceUuid { get; set; }
 
         /// <summary>
-        /// Unique id of the user accepted the invitation
+        /// Unique ID of the user accepted the invitation
         /// </summary>
-        /// <value>Unique id of the user accepted the invitation</value>
+        /// <value>Unique ID of the user accepted the invitation</value>
         [DataMember(Name="user_namespace_uuid", EmitDefaultValue=false)]
         public string UserNamespaceUuid { get; set; }
 
         /// <summary>
-        /// Unique id of the organization user accepted the invitation
+        /// Unique ID of the organization user accepted the invitation
         /// </summary>
-        /// <value>Unique id of the organization user accepted the invitation</value>
+        /// <value>Unique ID of the organization user accepted the invitation</value>
         [DataMember(Name="organization_user_uuid", EmitDefaultValue=false)]
         public string OrganizationUserUuid { get; set; }
 
@@ -120,9 +120,9 @@ namespace TileDB.Cloud.Rest.Model
 
 
         /// <summary>
-        /// Unique id of the array
+        /// Unique ID of the array
         /// </summary>
-        /// <value>Unique id of the array</value>
+        /// <value>Unique ID of the array</value>
         [DataMember(Name="array_uuid", EmitDefaultValue=false)]
         public string ArrayUuid { get; set; }
 

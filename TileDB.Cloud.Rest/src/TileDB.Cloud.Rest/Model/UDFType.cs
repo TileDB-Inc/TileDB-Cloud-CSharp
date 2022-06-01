@@ -34,16 +34,22 @@ namespace TileDB.Cloud.Rest.Model
     public enum UDFType
     {
         /// <summary>
+        /// Enum Multiarray for value: multi_array
+        /// </summary>
+        [EnumMember(Value = "multi_array")]
+        Multiarray = 1,
+
+        /// <summary>
         /// Enum Singlearray for value: single_array
         /// </summary>
         [EnumMember(Value = "single_array")]
-        Singlearray = 1,
+        Singlearray = 2,
 
         /// <summary>
         /// Enum Generic for value: generic
         /// </summary>
         [EnumMember(Value = "generic")]
-        Generic = 2
+        Generic = 3
 
     }
 

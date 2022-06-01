@@ -35,7 +35,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         List<Object> RunSQL (string _namespace, SQLParameters sql, string acceptEncoding = default(string));
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         ApiResponse<List<Object>> RunSQLWithHttpInfo (string _namespace, SQLParameters sql, string acceptEncoding = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
@@ -63,7 +63,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
+        /// <returns>Task of List<Object></returns>
         System.Threading.Tasks.Task<List<Object>> RunSQLAsync (string _namespace, SQLParameters sql, string acceptEncoding = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         public List<Object> RunSQL (string _namespace, SQLParameters sql, string acceptEncoding = default(string))
         {
              ApiResponse<List<Object>> localVarResponse = RunSQLWithHttpInfo(_namespace, sql, acceptEncoding);
@@ -211,7 +211,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace to run task under is in (an organization name or user&#39;s username)</param>
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         public ApiResponse<List<Object>> RunSQLWithHttpInfo (string _namespace, SQLParameters sql, string acceptEncoding = default(string))
         {
             // verify the required parameter '_namespace' is set
@@ -292,7 +292,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="sql">sql being submitted</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
+        /// <returns>Task of List<Object></returns>
         public async System.Threading.Tasks.Task<List<Object>> RunSQLAsync (string _namespace, SQLParameters sql, string acceptEncoding = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<Object>> localVarResponse = await RunSQLWithHttpInfoAsync(_namespace, sql, acceptEncoding, cancellationToken);

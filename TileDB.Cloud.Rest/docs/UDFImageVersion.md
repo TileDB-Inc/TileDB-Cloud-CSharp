@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique id of a versioned image | [optional] 
+**Id** | **string** | Unique ID of a versioned image | [optional] 
 **Name** | **string** | name of UDFImageVersion | [optional] 
-**UdfImageUuid** | **string** | Unique id of the udf image set | [optional] 
+**UdfImageUuid** | **string** | Unique ID of the UDF image set | [optional] 
 **DockerImage** | **string** | Uri of docker image related to current entry | [optional] 
 **_Version** | **decimal** | Image-specific version | [optional] 
 **Default** | **bool** | If current image is default version | [optional] 

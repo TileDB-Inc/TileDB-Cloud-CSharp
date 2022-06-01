@@ -79,7 +79,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>List<AWSAccessCredentials></returns>
         List<AWSAccessCredentials> CheckAWSAccessCredentials (string _namespace);
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>ApiResponse of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>ApiResponse of List<AWSAccessCredentials></returns>
         ApiResponse<List<AWSAccessCredentials>> CheckAWSAccessCredentialsWithHttpInfo (string _namespace);
         /// <summary>
         /// 
@@ -185,7 +185,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns></returns>
         void DeleteUser (string username);
 
@@ -196,7 +196,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUserWithHttpInfo (string username);
         /// <summary>
@@ -273,7 +273,7 @@ namespace TileDB.Cloud.Rest.Api
         /// retrieves available token scopes for a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;TokenScope&gt;</returns>
+        /// <returns>List<TokenScope></returns>
         List<TokenScope> GetTokenScopes ();
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace TileDB.Cloud.Rest.Api
         /// retrieves available token scopes for a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;TokenScope&gt;</returns>
+        /// <returns>ApiResponse of List<TokenScope></returns>
         ApiResponse<List<TokenScope>> GetTokenScopesWithHttpInfo ();
         /// <summary>
         /// 
@@ -311,7 +311,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>User</returns>
         User GetUserWithUsername (string username);
 
@@ -322,7 +322,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>ApiResponse of User</returns>
         ApiResponse<User> GetUserWithUsernameWithHttpInfo (string username);
         /// <summary>
@@ -353,9 +353,9 @@ namespace TileDB.Cloud.Rest.Api
         /// reset user password
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <returns></returns>
-        void ResetUserPassword (InlineObject user);
+        void ResetUserPassword (ResetUserPasswordRequest user);
 
         /// <summary>
         /// 
@@ -364,9 +364,9 @@ namespace TileDB.Cloud.Rest.Api
         /// reset user password
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResetUserPasswordWithHttpInfo (InlineObject user);
+        ApiResponse<Object> ResetUserPasswordWithHttpInfo (ResetUserPasswordRequest user);
         /// <summary>
         /// 
         /// </summary>
@@ -395,7 +395,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of user tokens
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Token&gt;</returns>
+        /// <returns>List<Token></returns>
         List<Token> TokensGet ();
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of user tokens
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Token&gt;</returns>
+        /// <returns>ApiResponse of List<Token></returns>
         ApiResponse<List<Token>> TokensGetWithHttpInfo ();
         /// <summary>
         /// 
@@ -414,7 +414,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of user session tokens
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Token&gt;</returns>
+        /// <returns>List<Token></returns>
         List<Token> TokensSessionGet ();
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of user session tokens
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Token&gt;</returns>
+        /// <returns>ApiResponse of List<Token></returns>
         ApiResponse<List<Token>> TokensSessionGetWithHttpInfo ();
         /// <summary>
         /// 
@@ -458,7 +458,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <returns></returns>
         void UpdateUser (string username, User user);
@@ -470,7 +470,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateUserWithHttpInfo (string username, User user);
@@ -560,7 +560,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>Task of List<AWSAccessCredentials></returns>
         System.Threading.Tasks.Task<List<AWSAccessCredentials>> CheckAWSAccessCredentialsAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -675,7 +675,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteUserAsync (string username, CancellationToken cancellationToken = default(CancellationToken));
@@ -687,7 +687,7 @@ namespace TileDB.Cloud.Rest.Api
         /// delete a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync (string username, CancellationToken cancellationToken = default(CancellationToken));
@@ -772,7 +772,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;TokenScope&gt;</returns>
+        /// <returns>Task of List<TokenScope></returns>
         System.Threading.Tasks.Task<List<TokenScope>> GetTokenScopesAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -813,7 +813,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of User</returns>
         System.Threading.Tasks.Task<User> GetUserWithUsernameAsync (string username, CancellationToken cancellationToken = default(CancellationToken));
@@ -825,7 +825,7 @@ namespace TileDB.Cloud.Rest.Api
         /// get a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (User)</returns>
         System.Threading.Tasks.Task<ApiResponse<User>> GetUserWithUsernameWithHttpInfoAsync (string username, CancellationToken cancellationToken = default(CancellationToken));
@@ -859,10 +859,10 @@ namespace TileDB.Cloud.Rest.Api
         /// reset user password
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ResetUserPasswordAsync (InlineObject user, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task ResetUserPasswordAsync (ResetUserPasswordRequest user, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -871,10 +871,10 @@ namespace TileDB.Cloud.Rest.Api
         /// reset user password
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResetUserPasswordWithHttpInfoAsync (InlineObject user, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetUserPasswordWithHttpInfoAsync (ResetUserPasswordRequest user, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -906,7 +906,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Token&gt;</returns>
+        /// <returns>Task of List<Token></returns>
         System.Threading.Tasks.Task<List<Token>> TokensGetAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -927,7 +927,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Token&gt;</returns>
+        /// <returns>Task of List<Token></returns>
         System.Threading.Tasks.Task<List<Token>> TokensSessionGetAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -974,7 +974,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -987,7 +987,7 @@ namespace TileDB.Cloud.Rest.Api
         /// update a user
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
@@ -1501,7 +1501,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>List<AWSAccessCredentials></returns>
         public List<AWSAccessCredentials> CheckAWSAccessCredentials (string _namespace)
         {
              ApiResponse<List<AWSAccessCredentials>> localVarResponse = CheckAWSAccessCredentialsWithHttpInfo(_namespace);
@@ -1513,7 +1513,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
-        /// <returns>ApiResponse of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>ApiResponse of List<AWSAccessCredentials></returns>
         public ApiResponse<List<AWSAccessCredentials>> CheckAWSAccessCredentialsWithHttpInfo (string _namespace)
         {
             // verify the required parameter '_namespace' is set
@@ -1579,7 +1579,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;AWSAccessCredentials&gt;</returns>
+        /// <returns>Task of List<AWSAccessCredentials></returns>
         public async System.Threading.Tasks.Task<List<AWSAccessCredentials>> CheckAWSAccessCredentialsAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<AWSAccessCredentials>> localVarResponse = await CheckAWSAccessCredentialsWithHttpInfoAsync(_namespace, cancellationToken);
@@ -2307,7 +2307,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns></returns>
         public void DeleteUser (string username)
         {
@@ -2318,7 +2318,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteUserWithHttpInfo (string username)
         {
@@ -2383,7 +2383,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteUserAsync (string username, CancellationToken cancellationToken = default(CancellationToken))
@@ -2396,7 +2396,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  delete a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync (string username, CancellationToken cancellationToken = default(CancellationToken))
@@ -2949,7 +2949,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  retrieves available token scopes for a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;TokenScope&gt;</returns>
+        /// <returns>List<TokenScope></returns>
         public List<TokenScope> GetTokenScopes ()
         {
              ApiResponse<List<TokenScope>> localVarResponse = GetTokenScopesWithHttpInfo();
@@ -2960,7 +2960,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  retrieves available token scopes for a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;TokenScope&gt;</returns>
+        /// <returns>ApiResponse of List<TokenScope></returns>
         public ApiResponse<List<TokenScope>> GetTokenScopesWithHttpInfo ()
         {
 
@@ -3021,7 +3021,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;TokenScope&gt;</returns>
+        /// <returns>Task of List<TokenScope></returns>
         public async System.Threading.Tasks.Task<List<TokenScope>> GetTokenScopesAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<TokenScope>> localVarResponse = await GetTokenScopesWithHttpInfoAsync(cancellationToken);
@@ -3239,7 +3239,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>User</returns>
         public User GetUserWithUsername (string username)
         {
@@ -3251,7 +3251,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <returns>ApiResponse of User</returns>
         public ApiResponse<User> GetUserWithUsernameWithHttpInfo (string username)
         {
@@ -3316,7 +3316,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of User</returns>
         public async System.Threading.Tasks.Task<User> GetUserWithUsernameAsync (string username, CancellationToken cancellationToken = default(CancellationToken))
@@ -3330,7 +3330,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  get a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (User)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<User>> GetUserWithUsernameWithHttpInfoAsync (string username, CancellationToken cancellationToken = default(CancellationToken))
@@ -3563,9 +3563,9 @@ namespace TileDB.Cloud.Rest.Api
         ///  reset user password
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <returns></returns>
-        public void ResetUserPassword (InlineObject user)
+        public void ResetUserPassword (ResetUserPasswordRequest user)
         {
              ResetUserPasswordWithHttpInfo(user);
         }
@@ -3574,9 +3574,9 @@ namespace TileDB.Cloud.Rest.Api
         ///  reset user password
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ResetUserPasswordWithHttpInfo (InlineObject user)
+        public ApiResponse<Object> ResetUserPasswordWithHttpInfo (ResetUserPasswordRequest user)
         {
             // verify the required parameter 'user' is set
             if (user == null)
@@ -3647,10 +3647,10 @@ namespace TileDB.Cloud.Rest.Api
         ///  reset user password
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ResetUserPasswordAsync (InlineObject user, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task ResetUserPasswordAsync (ResetUserPasswordRequest user, CancellationToken cancellationToken = default(CancellationToken))
         {
              await ResetUserPasswordWithHttpInfoAsync(user, cancellationToken);
 
@@ -3660,10 +3660,10 @@ namespace TileDB.Cloud.Rest.Api
         ///  reset user password
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="user"></param>
+        /// <param name="user">password to update for user requesting update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetUserPasswordWithHttpInfoAsync (InlineObject user, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetUserPasswordWithHttpInfoAsync (ResetUserPasswordRequest user, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'user' is set
             if (user == null)
@@ -3889,7 +3889,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of user tokens
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Token&gt;</returns>
+        /// <returns>List<Token></returns>
         public List<Token> TokensGet ()
         {
              ApiResponse<List<Token>> localVarResponse = TokensGetWithHttpInfo();
@@ -3900,7 +3900,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of user tokens
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Token&gt;</returns>
+        /// <returns>ApiResponse of List<Token></returns>
         public ApiResponse<List<Token>> TokensGetWithHttpInfo ()
         {
 
@@ -3961,7 +3961,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Token&gt;</returns>
+        /// <returns>Task of List<Token></returns>
         public async System.Threading.Tasks.Task<List<Token>> TokensGetAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<Token>> localVarResponse = await TokensGetWithHttpInfoAsync(cancellationToken);
@@ -4034,7 +4034,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of user session tokens
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;Token&gt;</returns>
+        /// <returns>List<Token></returns>
         public List<Token> TokensSessionGet ()
         {
              ApiResponse<List<Token>> localVarResponse = TokensSessionGetWithHttpInfo();
@@ -4045,7 +4045,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of user session tokens
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;Token&gt;</returns>
+        /// <returns>ApiResponse of List<Token></returns>
         public ApiResponse<List<Token>> TokensSessionGetWithHttpInfo ()
         {
 
@@ -4106,7 +4106,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;Token&gt;</returns>
+        /// <returns>Task of List<Token></returns>
         public async System.Threading.Tasks.Task<List<Token>> TokensSessionGetAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<Token>> localVarResponse = await TokensSessionGetWithHttpInfoAsync(cancellationToken);
@@ -4374,7 +4374,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <returns></returns>
         public void UpdateUser (string username, User user)
@@ -4386,7 +4386,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateUserWithHttpInfo (string username, User user)
@@ -4464,7 +4464,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -4478,7 +4478,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  update a user
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">username or id</param>
+        /// <param name="username">username or ID</param>
         /// <param name="user">user details to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>

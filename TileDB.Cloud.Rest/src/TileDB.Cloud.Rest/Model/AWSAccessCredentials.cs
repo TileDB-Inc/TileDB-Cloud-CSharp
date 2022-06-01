@@ -92,16 +92,16 @@ namespace TileDB.Cloud.Rest.Model
         public List<string> Buckets { get; set; }
 
         /// <summary>
-        /// Time when udf dependencies was created (rfc3339)
+        /// Time when UDF dependencies were created (rfc3339)
         /// </summary>
-        /// <value>Time when udf dependencies was created (rfc3339)</value>
+        /// <value>Time when UDF dependencies were created (rfc3339)</value>
         [DataMember(Name="created_at", EmitDefaultValue=false)]
         public DateTime CreatedAt { get; private set; }
 
         /// <summary>
-        /// Time when udf dependencies was last updated (rfc3339)
+        /// Time when UDF dependencies was last updated (rfc3339)
         /// </summary>
-        /// <value>Time when udf dependencies was last updated (rfc3339)</value>
+        /// <value>Time when UDF dependencies was last updated (rfc3339)</value>
         [DataMember(Name="updated_at", EmitDefaultValue=false)]
         public DateTime UpdatedAt { get; private set; }
 

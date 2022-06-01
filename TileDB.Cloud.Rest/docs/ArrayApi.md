@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.ArrayApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -61,7 +61,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -71,13 +71,13 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var start = 56;  // int? | Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional) 
             var end = 56;  // int? | End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional) 
-            var eventTypes = eventTypes_example;  // string | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional) 
-            var taskId = taskId_example;  // string | Array task id To filter activity to (optional) 
-            var hasTaskId = true;  // bool? | Excludes activity log results that does not contain an array task uuid (optional) 
+            var eventTypes = "eventTypes_example";  // string | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional) 
+            var taskId = "taskId_example";  // string | Array task ID To filter activity to (optional) 
+            var hasTaskId = true;  // bool? | Excludes activity log results that do not contain an array task UUID (optional) 
 
             try
             {
@@ -105,8 +105,8 @@ Name | Type | Description  | Notes
  **start** | **int?**| Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) | [optional] 
  **end** | **int?**| End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) | [optional] 
  **eventTypes** | **string**| Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated | [optional] 
- **taskId** | **string**| Array task id To filter activity to | [optional] 
- **hasTaskId** | **bool?**| Excludes activity log results that does not contain an array task uuid | [optional] 
+ **taskId** | **string**| Array task ID To filter activity to | [optional] 
+ **hasTaskId** | **bool?**| Excludes activity log results that do not contain an array task UUID | [optional] 
 
 ### Return type
 
@@ -157,7 +157,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -169,10 +169,10 @@ namespace Example
             var apiInstance = new ArrayApi(Configuration.Default);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
-            var search = search_example;  // string | search string that will look at name, namespace or description fields (optional) 
-            var _namespace = _namespace_example;  // string | namespace (optional) 
-            var orderby = orderby_example;  // string | sort by which field valid values include last_accessed, size, name (optional) 
-            var permissions = permissions_example;  // string | permissions valid values include read, read_write, write, admin (optional) 
+            var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
+            var _namespace = "_namespace_example";  // string | namespace (optional) 
+            var orderby = "orderby_example";  // string | sort by which field valid values include last_accessed, size, name (optional) 
+            var permissions = "permissions_example";  // string | permissions valid values include read, read_write, write, admin (optional) 
             var tag = new List<string>(); // List<string> | tag to search for, more than one can be included (optional) 
             var excludeTag = new List<string>(); // List<string> | tags to exclude matching array in results, more than one can be included (optional) 
             var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
@@ -261,7 +261,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -341,7 +341,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -353,10 +353,10 @@ namespace Example
             var apiInstance = new ArrayApi(Configuration.Default);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
-            var search = search_example;  // string | search string that will look at name, namespace or description fields (optional) 
-            var _namespace = _namespace_example;  // string | namespace (optional) 
-            var orderby = orderby_example;  // string | sort by which field valid values include last_accessed, size, name (optional) 
-            var permissions = permissions_example;  // string | permissions valid values include read, read_write, write, admin (optional) 
+            var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
+            var _namespace = "_namespace_example";  // string | namespace (optional) 
+            var orderby = "orderby_example";  // string | sort by which field valid values include last_accessed, size, name (optional) 
+            var permissions = "permissions_example";  // string | permissions valid values include read, read_write, write, admin (optional) 
             var tag = new List<string>(); // List<string> | tag to search for, more than one can be included (optional) 
             var excludeTag = new List<string>(); // List<string> | tags to exclude matching array in results, more than one can be included (optional) 
             var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
@@ -445,7 +445,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -525,7 +525,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -537,10 +537,10 @@ namespace Example
             var apiInstance = new ArrayApi(Configuration.Default);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
-            var search = search_example;  // string | search string that will look at name, namespace or description fields (optional) 
-            var _namespace = _namespace_example;  // string | namespace (optional) 
-            var orderby = orderby_example;  // string | sort by which field valid values include last_accessed, size, name (optional) 
-            var permissions = permissions_example;  // string | permissions valid values include read, read_write, write, admin (optional) 
+            var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
+            var _namespace = "_namespace_example";  // string | namespace (optional) 
+            var orderby = "orderby_example";  // string | sort by which field valid values include last_accessed, size, name (optional) 
+            var permissions = "permissions_example";  // string | permissions valid values include read, read_write, write, admin (optional) 
             var tag = new List<string>(); // List<string> | tag to search for, more than one can be included (optional) 
             var excludeTag = new List<string>(); // List<string> | tags to exclude matching array in results, more than one can be included (optional) 
             var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
@@ -629,7 +629,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -709,7 +709,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -719,8 +719,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
 
@@ -799,7 +799,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -809,8 +809,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var tiledbConfig = new TileDBConfig(); // TileDBConfig | tiledb configuration
 
             try
@@ -886,7 +886,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -896,11 +896,11 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
             var arraySchema = new ArraySchema(); // ArraySchema | ArraySchema being created
-            var X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME_example;  // string | Optional registered access credentials to use for creation (optional) 
+            var X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = "X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME_example";  // string | Optional registered access credentials to use for creation (optional) 
 
             try
             {
@@ -977,7 +977,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -987,9 +987,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
 
             try
             {
@@ -1064,7 +1064,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1074,8 +1074,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -1132,7 +1132,7 @@ void (empty response body)
 
 
 
-get activity log by id
+get activity log by ID
 
 ### Example
 
@@ -1149,7 +1149,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1159,9 +1159,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var id = id_example;  // string | id of the activity
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var id = "id_example";  // string | ID of the activity
 
             try
             {
@@ -1186,7 +1186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
- **id** | **string**| id of the activity | 
+ **id** | **string**| ID of the activity | 
 
 ### Return type
 
@@ -1237,7 +1237,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1247,7 +1247,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var publicShare = publicShare_example;  // string | Public share values can be one of exclude, only (optional) 
+            var publicShare = "publicShare_example";  // string | Public share values can be one of exclude, only (optional) 
 
             try
             {
@@ -1321,7 +1321,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1331,9 +1331,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
 
             try
             {
@@ -1409,7 +1409,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1419,11 +1419,11 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var subarray = subarray_example;  // string | CSV string of subarray to get max buffer sizes for
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var subarray = "subarray_example";  // string | CSV string of subarray to get max buffer sizes for
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
 
             try
             {
@@ -1484,7 +1484,7 @@ Name | Type | Description  | Notes
 
 
 
-get metadata from the array in json format
+get metadata from the array in JSON format
 
 ### Example
 
@@ -1501,7 +1501,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1511,8 +1511,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var length = 56;  // int? | (optional) limit character length of returned values (optional) 
             var endTimestamp = 56;  // int? | Milliseconds since Unix epoch, metadata will use open_at functionality to open array at the specific timestamp (optional) 
 
@@ -1591,7 +1591,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1601,8 +1601,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -1677,7 +1677,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1687,8 +1687,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -1763,7 +1763,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1773,10 +1773,10 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
 
             try
             {
@@ -1853,7 +1853,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1863,8 +1863,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -1939,7 +1939,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1949,9 +1949,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var samples = 8.14;  // decimal? | Number of sample results to return (optional)  (default to 5.0M)
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var samples = 5.0MD;  // decimal? | Number of sample results to return (optional)  (default to 5.0M)
 
             try
             {
@@ -2027,7 +2027,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2037,8 +2037,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -2082,7 +2082,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of all specific sharing policies |  -  |
-| **404** | Array does not exist or user does not have permissions to view array sharing policies |  -  |
+| **404** | Array does not exist or user does not have permissions to view array-sharing policies |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -2114,7 +2114,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2124,7 +2124,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
 
             try
             {
@@ -2198,7 +2198,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2208,8 +2208,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var endTimestamp = 56;  // int? | Milliseconds since Unix epoch (optional) 
 
             try
@@ -2284,7 +2284,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2343,7 +2343,7 @@ This endpoint does not need any parameter.
 
 ## RegisterArray
 
-> void RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
+> ArrayInfo RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
 
 
 
@@ -2364,7 +2364,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2374,13 +2374,14 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadata = new ArrayInfoUpdate(); // ArrayInfoUpdate | metadata associated with array
 
             try
             {
-                apiInstance.RegisterArray(_namespace, array, arrayMetadata);
+                ArrayInfo result = apiInstance.RegisterArray(_namespace, array, arrayMetadata);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -2404,7 +2405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArrayInfo**](ArrayInfo.md)
 
 ### Authorization
 
@@ -2419,7 +2420,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | schema registered successfully |  -  |
+| **200** | array registered successfully |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -2451,7 +2452,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2461,9 +2462,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var arraySharing = new ArraySharing(); // ArraySharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var arraySharing = new ArraySharing(); // ArraySharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the array will not be shared with the namespace at all.
 
             try
             {
@@ -2487,7 +2488,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
- **arraySharing** | [**ArraySharing**](ArraySharing.md)| Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all | 
+ **arraySharing** | [**ArraySharing**](ArraySharing.md)| Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all. | 
 
 ### Return type
 
@@ -2539,7 +2540,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2549,8 +2550,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadata = new ArrayInfoUpdate(); // ArrayInfoUpdate | array metadata to update
 
             try
@@ -2626,7 +2627,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2636,8 +2637,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadataEntries = new ArrayMetadata(); // ArrayMetadata | List of metadata entries
 
             try
@@ -2713,7 +2714,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2723,8 +2724,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var tiledbConfig = new TileDBConfig(); // TileDBConfig | tiledb configuration
 
             try

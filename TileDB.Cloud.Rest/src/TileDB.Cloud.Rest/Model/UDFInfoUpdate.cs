@@ -43,17 +43,17 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UDFInfoUpdate" /> class.
         /// </summary>
-        /// <param name="name">name of udf.</param>
+        /// <param name="name">name of UDF.</param>
         /// <param name="language">language.</param>
         /// <param name="version">Type-specific version.</param>
-        /// <param name="imageName">Docker image name to use for udf.</param>
+        /// <param name="imageName">Docker image name to use for UDF.</param>
         /// <param name="type">type.</param>
         /// <param name="exec">Type-specific executable text.</param>
         /// <param name="execRaw">optional raw text to store of serialized function, used for showing in UI.</param>
-        /// <param name="readme">Markdown readme of udfs.</param>
+        /// <param name="readme">Markdown readme of UDFs.</param>
         /// <param name="licenseId">License identifier from SPDX License List or Custom.</param>
         /// <param name="licenseText">License text.</param>
-        /// <param name="tags">optional tags for udf.</param>
+        /// <param name="tags">optional tags for UDF.</param>
         public UDFInfoUpdate(string name = default(string), UDFLanguage? language = default(UDFLanguage?), string version = default(string), string imageName = default(string), UDFType? type = default(UDFType?), string exec = default(string), string execRaw = default(string), string readme = default(string), string licenseId = default(string), string licenseText = default(string), List<string> tags = default(List<string>))
         {
             this.Name = name;
@@ -70,9 +70,9 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// name of udf
+        /// name of UDF
         /// </summary>
-        /// <value>name of udf</value>
+        /// <value>name of UDF</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -85,9 +85,9 @@ namespace TileDB.Cloud.Rest.Model
         public string _Version { get; set; }
 
         /// <summary>
-        /// Docker image name to use for udf
+        /// Docker image name to use for UDF
         /// </summary>
-        /// <value>Docker image name to use for udf</value>
+        /// <value>Docker image name to use for UDF</value>
         [DataMember(Name="image_name", EmitDefaultValue=false)]
         public string ImageName { get; set; }
 
@@ -107,9 +107,9 @@ namespace TileDB.Cloud.Rest.Model
         public string ExecRaw { get; set; }
 
         /// <summary>
-        /// Markdown readme of udfs
+        /// Markdown readme of UDFs
         /// </summary>
-        /// <value>Markdown readme of udfs</value>
+        /// <value>Markdown readme of UDFs</value>
         [DataMember(Name="readme", EmitDefaultValue=false)]
         public string Readme { get; set; }
 
@@ -128,9 +128,9 @@ namespace TileDB.Cloud.Rest.Model
         public string LicenseText { get; set; }
 
         /// <summary>
-        /// optional tags for udf
+        /// optional tags for UDF
         /// </summary>
-        /// <value>optional tags for udf</value>
+        /// <value>optional tags for UDF</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
 

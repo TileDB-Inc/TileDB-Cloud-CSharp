@@ -33,36 +33,36 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayFavorite" /> class.
         /// </summary>
-        /// <param name="id">unique uuid of the favorite.</param>
-        /// <param name="createdAt">Datetime the favorite was created in UTC.</param>
-        /// <param name="arrayUuid">unique uuid of the array.</param>
-        public ArrayFavorite(string id = default(string), DateTime createdAt = default(DateTime), string arrayUuid = default(string))
+        /// <param name="arrayUuid">unique UUID of the array.</param>
+        /// <param name="_namespace">the namespace of the array.</param>
+        /// <param name="name">the name of the array.</param>
+        public ArrayFavorite(string arrayUuid = default(string), string _namespace = default(string), string name = default(string))
         {
-            this.Id = id;
-            this.CreatedAt = createdAt;
             this.ArrayUuid = arrayUuid;
+            this.Namespace = _namespace;
+            this.Name = name;
         }
 
         /// <summary>
-        /// unique uuid of the favorite
+        /// unique UUID of the array
         /// </summary>
-        /// <value>unique uuid of the favorite</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Datetime the favorite was created in UTC
-        /// </summary>
-        /// <value>Datetime the favorite was created in UTC</value>
-        [DataMember(Name="created_at", EmitDefaultValue=false)]
-        public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// unique uuid of the array
-        /// </summary>
-        /// <value>unique uuid of the array</value>
+        /// <value>unique UUID of the array</value>
         [DataMember(Name="array_uuid", EmitDefaultValue=false)]
         public string ArrayUuid { get; set; }
+
+        /// <summary>
+        /// the namespace of the array
+        /// </summary>
+        /// <value>the namespace of the array</value>
+        [DataMember(Name="namespace", EmitDefaultValue=false)]
+        public string Namespace { get; set; }
+
+        /// <summary>
+        /// the name of the array
+        /// </summary>
+        /// <value>the name of the array</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,9 +72,9 @@ namespace TileDB.Cloud.Rest.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ArrayFavorite {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  ArrayUuid: ").Append(ArrayUuid).Append("\n");
+            sb.Append("  Namespace: ").Append(Namespace).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,19 +110,19 @@ namespace TileDB.Cloud.Rest.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
                     this.ArrayUuid == input.ArrayUuid ||
                     (this.ArrayUuid != null &&
                     this.ArrayUuid.Equals(input.ArrayUuid))
+                ) && 
+                (
+                    this.Namespace == input.Namespace ||
+                    (this.Namespace != null &&
+                    this.Namespace.Equals(input.Namespace))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -135,12 +135,12 @@ namespace TileDB.Cloud.Rest.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.ArrayUuid != null)
                     hashCode = hashCode * 59 + this.ArrayUuid.GetHashCode();
+                if (this.Namespace != null)
+                    hashCode = hashCode * 59 + this.Namespace.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

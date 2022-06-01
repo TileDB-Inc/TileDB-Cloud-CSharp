@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **Name** | **string** | human readable name | [optional] 
 **Default** | **bool** | true if this is the default credential to be used within this namespace | [optional] 
 **Buckets** | **List&lt;string&gt;** | a whitelist of one or more buckets this key should access | [optional] 
-**CreatedAt** | **DateTime** | Time when udf dependencies was created (rfc3339) | [optional] [readonly] 
-**UpdatedAt** | **DateTime** | Time when udf dependencies was last updated (rfc3339) | [optional] [readonly] 
+**CreatedAt** | **DateTime** | Time when UDF dependencies were created (rfc3339) | [optional] [readonly] 
+**UpdatedAt** | **DateTime** | Time when UDF dependencies was last updated (rfc3339) | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

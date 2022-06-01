@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | unique uuid of the favorite | [optional] 
-**CreatedAt** | **DateTime** | Datetime the favorite was created in UTC | [optional] 
-**ArrayUuid** | **string** | unique uuid of the array | [optional] 
+**ArrayUuid** | **string** | unique UUID of the array | [optional] 
+**Namespace** | **string** | the namespace of the array | [optional] 
+**Name** | **string** | the name of the array | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

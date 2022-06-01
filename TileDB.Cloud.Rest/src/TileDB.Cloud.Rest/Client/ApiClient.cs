@@ -54,12 +54,12 @@ namespace TileDB.Cloud.Rest.Client
         public ApiClient()
         {
             Configuration = TileDB.Cloud.Rest.Client.Configuration.Default;
-            RestClient = new RestClient("http://localhost/v1");
+            RestClient = new RestClient("/v1");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (http://localhost/v1).
+        /// with default base path (/v1).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -74,7 +74,7 @@ namespace TileDB.Cloud.Rest.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "http://localhost/v1")
+        public ApiClient(String basePath = "/v1")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** | unique id of user | [optional] 
-**OrganizationId** | **string** | unique id of organization | [optional] 
+**UserId** | **string** | unique ID of user | [optional] 
+**OrganizationId** | **string** | unique ID of organization | [optional] 
 **Username** | **string** | username for user | [optional] 
 **OrganizationName** | **string** | name of organization | [optional] 
 **Role** | **OrganizationRoles** |  | [optional] 

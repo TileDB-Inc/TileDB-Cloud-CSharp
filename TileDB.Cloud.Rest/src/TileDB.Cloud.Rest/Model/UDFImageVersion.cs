@@ -33,9 +33,9 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UDFImageVersion" /> class.
         /// </summary>
-        /// <param name="id">Unique id of a versioned image.</param>
+        /// <param name="id">Unique ID of a versioned image.</param>
         /// <param name="name">name of UDFImageVersion.</param>
-        /// <param name="udfImageUuid">Unique id of the udf image set.</param>
+        /// <param name="udfImageUuid">Unique ID of the UDF image set.</param>
         /// <param name="dockerImage">Uri of docker image related to current entry.</param>
         /// <param name="version">Image-specific version.</param>
         /// <param name="_default">If current image is default version.</param>
@@ -52,9 +52,9 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// Unique id of a versioned image
+        /// Unique ID of a versioned image
         /// </summary>
-        /// <value>Unique id of a versioned image</value>
+        /// <value>Unique ID of a versioned image</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -66,9 +66,9 @@ namespace TileDB.Cloud.Rest.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Unique id of the udf image set
+        /// Unique ID of the UDF image set
         /// </summary>
-        /// <value>Unique id of the udf image set</value>
+        /// <value>Unique ID of the UDF image set</value>
         [DataMember(Name="udf_image_uuid", EmitDefaultValue=false)]
         public string UdfImageUuid { get; set; }
 

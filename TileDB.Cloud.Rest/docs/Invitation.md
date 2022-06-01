@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique id of invitation added to magic link | [optional] 
+**Id** | **string** | Unique ID of invitation added to magic link | [optional] 
 **InvitationType** | **InvitationType** |  | [optional] 
 **OwnerNamespaceUuid** | **string** | Namespace of the owner of the invitation (user or organization) | [optional] 
-**UserNamespaceUuid** | **string** | Unique id of the user accepted the invitation | [optional] 
-**OrganizationUserUuid** | **string** | Unique id of the organization user accepted the invitation | [optional] 
+**UserNamespaceUuid** | **string** | Unique ID of the user accepted the invitation | [optional] 
+**OrganizationUserUuid** | **string** | Unique ID of the organization user accepted the invitation | [optional] 
 **OrganizationName** | **string** | Name of the organization, does not persist in database | [optional] 
 **OrganizationRole** | **OrganizationRoles** |  | [optional] 
-**ArrayUuid** | **string** | Unique id of the array | [optional] 
+**ArrayUuid** | **string** | Unique ID of the array | [optional] 
 **ArrayName** | **string** | Name of the array, does not persist in database | [optional] 
 **Email** | **string** | Email of the individual we send the invitation to | [optional] 
 **Actions** | **string** | A comma separated list of ArrayActions or NamespaceActions | [optional] 

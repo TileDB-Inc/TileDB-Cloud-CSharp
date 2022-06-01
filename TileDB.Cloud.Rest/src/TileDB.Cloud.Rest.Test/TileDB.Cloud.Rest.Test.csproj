@@ -81,7 +81,7 @@ The version of the OpenAPI document: 2.2.19
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\TileDB.Cloud.Rest\TileDB.Cloud.Rest.csproj">
-          <Project>{BFB7A7AA-46C5-412A-AB97-A0A0C3B074CC}</Project>
+          <Project>{EC95C04E-13FD-4F28-809F-F22482EEAD9F}</Project>
           <Name>TileDB.Cloud.Rest</Name>
       </ProjectReference>
   </ItemGroup>

@@ -38,7 +38,7 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LastAccessedArray" /> class.
         /// </summary>
-        /// <param name="arrayId">unique id of array.</param>
+        /// <param name="arrayId">unique ID of array.</param>
         /// <param name="arrayName">name of the array.</param>
         /// <param name="_namespace">namespace of a user or organization.</param>
         /// <param name="accessedTime">timestamp (epoch milliseconds) array is last accessed.</param>
@@ -53,9 +53,9 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// unique id of array
+        /// unique ID of array
         /// </summary>
-        /// <value>unique id of array</value>
+        /// <value>unique ID of array</value>
         [DataMember(Name="array_id", EmitDefaultValue=false)]
         public string ArrayId { get; set; }
 

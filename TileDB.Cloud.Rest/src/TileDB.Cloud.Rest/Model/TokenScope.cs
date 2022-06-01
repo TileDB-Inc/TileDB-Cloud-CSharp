@@ -85,7 +85,43 @@ namespace TileDB.Cloud.Rest.Model
         /// Enum Arrayadmin for value: array:admin
         /// </summary>
         [EnumMember(Value = "array:admin")]
-        Arrayadmin = 9
+        Arrayadmin = 9,
+
+        /// <summary>
+        /// Enum Organizationread for value: organization:read
+        /// </summary>
+        [EnumMember(Value = "organization:read")]
+        Organizationread = 10,
+
+        /// <summary>
+        /// Enum OrganizationreadWrite for value: organization:read-write
+        /// </summary>
+        [EnumMember(Value = "organization:read-write")]
+        OrganizationreadWrite = 11,
+
+        /// <summary>
+        /// Enum Organizationadmin for value: organization:admin
+        /// </summary>
+        [EnumMember(Value = "organization:admin")]
+        Organizationadmin = 12,
+
+        /// <summary>
+        /// Enum Groupread for value: group:read
+        /// </summary>
+        [EnumMember(Value = "group:read")]
+        Groupread = 13,
+
+        /// <summary>
+        /// Enum GroupreadWrite for value: group:read-write
+        /// </summary>
+        [EnumMember(Value = "group:read-write")]
+        GroupreadWrite = 14,
+
+        /// <summary>
+        /// Enum Groupadmin for value: group:admin
+        /// </summary>
+        [EnumMember(Value = "group:admin")]
+        Groupadmin = 15
 
     }
 

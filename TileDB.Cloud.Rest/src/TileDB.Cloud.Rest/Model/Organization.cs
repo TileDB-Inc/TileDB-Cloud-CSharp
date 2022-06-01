@@ -43,7 +43,7 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Organization" /> class.
         /// </summary>
-        /// <param name="id">unique id of organization.</param>
+        /// <param name="id">unique ID of organization.</param>
         /// <param name="role">role.</param>
         /// <param name="name">organization name must be unique (required).</param>
         /// <param name="createdAt">Datetime organization was created in UTC.</param>
@@ -53,8 +53,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="users">users.</param>
         /// <param name="allowedActions">list of actions user is allowed to do on this organization.</param>
         /// <param name="numOfArrays">number of registered arrays for this organization.</param>
-        /// <param name="defaultS3Path">default s3 path to store newly created notebooks.</param>
-        /// <param name="defaultS3PathCredentialsName">Default s3 path credentials name is the credentials name to use along with default_s3_path.</param>
+        /// <param name="defaultS3Path">default S3 path to store newly created notebooks.</param>
+        /// <param name="defaultS3PathCredentialsName">Default S3 path credentials name is the credentials name to use along with default_s3_path.</param>
         public Organization(string id = default(string), OrganizationRoles? role = default(OrganizationRoles?), string name = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string logo = default(string), string description = default(string), List<OrganizationUser> users = default(List<OrganizationUser>), List<NamespaceActions> allowedActions = default(List<NamespaceActions>), decimal numOfArrays = default(decimal), string defaultS3Path = default(string), string defaultS3PathCredentialsName = default(string))
         {
             // to ensure "name" is required (not null)
@@ -67,6 +67,7 @@ namespace TileDB.Cloud.Rest.Model
                 this.Name = name;
             }
 
+            this.Description = description;
             this.Id = id;
             this.Role = role;
             this.CreatedAt = createdAt;
@@ -74,16 +75,16 @@ namespace TileDB.Cloud.Rest.Model
             this.Logo = logo;
             this.Description = description;
             this.Users = users;
-            // this.AllowedActions = allowedActions;
+            this.AllowedActions = allowedActions;
             this.NumOfArrays = numOfArrays;
             this.DefaultS3Path = defaultS3Path;
             this.DefaultS3PathCredentialsName = defaultS3PathCredentialsName;
         }
 
         /// <summary>
-        /// unique id of organization
+        /// unique ID of organization
         /// </summary>
-        /// <value>unique id of organization</value>
+        /// <value>unique ID of organization</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -120,7 +121,7 @@ namespace TileDB.Cloud.Rest.Model
         /// Organization description
         /// </summary>
         /// <value>Organization description</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -133,8 +134,8 @@ namespace TileDB.Cloud.Rest.Model
         /// list of actions user is allowed to do on this organization
         /// </summary>
         /// <value>list of actions user is allowed to do on this organization</value>
-        // [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
-        // public List<NamespaceActions> AllowedActions { get; set; }
+        [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
+        public List<NamespaceActions> AllowedActions { get; set; }
 
         /// <summary>
         /// number of registered arrays for this organization
@@ -158,16 +159,16 @@ namespace TileDB.Cloud.Rest.Model
         public bool UnpaidSubscription { get; private set; }
 
         /// <summary>
-        /// default s3 path to store newly created notebooks
+        /// default S3 path to store newly created notebooks
         /// </summary>
-        /// <value>default s3 path to store newly created notebooks</value>
+        /// <value>default S3 path to store newly created notebooks</value>
         [DataMember(Name="default_s3_path", EmitDefaultValue=false)]
         public string DefaultS3Path { get; set; }
 
         /// <summary>
-        /// Default s3 path credentials name is the credentials name to use along with default_s3_path
+        /// Default S3 path credentials name is the credentials name to use along with default_s3_path
         /// </summary>
-        /// <value>Default s3 path credentials name is the credentials name to use along with default_s3_path</value>
+        /// <value>Default S3 path credentials name is the credentials name to use along with default_s3_path</value>
         [DataMember(Name="default_s3_path_credentials_name", EmitDefaultValue=false)]
         public string DefaultS3PathCredentialsName { get; set; }
 
@@ -194,7 +195,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Logo: ").Append(Logo).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
-            // sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
+            sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
             sb.Append("  NumOfArrays: ").Append(NumOfArrays).Append("\n");
             sb.Append("  EnabledFeatures: ").Append(EnabledFeatures).Append("\n");
             sb.Append("  UnpaidSubscription: ").Append(UnpaidSubscription).Append("\n");
@@ -276,12 +277,12 @@ namespace TileDB.Cloud.Rest.Model
                     input.Users != null &&
                     this.Users.SequenceEqual(input.Users)
                 ) && 
-                // (
-                //     this.AllowedActions == input.AllowedActions ||
-                //     this.AllowedActions != null &&
-                //     input.AllowedActions != null &&
-                //     this.AllowedActions.SequenceEqual(input.AllowedActions)
-                // ) && 
+                (
+                    this.AllowedActions == input.AllowedActions ||
+                    this.AllowedActions != null &&
+                    input.AllowedActions != null &&
+                    this.AllowedActions.SequenceEqual(input.AllowedActions)
+                ) && 
                 (
                     this.NumOfArrays == input.NumOfArrays ||
                     (this.NumOfArrays != null &&
@@ -340,8 +341,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Users != null)
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
-                // if (this.AllowedActions != null)
-                //     hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
+                if (this.AllowedActions != null)
+                    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
                 if (this.NumOfArrays != null)
                     hashCode = hashCode * 59 + this.NumOfArrays.GetHashCode();
                 if (this.EnabledFeatures != null)

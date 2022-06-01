@@ -55,7 +55,13 @@ namespace TileDB.Cloud.Rest.Model
         /// Enum File for value: file
         /// </summary>
         [EnumMember(Value = "file")]
-        File = 4
+        File = 4,
+
+        /// <summary>
+        /// Enum Registeredtaskgraph for value: registered_task_graph
+        /// </summary>
+        [EnumMember(Value = "registered_task_graph")]
+        Registeredtaskgraph = 5
 
     }
 

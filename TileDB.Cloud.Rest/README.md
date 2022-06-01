@@ -77,7 +77,7 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.ApiKey.Add("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -87,13 +87,13 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new ArrayApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var start = 56;  // int? | Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional) 
             var end = 56;  // int? | End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional) 
-            var eventTypes = eventTypes_example;  // string | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional) 
-            var taskId = taskId_example;  // string | Array task id To filter activity to (optional) 
-            var hasTaskId = true;  // bool? | Excludes activity log results that does not contain an array task uuid (optional) 
+            var eventTypes = "eventTypes_example";  // string | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional) 
+            var taskId = "taskId_example";  // string | Array task ID To filter activity to (optional) 
+            var hasTaskId = true;  // bool? | Excludes activity log results that do not contain an array task UUID (optional) 
 
             try
             {
@@ -114,7 +114,7 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -150,22 +150,18 @@ Class | Method | HTTP request | Description
 *ArrayApi* | [**UpdateArrayMetadataCapnp**](docs/ArrayApi.md#updatearraymetadatacapnp) | **POST** /arrays/{namespace}/{array}/array_metadata | 
 *ArrayApi* | [**VacuumArray**](docs/ArrayApi.md#vacuumarray) | **POST** /arrays/{namespace}/{array}/vacuum | 
 *ArrayTasksApi* | [**GetArrayTasksSidebar**](docs/ArrayTasksApi.md#getarraytaskssidebar) | **GET** /tasks/sidebar | 
-*FavoritesApi* | [**AddArrayFavorite**](docs/FavoritesApi.md#addarrayfavorite) | **POST** /arrays/favorites | 
-*FavoritesApi* | [**AddMLModelFavorite**](docs/FavoritesApi.md#addmlmodelfavorite) | **POST** /ml_models/favorites | 
-*FavoritesApi* | [**AddNotebookFavorite**](docs/FavoritesApi.md#addnotebookfavorite) | **POST** /notebooks/favorites | 
-*FavoritesApi* | [**AddUDFFavorite**](docs/FavoritesApi.md#addudffavorite) | **POST** /udfs/favorites | 
-*FavoritesApi* | [**DeleteArrayFavorite**](docs/FavoritesApi.md#deletearrayfavorite) | **DELETE** /arrays/favorites/{id} | 
-*FavoritesApi* | [**DeleteMLModelFavorite**](docs/FavoritesApi.md#deletemlmodelfavorite) | **DELETE** /ml_models/favorites/{id} | 
-*FavoritesApi* | [**DeleteNotebookFavorite**](docs/FavoritesApi.md#deletenotebookfavorite) | **DELETE** /notebooks/favorites/{id} | 
-*FavoritesApi* | [**DeleteUDFFavorite**](docs/FavoritesApi.md#deleteudffavorite) | **DELETE** /udfs/favorites/{id} | 
-*FavoritesApi* | [**GetArrayFavorite**](docs/FavoritesApi.md#getarrayfavorite) | **GET** /arrays/favorites/{id} | 
-*FavoritesApi* | [**GetArrayFavoriteForArray**](docs/FavoritesApi.md#getarrayfavoriteforarray) | **GET** /arrays/favorites/{namespace}/{name} | 
-*FavoritesApi* | [**GetMLModelFavorite**](docs/FavoritesApi.md#getmlmodelfavorite) | **GET** /ml_models/favorites/{id} | 
-*FavoritesApi* | [**GetMLModelFavoriteForMLModel**](docs/FavoritesApi.md#getmlmodelfavoriteformlmodel) | **GET** /ml_models/favorites/{namespace}/{name} | 
-*FavoritesApi* | [**GetNotebookFavorite**](docs/FavoritesApi.md#getnotebookfavorite) | **GET** /notebooks/favorites/{id} | 
-*FavoritesApi* | [**GetNotebookFavoriteForNotebook**](docs/FavoritesApi.md#getnotebookfavoritefornotebook) | **GET** /notebooks/favorites/{namespace}/{name} | 
-*FavoritesApi* | [**GetUDFFavorite**](docs/FavoritesApi.md#getudffavorite) | **GET** /udfs/favorites/{id} | 
-*FavoritesApi* | [**GetUDFFavoriteForUDF**](docs/FavoritesApi.md#getudffavoriteforudf) | **GET** /udfs/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**AddArrayFavorite**](docs/FavoritesApi.md#addarrayfavorite) | **POST** /arrays/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**AddMLModelFavorite**](docs/FavoritesApi.md#addmlmodelfavorite) | **POST** /ml_models/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**AddNotebookFavorite**](docs/FavoritesApi.md#addnotebookfavorite) | **POST** /notebooks/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**AddUDFFavorite**](docs/FavoritesApi.md#addudffavorite) | **POST** /udfs/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**DeleteArrayFavorite**](docs/FavoritesApi.md#deletearrayfavorite) | **DELETE** /arrays/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**DeleteMLModelFavorite**](docs/FavoritesApi.md#deletemlmodelfavorite) | **DELETE** /ml_models/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**DeleteNotebookFavorite**](docs/FavoritesApi.md#deletenotebookfavorite) | **DELETE** /notebooks/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**DeleteUDFFavorite**](docs/FavoritesApi.md#deleteudffavorite) | **DELETE** /udfs/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**GetArrayFavorite**](docs/FavoritesApi.md#getarrayfavorite) | **GET** /arrays/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**GetMLModelFavorite**](docs/FavoritesApi.md#getmlmodelfavorite) | **GET** /ml_models/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**GetNotebookFavorite**](docs/FavoritesApi.md#getnotebookfavorite) | **GET** /notebooks/favorites/{namespace}/{name} | 
+*FavoritesApi* | [**GetUDFFavorite**](docs/FavoritesApi.md#getudffavorite) | **GET** /udfs/favorites/{namespace}/{name} | 
 *FavoritesApi* | [**ListArrayFavorites**](docs/FavoritesApi.md#listarrayfavorites) | **GET** /arrays/favorites | 
 *FavoritesApi* | [**ListArrayFavoritesUUIDs**](docs/FavoritesApi.md#listarrayfavoritesuuids) | **GET** /arrays/favorites/uuids | 
 *FavoritesApi* | [**ListMLModelFavorites**](docs/FavoritesApi.md#listmlmodelfavorites) | **GET** /ml_models/favorites | 
@@ -176,6 +172,23 @@ Class | Method | HTTP request | Description
 *FavoritesApi* | [**ListUDFFavoritesUUIDs**](docs/FavoritesApi.md#listudffavoritesuuids) | **GET** /udfs/favorites/uuids | 
 *FilesApi* | [**HandleCreateFile**](docs/FilesApi.md#handlecreatefile) | **POST** /files/{namespace} | 
 *FilesApi* | [**HandleExportFile**](docs/FilesApi.md#handleexportfile) | **POST** /files/{namespace}/{file}/export | 
+*FilesApi* | [**HandleUploadFile**](docs/FilesApi.md#handleuploadfile) | **POST** /files/{namespace}/upload | 
+*GroupsApi* | [**ChangeGroupContents**](docs/GroupsApi.md#changegroupcontents) | **POST** /groups/{group_namespace}/{group_name}/contents | 
+*GroupsApi* | [**CreateGroup**](docs/GroupsApi.md#creategroup) | **POST** /groups/{namespace}/create | 
+*GroupsApi* | [**DeleteGroup**](docs/GroupsApi.md#deletegroup) | **DELETE** /groups/{group_namespace}/{group_name} | 
+*GroupsApi* | [**GetGroup**](docs/GroupsApi.md#getgroup) | **GET** /groups/{group_namespace}/{group_name} | 
+*GroupsApi* | [**GetGroupContents**](docs/GroupsApi.md#getgroupcontents) | **GET** /groups/{group_namespace}/{group_name}/contents | 
+*GroupsApi* | [**GetGroupSharingPolicies**](docs/GroupsApi.md#getgroupsharingpolicies) | **GET** /groups/{group_namespace}/{group_name}/share | 
+*GroupsApi* | [**GroupsBrowserOwnedFiltersGet**](docs/GroupsApi.md#groupsbrowserownedfiltersget) | **GET** /groups/browser/owned/filters | 
+*GroupsApi* | [**GroupsBrowserPublicFiltersGet**](docs/GroupsApi.md#groupsbrowserpublicfiltersget) | **GET** /groups/browser/public/filters | 
+*GroupsApi* | [**GroupsBrowserSharedFiltersGet**](docs/GroupsApi.md#groupsbrowsersharedfiltersget) | **GET** /groups/browser/shared/filters | 
+*GroupsApi* | [**GroupsGroupNamespaceGroupNameContentsFiltersGet**](docs/GroupsApi.md#groupsgroupnamespacegroupnamecontentsfiltersget) | **GET** /groups/{group_namespace}/{group_name}/contents/filters | 
+*GroupsApi* | [**ListOwnedGroups**](docs/GroupsApi.md#listownedgroups) | **GET** /groups/browser/owned | 
+*GroupsApi* | [**ListPublicGroups**](docs/GroupsApi.md#listpublicgroups) | **GET** /groups/browser/public | 
+*GroupsApi* | [**ListSharedGroups**](docs/GroupsApi.md#listsharedgroups) | **GET** /groups/browser/shared | 
+*GroupsApi* | [**RegisterGroup**](docs/GroupsApi.md#registergroup) | **POST** /groups/{namespace}/{array}/register | 
+*GroupsApi* | [**ShareGroup**](docs/GroupsApi.md#sharegroup) | **PATCH** /groups/{group_namespace}/{group_name}/share | 
+*GroupsApi* | [**UpdateGroup**](docs/GroupsApi.md#updategroup) | **PATCH** /groups/{group_namespace}/{group_name} | 
 *InvitationApi* | [**AcceptInvitation**](docs/InvitationApi.md#acceptinvitation) | **POST** /invitations/{invitation} | 
 *InvitationApi* | [**CancelJoinOrganization**](docs/InvitationApi.md#canceljoinorganization) | **DELETE** /invitations/{invitation}/{organization}/join | 
 *InvitationApi* | [**CancelShareArrayByInvite**](docs/InvitationApi.md#cancelsharearraybyinvite) | **DELETE** /invitations/{invitation}/{namespace}/{array}/share | 
@@ -183,6 +196,8 @@ Class | Method | HTTP request | Description
 *InvitationApi* | [**JoinOrganization**](docs/InvitationApi.md#joinorganization) | **POST** /invitations/{organization}/join | 
 *InvitationApi* | [**ShareArrayByInvite**](docs/InvitationApi.md#sharearraybyinvite) | **POST** /invitations/{namespace}/{array}/share | 
 *NotebookApi* | [**GetNotebookServerStatus**](docs/NotebookApi.md#getnotebookserverstatus) | **GET** /notebooks/server/{namespace}/status | 
+*NotebookApi* | [**HandleCopyNotebook**](docs/NotebookApi.md#handlecopynotebook) | **POST** /notebooks/{namespace}/{array}/copy | 
+*NotebookApi* | [**HandleUploadNotebook**](docs/NotebookApi.md#handleuploadnotebook) | **POST** /notebooks/{namespace}/upload | 
 *NotebookApi* | [**ShutdownNotebookServer**](docs/NotebookApi.md#shutdownnotebookserver) | **DELETE** /notebooks/server/{namespace} | 
 *NotebookApi* | [**UpdateNotebookName**](docs/NotebookApi.md#updatenotebookname) | **PATCH** /notebooks/{namespace}/{array}/rename | 
 *NotebooksApi* | [**NotebooksNamespaceArrayEndTimestampsGet**](docs/NotebooksApi.md#notebooksnamespacearrayendtimestampsget) | **GET** /notebooks/{namespace}/{array}/end_timestamps | 
@@ -205,8 +220,19 @@ Class | Method | HTTP request | Description
 *QueryApi* | [**GetFile**](docs/QueryApi.md#getfile) | **GET** /arrays/{namespace}/{array}/query/get_file | 
 *QueryApi* | [**SubmitQuery**](docs/QueryApi.md#submitquery) | **POST** /arrays/{namespace}/{array}/query/submit | 
 *QueryApi* | [**SubmitQueryJson**](docs/QueryApi.md#submitqueryjson) | **POST** /arrays/{namespace}/{array}/query/submit_query_json | 
+*RegisteredTaskGraphsApi* | [**DeleteRegisteredTaskGraph**](docs/RegisteredTaskGraphsApi.md#deleteregisteredtaskgraph) | **DELETE** /taskgraphs/{namespace}/registered/{name} | 
+*RegisteredTaskGraphsApi* | [**GetRegisteredTaskGraph**](docs/RegisteredTaskGraphsApi.md#getregisteredtaskgraph) | **GET** /taskgraphs/{namespace}/registered/{name} | 
+*RegisteredTaskGraphsApi* | [**GetRegisteredTaskGraphSharingPolicies**](docs/RegisteredTaskGraphsApi.md#getregisteredtaskgraphsharingpolicies) | **GET** /taskgraphs/{namespace}/registered/{name}/share | 
+*RegisteredTaskGraphsApi* | [**RegisterRegisteredTaskGraph**](docs/RegisteredTaskGraphsApi.md#registerregisteredtaskgraph) | **POST** /taskgraphs/{namespace}/registered/{name} | 
+*RegisteredTaskGraphsApi* | [**ShareRegisteredTaskGraph**](docs/RegisteredTaskGraphsApi.md#shareregisteredtaskgraph) | **PATCH** /taskgraphs/{namespace}/registered/{name}/share | 
+*RegisteredTaskGraphsApi* | [**UpdateRegisteredTaskGraph**](docs/RegisteredTaskGraphsApi.md#updateregisteredtaskgraph) | **PATCH** /taskgraphs/{namespace}/registered/{name} | 
 *SqlApi* | [**RunSQL**](docs/SqlApi.md#runsql) | **POST** /sql/{namespace} | 
 *StatsApi* | [**GetTiledbStats**](docs/StatsApi.md#gettiledbstats) | **GET** /.stats | 
+*TaskGraphLogsApi* | [**CreateTaskGraphLog**](docs/TaskGraphLogsApi.md#createtaskgraphlog) | **POST** /taskgraphs/{namespace}/log | 
+*TaskGraphLogsApi* | [**GetTaskGraphLog**](docs/TaskGraphLogsApi.md#gettaskgraphlog) | **GET** /taskgraphs/{namespace}/logs/{id} | 
+*TaskGraphLogsApi* | [**ListTaskGraphLogs**](docs/TaskGraphLogsApi.md#listtaskgraphlogs) | **GET** /taskgraphs/logs | 
+*TaskGraphLogsApi* | [**ReportClientNode**](docs/TaskGraphLogsApi.md#reportclientnode) | **POST** /taskgraphs/{namespace}/logs/{id}/report_client_node | 
+*TaskGraphLogsApi* | [**UpdateTaskGraphLog**](docs/TaskGraphLogsApi.md#updatetaskgraphlog) | **PATCH** /taskgraphs/{namespace}/logs/{id} | 
 *TasksApi* | [**RunSQL**](docs/TasksApi.md#runsql) | **POST** /sql/{namespace} | 
 *TasksApi* | [**TaskIdGet**](docs/TasksApi.md#taskidget) | **GET** /task/{id} | 
 *TasksApi* | [**TaskIdResultGet**](docs/TasksApi.md#taskidresultget) | **GET** /task/{id}/result | 
@@ -214,6 +240,7 @@ Class | Method | HTTP request | Description
 *UdfApi* | [**DeleteUDFInfo**](docs/UdfApi.md#deleteudfinfo) | **DELETE** /udf/{namespace}/{name} | 
 *UdfApi* | [**GetUDFInfo**](docs/UdfApi.md#getudfinfo) | **GET** /udf/{namespace}/{name} | 
 *UdfApi* | [**GetUDFInfoSharingPolicies**](docs/UdfApi.md#getudfinfosharingpolicies) | **GET** /udf/{namespace}/{name}/share | 
+*UdfApi* | [**HandleCopyUDF**](docs/UdfApi.md#handlecopyudf) | **POST** /udf/{namespace}/{name}/copy | 
 *UdfApi* | [**RegisterUDFInfo**](docs/UdfApi.md#registerudfinfo) | **POST** /udf/{namespace}/{name} | 
 *UdfApi* | [**ShareUDFInfo**](docs/UdfApi.md#shareudfinfo) | **PATCH** /udf/{namespace}/{name}/share | 
 *UdfApi* | [**SubmitGenericUDF**](docs/UdfApi.md#submitgenericudf) | **POST** /udfs/generic/{namespace} | 
@@ -281,21 +308,36 @@ Class | Method | HTTP request | Description
  - [Model.Domain](docs/Domain.md)
  - [Model.DomainArray](docs/DomainArray.md)
  - [Model.Error](docs/Error.md)
- - [Model.FavoriteCreate](docs/FavoriteCreate.md)
  - [Model.FileCreate](docs/FileCreate.md)
  - [Model.FileCreated](docs/FileCreated.md)
  - [Model.FileExport](docs/FileExport.md)
  - [Model.FileExported](docs/FileExported.md)
  - [Model.FilePropertyName](docs/FilePropertyName.md)
  - [Model.FileType](docs/FileType.md)
+ - [Model.FileUploaded](docs/FileUploaded.md)
  - [Model.Filter](docs/Filter.md)
  - [Model.FilterData](docs/FilterData.md)
  - [Model.FilterOption](docs/FilterOption.md)
  - [Model.FilterPipeline](docs/FilterPipeline.md)
  - [Model.FilterType](docs/FilterType.md)
  - [Model.GenericUDF](docs/GenericUDF.md)
- - [Model.InlineObject](docs/InlineObject.md)
- - [Model.InlineResponse200](docs/InlineResponse200.md)
+ - [Model.GetTiledbStats200Response](docs/GetTiledbStats200Response.md)
+ - [Model.GroupActions](docs/GroupActions.md)
+ - [Model.GroupBrowserData](docs/GroupBrowserData.md)
+ - [Model.GroupBrowserFilterData](docs/GroupBrowserFilterData.md)
+ - [Model.GroupChanges](docs/GroupChanges.md)
+ - [Model.GroupContents](docs/GroupContents.md)
+ - [Model.GroupContentsFilterData](docs/GroupContentsFilterData.md)
+ - [Model.GroupCreate](docs/GroupCreate.md)
+ - [Model.GroupEntry](docs/GroupEntry.md)
+ - [Model.GroupInfo](docs/GroupInfo.md)
+ - [Model.GroupMember](docs/GroupMember.md)
+ - [Model.GroupMemberAssetType](docs/GroupMemberAssetType.md)
+ - [Model.GroupMemberType](docs/GroupMemberType.md)
+ - [Model.GroupRegister](docs/GroupRegister.md)
+ - [Model.GroupSharing](docs/GroupSharing.md)
+ - [Model.GroupSharingRequest](docs/GroupSharingRequest.md)
+ - [Model.GroupUpdate](docs/GroupUpdate.md)
  - [Model.Invitation](docs/Invitation.md)
  - [Model.InvitationArrayShareEmail](docs/InvitationArrayShareEmail.md)
  - [Model.InvitationData](docs/InvitationData.md)
@@ -310,6 +352,8 @@ Class | Method | HTTP request | Description
  - [Model.MultiArrayUDF](docs/MultiArrayUDF.md)
  - [Model.NamespaceActions](docs/NamespaceActions.md)
  - [Model.NonEmptyDomain](docs/NonEmptyDomain.md)
+ - [Model.NotebookCopied](docs/NotebookCopied.md)
+ - [Model.NotebookCopy](docs/NotebookCopy.md)
  - [Model.NotebookFavorite](docs/NotebookFavorite.md)
  - [Model.NotebookFavoritesData](docs/NotebookFavoritesData.md)
  - [Model.NotebookStatus](docs/NotebookStatus.md)
@@ -331,6 +375,9 @@ Class | Method | HTTP request | Description
  - [Model.Querystatus](docs/Querystatus.md)
  - [Model.Querytype](docs/Querytype.md)
  - [Model.ReadState](docs/ReadState.md)
+ - [Model.RegisteredTaskGraph](docs/RegisteredTaskGraph.md)
+ - [Model.RegisteredTaskGraphNode](docs/RegisteredTaskGraphNode.md)
+ - [Model.ResetUserPasswordRequest](docs/ResetUserPasswordRequest.md)
  - [Model.ResultFormat](docs/ResultFormat.md)
  - [Model.SQLParameters](docs/SQLParameters.md)
  - [Model.SSOProvider](docs/SSOProvider.md)
@@ -340,12 +387,27 @@ Class | Method | HTTP request | Description
  - [Model.SubarrayPartitionerState](docs/SubarrayPartitionerState.md)
  - [Model.SubarrayRanges](docs/SubarrayRanges.md)
  - [Model.Subscription](docs/Subscription.md)
+ - [Model.TGInputNodeData](docs/TGInputNodeData.md)
+ - [Model.TGSQLNodeData](docs/TGSQLNodeData.md)
+ - [Model.TGUDFArgument](docs/TGUDFArgument.md)
+ - [Model.TGUDFEnvironment](docs/TGUDFEnvironment.md)
+ - [Model.TGUDFNodeData](docs/TGUDFNodeData.md)
+ - [Model.TaskGraphActions](docs/TaskGraphActions.md)
+ - [Model.TaskGraphClientNodeStatus](docs/TaskGraphClientNodeStatus.md)
+ - [Model.TaskGraphLog](docs/TaskGraphLog.md)
+ - [Model.TaskGraphLogRunLocation](docs/TaskGraphLogRunLocation.md)
+ - [Model.TaskGraphLogStatus](docs/TaskGraphLogStatus.md)
+ - [Model.TaskGraphLogsData](docs/TaskGraphLogsData.md)
+ - [Model.TaskGraphNodeMetadata](docs/TaskGraphNodeMetadata.md)
+ - [Model.TaskGraphSharing](docs/TaskGraphSharing.md)
  - [Model.TileDBConfig](docs/TileDBConfig.md)
  - [Model.Token](docs/Token.md)
  - [Model.TokenRequest](docs/TokenRequest.md)
  - [Model.TokenScope](docs/TokenScope.md)
  - [Model.UDFActions](docs/UDFActions.md)
  - [Model.UDFArrayDetails](docs/UDFArrayDetails.md)
+ - [Model.UDFCopied](docs/UDFCopied.md)
+ - [Model.UDFCopy](docs/UDFCopy.md)
  - [Model.UDFFavorite](docs/UDFFavorite.md)
  - [Model.UDFFavoritesData](docs/UDFFavoritesData.md)
  - [Model.UDFImage](docs/UDFImage.md)

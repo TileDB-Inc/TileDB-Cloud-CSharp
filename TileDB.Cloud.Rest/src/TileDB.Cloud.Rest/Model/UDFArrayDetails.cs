@@ -33,15 +33,25 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UDFArrayDetails" /> class.
         /// </summary>
+        /// <param name="parameterId">An optional client-generated identifier to distinguish between multiple range/buffer requests from the same array in the same call. This may be set for MultiArrayUDFs that use the &#x60;argument_json&#x60; style of passing arrays. .</param>
         /// <param name="uri">array to set ranges and buffers on, must be in tiledb:// format.</param>
         /// <param name="ranges">ranges.</param>
         /// <param name="buffers">List of buffers to fetch (attributes + dimensions).</param>
-        public UDFArrayDetails(string uri = default(string), QueryRanges ranges = default(QueryRanges), List<string> buffers = default(List<string>))
+        public UDFArrayDetails(string parameterId = default(string), string uri = default(string), QueryRanges ranges = default(QueryRanges), List<string> buffers = default(List<string>))
         {
+            this.ParameterId = parameterId;
+            this.ParameterId = parameterId;
             this.Uri = uri;
             this.Ranges = ranges;
             this.Buffers = buffers;
         }
+
+        /// <summary>
+        /// An optional client-generated identifier to distinguish between multiple range/buffer requests from the same array in the same call. This may be set for MultiArrayUDFs that use the &#x60;argument_json&#x60; style of passing arrays. 
+        /// </summary>
+        /// <value>An optional client-generated identifier to distinguish between multiple range/buffer requests from the same array in the same call. This may be set for MultiArrayUDFs that use the &#x60;argument_json&#x60; style of passing arrays. </value>
+        [DataMember(Name="parameter_id", EmitDefaultValue=true)]
+        public string ParameterId { get; set; }
 
         /// <summary>
         /// array to set ranges and buffers on, must be in tiledb:// format
@@ -71,6 +81,7 @@ namespace TileDB.Cloud.Rest.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UDFArrayDetails {\n");
+            sb.Append("  ParameterId: ").Append(ParameterId).Append("\n");
             sb.Append("  Uri: ").Append(Uri).Append("\n");
             sb.Append("  Ranges: ").Append(Ranges).Append("\n");
             sb.Append("  Buffers: ").Append(Buffers).Append("\n");
@@ -109,6 +120,11 @@ namespace TileDB.Cloud.Rest.Model
 
             return 
                 (
+                    this.ParameterId == input.ParameterId ||
+                    (this.ParameterId != null &&
+                    this.ParameterId.Equals(input.ParameterId))
+                ) && 
+                (
                     this.Uri == input.Uri ||
                     (this.Uri != null &&
                     this.Uri.Equals(input.Uri))
@@ -135,6 +151,8 @@ namespace TileDB.Cloud.Rest.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ParameterId != null)
+                    hashCode = hashCode * 59 + this.ParameterId.GetHashCode();
                 if (this.Uri != null)
                     hashCode = hashCode * 59 + this.Uri.GetHashCode();
                 if (this.Ranges != null)

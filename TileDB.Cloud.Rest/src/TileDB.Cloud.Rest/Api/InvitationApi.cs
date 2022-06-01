@@ -32,7 +32,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Accepts invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <returns></returns>
         void AcceptInvitation (string invitation);
 
@@ -43,7 +43,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Accepts invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AcceptInvitationWithHttpInfo (string invitation);
         /// <summary>
@@ -53,8 +53,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Cancels join organization invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <returns></returns>
         void CancelJoinOrganization (string invitation, string organization);
 
@@ -65,8 +65,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Cancels join organization invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CancelJoinOrganizationWithHttpInfo (string invitation, string organization);
         /// <summary>
@@ -77,7 +77,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <returns></returns>
         void CancelShareArrayByInvite (string _namespace, string invitation, string array);
@@ -90,7 +90,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CancelShareArrayByInviteWithHttpInfo (string _namespace, string invitation, string array);
@@ -101,7 +101,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of invitations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -120,7 +120,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of invitations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -138,7 +138,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Sends email to multiple recipients with joining information regarding an organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <returns></returns>
         void JoinOrganization (string organization, InvitationOrganizationJoinEmail emailInvite);
@@ -150,7 +150,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Sends email to multiple recipients with joining information regarding an organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> JoinOrganizationWithHttpInfo (string organization, InvitationOrganizationJoinEmail emailInvite);
@@ -188,7 +188,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Accepts invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task AcceptInvitationAsync (string invitation, CancellationToken cancellationToken = default(CancellationToken));
@@ -200,7 +200,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Accepts invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AcceptInvitationWithHttpInfoAsync (string invitation, CancellationToken cancellationToken = default(CancellationToken));
@@ -211,8 +211,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Cancels join organization invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CancelJoinOrganizationAsync (string invitation, string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -224,8 +224,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Cancels join organization invitation
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CancelJoinOrganizationWithHttpInfoAsync (string invitation, string organization, CancellationToken cancellationToken = default(CancellationToken));
@@ -237,7 +237,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -251,7 +251,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
@@ -263,7 +263,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of invitations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -283,7 +283,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch a list of invitations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -302,7 +302,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Sends email to multiple recipients with joining information regarding an organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -315,7 +315,7 @@ namespace TileDB.Cloud.Rest.Api
         /// Sends email to multiple recipients with joining information regarding an organization
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
@@ -462,7 +462,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Accepts invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <returns></returns>
         public void AcceptInvitation (string invitation)
         {
@@ -473,7 +473,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Accepts invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> AcceptInvitationWithHttpInfo (string invitation)
         {
@@ -538,7 +538,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Accepts invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task AcceptInvitationAsync (string invitation, CancellationToken cancellationToken = default(CancellationToken))
@@ -551,7 +551,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Accepts invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be accepted</param>
+        /// <param name="invitation">the ID of invitation about to be accepted</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> AcceptInvitationWithHttpInfoAsync (string invitation, CancellationToken cancellationToken = default(CancellationToken))
@@ -617,8 +617,8 @@ namespace TileDB.Cloud.Rest.Api
         ///  Cancels join organization invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <returns></returns>
         public void CancelJoinOrganization (string invitation, string organization)
         {
@@ -629,8 +629,8 @@ namespace TileDB.Cloud.Rest.Api
         ///  Cancels join organization invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CancelJoinOrganizationWithHttpInfo (string invitation, string organization)
         {
@@ -699,8 +699,8 @@ namespace TileDB.Cloud.Rest.Api
         ///  Cancels join organization invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CancelJoinOrganizationAsync (string invitation, string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -713,8 +713,8 @@ namespace TileDB.Cloud.Rest.Api
         ///  Cancels join organization invitation
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelJoinOrganizationWithHttpInfoAsync (string invitation, string organization, CancellationToken cancellationToken = default(CancellationToken))
@@ -785,7 +785,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <returns></returns>
         public void CancelShareArrayByInvite (string _namespace, string invitation, string array)
@@ -798,7 +798,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CancelShareArrayByInviteWithHttpInfo (string _namespace, string invitation, string array)
@@ -873,7 +873,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -888,7 +888,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="invitation">the id of invitation about to be cancelled</param>
+        /// <param name="invitation">the ID of invitation about to be cancelled</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
@@ -963,7 +963,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of invitations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -983,7 +983,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of invitations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -1061,7 +1061,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of invitations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -1083,7 +1083,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch a list of invitations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or id of organization to filter (optional)</param>
+        /// <param name="organization">name or ID of organization to filter (optional)</param>
         /// <param name="array">name/uri of array that is url-encoded to filter (optional)</param>
         /// <param name="start">start time for tasks to filter by (optional)</param>
         /// <param name="end">end time for tasks to filter by (optional)</param>
@@ -1162,7 +1162,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Sends email to multiple recipients with joining information regarding an organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <returns></returns>
         public void JoinOrganization (string organization, InvitationOrganizationJoinEmail emailInvite)
@@ -1174,7 +1174,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Sends email to multiple recipients with joining information regarding an organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> JoinOrganizationWithHttpInfo (string organization, InvitationOrganizationJoinEmail emailInvite)
@@ -1252,7 +1252,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Sends email to multiple recipients with joining information regarding an organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
@@ -1266,7 +1266,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  Sends email to multiple recipients with joining information regarding an organization
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organization">name or uuid of organization</param>
+        /// <param name="organization">name or UUID of organization</param>
         /// <param name="emailInvite">list of email recipients</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>

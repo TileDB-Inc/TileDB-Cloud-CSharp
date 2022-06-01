@@ -32,8 +32,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch libtiledb stat
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetTiledbStats ();
+        /// <returns>GetTiledbStats200Response</returns>
+        GetTiledbStats200Response GetTiledbStats ();
 
         /// <summary>
         /// 
@@ -42,8 +42,8 @@ namespace TileDB.Cloud.Rest.Api
         /// Fetch libtiledb stat
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetTiledbStatsWithHttpInfo ();
+        /// <returns>ApiResponse of GetTiledbStats200Response</returns>
+        ApiResponse<GetTiledbStats200Response> GetTiledbStatsWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +54,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetTiledbStatsAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of GetTiledbStats200Response</returns>
+        System.Threading.Tasks.Task<GetTiledbStats200Response> GetTiledbStatsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -65,8 +65,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTiledbStatsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (GetTiledbStats200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetTiledbStats200Response>> GetTiledbStatsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -182,10 +182,10 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch libtiledb stat
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetTiledbStats ()
+        /// <returns>GetTiledbStats200Response</returns>
+        public GetTiledbStats200Response GetTiledbStats ()
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetTiledbStatsWithHttpInfo();
+             ApiResponse<GetTiledbStats200Response> localVarResponse = GetTiledbStatsWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -193,8 +193,8 @@ namespace TileDB.Cloud.Rest.Api
         ///  Fetch libtiledb stat
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse<InlineResponse200> GetTiledbStatsWithHttpInfo ()
+        /// <returns>ApiResponse of GetTiledbStats200Response</returns>
+        public ApiResponse<GetTiledbStats200Response> GetTiledbStatsWithHttpInfo ()
         {
 
             var localVarPath = "/.stats";
@@ -244,9 +244,9 @@ namespace TileDB.Cloud.Rest.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<GetTiledbStats200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (GetTiledbStats200Response) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetTiledbStats200Response)));
         }
 
         /// <summary>
@@ -254,10 +254,10 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetTiledbStatsAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of GetTiledbStats200Response</returns>
+        public async System.Threading.Tasks.Task<GetTiledbStats200Response> GetTiledbStatsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GetTiledbStatsWithHttpInfoAsync(cancellationToken);
+             ApiResponse<GetTiledbStats200Response> localVarResponse = await GetTiledbStatsWithHttpInfoAsync(cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -267,8 +267,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetTiledbStatsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (GetTiledbStats200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetTiledbStats200Response>> GetTiledbStatsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/.stats";
@@ -318,9 +318,9 @@ namespace TileDB.Cloud.Rest.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<GetTiledbStats200Response>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+                (GetTiledbStats200Response) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetTiledbStats200Response)));
         }
 
     }

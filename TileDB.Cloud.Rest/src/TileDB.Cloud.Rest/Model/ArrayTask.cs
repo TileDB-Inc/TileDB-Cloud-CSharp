@@ -53,7 +53,7 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayTask" /> class.
         /// </summary>
-        /// <param name="id">task id.</param>
+        /// <param name="id">task ID.</param>
         /// <param name="name">Optional task name.</param>
         /// <param name="description">Optional task description (Tasks purpose).</param>
         /// <param name="arrayMetadata">arrayMetadata.</param>
@@ -78,8 +78,11 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="sqlInitCommands">SQL queries or commands to run before main sql query.</param>
         /// <param name="sqlParameters">SQL query parameters.</param>
         /// <param name="resultFormat">resultFormat.</param>
-        public ArrayTask(string id = default(string), string name = default(string), string description = default(string), ArrayInfo arrayMetadata = default(ArrayInfo), DomainArray subarray = default(DomainArray), int memory = default(int), int cpu = default(int), string _namespace = default(string), ArrayTaskStatus? status = default(ArrayTaskStatus?), DateTime startTime = default(DateTime), DateTime finishTime = default(DateTime), double cost = default(double), double egressCost = default(double), double accessCost = default(double), Querytype? queryType = default(Querytype?), string udfCode = default(string), string udfLanguage = default(string), string sqlQuery = default(string), ArrayTaskType? type = default(ArrayTaskType?), List<ArrayActivityLog> activity = default(List<ArrayActivityLog>), string logs = default(string), decimal duration = default(decimal), List<string> sqlInitCommands = default(List<string>), List<Object> sqlParameters = default(List<Object>), ResultFormat? resultFormat = default(ResultFormat?))
+        /// <param name="taskGraphUuid">If set, the ID of the log for the task graph that this was part of. .</param>
+        /// <param name="clientNodeUuid">If set, the client-defined ID of the node within this task&#39;s graph. .</param>
+        public ArrayTask(string id = default(string), string name = default(string), string description = default(string), ArrayInfo arrayMetadata = default(ArrayInfo), DomainArray subarray = default(DomainArray), int memory = default(int), int cpu = default(int), string _namespace = default(string), ArrayTaskStatus? status = default(ArrayTaskStatus?), DateTime startTime = default(DateTime), DateTime? finishTime = default(DateTime?), double cost = default(double), double egressCost = default(double), double accessCost = default(double), Querytype? queryType = default(Querytype?), string udfCode = default(string), string udfLanguage = default(string), string sqlQuery = default(string), ArrayTaskType? type = default(ArrayTaskType?), List<ArrayActivityLog> activity = default(List<ArrayActivityLog>), string logs = default(string), decimal duration = default(decimal), List<string> sqlInitCommands = default(List<string>), List<Object> sqlParameters = default(List<Object>), ResultFormat? resultFormat = default(ResultFormat?), string taskGraphUuid = default(string), string clientNodeUuid = default(string))
         {
+            this.FinishTime = finishTime;
             this.Id = id;
             this.Name = name;
             this.Description = description;
@@ -105,12 +108,14 @@ namespace TileDB.Cloud.Rest.Model
             this.SqlInitCommands = sqlInitCommands;
             this.SqlParameters = sqlParameters;
             this.ResultFormat = resultFormat;
+            this.TaskGraphUuid = taskGraphUuid;
+            this.ClientNodeUuid = clientNodeUuid;
         }
 
         /// <summary>
-        /// task id
+        /// task ID
         /// </summary>
-        /// <value>task id</value>
+        /// <value>task ID</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -173,8 +178,8 @@ namespace TileDB.Cloud.Rest.Model
         /// Finish time RFC3339 for job
         /// </summary>
         /// <value>Finish time RFC3339 for job</value>
-        [DataMember(Name="finish_time", EmitDefaultValue=false)]
-        public DateTime FinishTime { get; set; }
+        [DataMember(Name="finish_time", EmitDefaultValue=true)]
+        public DateTime? FinishTime { get; set; }
 
         /// <summary>
         /// Total accumulated for task in USD, example is $0.12
@@ -257,6 +262,20 @@ namespace TileDB.Cloud.Rest.Model
 
 
         /// <summary>
+        /// If set, the ID of the log for the task graph that this was part of. 
+        /// </summary>
+        /// <value>If set, the ID of the log for the task graph that this was part of. </value>
+        [DataMember(Name="task_graph_uuid", EmitDefaultValue=false)]
+        public string TaskGraphUuid { get; set; }
+
+        /// <summary>
+        /// If set, the client-defined ID of the node within this task&#39;s graph. 
+        /// </summary>
+        /// <value>If set, the client-defined ID of the node within this task&#39;s graph. </value>
+        [DataMember(Name="client_node_uuid", EmitDefaultValue=false)]
+        public string ClientNodeUuid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -289,6 +308,8 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  SqlInitCommands: ").Append(SqlInitCommands).Append("\n");
             sb.Append("  SqlParameters: ").Append(SqlParameters).Append("\n");
             sb.Append("  ResultFormat: ").Append(ResultFormat).Append("\n");
+            sb.Append("  TaskGraphUuid: ").Append(TaskGraphUuid).Append("\n");
+            sb.Append("  ClientNodeUuid: ").Append(ClientNodeUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -450,6 +471,16 @@ namespace TileDB.Cloud.Rest.Model
                     this.ResultFormat == input.ResultFormat ||
                     (this.ResultFormat != null &&
                     this.ResultFormat.Equals(input.ResultFormat))
+                ) && 
+                (
+                    this.TaskGraphUuid == input.TaskGraphUuid ||
+                    (this.TaskGraphUuid != null &&
+                    this.TaskGraphUuid.Equals(input.TaskGraphUuid))
+                ) && 
+                (
+                    this.ClientNodeUuid == input.ClientNodeUuid ||
+                    (this.ClientNodeUuid != null &&
+                    this.ClientNodeUuid.Equals(input.ClientNodeUuid))
                 );
         }
 
@@ -512,6 +543,10 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.SqlParameters.GetHashCode();
                 if (this.ResultFormat != null)
                     hashCode = hashCode * 59 + this.ResultFormat.GetHashCode();
+                if (this.TaskGraphUuid != null)
+                    hashCode = hashCode * 59 + this.TaskGraphUuid.GetHashCode();
+                if (this.ClientNodeUuid != null)
+                    hashCode = hashCode * 59 + this.ClientNodeUuid.GetHashCode();
                 return hashCode;
             }
         }
