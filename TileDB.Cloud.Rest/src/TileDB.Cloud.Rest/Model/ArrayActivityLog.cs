@@ -43,8 +43,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="username">User who performed action.</param>
         /// <param name="bytesSent">Bytes sent to client.</param>
         /// <param name="bytesReceived">Bytes recieved from client.</param>
-        /// <param name="arrayTaskId">uuid of associated array task.</param>
-        /// <param name="id">id of the activity.</param>
+        /// <param name="arrayTaskId">UUID of associated array task.</param>
+        /// <param name="id">ID of the activity.</param>
         /// <param name="queryRanges">ranges for query.</param>
         /// <param name="queryStats">stats for query.</param>
         public ArrayActivityLog(DateTime eventAt = default(DateTime), ActivityEventType? action = default(ActivityEventType?), string username = default(string), int bytesSent = default(int), int bytesReceived = default(int), string arrayTaskId = default(string), string id = default(string), string queryRanges = default(string), string queryStats = default(string))
@@ -90,16 +90,16 @@ namespace TileDB.Cloud.Rest.Model
         public int BytesReceived { get; set; }
 
         /// <summary>
-        /// uuid of associated array task
+        /// UUID of associated array task
         /// </summary>
-        /// <value>uuid of associated array task</value>
+        /// <value>UUID of associated array task</value>
         [DataMember(Name="array_task_id", EmitDefaultValue=false)]
         public string ArrayTaskId { get; set; }
 
         /// <summary>
-        /// id of the activity
+        /// ID of the activity
         /// </summary>
-        /// <value>id of the activity</value>
+        /// <value>ID of the activity</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 

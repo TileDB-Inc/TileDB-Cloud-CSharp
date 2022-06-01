@@ -50,6 +50,64 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Copy a tiledb notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <returns>NotebookCopied</returns>
+        NotebookCopied HandleCopyNotebook (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copy a tiledb notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <returns>ApiResponse of NotebookCopied</returns>
+        ApiResponse<NotebookCopied> HandleCopyNotebookWithHttpInfo (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>FileUploaded</returns>
+        FileUploaded HandleUploadNotebook (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>ApiResponse of FileUploaded</returns>
+        ApiResponse<FileUploaded> HandleUploadNotebookWithHttpInfo (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Shutdown a notebook server
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
@@ -71,7 +129,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// update name on a notebok, moving related s3 object to new location
+        /// update name on a notebok, moving related S3 object to new location
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -84,7 +142,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// update name on a notebok, moving related s3 object to new location
+        /// update name on a notebok, moving related S3 object to new location
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -121,6 +179,68 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Copy a tiledb notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NotebookCopied</returns>
+        System.Threading.Tasks.Task<NotebookCopied> HandleCopyNotebookAsync (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copy a tiledb notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NotebookCopied)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NotebookCopied>> HandleCopyNotebookWithHttpInfoAsync (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FileUploaded</returns>
+        System.Threading.Tasks.Task<FileUploaded> HandleUploadNotebookAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a notebook at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FileUploaded)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileUploaded>> HandleUploadNotebookWithHttpInfoAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Shutdown a notebook server
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
@@ -144,7 +264,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// update name on a notebok, moving related s3 object to new location
+        /// update name on a notebok, moving related S3 object to new location
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -158,7 +278,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// update name on a notebok, moving related s3 object to new location
+        /// update name on a notebok, moving related S3 object to new location
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -436,6 +556,404 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
+        ///  Copy a tiledb notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <returns>NotebookCopied</returns>
+        public NotebookCopied HandleCopyNotebook (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?))
+        {
+             ApiResponse<NotebookCopied> localVarResponse = HandleCopyNotebookWithHttpInfo(_namespace, array, notebookCopy, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, endTimestamp);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Copy a tiledb notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <returns>ApiResponse of NotebookCopied</returns>
+        public ApiResponse<NotebookCopied> HandleCopyNotebookWithHttpInfo (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling NotebookApi->HandleCopyNotebook");
+            // verify the required parameter 'array' is set
+            if (array == null)
+                throw new ApiException(400, "Missing required parameter 'array' when calling NotebookApi->HandleCopyNotebook");
+            // verify the required parameter 'notebookCopy' is set
+            if (notebookCopy == null)
+                throw new ApiException(400, "Missing required parameter 'notebookCopy' when calling NotebookApi->HandleCopyNotebook");
+
+            var localVarPath = "/notebooks/{namespace}/{array}/copy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (array != null) localVarPathParams.Add("array", this.Configuration.ApiClient.ParameterToString(array)); // path parameter
+            if (endTimestamp != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end_timestamp", endTimestamp)); // query parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (notebookCopy != null && notebookCopy.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(notebookCopy); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = notebookCopy; // byte array
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleCopyNotebook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NotebookCopied>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NotebookCopied) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NotebookCopied)));
+        }
+
+        /// <summary>
+        ///  Copy a tiledb notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NotebookCopied</returns>
+        public async System.Threading.Tasks.Task<NotebookCopied> HandleCopyNotebookAsync (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<NotebookCopied> localVarResponse = await HandleCopyNotebookWithHttpInfoAsync(_namespace, array, notebookCopy, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, endTimestamp, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  Copy a tiledb notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="array">The name of the notebook</param>
+        /// <param name="notebookCopy">Input/Output information to create a new TileDB file</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch, copy will use open_at functionality to copy notebook created at the specific timestamp (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NotebookCopied)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<NotebookCopied>> HandleCopyNotebookWithHttpInfoAsync (string _namespace, string array, NotebookCopy notebookCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling NotebookApi->HandleCopyNotebook");
+            // verify the required parameter 'array' is set
+            if (array == null)
+                throw new ApiException(400, "Missing required parameter 'array' when calling NotebookApi->HandleCopyNotebook");
+            // verify the required parameter 'notebookCopy' is set
+            if (notebookCopy == null)
+                throw new ApiException(400, "Missing required parameter 'notebookCopy' when calling NotebookApi->HandleCopyNotebook");
+
+            var localVarPath = "/notebooks/{namespace}/{array}/copy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (array != null) localVarPathParams.Add("array", this.Configuration.ApiClient.ParameterToString(array)); // path parameter
+            if (endTimestamp != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end_timestamp", endTimestamp)); // query parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (notebookCopy != null && notebookCopy.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(notebookCopy); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = notebookCopy; // byte array
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleCopyNotebook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NotebookCopied>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NotebookCopied) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NotebookCopied)));
+        }
+
+        /// <summary>
+        ///  Upload a notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>FileUploaded</returns>
+        public FileUploaded HandleUploadNotebook (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string))
+        {
+             ApiResponse<FileUploaded> localVarResponse = HandleUploadNotebookWithHttpInfo(_namespace, inputFile, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, outputUri, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Upload a notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>ApiResponse of FileUploaded</returns>
+        public ApiResponse<FileUploaded> HandleUploadNotebookWithHttpInfo (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling NotebookApi->HandleUploadNotebook");
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling NotebookApi->HandleUploadNotebook");
+
+            var localVarPath = "/notebooks/{namespace}/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("input_file", this.Configuration.ApiClient.ParameterToFile("input_file", inputFile));
+            if (outputUri != null) localVarFormParams.Add("output_uri", this.Configuration.ApiClient.ParameterToString(outputUri)); // form parameter
+            if (name != null) localVarFormParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // form parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleUploadNotebook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileUploaded>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FileUploaded) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileUploaded)));
+        }
+
+        /// <summary>
+        ///  Upload a notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FileUploaded</returns>
+        public async System.Threading.Tasks.Task<FileUploaded> HandleUploadNotebookAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<FileUploaded> localVarResponse = await HandleUploadNotebookWithHttpInfoAsync(_namespace, inputFile, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, outputUri, name, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  Upload a notebook at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the notebook</param>
+        /// <param name="inputFile">the notebook to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FileUploaded)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileUploaded>> HandleUploadNotebookWithHttpInfoAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling NotebookApi->HandleUploadNotebook");
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling NotebookApi->HandleUploadNotebook");
+
+            var localVarPath = "/notebooks/{namespace}/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("input_file", this.Configuration.ApiClient.ParameterToFile("input_file", inputFile));
+            if (outputUri != null) localVarFormParams.Add("output_uri", this.Configuration.ApiClient.ParameterToString(outputUri)); // form parameter
+            if (name != null) localVarFormParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // form parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleUploadNotebook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileUploaded>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FileUploaded) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileUploaded)));
+        }
+
+        /// <summary>
         ///  Shutdown a notebook server
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
@@ -591,7 +1109,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  update name on a notebok, moving related s3 object to new location
+        ///  update name on a notebok, moving related S3 object to new location
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -604,7 +1122,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  update name on a notebok, moving related s3 object to new location
+        ///  update name on a notebok, moving related S3 object to new location
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -687,7 +1205,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  update name on a notebok, moving related s3 object to new location
+        ///  update name on a notebok, moving related S3 object to new location
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -702,7 +1220,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  update name on a notebok, moving related s3 object to new location
+        ///  update name on a notebok, moving related S3 object to new location
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>

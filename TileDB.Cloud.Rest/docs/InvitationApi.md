@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.InvitationApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -46,7 +46,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var invitation = invitation_example;  // string | the id of invitation about to be accepted
+            var invitation = "invitation_example";  // string | the ID of invitation about to be accepted
 
             try
             {
@@ -68,7 +68,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invitation** | **string**| the id of invitation about to be accepted | 
+ **invitation** | **string**| the ID of invitation about to be accepted | 
 
 ### Return type
 
@@ -120,7 +120,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -130,8 +130,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var invitation = invitation_example;  // string | the id of invitation about to be cancelled
-            var organization = organization_example;  // string | name or uuid of organization
+            var invitation = "invitation_example";  // string | the ID of invitation about to be cancelled
+            var organization = "organization_example";  // string | name or UUID of organization
 
             try
             {
@@ -153,8 +153,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invitation** | **string**| the id of invitation about to be cancelled | 
- **organization** | **string**| name or uuid of organization | 
+ **invitation** | **string**| the ID of invitation about to be cancelled | 
+ **organization** | **string**| name or UUID of organization | 
 
 ### Return type
 
@@ -206,7 +206,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -216,9 +216,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var invitation = invitation_example;  // string | the id of invitation about to be cancelled
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var invitation = "invitation_example";  // string | the ID of invitation about to be cancelled
+            var array = "array_example";  // string | name/uri of array that is url-encoded
 
             try
             {
@@ -241,7 +241,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **invitation** | **string**| the id of invitation about to be cancelled | 
+ **invitation** | **string**| the ID of invitation about to be cancelled | 
  **array** | **string**| name/uri of array that is url-encoded | 
 
 ### Return type
@@ -294,7 +294,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -304,15 +304,15 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var organization = organization_example;  // string | name or id of organization to filter (optional) 
-            var array = array_example;  // string | name/uri of array that is url-encoded to filter (optional) 
+            var organization = "organization_example";  // string | name or ID of organization to filter (optional) 
+            var array = "array_example";  // string | name/uri of array that is url-encoded to filter (optional) 
             var start = 56;  // int? | start time for tasks to filter by (optional) 
             var end = 56;  // int? | end time for tasks to filter by (optional) 
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
-            var type = type_example;  // string | invitation type, \"ARRAY_SHARE\", \"JOIN_ORGANIZATION\" (optional) 
-            var status = status_example;  // string | Filter to only return \"PENDING\", \"ACCEPTED\" (optional) 
-            var orderby = orderby_example;  // string | sort by which field valid values include timestamp, array_name, organization_name (optional) 
+            var type = "type_example";  // string | invitation type, \"ARRAY_SHARE\", \"JOIN_ORGANIZATION\" (optional) 
+            var status = "status_example";  // string | Filter to only return \"PENDING\", \"ACCEPTED\" (optional) 
+            var orderby = "orderby_example";  // string | sort by which field valid values include timestamp, array_name, organization_name (optional) 
 
             try
             {
@@ -335,7 +335,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | **string**| name or id of organization to filter | [optional] 
+ **organization** | **string**| name or ID of organization to filter | [optional] 
  **array** | **string**| name/uri of array that is url-encoded to filter | [optional] 
  **start** | **int?**| start time for tasks to filter by | [optional] 
  **end** | **int?**| end time for tasks to filter by | [optional] 
@@ -394,7 +394,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -404,7 +404,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var organization = organization_example;  // string | name or uuid of organization
+            var organization = "organization_example";  // string | name or UUID of organization
             var emailInvite = new InvitationOrganizationJoinEmail(); // InvitationOrganizationJoinEmail | list of email recipients
 
             try
@@ -427,7 +427,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | **string**| name or uuid of organization | 
+ **organization** | **string**| name or UUID of organization | 
  **emailInvite** | [**InvitationOrganizationJoinEmail**](InvitationOrganizationJoinEmail.md)| list of email recipients | 
 
 ### Return type
@@ -480,7 +480,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -490,8 +490,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new InvitationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var emailInvite = new InvitationArrayShareEmail(); // InvitationArrayShareEmail | list of email recipients
 
             try

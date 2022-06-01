@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | unique uuid of the favorite | [optional] 
-**CreatedAt** | **DateTime** | Datetime the favorite was created in UTC | [optional] 
-**MlmodelUuid** | **string** | unique uuid of the MLModel | [optional] 
+**MlmodelUuid** | **string** | unique UUID of the MLModel | [optional] 
+**Namespace** | **string** | the namespace of the MLModel | [optional] 
+**Name** | **string** | the name of the MLModel | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

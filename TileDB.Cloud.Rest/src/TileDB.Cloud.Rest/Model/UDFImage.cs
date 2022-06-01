@@ -38,8 +38,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UDFImage" /> class.
         /// </summary>
-        /// <param name="id">Unique id of set of images.</param>
-        /// <param name="name">name of udf.</param>
+        /// <param name="id">Unique ID of set of images.</param>
+        /// <param name="name">name of UDF.</param>
         /// <param name="language">language.</param>
         public UDFImage(string id = default(string), string name = default(string), UDFLanguage? language = default(UDFLanguage?))
         {
@@ -49,16 +49,16 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// Unique id of set of images
+        /// Unique ID of set of images
         /// </summary>
-        /// <value>Unique id of set of images</value>
+        /// <value>Unique ID of set of images</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// name of udf
+        /// name of UDF
         /// </summary>
-        /// <value>name of udf</value>
+        /// <value>name of UDF</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

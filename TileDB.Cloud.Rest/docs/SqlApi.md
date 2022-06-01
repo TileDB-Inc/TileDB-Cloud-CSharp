@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.SqlApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -41,9 +41,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SqlApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace to run task under is in (an organization name or user's username)
+            var _namespace = "_namespace_example";  // string | namespace to run task under is in (an organization name or user's username)
             var sql = new SQLParameters(); // SQLParameters | sql being submitted
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
 
             try
             {

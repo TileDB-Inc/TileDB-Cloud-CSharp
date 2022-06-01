@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | task id | [optional] 
+**Id** | **string** | task ID | [optional] 
 **Name** | **string** | Optional task name | [optional] 
 **Description** | **string** | Optional task description (Tasks purpose) | [optional] 
 **ArrayMetadata** | [**ArrayInfo**](ArrayInfo.md) |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Namespace** | **string** | namespace task is tied to | [optional] 
 **Status** | **ArrayTaskStatus** |  | [optional] 
 **StartTime** | **DateTime** | Start time RFC3339 for job | [optional] 
-**FinishTime** | **DateTime** | Finish time RFC3339 for job | [optional] 
+**FinishTime** | **DateTime?** | Finish time RFC3339 for job | [optional] 
 **Cost** | **double** | Total accumulated for task in USD, example is $0.12 | [optional] 
 **EgressCost** | **double** | Total accumulated for egress task in USD, example is $0.12 | [optional] 
 **AccessCost** | **double** | Cost accumulated for access task in USD, example is $0.12 | [optional] 
@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **SqlInitCommands** | **List&lt;string&gt;** | SQL queries or commands to run before main sql query | [optional] 
 **SqlParameters** | **List&lt;Object&gt;** | SQL query parameters | [optional] 
 **ResultFormat** | **ResultFormat** |  | [optional] 
+**TaskGraphUuid** | **string** | If set, the ID of the log for the task graph that this was part of.  | [optional] 
+**ClientNodeUuid** | **string** | If set, the client-defined ID of the node within this task&#39;s graph.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

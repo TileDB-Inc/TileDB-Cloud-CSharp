@@ -46,20 +46,26 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="udfInfoName">name of UDFInfo to run, format is {namespace}/{udf_name}. Can not be used with exec.</param>
         /// <param name="language">language.</param>
         /// <param name="version">Type-specific version.</param>
-        /// <param name="imageName">Docker image name to use for udf.</param>
+        /// <param name="imageName">Docker image name to use for UDF.</param>
+        /// <param name="resourceClass">The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. .</param>
         /// <param name="exec">Type-specific executable text.</param>
         /// <param name="execRaw">optional raw text to store of serialized function, used for showing in UI.</param>
-        /// <param name="argument">Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format.</param>
+        /// <param name="argument">Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format.</param>
         /// <param name="storedParamUuids">The UUIDs of stored input parameters (passed in a language-specific format within \&quot;argument\&quot;) to be retrieved from the server-side cache. Serialized in standard hex format with no {}..</param>
         /// <param name="resultFormat">resultFormat.</param>
         /// <param name="taskName">name of task, optional.</param>
         /// <param name="storeResults">store results for later retrieval.</param>
-        public GenericUDF(string udfInfoName = default(string), UDFLanguage? language = default(UDFLanguage?), string version = default(string), string imageName = default(string), string exec = default(string), string execRaw = default(string), string argument = default(string), List<string> storedParamUuids = default(List<string>), ResultFormat? resultFormat = default(ResultFormat?), string taskName = default(string), bool storeResults = default(bool))
+        /// <param name="timeout">UDF-type timeout in seconds (default: 900).</param>
+        /// <param name="dontDownloadResults">Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;)..</param>
+        /// <param name="taskGraphUuid">If set, the ID of the log for the task graph that this was part of. .</param>
+        /// <param name="clientNodeUuid">If set, the client-defined ID of the node within this task&#39;s graph. .</param>
+        public GenericUDF(string udfInfoName = default(string), UDFLanguage? language = default(UDFLanguage?), string version = default(string), string imageName = default(string), string resourceClass = default(string), string exec = default(string), string execRaw = default(string), string argument = default(string), List<string> storedParamUuids = default(List<string>), ResultFormat? resultFormat = default(ResultFormat?), string taskName = default(string), bool storeResults = default(bool), int timeout = default(int), bool dontDownloadResults = default(bool), string taskGraphUuid = default(string), string clientNodeUuid = default(string))
         {
             this.UdfInfoName = udfInfoName;
             this.Language = language;
             this._Version = version;
             this.ImageName = imageName;
+            this.ResourceClass = resourceClass;
             this.Exec = exec;
             this.ExecRaw = execRaw;
             this.Argument = argument;
@@ -67,6 +73,10 @@ namespace TileDB.Cloud.Rest.Model
             this.ResultFormat = resultFormat;
             this.TaskName = taskName;
             this.StoreResults = storeResults;
+            this.Timeout = timeout;
+            this.DontDownloadResults = dontDownloadResults;
+            this.TaskGraphUuid = taskGraphUuid;
+            this.ClientNodeUuid = clientNodeUuid;
         }
 
         /// <summary>
@@ -85,11 +95,18 @@ namespace TileDB.Cloud.Rest.Model
         public string _Version { get; set; }
 
         /// <summary>
-        /// Docker image name to use for udf
+        /// Docker image name to use for UDF
         /// </summary>
-        /// <value>Docker image name to use for udf</value>
+        /// <value>Docker image name to use for UDF</value>
         [DataMember(Name="image_name", EmitDefaultValue=false)]
         public string ImageName { get; set; }
+
+        /// <summary>
+        /// The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. 
+        /// </summary>
+        /// <value>The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. </value>
+        [DataMember(Name="resource_class", EmitDefaultValue=false)]
+        public string ResourceClass { get; set; }
 
         /// <summary>
         /// Type-specific executable text
@@ -106,9 +123,9 @@ namespace TileDB.Cloud.Rest.Model
         public string ExecRaw { get; set; }
 
         /// <summary>
-        /// Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format
+        /// Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format
         /// </summary>
-        /// <value>Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format</value>
+        /// <value>Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format</value>
         [DataMember(Name="argument", EmitDefaultValue=false)]
         public string Argument { get; set; }
 
@@ -135,6 +152,34 @@ namespace TileDB.Cloud.Rest.Model
         public bool StoreResults { get; set; }
 
         /// <summary>
+        /// UDF-type timeout in seconds (default: 900)
+        /// </summary>
+        /// <value>UDF-type timeout in seconds (default: 900)</value>
+        [DataMember(Name="timeout", EmitDefaultValue=false)]
+        public int Timeout { get; set; }
+
+        /// <summary>
+        /// Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).
+        /// </summary>
+        /// <value>Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).</value>
+        [DataMember(Name="dont_download_results", EmitDefaultValue=false)]
+        public bool DontDownloadResults { get; set; }
+
+        /// <summary>
+        /// If set, the ID of the log for the task graph that this was part of. 
+        /// </summary>
+        /// <value>If set, the ID of the log for the task graph that this was part of. </value>
+        [DataMember(Name="task_graph_uuid", EmitDefaultValue=false)]
+        public string TaskGraphUuid { get; set; }
+
+        /// <summary>
+        /// If set, the client-defined ID of the node within this task&#39;s graph. 
+        /// </summary>
+        /// <value>If set, the client-defined ID of the node within this task&#39;s graph. </value>
+        [DataMember(Name="client_node_uuid", EmitDefaultValue=false)]
+        public string ClientNodeUuid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -146,6 +191,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  ImageName: ").Append(ImageName).Append("\n");
+            sb.Append("  ResourceClass: ").Append(ResourceClass).Append("\n");
             sb.Append("  Exec: ").Append(Exec).Append("\n");
             sb.Append("  ExecRaw: ").Append(ExecRaw).Append("\n");
             sb.Append("  Argument: ").Append(Argument).Append("\n");
@@ -153,6 +199,10 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  ResultFormat: ").Append(ResultFormat).Append("\n");
             sb.Append("  TaskName: ").Append(TaskName).Append("\n");
             sb.Append("  StoreResults: ").Append(StoreResults).Append("\n");
+            sb.Append("  Timeout: ").Append(Timeout).Append("\n");
+            sb.Append("  DontDownloadResults: ").Append(DontDownloadResults).Append("\n");
+            sb.Append("  TaskGraphUuid: ").Append(TaskGraphUuid).Append("\n");
+            sb.Append("  ClientNodeUuid: ").Append(ClientNodeUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +258,11 @@ namespace TileDB.Cloud.Rest.Model
                     this.ImageName.Equals(input.ImageName))
                 ) && 
                 (
+                    this.ResourceClass == input.ResourceClass ||
+                    (this.ResourceClass != null &&
+                    this.ResourceClass.Equals(input.ResourceClass))
+                ) && 
+                (
                     this.Exec == input.Exec ||
                     (this.Exec != null &&
                     this.Exec.Equals(input.Exec))
@@ -242,6 +297,26 @@ namespace TileDB.Cloud.Rest.Model
                     this.StoreResults == input.StoreResults ||
                     (this.StoreResults != null &&
                     this.StoreResults.Equals(input.StoreResults))
+                ) && 
+                (
+                    this.Timeout == input.Timeout ||
+                    (this.Timeout != null &&
+                    this.Timeout.Equals(input.Timeout))
+                ) && 
+                (
+                    this.DontDownloadResults == input.DontDownloadResults ||
+                    (this.DontDownloadResults != null &&
+                    this.DontDownloadResults.Equals(input.DontDownloadResults))
+                ) && 
+                (
+                    this.TaskGraphUuid == input.TaskGraphUuid ||
+                    (this.TaskGraphUuid != null &&
+                    this.TaskGraphUuid.Equals(input.TaskGraphUuid))
+                ) && 
+                (
+                    this.ClientNodeUuid == input.ClientNodeUuid ||
+                    (this.ClientNodeUuid != null &&
+                    this.ClientNodeUuid.Equals(input.ClientNodeUuid))
                 );
         }
 
@@ -262,6 +337,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this._Version.GetHashCode();
                 if (this.ImageName != null)
                     hashCode = hashCode * 59 + this.ImageName.GetHashCode();
+                if (this.ResourceClass != null)
+                    hashCode = hashCode * 59 + this.ResourceClass.GetHashCode();
                 if (this.Exec != null)
                     hashCode = hashCode * 59 + this.Exec.GetHashCode();
                 if (this.ExecRaw != null)
@@ -276,6 +353,14 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.TaskName.GetHashCode();
                 if (this.StoreResults != null)
                     hashCode = hashCode * 59 + this.StoreResults.GetHashCode();
+                if (this.Timeout != null)
+                    hashCode = hashCode * 59 + this.Timeout.GetHashCode();
+                if (this.DontDownloadResults != null)
+                    hashCode = hashCode * 59 + this.DontDownloadResults.GetHashCode();
+                if (this.TaskGraphUuid != null)
+                    hashCode = hashCode * 59 + this.TaskGraphUuid.GetHashCode();
+                if (this.ClientNodeUuid != null)
+                    hashCode = hashCode * 59 + this.ClientNodeUuid.GetHashCode();
                 return hashCode;
             }
         }

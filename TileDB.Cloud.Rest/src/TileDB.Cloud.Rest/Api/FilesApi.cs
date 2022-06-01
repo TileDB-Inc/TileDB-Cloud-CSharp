@@ -75,6 +75,35 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileExport">Export configuration information</param>
         /// <returns>ApiResponse of FileExported</returns>
         ApiResponse<FileExported> HandleExportFileWithHttpInfo (string _namespace, string file, FileExport fileExport);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a tiledb file at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>FileUploaded</returns>
+        FileUploaded HandleUploadFile (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a tiledb file at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>ApiResponse of FileUploaded</returns>
+        ApiResponse<FileUploaded> HandleUploadFileWithHttpInfo (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -131,6 +160,37 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FileExported)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileExported>> HandleExportFileWithHttpInfoAsync (string _namespace, string file, FileExport fileExport, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a tiledb file at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FileUploaded</returns>
+        System.Threading.Tasks.Task<FileUploaded> HandleUploadFileAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Upload a tiledb file at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FileUploaded)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileUploaded>> HandleUploadFileWithHttpInfoAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -628,6 +688,195 @@ namespace TileDB.Cloud.Rest.Api
             return new ApiResponse<FileExported>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FileExported) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileExported)));
+        }
+
+        /// <summary>
+        ///  Upload a tiledb file at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>FileUploaded</returns>
+        public FileUploaded HandleUploadFile (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string))
+        {
+             ApiResponse<FileUploaded> localVarResponse = HandleUploadFileWithHttpInfo(_namespace, inputFile, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, outputUri, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Upload a tiledb file at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <returns>ApiResponse of FileUploaded</returns>
+        public ApiResponse<FileUploaded> HandleUploadFileWithHttpInfo (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FilesApi->HandleUploadFile");
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling FilesApi->HandleUploadFile");
+
+            var localVarPath = "/files/{namespace}/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("input_file", this.Configuration.ApiClient.ParameterToFile("input_file", inputFile));
+            if (outputUri != null) localVarFormParams.Add("output_uri", this.Configuration.ApiClient.ParameterToString(outputUri)); // form parameter
+            if (name != null) localVarFormParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // form parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleUploadFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileUploaded>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FileUploaded) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileUploaded)));
+        }
+
+        /// <summary>
+        ///  Upload a tiledb file at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of FileUploaded</returns>
+        public async System.Threading.Tasks.Task<FileUploaded> HandleUploadFileAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<FileUploaded> localVarResponse = await HandleUploadFileWithHttpInfoAsync(_namespace, inputFile, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, outputUri, name, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  Upload a tiledb file at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">The namespace of the file</param>
+        /// <param name="inputFile">the file to upload</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="outputUri">output location of the TileDB File (optional)</param>
+        /// <param name="name">name to set for registered file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (FileUploaded)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileUploaded>> HandleUploadFileWithHttpInfoAsync (string _namespace, System.IO.Stream inputFile, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), string outputUri = default(string), string name = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling FilesApi->HandleUploadFile");
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling FilesApi->HandleUploadFile");
+
+            var localVarPath = "/files/{namespace}/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("input_file", this.Configuration.ApiClient.ParameterToFile("input_file", inputFile));
+            if (outputUri != null) localVarFormParams.Add("output_uri", this.Configuration.ApiClient.ParameterToString(outputUri)); // form parameter
+            if (name != null) localVarFormParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // form parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleUploadFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileUploaded>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (FileUploaded) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileUploaded)));
         }
 
     }

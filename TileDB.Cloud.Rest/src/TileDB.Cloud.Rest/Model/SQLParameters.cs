@@ -42,18 +42,24 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="query">query to run.</param>
         /// <param name="outputUri">Output array uri.</param>
         /// <param name="storeResults">store results for later retrieval.</param>
+        /// <param name="dontDownloadResults">Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;)..</param>
         /// <param name="resultFormat">resultFormat.</param>
         /// <param name="initCommands">Queries or commands to run before main query.</param>
         /// <param name="parameters">SQL query parameters.</param>
-        public SQLParameters(string name = default(string), string query = default(string), string outputUri = default(string), bool storeResults = default(bool), ResultFormat? resultFormat = default(ResultFormat?), List<string> initCommands = default(List<string>), List<Object> parameters = default(List<Object>))
+        /// <param name="taskGraphUuid">If set, the ID of the log for the task graph that this was part of. .</param>
+        /// <param name="clientNodeUuid">If set, the client-defined ID of the node within this task&#39;s graph. .</param>
+        public SQLParameters(string name = default(string), string query = default(string), string outputUri = default(string), bool storeResults = default(bool), bool dontDownloadResults = default(bool), ResultFormat? resultFormat = default(ResultFormat?), List<string> initCommands = default(List<string>), List<Object> parameters = default(List<Object>), string taskGraphUuid = default(string), string clientNodeUuid = default(string))
         {
             this.Name = name;
             this.Query = query;
             this.OutputUri = outputUri;
             this.StoreResults = storeResults;
+            this.DontDownloadResults = dontDownloadResults;
             this.ResultFormat = resultFormat;
             this.InitCommands = initCommands;
             this.Parameters = parameters;
+            this.TaskGraphUuid = taskGraphUuid;
+            this.ClientNodeUuid = clientNodeUuid;
         }
 
         /// <summary>
@@ -84,6 +90,13 @@ namespace TileDB.Cloud.Rest.Model
         [DataMember(Name="store_results", EmitDefaultValue=false)]
         public bool StoreResults { get; set; }
 
+        /// <summary>
+        /// Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).
+        /// </summary>
+        /// <value>Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).</value>
+        [DataMember(Name="dont_download_results", EmitDefaultValue=false)]
+        public bool DontDownloadResults { get; set; }
+
 
         /// <summary>
         /// Queries or commands to run before main query
@@ -100,6 +113,20 @@ namespace TileDB.Cloud.Rest.Model
         public List<Object> Parameters { get; set; }
 
         /// <summary>
+        /// If set, the ID of the log for the task graph that this was part of. 
+        /// </summary>
+        /// <value>If set, the ID of the log for the task graph that this was part of. </value>
+        [DataMember(Name="task_graph_uuid", EmitDefaultValue=false)]
+        public string TaskGraphUuid { get; set; }
+
+        /// <summary>
+        /// If set, the client-defined ID of the node within this task&#39;s graph. 
+        /// </summary>
+        /// <value>If set, the client-defined ID of the node within this task&#39;s graph. </value>
+        [DataMember(Name="client_node_uuid", EmitDefaultValue=false)]
+        public string ClientNodeUuid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,9 +138,12 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  OutputUri: ").Append(OutputUri).Append("\n");
             sb.Append("  StoreResults: ").Append(StoreResults).Append("\n");
+            sb.Append("  DontDownloadResults: ").Append(DontDownloadResults).Append("\n");
             sb.Append("  ResultFormat: ").Append(ResultFormat).Append("\n");
             sb.Append("  InitCommands: ").Append(InitCommands).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
+            sb.Append("  TaskGraphUuid: ").Append(TaskGraphUuid).Append("\n");
+            sb.Append("  ClientNodeUuid: ").Append(ClientNodeUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +199,11 @@ namespace TileDB.Cloud.Rest.Model
                     this.StoreResults.Equals(input.StoreResults))
                 ) && 
                 (
+                    this.DontDownloadResults == input.DontDownloadResults ||
+                    (this.DontDownloadResults != null &&
+                    this.DontDownloadResults.Equals(input.DontDownloadResults))
+                ) && 
+                (
                     this.ResultFormat == input.ResultFormat ||
                     (this.ResultFormat != null &&
                     this.ResultFormat.Equals(input.ResultFormat))
@@ -184,6 +219,16 @@ namespace TileDB.Cloud.Rest.Model
                     this.Parameters != null &&
                     input.Parameters != null &&
                     this.Parameters.SequenceEqual(input.Parameters)
+                ) && 
+                (
+                    this.TaskGraphUuid == input.TaskGraphUuid ||
+                    (this.TaskGraphUuid != null &&
+                    this.TaskGraphUuid.Equals(input.TaskGraphUuid))
+                ) && 
+                (
+                    this.ClientNodeUuid == input.ClientNodeUuid ||
+                    (this.ClientNodeUuid != null &&
+                    this.ClientNodeUuid.Equals(input.ClientNodeUuid))
                 );
         }
 
@@ -204,12 +249,18 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.OutputUri.GetHashCode();
                 if (this.StoreResults != null)
                     hashCode = hashCode * 59 + this.StoreResults.GetHashCode();
+                if (this.DontDownloadResults != null)
+                    hashCode = hashCode * 59 + this.DontDownloadResults.GetHashCode();
                 if (this.ResultFormat != null)
                     hashCode = hashCode * 59 + this.ResultFormat.GetHashCode();
                 if (this.InitCommands != null)
                     hashCode = hashCode * 59 + this.InitCommands.GetHashCode();
                 if (this.Parameters != null)
                     hashCode = hashCode * 59 + this.Parameters.GetHashCode();
+                if (this.TaskGraphUuid != null)
+                    hashCode = hashCode * 59 + this.TaskGraphUuid.GetHashCode();
+                if (this.ClientNodeUuid != null)
+                    hashCode = hashCode * 59 + this.ClientNodeUuid.GetHashCode();
                 return hashCode;
             }
         }

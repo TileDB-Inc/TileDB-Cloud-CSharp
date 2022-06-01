@@ -1,12 +1,13 @@
 # TileDB.Cloud.Rest.Api.UdfApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteUDFInfo**](UdfApi.md#deleteudfinfo) | **DELETE** /udf/{namespace}/{name} | 
 [**GetUDFInfo**](UdfApi.md#getudfinfo) | **GET** /udf/{namespace}/{name} | 
 [**GetUDFInfoSharingPolicies**](UdfApi.md#getudfinfosharingpolicies) | **GET** /udf/{namespace}/{name}/share | 
+[**HandleCopyUDF**](UdfApi.md#handlecopyudf) | **POST** /udf/{namespace}/{name}/copy | 
 [**RegisterUDFInfo**](UdfApi.md#registerudfinfo) | **POST** /udf/{namespace}/{name} | 
 [**ShareUDFInfo**](UdfApi.md#shareudfinfo) | **PATCH** /udf/{namespace}/{name}/share | 
 [**SubmitGenericUDF**](UdfApi.md#submitgenericudf) | **POST** /udfs/generic/{namespace} | 
@@ -23,7 +24,7 @@ Method | HTTP request | Description
 
 
 
-delete a registerd UDF, this will remove all sharing and can not be undone
+delete a registered UDF - - this will remove all sharing and can not be undone
 
 ### Example
 
@@ -40,7 +41,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -50,8 +51,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name to register udf under
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name to register UDF under
 
             try
             {
@@ -74,7 +75,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **name** | **string**| name to register udf under | 
+ **name** | **string**| name to register UDF under | 
 
 ### Return type
 
@@ -93,7 +94,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | UDF delete successfully |  -  |
+| **204** | UDF deleted successfully |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -125,7 +126,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -135,8 +136,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name to register udf under
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name to register UDF under
 
             try
             {
@@ -160,7 +161,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **name** | **string**| name to register udf under | 
+ **name** | **string**| name to register UDF under | 
 
 ### Return type
 
@@ -180,7 +181,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | UDFInfo was retrieved successfully |  -  |
-| **404** | udf not found |  -  |
+| **404** | UDF not found |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -195,7 +196,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all sharing details of the udf
+Get all sharing details of the UDF
 
 ### Example
 
@@ -212,7 +213,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -222,8 +223,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name of UDFInfo
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name of UDFInfo
 
             try
             {
@@ -267,7 +268,99 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of all specific sharing policies |  -  |
-| **404** | UDF does not exist or user does not have permissions to view array sharing policies |  -  |
+| **404** | UDF does not exist or user does not have permissions to view array-sharing policies |  -  |
+| **0** | error response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HandleCopyUDF
+
+> UDFCopied HandleCopyUDF (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = null, int? endTimestamp = null)
+
+
+
+Copy a tiledb udf at the specified location
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TileDB.Cloud.Rest.Api;
+using TileDB.Cloud.Rest.Client;
+using TileDB.Cloud.Rest.Model;
+
+namespace Example
+{
+    public class HandleCopyUDFExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "/v1";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // Configure HTTP basic authorization: BasicAuth
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new UdfApi(Configuration.Default);
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name of UDFInfo
+            var uDFCopy = new UDFCopy(); // UDFCopy | Input/Output information to copy a UDF
+            var X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = "X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME_example";  // string | Optional registered access credentials to use for creation (optional) 
+            var endTimestamp = 56;  // int? | Milliseconds since Unix epoch (optional) 
+
+            try
+            {
+                UDFCopied result = apiInstance.HandleCopyUDF(_namespace, name, uDFCopy, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, endTimestamp);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling UdfApi.HandleCopyUDF: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
+ **name** | **string**| name of UDFInfo | 
+ **uDFCopy** | [**UDFCopy**](UDFCopy.md)| Input/Output information to copy a UDF | 
+ **X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME** | **string**| Optional registered access credentials to use for creation | [optional] 
+ **endTimestamp** | **int?**| Milliseconds since Unix epoch | [optional] 
+
+### Return type
+
+[**UDFCopied**](UDFCopied.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | UDF copied |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -299,7 +392,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -309,9 +402,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name to register udf under
-            var udf = new UDFInfoUpdate(); // UDFInfoUpdate | udf to register
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name to register UDF under
+            var udf = new UDFInfoUpdate(); // UDFInfoUpdate | UDF to register
 
             try
             {
@@ -334,8 +427,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **name** | **string**| name to register udf under | 
- **udf** | [**UDFInfoUpdate**](UDFInfoUpdate.md)| udf to register | 
+ **name** | **string**| name to register UDF under | 
+ **udf** | [**UDFInfoUpdate**](UDFInfoUpdate.md)| UDF to register | 
 
 ### Return type
 
@@ -354,7 +447,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | udf registered successfully |  -  |
+| **204** | UDF registered successfully |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -386,7 +479,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -396,9 +489,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name of UDFInfo
-            var udfSharing = new UDFSharing(); // UDFSharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name of UDFInfo
+            var udfSharing = new UDFSharing(); // UDFSharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the UDF will not be shared with the namespace at all.
 
             try
             {
@@ -422,7 +515,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **name** | **string**| name of UDFInfo | 
- **udfSharing** | [**UDFSharing**](UDFSharing.md)| Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all | 
+ **udfSharing** | [**UDFSharing**](UDFSharing.md)| Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all. | 
 
 ### Return type
 
@@ -442,7 +535,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | UDF shared successfully |  -  |
-| **404** | UDF does not exist or user does not have permissions to share udf |  -  |
+| **404** | UDF does not exist or user does not have permissions to share UDF |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)
@@ -474,7 +567,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -484,9 +577,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var udf = new GenericUDF(); // GenericUDF | udf to run
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var udf = new GenericUDF(); // GenericUDF | UDF to run
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
 
             try
             {
@@ -510,7 +603,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **udf** | [**GenericUDF**](GenericUDF.md)| udf to run | 
+ **udf** | [**GenericUDF**](GenericUDF.md)| UDF to run | 
  **acceptEncoding** | **string**| Encoding to use | [optional] 
 
 ### Return type
@@ -530,7 +623,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **200** | UDF completed and the UDF-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 [[Back to top]](#)
@@ -562,7 +655,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -572,9 +665,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var udf = new MultiArrayUDF(); // MultiArrayUDF | udf to run
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var udf = new MultiArrayUDF(); // MultiArrayUDF | UDF to run
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
 
             try
             {
@@ -598,7 +691,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| udf to run | 
+ **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| UDF to run | 
  **acceptEncoding** | **string**| Encoding to use | [optional] 
 
 ### Return type
@@ -618,7 +711,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **200** | UDF completed and the UDF-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 [[Back to top]](#)
@@ -650,7 +743,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -660,12 +753,12 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var udf = new MultiArrayUDF(); // MultiArrayUDF | udf to run
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
-            var v2 = v2_example;  // string | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var udf = new MultiArrayUDF(); // MultiArrayUDF | UDF to run
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
+            var v2 = "v2_example";  // string | flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional) 
 
             try
             {
@@ -690,10 +783,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
- **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| udf to run | 
+ **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| UDF to run | 
  **xPayer** | **string**| Name of organization or user who should be charged for this request | [optional] 
  **acceptEncoding** | **string**| Encoding to use | [optional] 
- **v2** | **string**| flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs | [optional] 
+ **v2** | **string**| flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. | [optional] 
 
 ### Return type
 
@@ -712,7 +805,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **200** | UDF completed and the UDF-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 [[Back to top]](#)
@@ -744,7 +837,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -754,8 +847,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
 
@@ -817,7 +910,7 @@ Name | Type | Description  | Notes
 
 
 
-updated an existing registerd UDF in the given namespace
+update an existing registered UDF in the given namespace
 
 ### Example
 
@@ -834,7 +927,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -844,9 +937,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new UdfApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var name = name_example;  // string | name to register udf under
-            var udf = new UDFInfoUpdate(); // UDFInfoUpdate | udf to update
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var name = "name_example";  // string | name to register UDF under
+            var udf = new UDFInfoUpdate(); // UDFInfoUpdate | UDF to update
 
             try
             {
@@ -869,8 +962,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
- **name** | **string**| name to register udf under | 
- **udf** | [**UDFInfoUpdate**](UDFInfoUpdate.md)| udf to update | 
+ **name** | **string**| name to register UDF under | 
+ **udf** | [**UDFInfoUpdate**](UDFInfoUpdate.md)| UDF to update | 
 
 ### Return type
 
@@ -889,7 +982,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | udf updated successfully |  -  |
+| **204** | UDF updated successfully |  -  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)

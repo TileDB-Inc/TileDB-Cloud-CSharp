@@ -33,9 +33,9 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Subscription" /> class.
         /// </summary>
-        /// <param name="id">Unique id of subscription as defined by Stripe.</param>
-        /// <param name="ownerNamespaceUuid">Unique id of the array (product) owner.</param>
-        /// <param name="customerNamespaceUuid">Unique id of the array (product) user (customer).</param>
+        /// <param name="id">Unique ID of subscription as defined by Stripe.</param>
+        /// <param name="ownerNamespaceUuid">Unique ID of the array (product) owner.</param>
+        /// <param name="customerNamespaceUuid">Unique ID of the array (product) user (customer).</param>
         /// <param name="pricing">list of pricing used by this subscription.</param>
         public Subscription(string id = default(string), string ownerNamespaceUuid = default(string), string customerNamespaceUuid = default(string), List<Pricing> pricing = default(List<Pricing>))
         {
@@ -46,23 +46,23 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// Unique id of subscription as defined by Stripe
+        /// Unique ID of subscription as defined by Stripe
         /// </summary>
-        /// <value>Unique id of subscription as defined by Stripe</value>
+        /// <value>Unique ID of subscription as defined by Stripe</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Unique id of the array (product) owner
+        /// Unique ID of the array (product) owner
         /// </summary>
-        /// <value>Unique id of the array (product) owner</value>
+        /// <value>Unique ID of the array (product) owner</value>
         [DataMember(Name="owner_namespace_uuid", EmitDefaultValue=false)]
         public string OwnerNamespaceUuid { get; set; }
 
         /// <summary>
-        /// Unique id of the array (product) user (customer)
+        /// Unique ID of the array (product) user (customer)
         /// </summary>
-        /// <value>Unique id of the array (product) user (customer)</value>
+        /// <value>Unique ID of the array (product) user (customer)</value>
         [DataMember(Name="customer_namespace_uuid", EmitDefaultValue=false)]
         public string CustomerNamespaceUuid { get; set; }
 

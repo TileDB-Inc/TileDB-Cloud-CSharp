@@ -33,36 +33,36 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UDFFavorite" /> class.
         /// </summary>
-        /// <param name="id">unique uuid of the favorite.</param>
-        /// <param name="createdAt">Datetime the favorite was created in UTC.</param>
-        /// <param name="udfUuid">unique uuid of the UDF.</param>
-        public UDFFavorite(string id = default(string), DateTime createdAt = default(DateTime), string udfUuid = default(string))
+        /// <param name="udfUuid">unique UUID of the UDF.</param>
+        /// <param name="_namespace">the namespace of the UDF.</param>
+        /// <param name="name">the name of the UDF.</param>
+        public UDFFavorite(string udfUuid = default(string), string _namespace = default(string), string name = default(string))
         {
-            this.Id = id;
-            this.CreatedAt = createdAt;
             this.UdfUuid = udfUuid;
+            this.Namespace = _namespace;
+            this.Name = name;
         }
 
         /// <summary>
-        /// unique uuid of the favorite
+        /// unique UUID of the UDF
         /// </summary>
-        /// <value>unique uuid of the favorite</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Datetime the favorite was created in UTC
-        /// </summary>
-        /// <value>Datetime the favorite was created in UTC</value>
-        [DataMember(Name="created_at", EmitDefaultValue=false)]
-        public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// unique uuid of the UDF
-        /// </summary>
-        /// <value>unique uuid of the UDF</value>
+        /// <value>unique UUID of the UDF</value>
         [DataMember(Name="udf_uuid", EmitDefaultValue=false)]
         public string UdfUuid { get; set; }
+
+        /// <summary>
+        /// the namespace of the UDF
+        /// </summary>
+        /// <value>the namespace of the UDF</value>
+        [DataMember(Name="namespace", EmitDefaultValue=false)]
+        public string Namespace { get; set; }
+
+        /// <summary>
+        /// the name of the UDF
+        /// </summary>
+        /// <value>the name of the UDF</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,9 +72,9 @@ namespace TileDB.Cloud.Rest.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UDFFavorite {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UdfUuid: ").Append(UdfUuid).Append("\n");
+            sb.Append("  Namespace: ").Append(Namespace).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,19 +110,19 @@ namespace TileDB.Cloud.Rest.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
                     this.UdfUuid == input.UdfUuid ||
                     (this.UdfUuid != null &&
                     this.UdfUuid.Equals(input.UdfUuid))
+                ) && 
+                (
+                    this.Namespace == input.Namespace ||
+                    (this.Namespace != null &&
+                    this.Namespace.Equals(input.Namespace))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -135,12 +135,12 @@ namespace TileDB.Cloud.Rest.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.UdfUuid != null)
                     hashCode = hashCode * 59 + this.UdfUuid.GetHashCode();
+                if (this.Namespace != null)
+                    hashCode = hashCode * 59 + this.Namespace.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

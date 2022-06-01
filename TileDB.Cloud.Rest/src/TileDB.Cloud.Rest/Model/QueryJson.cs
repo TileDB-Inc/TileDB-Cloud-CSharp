@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TileDB.Cloud.Rest.Client.OpenAPIDateConverter;
 namespace TileDB.Cloud.Rest.Model
 {
     /// <summary>
-    /// Query returning results as json
+    /// Query returning results as JSON
     /// </summary>
     [DataContract]
     public partial class QueryJson :  IEquatable<QueryJson>, IValidatableObject

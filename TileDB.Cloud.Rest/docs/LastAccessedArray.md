@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArrayId** | **string** | unique id of array | [optional] 
+**ArrayId** | **string** | unique ID of array | [optional] 
 **ArrayName** | **string** | name of the array | [optional] 
 **Namespace** | **string** | namespace of a user or organization | [optional] 
 **AccessedTime** | **decimal** | timestamp (epoch milliseconds) array is last accessed | [optional] 

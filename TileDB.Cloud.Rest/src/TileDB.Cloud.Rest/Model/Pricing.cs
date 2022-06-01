@@ -58,8 +58,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Pricing" /> class.
         /// </summary>
-        /// <param name="id">Unique id of plan as defined by Stripe.</param>
-        /// <param name="arrayUuid">Unique id of registered array.</param>
+        /// <param name="id">Unique ID of plan as defined by Stripe.</param>
+        /// <param name="arrayUuid">Unique ID of registered array.</param>
         /// <param name="pricingName">Name of pricing.</param>
         /// <param name="pricingType">pricingType.</param>
         /// <param name="productName">Name of product.</param>
@@ -89,16 +89,16 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
-        /// Unique id of plan as defined by Stripe
+        /// Unique ID of plan as defined by Stripe
         /// </summary>
-        /// <value>Unique id of plan as defined by Stripe</value>
+        /// <value>Unique ID of plan as defined by Stripe</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Unique id of registered array
+        /// Unique ID of registered array
         /// </summary>
-        /// <value>Unique id of registered array</value>
+        /// <value>Unique ID of registered array</value>
         [DataMember(Name="array_uuid", EmitDefaultValue=false)]
         public string ArrayUuid { get; set; }
 

@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.QueryApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -45,12 +45,12 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new QueryApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var type = type_example;  // string | type of query
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var type = "type_example";  // string | type of query
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
             var query = new Query(); // Query | query to run
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
             var openAt = 56;  // int? | open_at for array in unix epoch (optional) 
 
             try
@@ -132,7 +132,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -142,12 +142,12 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new QueryApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var type = type_example;  // string | type of query
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var type = "type_example";  // string | type of query
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
             var query = new Query(); // Query | query to run
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
             var openAt = 56;  // int? | open_at for array in unix epoch (optional) 
 
             try
@@ -229,7 +229,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -239,10 +239,10 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new QueryApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
 
             try
             {
@@ -319,7 +319,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -329,12 +329,12 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new QueryApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var type = type_example;  // string | type of query
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var type = "type_example";  // string | type of query
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
             var query = new Query(); // Query | query to run
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
             var openAt = 56;  // int? | open_at for array in unix epoch (optional) 
 
             try
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 
 
-send a query to run against a specified array/URI registered to a group/project, returns json results
+send a query to run against a specified array/URI registered to a group/project, returns JSON results
 
 ### Example
 
@@ -416,7 +416,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -426,11 +426,11 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new QueryApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace array is in (an organization name or user's username)
-            var array = array_example;  // string | name/uri of array that is url-encoded
-            var contentType = contentType_example;  // string | Content Type of input and return mime (default to "application/json")
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
             var queryJson = new QueryJson(); // QueryJson | query to run
-            var xPayer = xPayer_example;  // string | Name of organization or user who should be charged for this request (optional) 
+            var xPayer = "xPayer_example";  // string | Name of organization or user who should be charged for this request (optional) 
 
             try
             {
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query completed and results are returned in json format |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **200** | query completed and results are returned in JSON format |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  -  |
 
 [[Back to top]](#)

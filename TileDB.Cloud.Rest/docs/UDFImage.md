@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique id of set of images | [optional] 
-**Name** | **string** | name of udf | [optional] 
+**Id** | **string** | Unique ID of set of images | [optional] 
+**Name** | **string** | name of UDF | [optional] 
 **Language** | **UDFLanguage** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

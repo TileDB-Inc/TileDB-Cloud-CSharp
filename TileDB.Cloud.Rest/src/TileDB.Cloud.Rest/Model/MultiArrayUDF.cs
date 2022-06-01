@@ -46,35 +46,48 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="udfInfoName">name of UDFInfo to run, format is {namespace}/{udf_name}. Can not be used with exec.</param>
         /// <param name="language">language.</param>
         /// <param name="version">Type-specific version.</param>
-        /// <param name="imageName">Docker image name to use for udf.</param>
+        /// <param name="imageName">Docker image name to use for UDF.</param>
+        /// <param name="resourceClass">The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. .</param>
         /// <param name="exec">Type-specific executable text.</param>
         /// <param name="execRaw">optional raw text to store of serialized function, used for showing in UI.</param>
         /// <param name="resultFormat">resultFormat.</param>
         /// <param name="taskName">name of task, optional.</param>
-        /// <param name="argument">Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format.</param>
+        /// <param name="argument">Deprecated: Prefer to use &#x60;argument_json&#x60; instead. Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format .</param>
+        /// <param name="argumentsJson">A series of key-value pairs to be passed as arguments into the UDF. See &#x60;TGUDFNodeData.arguments&#x60; for more information. If this format is used to pass arguments, arrays will be passed into the UDF as specified by the Node placeholders passed in here, rather than the classic method of putting all array arguments in the first parameter. Either this or &#x60;argument&#x60; should be set. .</param>
         /// <param name="storedParamUuids">The UUIDs of stored input parameters (passed in a language-specific format within \&quot;argument\&quot;) to be retrieved from the server-side cache. Serialized in standard hex format with no {}..</param>
         /// <param name="storeResults">store results for later retrieval.</param>
+        /// <param name="dontDownloadResults">Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;)..</param>
         /// <param name="ranges">ranges.</param>
         /// <param name="subarray">subarray.</param>
-        /// <param name="buffers">List of buffers to fetch (attributes + dimensions). Deprecated please set arrays with UDFArrayDetails.</param>
+        /// <param name="buffers">List of buffers to fetch (attributes + dimensions). Deprecated; please set arrays with &#x60;UDFArrayDetails&#x60;..</param>
         /// <param name="arrays">Array ranges/buffer into to run UDF on.</param>
-        public MultiArrayUDF(string udfInfoName = default(string), UDFLanguage? language = default(UDFLanguage?), string version = default(string), string imageName = default(string), string exec = default(string), string execRaw = default(string), ResultFormat? resultFormat = default(ResultFormat?), string taskName = default(string), string argument = default(string), List<string> storedParamUuids = default(List<string>), bool storeResults = default(bool), QueryRanges ranges = default(QueryRanges), UDFSubarray subarray = default(UDFSubarray), List<string> buffers = default(List<string>), List<UDFArrayDetails> arrays = default(List<UDFArrayDetails>))
+        /// <param name="timeout">UDF-type timeout in seconds (default: 900).</param>
+        /// <param name="taskGraphUuid">If set, the ID of the log for the task graph that this was part of. .</param>
+        /// <param name="clientNodeUuid">If set, the client-defined ID of the node within this task&#39;s graph. .</param>
+        public MultiArrayUDF(string udfInfoName = default(string), UDFLanguage? language = default(UDFLanguage?), string version = default(string), string imageName = default(string), string resourceClass = default(string), string exec = default(string), string execRaw = default(string), ResultFormat? resultFormat = default(ResultFormat?), string taskName = default(string), string argument = default(string), List<TGUDFArgument> argumentsJson = default(List<TGUDFArgument>), List<string> storedParamUuids = default(List<string>), bool storeResults = default(bool), bool dontDownloadResults = default(bool), QueryRanges ranges = default(QueryRanges), UDFSubarray subarray = default(UDFSubarray), List<string> buffers = default(List<string>), List<UDFArrayDetails> arrays = default(List<UDFArrayDetails>), int timeout = default(int), string taskGraphUuid = default(string), string clientNodeUuid = default(string))
         {
+            this.ArgumentsJson = argumentsJson;
             this.UdfInfoName = udfInfoName;
             this.Language = language;
             this._Version = version;
             this.ImageName = imageName;
+            this.ResourceClass = resourceClass;
             this.Exec = exec;
             this.ExecRaw = execRaw;
             this.ResultFormat = resultFormat;
             this.TaskName = taskName;
             this.Argument = argument;
+            this.ArgumentsJson = argumentsJson;
             this.StoredParamUuids = storedParamUuids;
             this.StoreResults = storeResults;
+            this.DontDownloadResults = dontDownloadResults;
             this.Ranges = ranges;
             this.Subarray = subarray;
             this.Buffers = buffers;
             this.Arrays = arrays;
+            this.Timeout = timeout;
+            this.TaskGraphUuid = taskGraphUuid;
+            this.ClientNodeUuid = clientNodeUuid;
         }
 
         /// <summary>
@@ -93,11 +106,18 @@ namespace TileDB.Cloud.Rest.Model
         public string _Version { get; set; }
 
         /// <summary>
-        /// Docker image name to use for udf
+        /// Docker image name to use for UDF
         /// </summary>
-        /// <value>Docker image name to use for udf</value>
+        /// <value>Docker image name to use for UDF</value>
         [DataMember(Name="image_name", EmitDefaultValue=false)]
         public string ImageName { get; set; }
+
+        /// <summary>
+        /// The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. 
+        /// </summary>
+        /// <value>The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. </value>
+        [DataMember(Name="resource_class", EmitDefaultValue=false)]
+        public string ResourceClass { get; set; }
 
         /// <summary>
         /// Type-specific executable text
@@ -122,11 +142,18 @@ namespace TileDB.Cloud.Rest.Model
         public string TaskName { get; set; }
 
         /// <summary>
-        /// Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format
+        /// Deprecated: Prefer to use &#x60;argument_json&#x60; instead. Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format 
         /// </summary>
-        /// <value>Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format</value>
+        /// <value>Deprecated: Prefer to use &#x60;argument_json&#x60; instead. Argument(s) to pass to UDF function, tuple or list of args/kwargs which can be in native or JSON format </value>
         [DataMember(Name="argument", EmitDefaultValue=false)]
         public string Argument { get; set; }
+
+        /// <summary>
+        /// A series of key-value pairs to be passed as arguments into the UDF. See &#x60;TGUDFNodeData.arguments&#x60; for more information. If this format is used to pass arguments, arrays will be passed into the UDF as specified by the Node placeholders passed in here, rather than the classic method of putting all array arguments in the first parameter. Either this or &#x60;argument&#x60; should be set. 
+        /// </summary>
+        /// <value>A series of key-value pairs to be passed as arguments into the UDF. See &#x60;TGUDFNodeData.arguments&#x60; for more information. If this format is used to pass arguments, arrays will be passed into the UDF as specified by the Node placeholders passed in here, rather than the classic method of putting all array arguments in the first parameter. Either this or &#x60;argument&#x60; should be set. </value>
+        [DataMember(Name="arguments_json", EmitDefaultValue=true)]
+        public List<TGUDFArgument> ArgumentsJson { get; set; }
 
         /// <summary>
         /// The UUIDs of stored input parameters (passed in a language-specific format within \&quot;argument\&quot;) to be retrieved from the server-side cache. Serialized in standard hex format with no {}.
@@ -143,6 +170,13 @@ namespace TileDB.Cloud.Rest.Model
         public bool StoreResults { get; set; }
 
         /// <summary>
+        /// Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).
+        /// </summary>
+        /// <value>Set to true to avoid downloading the results of this UDF. Useful for intermediate nodes in a task graph where you will not be using the results of your function. Defaults to false (\&quot;yes download results\&quot;).</value>
+        [DataMember(Name="dont_download_results", EmitDefaultValue=false)]
+        public bool DontDownloadResults { get; set; }
+
+        /// <summary>
         /// Gets or Sets Ranges
         /// </summary>
         [DataMember(Name="ranges", EmitDefaultValue=false)]
@@ -155,9 +189,9 @@ namespace TileDB.Cloud.Rest.Model
         public UDFSubarray Subarray { get; set; }
 
         /// <summary>
-        /// List of buffers to fetch (attributes + dimensions). Deprecated please set arrays with UDFArrayDetails
+        /// List of buffers to fetch (attributes + dimensions). Deprecated; please set arrays with &#x60;UDFArrayDetails&#x60;.
         /// </summary>
-        /// <value>List of buffers to fetch (attributes + dimensions). Deprecated please set arrays with UDFArrayDetails</value>
+        /// <value>List of buffers to fetch (attributes + dimensions). Deprecated; please set arrays with &#x60;UDFArrayDetails&#x60;.</value>
         [DataMember(Name="buffers", EmitDefaultValue=false)]
         public List<string> Buffers { get; set; }
 
@@ -167,6 +201,27 @@ namespace TileDB.Cloud.Rest.Model
         /// <value>Array ranges/buffer into to run UDF on</value>
         [DataMember(Name="arrays", EmitDefaultValue=false)]
         public List<UDFArrayDetails> Arrays { get; set; }
+
+        /// <summary>
+        /// UDF-type timeout in seconds (default: 900)
+        /// </summary>
+        /// <value>UDF-type timeout in seconds (default: 900)</value>
+        [DataMember(Name="timeout", EmitDefaultValue=false)]
+        public int Timeout { get; set; }
+
+        /// <summary>
+        /// If set, the ID of the log for the task graph that this was part of. 
+        /// </summary>
+        /// <value>If set, the ID of the log for the task graph that this was part of. </value>
+        [DataMember(Name="task_graph_uuid", EmitDefaultValue=false)]
+        public string TaskGraphUuid { get; set; }
+
+        /// <summary>
+        /// If set, the client-defined ID of the node within this task&#39;s graph. 
+        /// </summary>
+        /// <value>If set, the client-defined ID of the node within this task&#39;s graph. </value>
+        [DataMember(Name="client_node_uuid", EmitDefaultValue=false)]
+        public string ClientNodeUuid { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -180,17 +235,23 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  ImageName: ").Append(ImageName).Append("\n");
+            sb.Append("  ResourceClass: ").Append(ResourceClass).Append("\n");
             sb.Append("  Exec: ").Append(Exec).Append("\n");
             sb.Append("  ExecRaw: ").Append(ExecRaw).Append("\n");
             sb.Append("  ResultFormat: ").Append(ResultFormat).Append("\n");
             sb.Append("  TaskName: ").Append(TaskName).Append("\n");
             sb.Append("  Argument: ").Append(Argument).Append("\n");
+            sb.Append("  ArgumentsJson: ").Append(ArgumentsJson).Append("\n");
             sb.Append("  StoredParamUuids: ").Append(StoredParamUuids).Append("\n");
             sb.Append("  StoreResults: ").Append(StoreResults).Append("\n");
+            sb.Append("  DontDownloadResults: ").Append(DontDownloadResults).Append("\n");
             sb.Append("  Ranges: ").Append(Ranges).Append("\n");
             sb.Append("  Subarray: ").Append(Subarray).Append("\n");
             sb.Append("  Buffers: ").Append(Buffers).Append("\n");
             sb.Append("  Arrays: ").Append(Arrays).Append("\n");
+            sb.Append("  Timeout: ").Append(Timeout).Append("\n");
+            sb.Append("  TaskGraphUuid: ").Append(TaskGraphUuid).Append("\n");
+            sb.Append("  ClientNodeUuid: ").Append(ClientNodeUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,6 +307,11 @@ namespace TileDB.Cloud.Rest.Model
                     this.ImageName.Equals(input.ImageName))
                 ) && 
                 (
+                    this.ResourceClass == input.ResourceClass ||
+                    (this.ResourceClass != null &&
+                    this.ResourceClass.Equals(input.ResourceClass))
+                ) && 
+                (
                     this.Exec == input.Exec ||
                     (this.Exec != null &&
                     this.Exec.Equals(input.Exec))
@@ -271,6 +337,12 @@ namespace TileDB.Cloud.Rest.Model
                     this.Argument.Equals(input.Argument))
                 ) && 
                 (
+                    this.ArgumentsJson == input.ArgumentsJson ||
+                    this.ArgumentsJson != null &&
+                    input.ArgumentsJson != null &&
+                    this.ArgumentsJson.SequenceEqual(input.ArgumentsJson)
+                ) && 
+                (
                     this.StoredParamUuids == input.StoredParamUuids ||
                     this.StoredParamUuids != null &&
                     input.StoredParamUuids != null &&
@@ -280,6 +352,11 @@ namespace TileDB.Cloud.Rest.Model
                     this.StoreResults == input.StoreResults ||
                     (this.StoreResults != null &&
                     this.StoreResults.Equals(input.StoreResults))
+                ) && 
+                (
+                    this.DontDownloadResults == input.DontDownloadResults ||
+                    (this.DontDownloadResults != null &&
+                    this.DontDownloadResults.Equals(input.DontDownloadResults))
                 ) && 
                 (
                     this.Ranges == input.Ranges ||
@@ -302,6 +379,21 @@ namespace TileDB.Cloud.Rest.Model
                     this.Arrays != null &&
                     input.Arrays != null &&
                     this.Arrays.SequenceEqual(input.Arrays)
+                ) && 
+                (
+                    this.Timeout == input.Timeout ||
+                    (this.Timeout != null &&
+                    this.Timeout.Equals(input.Timeout))
+                ) && 
+                (
+                    this.TaskGraphUuid == input.TaskGraphUuid ||
+                    (this.TaskGraphUuid != null &&
+                    this.TaskGraphUuid.Equals(input.TaskGraphUuid))
+                ) && 
+                (
+                    this.ClientNodeUuid == input.ClientNodeUuid ||
+                    (this.ClientNodeUuid != null &&
+                    this.ClientNodeUuid.Equals(input.ClientNodeUuid))
                 );
         }
 
@@ -322,6 +414,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this._Version.GetHashCode();
                 if (this.ImageName != null)
                     hashCode = hashCode * 59 + this.ImageName.GetHashCode();
+                if (this.ResourceClass != null)
+                    hashCode = hashCode * 59 + this.ResourceClass.GetHashCode();
                 if (this.Exec != null)
                     hashCode = hashCode * 59 + this.Exec.GetHashCode();
                 if (this.ExecRaw != null)
@@ -332,10 +426,14 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.TaskName.GetHashCode();
                 if (this.Argument != null)
                     hashCode = hashCode * 59 + this.Argument.GetHashCode();
+                if (this.ArgumentsJson != null)
+                    hashCode = hashCode * 59 + this.ArgumentsJson.GetHashCode();
                 if (this.StoredParamUuids != null)
                     hashCode = hashCode * 59 + this.StoredParamUuids.GetHashCode();
                 if (this.StoreResults != null)
                     hashCode = hashCode * 59 + this.StoreResults.GetHashCode();
+                if (this.DontDownloadResults != null)
+                    hashCode = hashCode * 59 + this.DontDownloadResults.GetHashCode();
                 if (this.Ranges != null)
                     hashCode = hashCode * 59 + this.Ranges.GetHashCode();
                 if (this.Subarray != null)
@@ -344,6 +442,12 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.Buffers.GetHashCode();
                 if (this.Arrays != null)
                     hashCode = hashCode * 59 + this.Arrays.GetHashCode();
+                if (this.Timeout != null)
+                    hashCode = hashCode * 59 + this.Timeout.GetHashCode();
+                if (this.TaskGraphUuid != null)
+                    hashCode = hashCode * 59 + this.TaskGraphUuid.GetHashCode();
+                if (this.ClientNodeUuid != null)
+                    hashCode = hashCode * 59 + this.ClientNodeUuid.GetHashCode();
                 return hashCode;
             }
         }

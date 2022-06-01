@@ -29,11 +29,11 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// delete a registerd UDF, this will remove all sharing and can not be undone
+        /// delete a registered UDF - - this will remove all sharing and can not be undone
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns></returns>
         void DeleteUDFInfo (string _namespace, string name);
 
@@ -41,11 +41,11 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// delete a registerd UDF, this will remove all sharing and can not be undone
+        /// delete a registered UDF - - this will remove all sharing and can not be undone
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUDFInfoWithHttpInfo (string _namespace, string name);
         /// <summary>
@@ -56,7 +56,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>UDFInfo</returns>
         UDFInfo GetUDFInfo (string _namespace, string name);
 
@@ -68,32 +68,61 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>ApiResponse of UDFInfo</returns>
         ApiResponse<UDFInfo> GetUDFInfoWithHttpInfo (string _namespace, string name);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get all sharing details of the udf
+        /// Get all sharing details of the UDF
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <returns>List&lt;UDFSharing&gt;</returns>
+        /// <returns>List<UDFSharing></returns>
         List<UDFSharing> GetUDFInfoSharingPolicies (string _namespace, string name);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get all sharing details of the udf
+        /// Get all sharing details of the UDF
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <returns>ApiResponse of List&lt;UDFSharing&gt;</returns>
+        /// <returns>ApiResponse of List<UDFSharing></returns>
         ApiResponse<List<UDFSharing>> GetUDFInfoSharingPoliciesWithHttpInfo (string _namespace, string name);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copy a tiledb udf at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <returns>UDFCopied</returns>
+        UDFCopied HandleCopyUDF (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copy a tiledb udf at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <returns>ApiResponse of UDFCopied</returns>
+        ApiResponse<UDFCopied> HandleCopyUDFWithHttpInfo (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?));
         /// <summary>
         /// 
         /// </summary>
@@ -102,8 +131,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <returns></returns>
         void RegisterUDFInfo (string _namespace, string name, UDFInfoUpdate udf);
 
@@ -115,8 +144,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RegisterUDFInfoWithHttpInfo (string _namespace, string name, UDFInfoUpdate udf);
         /// <summary>
@@ -128,7 +157,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <returns></returns>
         void ShareUDFInfo (string _namespace, string name, UDFSharing udfSharing);
 
@@ -141,7 +170,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ShareUDFInfoWithHttpInfo (string _namespace, string name, UDFSharing udfSharing);
         /// <summary>
@@ -152,7 +181,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream SubmitGenericUDF (string _namespace, GenericUDF udf, string acceptEncoding = default(string));
@@ -165,7 +194,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> SubmitGenericUDFWithHttpInfo (string _namespace, GenericUDF udf, string acceptEncoding = default(string));
@@ -177,7 +206,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream SubmitMultiArrayUDF (string _namespace, MultiArrayUDF udf, string acceptEncoding = default(string));
@@ -190,7 +219,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> SubmitMultiArrayUDFWithHttpInfo (string _namespace, MultiArrayUDF udf, string acceptEncoding = default(string));
@@ -203,10 +232,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream SubmitUDF (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string));
 
@@ -219,10 +248,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> SubmitUDFWithHttpInfo (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string));
         /// <summary>
@@ -256,12 +285,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// updated an existing registerd UDF in the given namespace
+        /// update an existing registered UDF in the given namespace
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <returns></returns>
         void UpdateUDFInfo (string _namespace, string name, UDFInfoUpdate udf);
 
@@ -269,12 +298,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// updated an existing registerd UDF in the given namespace
+        /// update an existing registered UDF in the given namespace
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateUDFInfoWithHttpInfo (string _namespace, string name, UDFInfoUpdate udf);
         #endregion Synchronous Operations
@@ -283,11 +312,11 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// delete a registerd UDF, this will remove all sharing and can not be undone
+        /// delete a registered UDF - - this will remove all sharing and can not be undone
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteUDFInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
@@ -296,11 +325,11 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// delete a registerd UDF, this will remove all sharing and can not be undone
+        /// delete a registered UDF - - this will remove all sharing and can not be undone
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFInfoWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
@@ -312,7 +341,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of UDFInfo</returns>
         System.Threading.Tasks.Task<UDFInfo> GetUDFInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
@@ -325,7 +354,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (UDFInfo)</returns>
         System.Threading.Tasks.Task<ApiResponse<UDFInfo>> GetUDFInfoWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
@@ -333,20 +362,20 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Get all sharing details of the udf
+        /// Get all sharing details of the UDF
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;UDFSharing&gt;</returns>
+        /// <returns>Task of List<UDFSharing></returns>
         System.Threading.Tasks.Task<List<UDFSharing>> GetUDFInfoSharingPoliciesAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Get all sharing details of the udf
+        /// Get all sharing details of the UDF
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -358,12 +387,43 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Copy a tiledb udf at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of UDFCopied</returns>
+        System.Threading.Tasks.Task<UDFCopied> HandleCopyUDFAsync (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Copy a tiledb udf at the specified location
+        /// </remarks>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (UDFCopied)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UDFCopied>> HandleCopyUDFWithHttpInfoAsync (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// register a UDF in the given namespace
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task RegisterUDFInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken));
@@ -376,8 +436,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RegisterUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken));
@@ -390,7 +450,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ShareUDFInfoAsync (string _namespace, string name, UDFSharing udfSharing, CancellationToken cancellationToken = default(CancellationToken));
@@ -404,7 +464,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ShareUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFSharing udfSharing, CancellationToken cancellationToken = default(CancellationToken));
@@ -416,7 +476,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
@@ -430,7 +490,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
@@ -443,7 +503,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
@@ -457,7 +517,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
@@ -471,10 +531,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
         System.Threading.Tasks.Task<System.IO.Stream> SubmitUDFAsync (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string), CancellationToken cancellationToken = default(CancellationToken));
@@ -488,10 +548,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> SubmitUDFWithHttpInfoAsync (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string), CancellationToken cancellationToken = default(CancellationToken));
@@ -528,12 +588,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// updated an existing registerd UDF in the given namespace
+        /// update an existing registered UDF in the given namespace
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UpdateUDFInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken));
@@ -542,12 +602,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// updated an existing registerd UDF in the given namespace
+        /// update an existing registered UDF in the given namespace
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken));
@@ -663,11 +723,11 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  delete a registerd UDF, this will remove all sharing and can not be undone
+        ///  delete a registered UDF - - this will remove all sharing and can not be undone
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns></returns>
         public void DeleteUDFInfo (string _namespace, string name)
         {
@@ -675,11 +735,11 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  delete a registerd UDF, this will remove all sharing and can not be undone
+        ///  delete a registered UDF - - this will remove all sharing and can not be undone
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteUDFInfoWithHttpInfo (string _namespace, string name)
         {
@@ -745,11 +805,11 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  delete a registerd UDF, this will remove all sharing and can not be undone
+        ///  delete a registered UDF - - this will remove all sharing and can not be undone
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteUDFInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
@@ -759,11 +819,11 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  delete a registerd UDF, this will remove all sharing and can not be undone
+        ///  delete a registered UDF - - this will remove all sharing and can not be undone
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUDFInfoWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
@@ -834,7 +894,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>UDFInfo</returns>
         public UDFInfo GetUDFInfo (string _namespace, string name)
         {
@@ -847,7 +907,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <returns>ApiResponse of UDFInfo</returns>
         public ApiResponse<UDFInfo> GetUDFInfoWithHttpInfo (string _namespace, string name)
         {
@@ -917,7 +977,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of UDFInfo</returns>
         public async System.Threading.Tasks.Task<UDFInfo> GetUDFInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
@@ -932,7 +992,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
+        /// <param name="name">name to register UDF under</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (UDFInfo)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<UDFInfo>> GetUDFInfoWithHttpInfoAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
@@ -999,12 +1059,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Get all sharing details of the udf
+        ///  Get all sharing details of the UDF
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <returns>List&lt;UDFSharing&gt;</returns>
+        /// <returns>List<UDFSharing></returns>
         public List<UDFSharing> GetUDFInfoSharingPolicies (string _namespace, string name)
         {
              ApiResponse<List<UDFSharing>> localVarResponse = GetUDFInfoSharingPoliciesWithHttpInfo(_namespace, name);
@@ -1012,12 +1072,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Get all sharing details of the udf
+        ///  Get all sharing details of the UDF
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <returns>ApiResponse of List&lt;UDFSharing&gt;</returns>
+        /// <returns>ApiResponse of List<UDFSharing></returns>
         public ApiResponse<List<UDFSharing>> GetUDFInfoSharingPoliciesWithHttpInfo (string _namespace, string name)
         {
             // verify the required parameter '_namespace' is set
@@ -1082,13 +1142,13 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Get all sharing details of the udf
+        ///  Get all sharing details of the UDF
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;UDFSharing&gt;</returns>
+        /// <returns>Task of List<UDFSharing></returns>
         public async System.Threading.Tasks.Task<List<UDFSharing>> GetUDFInfoSharingPoliciesAsync (string _namespace, string name, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<UDFSharing>> localVarResponse = await GetUDFInfoSharingPoliciesWithHttpInfoAsync(_namespace, name, cancellationToken);
@@ -1097,7 +1157,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Get all sharing details of the udf
+        ///  Get all sharing details of the UDF
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1168,12 +1228,221 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
+        ///  Copy a tiledb udf at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <returns>UDFCopied</returns>
+        public UDFCopied HandleCopyUDF (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?))
+        {
+             ApiResponse<UDFCopied> localVarResponse = HandleCopyUDFWithHttpInfo(_namespace, name, uDFCopy, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, endTimestamp);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Copy a tiledb udf at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <returns>ApiResponse of UDFCopied</returns>
+        public ApiResponse<UDFCopied> HandleCopyUDFWithHttpInfo (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling UdfApi->HandleCopyUDF");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling UdfApi->HandleCopyUDF");
+            // verify the required parameter 'uDFCopy' is set
+            if (uDFCopy == null)
+                throw new ApiException(400, "Missing required parameter 'uDFCopy' when calling UdfApi->HandleCopyUDF");
+
+            var localVarPath = "/udf/{namespace}/{name}/copy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+            if (endTimestamp != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end_timestamp", endTimestamp)); // query parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (uDFCopy != null && uDFCopy.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(uDFCopy); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = uDFCopy; // byte array
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleCopyUDF", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UDFCopied>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (UDFCopied) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UDFCopied)));
+        }
+
+        /// <summary>
+        ///  Copy a tiledb udf at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of UDFCopied</returns>
+        public async System.Threading.Tasks.Task<UDFCopied> HandleCopyUDFAsync (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<UDFCopied> localVarResponse = await HandleCopyUDFWithHttpInfoAsync(_namespace, name, uDFCopy, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME, endTimestamp, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  Copy a tiledb udf at the specified location
+        /// </summary>
+        /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
+        /// <param name="name">name of UDFInfo</param>
+        /// <param name="uDFCopy">Input/Output information to copy a UDF</param>
+        /// <param name="X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME">Optional registered access credentials to use for creation (optional)</param>
+        /// <param name="endTimestamp">Milliseconds since Unix epoch (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (UDFCopied)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UDFCopied>> HandleCopyUDFWithHttpInfoAsync (string _namespace, string name, UDFCopy uDFCopy, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = default(string), int? endTimestamp = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter '_namespace' is set
+            if (_namespace == null)
+                throw new ApiException(400, "Missing required parameter '_namespace' when calling UdfApi->HandleCopyUDF");
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling UdfApi->HandleCopyUDF");
+            // verify the required parameter 'uDFCopy' is set
+            if (uDFCopy == null)
+                throw new ApiException(400, "Missing required parameter 'uDFCopy' when calling UdfApi->HandleCopyUDF");
+
+            var localVarPath = "/udf/{namespace}/{name}/copy";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (_namespace != null) localVarPathParams.Add("namespace", this.Configuration.ApiClient.ParameterToString(_namespace)); // path parameter
+            if (name != null) localVarPathParams.Add("name", this.Configuration.ApiClient.ParameterToString(name)); // path parameter
+            if (endTimestamp != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "end_timestamp", endTimestamp)); // query parameter
+            if (X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME != null) localVarHeaderParams.Add("X-TILEDB-CLOUD-ACCESS-CREDENTIALS-NAME", this.Configuration.ApiClient.ParameterToString(X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)); // header parameter
+            if (uDFCopy != null && uDFCopy.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(uDFCopy); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = uDFCopy; // byte array
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
+            {
+                localVarHeaderParams["X-TILEDB-REST-API-KEY"] = this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY");
+            }
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("HandleCopyUDF", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UDFCopied>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (UDFCopied) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UDFCopied)));
+        }
+
+        /// <summary>
         ///  register a UDF in the given namespace
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <returns></returns>
         public void RegisterUDFInfo (string _namespace, string name, UDFInfoUpdate udf)
         {
@@ -1185,8 +1454,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> RegisterUDFInfoWithHttpInfo (string _namespace, string name, UDFInfoUpdate udf)
         {
@@ -1268,8 +1537,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task RegisterUDFInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken))
@@ -1283,8 +1552,8 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to register</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to register</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> RegisterUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken))
@@ -1368,7 +1637,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <returns></returns>
         public void ShareUDFInfo (string _namespace, string name, UDFSharing udfSharing)
         {
@@ -1381,7 +1650,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ShareUDFInfoWithHttpInfo (string _namespace, string name, UDFSharing udfSharing)
         {
@@ -1464,7 +1733,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task ShareUDFInfoAsync (string _namespace, string name, UDFSharing udfSharing, CancellationToken cancellationToken = default(CancellationToken))
@@ -1479,7 +1748,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="name">name of UDFInfo</param>
-        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all</param>
+        /// <param name="udfSharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the UDF will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ShareUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFSharing udfSharing, CancellationToken cancellationToken = default(CancellationToken))
@@ -1562,7 +1831,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream SubmitGenericUDF (string _namespace, GenericUDF udf, string acceptEncoding = default(string))
@@ -1576,7 +1845,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse<System.IO.Stream> SubmitGenericUDFWithHttpInfo (string _namespace, GenericUDF udf, string acceptEncoding = default(string))
@@ -1656,7 +1925,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
@@ -1672,7 +1941,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
@@ -1753,7 +2022,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream SubmitMultiArrayUDF (string _namespace, MultiArrayUDF udf, string acceptEncoding = default(string))
@@ -1767,7 +2036,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse<System.IO.Stream> SubmitMultiArrayUDFWithHttpInfo (string _namespace, MultiArrayUDF udf, string acceptEncoding = default(string))
@@ -1847,7 +2116,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
@@ -1863,7 +2132,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
@@ -1945,10 +2214,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream SubmitUDF (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string))
         {
@@ -1962,10 +2231,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse<System.IO.Stream> SubmitUDFWithHttpInfo (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string))
         {
@@ -2051,10 +2320,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of System.IO.Stream</returns>
         public async System.Threading.Tasks.Task<System.IO.Stream> SubmitUDFAsync (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string), CancellationToken cancellationToken = default(CancellationToken))
@@ -2070,10 +2339,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="udf">udf to run</param>
+        /// <param name="udf">UDF to run</param>
         /// <param name="xPayer">Name of organization or user who should be charged for this request (optional)</param>
         /// <param name="acceptEncoding">Encoding to use (optional)</param>
-        /// <param name="v2">flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)</param>
+        /// <param name="v2">flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> SubmitUDFWithHttpInfoAsync (string _namespace, string array, MultiArrayUDF udf, string xPayer = default(string), string acceptEncoding = default(string), string v2 = default(string), CancellationToken cancellationToken = default(CancellationToken))
@@ -2336,12 +2605,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  updated an existing registerd UDF in the given namespace
+        ///  update an existing registered UDF in the given namespace
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <returns></returns>
         public void UpdateUDFInfo (string _namespace, string name, UDFInfoUpdate udf)
         {
@@ -2349,12 +2618,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  updated an existing registerd UDF in the given namespace
+        ///  update an existing registered UDF in the given namespace
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateUDFInfoWithHttpInfo (string _namespace, string name, UDFInfoUpdate udf)
         {
@@ -2432,12 +2701,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  updated an existing registerd UDF in the given namespace
+        ///  update an existing registered UDF in the given namespace
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task UpdateUDFInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken))
@@ -2447,12 +2716,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  updated an existing registerd UDF in the given namespace
+        ///  update an existing registered UDF in the given namespace
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <param name="name">name to register udf under</param>
-        /// <param name="udf">udf to update</param>
+        /// <param name="name">name to register UDF under</param>
+        /// <param name="udf">UDF to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateUDFInfoWithHttpInfoAsync (string _namespace, string name, UDFInfoUpdate udf, CancellationToken cancellationToken = default(CancellationToken))

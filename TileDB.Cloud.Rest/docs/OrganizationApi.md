@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.OrganizationApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -44,7 +44,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -54,7 +54,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace
+            var _namespace = "_namespace_example";  // string | namespace
             var awsAccessCredentials = new AWSAccessCredentials(); // AWSAccessCredentials | aws access credentials to store for a namespace
 
             try
@@ -129,7 +129,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -139,7 +139,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name
+            var organization = "organization_example";  // string | organization name
             var user = new OrganizationUser(); // OrganizationUser | user to add
 
             try
@@ -214,7 +214,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -224,7 +224,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace
+            var _namespace = "_namespace_example";  // string | namespace
 
             try
             {
@@ -298,7 +298,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -308,8 +308,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace
-            var name = name_example;  // string | name
+            var _namespace = "_namespace_example";  // string | namespace
+            var name = "name_example";  // string | name
 
             try
             {
@@ -384,7 +384,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -467,7 +467,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -477,8 +477,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace
-            var name = name_example;  // string | name
+            var _namespace = "_namespace_example";  // string | namespace
+            var name = "name_example";  // string | name
 
             try
             {
@@ -552,7 +552,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -562,7 +562,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name or id
+            var organization = "organization_example";  // string | organization name or ID
 
             try
             {
@@ -584,7 +584,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | **string**| organization name or id | 
+ **organization** | **string**| organization name or ID | 
 
 ### Return type
 
@@ -635,7 +635,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -645,8 +645,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name
-            var username = username_example;  // string | username to manipulate
+            var organization = "organization_example";  // string | organization name
+            var username = "username_example";  // string | username to manipulate
 
             try
             {
@@ -720,7 +720,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -802,7 +802,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -812,7 +812,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name or id
+            var organization = "organization_example";  // string | organization name or ID
 
             try
             {
@@ -835,7 +835,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | **string**| organization name or id | 
+ **organization** | **string**| organization name or ID | 
 
 ### Return type
 
@@ -887,7 +887,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -897,8 +897,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name
-            var username = username_example;  // string | username to manipulate
+            var organization = "organization_example";  // string | organization name
+            var username = "username_example";  // string | username to manipulate
 
             try
             {
@@ -974,7 +974,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -984,8 +984,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace
-            var name = name_example;  // string | name
+            var _namespace = "_namespace_example";  // string | namespace
+            var name = "name_example";  // string | name
             var awsAccessCredentials = new AWSAccessCredentials(); // AWSAccessCredentials | aws credentials to update
 
             try
@@ -1061,7 +1061,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1071,7 +1071,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name or id
+            var organization = "organization_example";  // string | organization name or ID
             var organizationDetails = new Organization(); // Organization | organization details to update
 
             try
@@ -1094,7 +1094,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | **string**| organization name or id | 
+ **organization** | **string**| organization name or ID | 
  **organizationDetails** | [**Organization**](Organization.md)| organization details to update | 
 
 ### Return type
@@ -1146,7 +1146,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1156,8 +1156,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new OrganizationApi(Configuration.Default);
-            var organization = organization_example;  // string | organization name
-            var username = username_example;  // string | username to manipulate
+            var organization = "organization_example";  // string | organization name
+            var username = "username_example";  // string | username to manipulate
             var user = new OrganizationUser(); // OrganizationUser | user details to update
 
             try

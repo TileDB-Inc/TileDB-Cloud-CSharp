@@ -38,7 +38,7 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
-        /// <param name="id">unique id of user.</param>
+        /// <param name="id">unique ID of user.</param>
         /// <param name="username">username must be unique (required).</param>
         /// <param name="password">password.</param>
         /// <param name="name">the user&#39;s full, real name.</param>
@@ -47,8 +47,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="logo">the user&#39;s logo.</param>
         /// <param name="timezone">timezone.</param>
         /// <param name="allowedActions">list of actions user is allowed to do on this organization.</param>
-        /// <param name="defaultS3Path">default s3 path to store newly created notebooks.</param>
-        /// <param name="defaultS3PathCredentialsName">Default s3 path credentials name is the credentials name to use along with default_s3_path.</param>
+        /// <param name="defaultS3Path">default S3 path to store newly created notebooks.</param>
+        /// <param name="defaultS3PathCredentialsName">Default S3 path credentials name is the credentials name to use along with default_s3_path.</param>
         /// <param name="defaultNamespaceCharged">Override the default namespace charged for actions when no namespace is specified.</param>
         public User(string id = default(string), string username = default(string), string password = default(string), string name = default(string), string email = default(string), string company = default(string), string logo = default(string), string timezone = default(string), List<NamespaceActions> allowedActions = default(List<NamespaceActions>), string defaultS3Path = default(string), string defaultS3PathCredentialsName = default(string), string defaultNamespaceCharged = default(string))
         {
@@ -69,16 +69,16 @@ namespace TileDB.Cloud.Rest.Model
             this.Company = company;
             this.Logo = logo;
             this.Timezone = timezone;
-            // this.AllowedActions = allowedActions;
+            this.AllowedActions = allowedActions;
             this.DefaultS3Path = defaultS3Path;
             this.DefaultS3PathCredentialsName = defaultS3PathCredentialsName;
             this.DefaultNamespaceCharged = defaultNamespaceCharged;
         }
 
         /// <summary>
-        /// unique id of user
+        /// unique ID of user
         /// </summary>
-        /// <value>unique id of user</value>
+        /// <value>unique ID of user</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -162,8 +162,8 @@ namespace TileDB.Cloud.Rest.Model
         /// list of actions user is allowed to do on this organization
         /// </summary>
         /// <value>list of actions user is allowed to do on this organization</value>
-        // [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
-        // public List<NamespaceActions> AllowedActions { get; set; }
+        [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
+        public List<NamespaceActions> AllowedActions { get; set; }
 
         /// <summary>
         /// List of extra/optional/beta features to enable for namespace
@@ -180,16 +180,16 @@ namespace TileDB.Cloud.Rest.Model
         public bool UnpaidSubscription { get; private set; }
 
         /// <summary>
-        /// default s3 path to store newly created notebooks
+        /// default S3 path to store newly created notebooks
         /// </summary>
-        /// <value>default s3 path to store newly created notebooks</value>
+        /// <value>default S3 path to store newly created notebooks</value>
         [DataMember(Name="default_s3_path", EmitDefaultValue=false)]
         public string DefaultS3Path { get; set; }
 
         /// <summary>
-        /// Default s3 path credentials name is the credentials name to use along with default_s3_path
+        /// Default S3 path credentials name is the credentials name to use along with default_s3_path
         /// </summary>
-        /// <value>Default s3 path credentials name is the credentials name to use along with default_s3_path</value>
+        /// <value>Default S3 path credentials name is the credentials name to use along with default_s3_path</value>
         [DataMember(Name="default_s3_path_credentials_name", EmitDefaultValue=false)]
         public string DefaultS3PathCredentialsName { get; set; }
 
@@ -220,7 +220,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  LastActivityDate: ").Append(LastActivityDate).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  Organizations: ").Append(Organizations).Append("\n");
-            // sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
+            sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
             sb.Append("  EnabledFeatures: ").Append(EnabledFeatures).Append("\n");
             sb.Append("  UnpaidSubscription: ").Append(UnpaidSubscription).Append("\n");
             sb.Append("  DefaultS3Path: ").Append(DefaultS3Path).Append("\n");
@@ -321,12 +321,12 @@ namespace TileDB.Cloud.Rest.Model
                     input.Organizations != null &&
                     this.Organizations.SequenceEqual(input.Organizations)
                 ) && 
-                // (
-                //     this.AllowedActions == input.AllowedActions ||
-                //     this.AllowedActions != null &&
-                //     input.AllowedActions != null &&
-                //     this.AllowedActions.SequenceEqual(input.AllowedActions)
-                // ) && 
+                (
+                    this.AllowedActions == input.AllowedActions ||
+                    this.AllowedActions != null &&
+                    input.AllowedActions != null &&
+                    this.AllowedActions.SequenceEqual(input.AllowedActions)
+                ) && 
                 (
                     this.EnabledFeatures == input.EnabledFeatures ||
                     this.EnabledFeatures != null &&
@@ -388,8 +388,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 if (this.Organizations != null)
                     hashCode = hashCode * 59 + this.Organizations.GetHashCode();
-                // if (this.AllowedActions != null)
-                //     hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
+                if (this.AllowedActions != null)
+                    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
                 if (this.EnabledFeatures != null)
                     hashCode = hashCode * 59 + this.EnabledFeatures.GetHashCode();
                 if (this.UnpaidSubscription != null)

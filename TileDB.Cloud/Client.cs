@@ -117,17 +117,17 @@ namespace TileDB.Cloud
 
             _instance = new Client(cfg);
  
-            TileDB.Config tdb_config = new TileDB.Config();
+            TileDB.CSharp.Config tdb_config = new TileDB.CSharp.Config();
             if (!string.IsNullOrEmpty(cfg.GetConfig().Username))
             {
-                tdb_config.set("rest.username", cfg.GetConfig().Username);
+                tdb_config.Set("rest.username", cfg.GetConfig().Username);
             }
             if (!string.IsNullOrEmpty(cfg.GetConfig().Password)) {
-                tdb_config.set("rest.password", cfg.GetConfig().Password);
+                tdb_config.Set("rest.password", cfg.GetConfig().Password);
             }
 
             if (!string.IsNullOrEmpty(cfg.GetConfig().AccessToken)) {
-                tdb_config.set("rest.token", cfg.GetConfig().AccessToken);
+                tdb_config.Set("rest.token", cfg.GetConfig().AccessToken);
             }
 
             if (!string.IsNullOrEmpty(cfg.GetConfig().BasePath)) {
@@ -142,16 +142,16 @@ namespace TileDB.Cloud
                 }
                 if(!string.IsNullOrEmpty(temp_host))
                 {
-                    tdb_config.set("rest.server_address", temp_host);
+                    tdb_config.Set("rest.server_address", temp_host);
                 }
                 
             }
                             
-            _context = new TileDB.Context(tdb_config);
+            _context = new TileDB.CSharp.Context(tdb_config);
         }
 
-        private static TileDB.Context _context = new TileDB.Context(new TileDB.Config());
-        public static TileDB.Context GetContext()
+        private static TileDB.CSharp.Context _context = new TileDB.CSharp.Context(new TileDB.CSharp.Config());
+        public static TileDB.CSharp.Context GetContext()
         {
             return _context;
         }
@@ -171,6 +171,7 @@ namespace TileDB.Cloud
         protected TileDB.Cloud.Rest.Client.ApiClient _apiClient = null;
         protected TileDB.Cloud.Rest.Api.ArrayApi _arrayApi = null;
         protected TileDB.Cloud.Rest.Api.FilesApi _filesApi = null;
+        protected TileDB.Cloud.Rest.Api.GroupsApi _groupsApi = null;
         protected TileDB.Cloud.Rest.Api.NotebookApi _notebookApi = null;
         protected TileDB.Cloud.Rest.Api.OrganizationApi _organizationApi = null;
         protected TileDB.Cloud.Rest.Api.SqlApi _sqlApi = null;
@@ -182,15 +183,10 @@ namespace TileDB.Cloud
         {
             return _cfg;
         }
-        public TileDB.Cloud.Rest.Client.ApiClient GetApiClient()
-        {
-            return _apiClient;
-        }
-        public TileDB.Cloud.Rest.Api.ArrayApi GetArrayApi()
-        {
-            return _arrayApi;
-        }
+        public TileDB.Cloud.Rest.Client.ApiClient GetApiClient() { return _apiClient; }
+        public TileDB.Cloud.Rest.Api.ArrayApi GetArrayApi() { return _arrayApi; }
         public TileDB.Cloud.Rest.Api.FilesApi GetFilesApi() { return _filesApi; }
+        public TileDB.Cloud.Rest.Api.GroupsApi GetGroupsApi() { return _groupsApi; }
         public TileDB.Cloud.Rest.Api.NotebookApi GetNotebookApi() { return _notebookApi; }
         public TileDB.Cloud.Rest.Api.OrganizationApi GetOrganizationApi() { return _organizationApi; }
         public TileDB.Cloud.Rest.Api.SqlApi GetSqlApi() { return _sqlApi; }
@@ -209,6 +205,7 @@ namespace TileDB.Cloud
             _apiClient = new Rest.Client.ApiClient(_cfg.GetConfig());
             _arrayApi = new Rest.Api.ArrayApi(_cfg.GetConfig());
             _filesApi = new Rest.Api.FilesApi(_cfg.GetConfig());
+            _groupsApi = new Rest.Api.GroupsApi(_cfg.GetConfig());
             _notebookApi = new Rest.Api.NotebookApi(_cfg.GetConfig());
             _organizationApi = new Rest.Api.OrganizationApi(_cfg.GetConfig());
             _sqlApi = new Rest.Api.SqlApi(_cfg.GetConfig());

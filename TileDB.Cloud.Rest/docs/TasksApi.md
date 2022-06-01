@@ -1,6 +1,6 @@
 # TileDB.Cloud.Rest.Api.TasksApi
 
-All URIs are relative to *http://localhost/v1*
+All URIs are relative to */v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -44,9 +44,9 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new TasksApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace to run task under is in (an organization name or user's username)
+            var _namespace = "_namespace_example";  // string | namespace to run task under is in (an organization name or user's username)
             var sql = new SQLParameters(); // SQLParameters | sql being submitted
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
 
             try
             {
@@ -123,7 +123,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -133,7 +133,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new TasksApi(Configuration.Default);
-            var id = id_example;  // string | task id to fetch
+            var id = "id_example";  // string | task ID to fetch
 
             try
             {
@@ -156,7 +156,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| task id to fetch | 
+ **id** | **string**| task ID to fetch | 
 
 ### Return type
 
@@ -207,7 +207,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -217,8 +217,8 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new TasksApi(Configuration.Default);
-            var id = id_example;  // string | task id to retrieve stored results
-            var acceptEncoding = acceptEncoding_example;  // string | Encoding to use (optional) 
+            var id = "id_example";  // string | task ID to retrieve stored results
+            var acceptEncoding = "acceptEncoding_example";  // string | Encoding to use (optional) 
 
             try
             {
@@ -241,7 +241,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| task id to retrieve stored results | 
+ **id** | **string**| task ID to retrieve stored results | 
  **acceptEncoding** | **string**| Encoding to use | [optional] 
 
 ### Return type
@@ -295,7 +295,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/v1";
+            Configuration.Default.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
             Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -305,20 +305,20 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new TasksApi(Configuration.Default);
-            var _namespace = _namespace_example;  // string | namespace to filter (optional) 
-            var createdBy = createdBy_example;  // string | username to filter (optional) 
-            var array = array_example;  // string | name/uri of array that is url-encoded to filter (optional) 
+            var _namespace = "_namespace_example";  // string | namespace to filter (optional) 
+            var createdBy = "createdBy_example";  // string | username to filter (optional) 
+            var array = "array_example";  // string | name/uri of array that is url-encoded to filter (optional) 
             var start = 56;  // int? | start time for tasks to filter by (optional) 
             var end = 56;  // int? | end time for tasks to filter by (optional) 
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
-            var type = type_example;  // string | task type, \"QUERY\", \"SQL\", \"UDF\", \"GENERIC_UDF\" (optional) 
+            var type = "type_example";  // string | task type, \"QUERY\", \"SQL\", \"UDF\", \"GENERIC_UDF\" (optional) 
             var excludeType = new List<string>(); // List<string> | task_type to exclude matching array in results, more than one can be included (optional) 
             var fileType = new List<string>(); // List<string> | match file_type of task array, more than one can be included (optional) 
             var excludeFileType = new List<string>(); // List<string> | exclude file_type of task arrays, more than one can be included (optional) 
-            var status = status_example;  // string | Filter to only return these statuses (optional) 
-            var search = search_example;  // string | search string that will look at name, namespace or description fields (optional) 
-            var orderby = orderby_example;  // string | sort by which field valid values include start_time, name (optional) 
+            var status = "status_example";  // string | Filter to only return these statuses (optional) 
+            var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
+            var orderby = "orderby_example";  // string | sort by which field valid values include start_time, name (optional) 
 
             try
             {

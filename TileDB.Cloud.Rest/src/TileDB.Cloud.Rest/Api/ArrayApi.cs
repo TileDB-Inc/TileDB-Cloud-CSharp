@@ -37,9 +37,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
-        /// <returns>List&lt;ArrayActivityLog&gt;</returns>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
+        /// <returns>List<ArrayActivityLog></returns>
         List<ArrayActivityLog> ArrayActivityLog (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?));
 
         /// <summary>
@@ -54,15 +54,15 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
-        /// <returns>ApiResponse of List&lt;ArrayActivityLog&gt;</returns>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
+        /// <returns>ApiResponse of List<ArrayActivityLog></returns>
         ApiResponse<List<ArrayActivityLog>> ArrayActivityLogWithHttpInfo (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -83,7 +83,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -103,7 +103,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ArrayBrowserSidebar</returns>
@@ -113,7 +113,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ArrayBrowserSidebar</returns>
@@ -371,12 +371,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get activity log by id
+        /// get activity log by ID
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <returns>ArrayActivityLog</returns>
         ArrayActivityLog GetActivityLogById (string _namespace, string array, string id);
 
@@ -384,12 +384,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get activity log by id
+        /// get activity log by ID
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <returns>ApiResponse of ArrayActivityLog</returns>
         ApiResponse<ArrayActivityLog> GetActivityLogByIdWithHttpInfo (string _namespace, string array, string id);
         /// <summary>
@@ -400,7 +400,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
-        /// <returns>List&lt;ArrayInfo&gt;</returns>
+        /// <returns>List<ArrayInfo></returns>
         List<ArrayInfo> GetAllArrayMetadata (string publicShare = default(string));
 
         /// <summary>
@@ -411,7 +411,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
-        /// <returns>ApiResponse of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayInfo></returns>
         ApiResponse<List<ArrayInfo>> GetAllArrayMetadataWithHttpInfo (string publicShare = default(string));
         /// <summary>
         /// 
@@ -471,7 +471,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get metadata from the array in json format
+        /// get metadata from the array in JSON format
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -485,7 +485,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get metadata from the array in json format
+        /// get metadata from the array in JSON format
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -624,7 +624,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <returns>List&lt;ArraySharing&gt;</returns>
+        /// <returns>List<ArraySharing></returns>
         List<ArraySharing> GetArraySharingPolicies (string _namespace, string array);
 
         /// <summary>
@@ -636,7 +636,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <returns>ApiResponse of List&lt;ArraySharing&gt;</returns>
+        /// <returns>ApiResponse of List<ArraySharing></returns>
         ApiResponse<List<ArraySharing>> GetArraySharingPoliciesWithHttpInfo (string _namespace, string array);
         /// <summary>
         /// 
@@ -646,7 +646,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <returns>List&lt;ArrayInfo&gt;</returns>
+        /// <returns>List<ArrayInfo></returns>
         List<ArrayInfo> GetArraysInNamespace (string _namespace);
 
         /// <summary>
@@ -657,7 +657,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <returns>ApiResponse of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayInfo></returns>
         ApiResponse<List<ArrayInfo>> GetArraysInNamespaceWithHttpInfo (string _namespace);
         /// <summary>
         /// 
@@ -691,7 +691,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>List<LastAccessedArray></returns>
         List<LastAccessedArray> GetLastAccessedArrays ();
 
         /// <summary>
@@ -701,7 +701,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>ApiResponse of List<LastAccessedArray></returns>
         ApiResponse<List<LastAccessedArray>> GetLastAccessedArraysWithHttpInfo ();
         /// <summary>
         /// 
@@ -713,8 +713,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
-        /// <returns></returns>
-        void RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata);
+        /// <returns>ArrayInfo</returns>
+        ArrayInfo RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata);
 
         /// <summary>
         /// 
@@ -726,8 +726,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RegisterArrayWithHttpInfo (string _namespace, string array, ArrayInfoUpdate arrayMetadata);
+        /// <returns>ApiResponse of ArrayInfo</returns>
+        ApiResponse<ArrayInfo> RegisterArrayWithHttpInfo (string _namespace, string array, ArrayInfoUpdate arrayMetadata);
         /// <summary>
         /// 
         /// </summary>
@@ -737,7 +737,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <returns></returns>
         void ShareArray (string _namespace, string array, ArraySharing arraySharing);
 
@@ -750,7 +750,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ShareArrayWithHttpInfo (string _namespace, string array, ArraySharing arraySharing);
         /// <summary>
@@ -842,10 +842,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayActivityLog&gt;</returns>
+        /// <returns>Task of List<ArrayActivityLog></returns>
         System.Threading.Tasks.Task<List<ArrayActivityLog>> ArrayActivityLogAsync (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -860,8 +860,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (List&lt;ArrayActivityLog&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ArrayActivityLog>>> ArrayActivityLogWithHttpInfoAsync (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
@@ -869,7 +869,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -891,7 +891,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -912,7 +912,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -923,7 +923,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        /// Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -1200,12 +1200,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get activity log by id
+        /// get activity log by ID
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayActivityLog</returns>
         System.Threading.Tasks.Task<ArrayActivityLog> GetActivityLogByIdAsync (string _namespace, string array, string id, CancellationToken cancellationToken = default(CancellationToken));
@@ -1214,12 +1214,12 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get activity log by id
+        /// get activity log by ID
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayActivityLog)</returns>
         System.Threading.Tasks.Task<ApiResponse<ArrayActivityLog>> GetActivityLogByIdWithHttpInfoAsync (string _namespace, string array, string id, CancellationToken cancellationToken = default(CancellationToken));
@@ -1232,7 +1232,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>Task of List<ArrayInfo></returns>
         System.Threading.Tasks.Task<List<ArrayInfo>> GetAllArrayMetadataAsync (string publicShare = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1308,7 +1308,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get metadata from the array in json format
+        /// get metadata from the array in JSON format
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1323,7 +1323,7 @@ namespace TileDB.Cloud.Rest.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// get metadata from the array in json format
+        /// get metadata from the array in JSON format
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -1474,7 +1474,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArraySharing&gt;</returns>
+        /// <returns>Task of List<ArraySharing></returns>
         System.Threading.Tasks.Task<List<ArraySharing>> GetArraySharingPoliciesAsync (string _namespace, string array, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1498,7 +1498,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>Task of List<ArrayInfo></returns>
         System.Threading.Tasks.Task<List<ArrayInfo>> GetArraysInNamespaceAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1547,7 +1547,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </remarks>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>Task of List<LastAccessedArray></returns>
         System.Threading.Tasks.Task<List<LastAccessedArray>> GetLastAccessedArraysAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -1571,8 +1571,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RegisterArrayAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ArrayInfo</returns>
+        System.Threading.Tasks.Task<ArrayInfo> RegisterArrayAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -1585,8 +1585,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RegisterArrayWithHttpInfoAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ArrayInfo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ArrayInfo>> RegisterArrayWithHttpInfoAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -1596,7 +1596,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ShareArrayAsync (string _namespace, string array, ArraySharing arraySharing, CancellationToken cancellationToken = default(CancellationToken));
@@ -1610,7 +1610,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ShareArrayWithHttpInfoAsync (string _namespace, string array, ArraySharing arraySharing, CancellationToken cancellationToken = default(CancellationToken));
@@ -1815,9 +1815,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
-        /// <returns>List&lt;ArrayActivityLog&gt;</returns>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
+        /// <returns>List<ArrayActivityLog></returns>
         public List<ArrayActivityLog> ArrayActivityLog (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?))
         {
              ApiResponse<List<ArrayActivityLog>> localVarResponse = ArrayActivityLogWithHttpInfo(_namespace, array, start, end, eventTypes, taskId, hasTaskId);
@@ -1833,9 +1833,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
-        /// <returns>ApiResponse of List&lt;ArrayActivityLog&gt;</returns>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
+        /// <returns>ApiResponse of List<ArrayActivityLog></returns>
         public ApiResponse<List<ArrayActivityLog>> ArrayActivityLogWithHttpInfo (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?))
         {
             // verify the required parameter '_namespace' is set
@@ -1913,10 +1913,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayActivityLog&gt;</returns>
+        /// <returns>Task of List<ArrayActivityLog></returns>
         public async System.Threading.Tasks.Task<List<ArrayActivityLog>> ArrayActivityLogAsync (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<ArrayActivityLog>> localVarResponse = await ArrayActivityLogWithHttpInfoAsync(_namespace, array, start, end, eventTypes, taskId, hasTaskId, cancellationToken);
@@ -1933,8 +1933,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="start">Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional)</param>
         /// <param name="end">End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)</param>
         /// <param name="eventTypes">Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)</param>
-        /// <param name="taskId">Array task id To filter activity to (optional)</param>
-        /// <param name="hasTaskId">Excludes activity log results that does not contain an array task uuid (optional)</param>
+        /// <param name="taskId">Array task ID To filter activity to (optional)</param>
+        /// <param name="hasTaskId">Excludes activity log results that do not contain an array task UUID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (List&lt;ArrayActivityLog&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<ArrayActivityLog>>> ArrayActivityLogWithHttpInfoAsync (string _namespace, string array, int? start = default(int?), int? end = default(int?), string eventTypes = default(string), string taskId = default(string), bool? hasTaskId = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
@@ -2006,7 +2006,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -2028,7 +2028,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -2110,7 +2110,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -2134,7 +2134,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a list of all arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a list of all arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">pagination offset (optional)</param>
@@ -2217,7 +2217,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ArrayBrowserSidebar</returns>
@@ -2228,7 +2228,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ArrayBrowserSidebar</returns>
@@ -2288,7 +2288,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -2301,7 +2301,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  Fetch a sidebar for arrays that are owned directly by user or user&#39;s organizations
+        ///  Fetch a sidebar for arrays that are owned directly by user or user's organizations
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -4009,12 +4009,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get activity log by id
+        ///  get activity log by ID
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <returns>ArrayActivityLog</returns>
         public ArrayActivityLog GetActivityLogById (string _namespace, string array, string id)
         {
@@ -4023,12 +4023,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get activity log by id
+        ///  get activity log by ID
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <returns>ApiResponse of ArrayActivityLog</returns>
         public ApiResponse<ArrayActivityLog> GetActivityLogByIdWithHttpInfo (string _namespace, string array, string id)
         {
@@ -4098,12 +4098,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get activity log by id
+        ///  get activity log by ID
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayActivityLog</returns>
         public async System.Threading.Tasks.Task<ArrayActivityLog> GetActivityLogByIdAsync (string _namespace, string array, string id, CancellationToken cancellationToken = default(CancellationToken))
@@ -4114,12 +4114,12 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get activity log by id
+        ///  get activity log by ID
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="id">id of the activity</param>
+        /// <param name="id">ID of the activity</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayActivityLog)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ArrayActivityLog>> GetActivityLogByIdWithHttpInfoAsync (string _namespace, string array, string id, CancellationToken cancellationToken = default(CancellationToken))
@@ -4194,7 +4194,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
-        /// <returns>List&lt;ArrayInfo&gt;</returns>
+        /// <returns>List<ArrayInfo></returns>
         public List<ArrayInfo> GetAllArrayMetadata (string publicShare = default(string))
         {
              ApiResponse<List<ArrayInfo>> localVarResponse = GetAllArrayMetadataWithHttpInfo(publicShare);
@@ -4206,7 +4206,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
-        /// <returns>ApiResponse of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayInfo></returns>
         public ApiResponse<List<ArrayInfo>> GetAllArrayMetadataWithHttpInfo (string publicShare = default(string))
         {
 
@@ -4269,7 +4269,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicShare">Public share values can be one of exclude, only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>Task of List<ArrayInfo></returns>
         public async System.Threading.Tasks.Task<List<ArrayInfo>> GetAllArrayMetadataAsync (string publicShare = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<ArrayInfo>> localVarResponse = await GetAllArrayMetadataWithHttpInfoAsync(publicShare, cancellationToken);
@@ -4723,7 +4723,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get metadata from the array in json format
+        ///  get metadata from the array in JSON format
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -4738,7 +4738,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get metadata from the array in json format
+        ///  get metadata from the array in JSON format
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -4812,7 +4812,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get metadata from the array in json format
+        ///  get metadata from the array in JSON format
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -4829,7 +4829,7 @@ namespace TileDB.Cloud.Rest.Api
         }
 
         /// <summary>
-        ///  get metadata from the array in json format
+        ///  get metadata from the array in JSON format
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
@@ -5780,7 +5780,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <returns>List&lt;ArraySharing&gt;</returns>
+        /// <returns>List<ArraySharing></returns>
         public List<ArraySharing> GetArraySharingPolicies (string _namespace, string array)
         {
              ApiResponse<List<ArraySharing>> localVarResponse = GetArraySharingPoliciesWithHttpInfo(_namespace, array);
@@ -5793,7 +5793,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <returns>ApiResponse of List&lt;ArraySharing&gt;</returns>
+        /// <returns>ApiResponse of List<ArraySharing></returns>
         public ApiResponse<List<ArraySharing>> GetArraySharingPoliciesWithHttpInfo (string _namespace, string array)
         {
             // verify the required parameter '_namespace' is set
@@ -5864,7 +5864,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArraySharing&gt;</returns>
+        /// <returns>Task of List<ArraySharing></returns>
         public async System.Threading.Tasks.Task<List<ArraySharing>> GetArraySharingPoliciesAsync (string _namespace, string array, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<ArraySharing>> localVarResponse = await GetArraySharingPoliciesWithHttpInfoAsync(_namespace, array, cancellationToken);
@@ -5948,7 +5948,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <returns>List&lt;ArrayInfo&gt;</returns>
+        /// <returns>List<ArrayInfo></returns>
         public List<ArrayInfo> GetArraysInNamespace (string _namespace)
         {
              ApiResponse<List<ArrayInfo>> localVarResponse = GetArraysInNamespaceWithHttpInfo(_namespace);
@@ -5960,7 +5960,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
-        /// <returns>ApiResponse of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>ApiResponse of List<ArrayInfo></returns>
         public ApiResponse<List<ArrayInfo>> GetArraysInNamespaceWithHttpInfo (string _namespace)
         {
             // verify the required parameter '_namespace' is set
@@ -6026,7 +6026,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;ArrayInfo&gt;</returns>
+        /// <returns>Task of List<ArrayInfo></returns>
         public async System.Threading.Tasks.Task<List<ArrayInfo>> GetArraysInNamespaceAsync (string _namespace, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<ArrayInfo>> localVarResponse = await GetArraysInNamespaceWithHttpInfoAsync(_namespace, cancellationToken);
@@ -6279,7 +6279,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>List<LastAccessedArray></returns>
         public List<LastAccessedArray> GetLastAccessedArrays ()
         {
              ApiResponse<List<LastAccessedArray>> localVarResponse = GetLastAccessedArraysWithHttpInfo();
@@ -6290,7 +6290,7 @@ namespace TileDB.Cloud.Rest.Api
         ///  
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>ApiResponse of List<LastAccessedArray></returns>
         public ApiResponse<List<LastAccessedArray>> GetLastAccessedArraysWithHttpInfo ()
         {
 
@@ -6351,7 +6351,7 @@ namespace TileDB.Cloud.Rest.Api
         /// </summary>
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of List&lt;LastAccessedArray&gt;</returns>
+        /// <returns>Task of List<LastAccessedArray></returns>
         public async System.Threading.Tasks.Task<List<LastAccessedArray>> GetLastAccessedArraysAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<List<LastAccessedArray>> localVarResponse = await GetLastAccessedArraysWithHttpInfoAsync(cancellationToken);
@@ -6427,10 +6427,11 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
-        /// <returns></returns>
-        public void RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
+        /// <returns>ArrayInfo</returns>
+        public ArrayInfo RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
         {
-             RegisterArrayWithHttpInfo(_namespace, array, arrayMetadata);
+             ApiResponse<ArrayInfo> localVarResponse = RegisterArrayWithHttpInfo(_namespace, array, arrayMetadata);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -6440,8 +6441,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> RegisterArrayWithHttpInfo (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
+        /// <returns>ApiResponse of ArrayInfo</returns>
+        public ApiResponse<ArrayInfo> RegisterArrayWithHttpInfo (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
@@ -6511,9 +6512,9 @@ namespace TileDB.Cloud.Rest.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ArrayInfo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ArrayInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ArrayInfo)));
         }
 
         /// <summary>
@@ -6524,10 +6525,11 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RegisterArrayAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ArrayInfo</returns>
+        public async System.Threading.Tasks.Task<ArrayInfo> RegisterArrayAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await RegisterArrayWithHttpInfoAsync(_namespace, array, arrayMetadata, cancellationToken);
+             ApiResponse<ArrayInfo> localVarResponse = await RegisterArrayWithHttpInfoAsync(_namespace, array, arrayMetadata, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
@@ -6539,8 +6541,8 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="array">name/uri of array that is url-encoded</param>
         /// <param name="arrayMetadata">metadata associated with array</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> RegisterArrayWithHttpInfoAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ArrayInfo)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ArrayInfo>> RegisterArrayWithHttpInfoAsync (string _namespace, string array, ArrayInfoUpdate arrayMetadata, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter '_namespace' is set
             if (_namespace == null)
@@ -6610,9 +6612,9 @@ namespace TileDB.Cloud.Rest.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ArrayInfo>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ArrayInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ArrayInfo)));
         }
 
         /// <summary>
@@ -6621,7 +6623,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <returns></returns>
         public void ShareArray (string _namespace, string array, ArraySharing arraySharing)
         {
@@ -6634,7 +6636,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ShareArrayWithHttpInfo (string _namespace, string array, ArraySharing arraySharing)
         {
@@ -6717,7 +6719,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task ShareArrayAsync (string _namespace, string array, ArraySharing arraySharing, CancellationToken cancellationToken = default(CancellationToken))
@@ -6732,7 +6734,7 @@ namespace TileDB.Cloud.Rest.Api
         /// <exception cref="TileDB.Cloud.Rest.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_namespace">namespace array is in (an organization name or user&#39;s username)</param>
         /// <param name="array">name/uri of array that is url-encoded</param>
-        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all</param>
+        /// <param name="arraySharing">Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it&#39;s likely the array will not be shared with the namespace at all.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ShareArrayWithHttpInfoAsync (string _namespace, string array, ArraySharing arraySharing, CancellationToken cancellationToken = default(CancellationToken))

@@ -38,8 +38,8 @@ namespace TileDB.Cloud.Rest.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationUser" /> class.
         /// </summary>
-        /// <param name="userId">unique id of user.</param>
-        /// <param name="organizationId">unique id of organization.</param>
+        /// <param name="userId">unique ID of user.</param>
+        /// <param name="organizationId">unique ID of organization.</param>
         /// <param name="username">username for user.</param>
         /// <param name="organizationName">name of organization.</param>
         /// <param name="role">role.</param>
@@ -51,20 +51,20 @@ namespace TileDB.Cloud.Rest.Model
             this.Username = username;
             this.OrganizationName = organizationName;
             this.Role = role;
-            // this.AllowedActions = allowedActions;
+            this.AllowedActions = allowedActions;
         }
 
         /// <summary>
-        /// unique id of user
+        /// unique ID of user
         /// </summary>
-        /// <value>unique id of user</value>
+        /// <value>unique ID of user</value>
         [DataMember(Name="user_id", EmitDefaultValue=false)]
         public string UserId { get; set; }
 
         /// <summary>
-        /// unique id of organization
+        /// unique ID of organization
         /// </summary>
-        /// <value>unique id of organization</value>
+        /// <value>unique ID of organization</value>
         [DataMember(Name="organization_id", EmitDefaultValue=false)]
         public string OrganizationId { get; set; }
 
@@ -87,8 +87,8 @@ namespace TileDB.Cloud.Rest.Model
         /// list of actions user is allowed to do on this organization
         /// </summary>
         /// <value>list of actions user is allowed to do on this organization</value>
-        // [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
-        // public List<NamespaceActions> AllowedActions { get; set; }
+        [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
+        public List<NamespaceActions> AllowedActions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -103,7 +103,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  OrganizationName: ").Append(OrganizationName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
-            // sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
+            sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,38 +137,38 @@ namespace TileDB.Cloud.Rest.Model
             if (input == null)
                 return false;
 
-            return
+            return 
                 (
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
-                     this.UserId.Equals(input.UserId))
-                ) &&
+                    this.UserId.Equals(input.UserId))
+                ) && 
                 (
                     this.OrganizationId == input.OrganizationId ||
                     (this.OrganizationId != null &&
-                     this.OrganizationId.Equals(input.OrganizationId))
-                ) &&
+                    this.OrganizationId.Equals(input.OrganizationId))
+                ) && 
                 (
                     this.Username == input.Username ||
                     (this.Username != null &&
-                     this.Username.Equals(input.Username))
-                ) &&
+                    this.Username.Equals(input.Username))
+                ) && 
                 (
                     this.OrganizationName == input.OrganizationName ||
                     (this.OrganizationName != null &&
-                     this.OrganizationName.Equals(input.OrganizationName))
-                ) &&
+                    this.OrganizationName.Equals(input.OrganizationName))
+                ) && 
                 (
                     this.Role == input.Role ||
                     (this.Role != null &&
-                     this.Role.Equals(input.Role))
+                    this.Role.Equals(input.Role))
+                ) && 
+                (
+                    this.AllowedActions == input.AllowedActions ||
+                    this.AllowedActions != null &&
+                    input.AllowedActions != null &&
+                    this.AllowedActions.SequenceEqual(input.AllowedActions)
                 );
-            // (
-            //     this.AllowedActions == input.AllowedActions ||
-            //     this.AllowedActions != null &&
-            //     input.AllowedActions != null &&
-            //     this.AllowedActions.SequenceEqual(input.AllowedActions)
-            // );
         }
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.OrganizationName.GetHashCode();
                 if (this.Role != null)
                     hashCode = hashCode * 59 + this.Role.GetHashCode();
-                // if (this.AllowedActions != null)
-                //     hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
+                if (this.AllowedActions != null)
+                    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
                 return hashCode;
             }
         }

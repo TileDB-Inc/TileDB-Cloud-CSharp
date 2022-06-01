@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TileDB.Cloud.Rest.Client.OpenAPIDateConverter;
 namespace TileDB.Cloud.Rest.Model
 {
     /// <summary>
-    /// actions a user can take on an udf
+    /// actions a user can take on a UDF
     /// </summary>
-    /// <value>actions a user can take on an udf</value>
+    /// <value>actions a user can take on a UDF</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     

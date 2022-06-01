@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | unique id of user | [optional] 
+**Id** | **string** | unique ID of user | [optional] 
 **Username** | **string** | username must be unique | 
 **Password** | **string** | password | [optional] 
 **Name** | **string** | the user&#39;s full, real name | [optional] 
@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **AllowedActions** | [**List&lt;NamespaceActions&gt;**](NamespaceActions.md) | list of actions user is allowed to do on this organization | [optional] 
 **EnabledFeatures** | **List&lt;string&gt;** | List of extra/optional/beta features to enable for namespace | [optional] [readonly] 
 **UnpaidSubscription** | **bool** | A notice that the user has an unpaid subscription | [optional] [readonly] 
-**DefaultS3Path** | **string** | default s3 path to store newly created notebooks | [optional] 
-**DefaultS3PathCredentialsName** | **string** | Default s3 path credentials name is the credentials name to use along with default_s3_path | [optional] 
+**DefaultS3Path** | **string** | default S3 path to store newly created notebooks | [optional] 
+**DefaultS3PathCredentialsName** | **string** | Default S3 path credentials name is the credentials name to use along with default_s3_path | [optional] 
 **DefaultNamespaceCharged** | **string** | Override the default namespace charged for actions when no namespace is specified | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TileDB.Cloud.Rest.Client.OpenAPIDateConverter;
 namespace TileDB.Cloud.Rest.Model
 {
     /// <summary>
-    /// details for sharing a given udf
+    /// details for sharing a given UDF
     /// </summary>
     [DataContract]
     public partial class UDFSharing :  IEquatable<UDFSharing>, IValidatableObject

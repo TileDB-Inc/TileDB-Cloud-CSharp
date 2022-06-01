@@ -67,7 +67,13 @@ namespace TileDB.Cloud.Rest.Model
         /// Enum UNKNOWN for value: UNKNOWN
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN = 6
+        UNKNOWN = 6,
+
+        /// <summary>
+        /// Enum CANCELLED for value: CANCELLED
+        /// </summary>
+        [EnumMember(Value = "CANCELLED")]
+        CANCELLED = 7
 
     }
 

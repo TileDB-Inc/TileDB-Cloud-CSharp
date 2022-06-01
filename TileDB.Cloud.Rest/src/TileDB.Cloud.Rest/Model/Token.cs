@@ -35,7 +35,7 @@ namespace TileDB.Cloud.Rest.Model
         /// </summary>
         /// <param name="token">A api token.</param>
         /// <param name="name">Name of token to revoke.</param>
-        /// <param name="issuedAt">datetime the token was created at.</param>
+        /// <param name="issuedAt">datetime the token was created.</param>
         /// <param name="expiresAt">datetime the token when token will expire.</param>
         /// <param name="scope">Optional scope to limit token, defaults to all permissions, current supported values are password_reset or * (default to &quot;*&quot;).</param>
         public Token(string token = default(string), string name = default(string), DateTime issuedAt = default(DateTime), DateTime expiresAt = default(DateTime), string scope = "*")
@@ -70,9 +70,9 @@ namespace TileDB.Cloud.Rest.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// datetime the token was created at
+        /// datetime the token was created
         /// </summary>
-        /// <value>datetime the token was created at</value>
+        /// <value>datetime the token was created</value>
         [DataMember(Name="issued_at", EmitDefaultValue=false)]
         public DateTime IssuedAt { get; set; }
 

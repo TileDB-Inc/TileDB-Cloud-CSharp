@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Username** | **string** | User who performed action | [optional] 
 **BytesSent** | **int** | Bytes sent to client | [optional] 
 **BytesReceived** | **int** | Bytes recieved from client | [optional] 
-**ArrayTaskId** | **string** | uuid of associated array task | [optional] 
-**Id** | **string** | id of the activity | [optional] 
+**ArrayTaskId** | **string** | UUID of associated array task | [optional] 
+**Id** | **string** | ID of the activity | [optional] 
 **QueryRanges** | **string** | ranges for query | [optional] 
 **QueryStats** | **string** | stats for query | [optional] 
 

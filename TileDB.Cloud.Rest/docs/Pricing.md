@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique id of plan as defined by Stripe | [optional] 
-**ArrayUuid** | **string** | Unique id of registered array | [optional] 
+**Id** | **string** | Unique ID of plan as defined by Stripe | [optional] 
+**ArrayUuid** | **string** | Unique ID of registered array | [optional] 
 **PricingName** | **string** | Name of pricing | [optional] 
 **PricingType** | **PricingType** |  | [optional] 
 **ProductName** | **string** | Name of product | [optional] 
