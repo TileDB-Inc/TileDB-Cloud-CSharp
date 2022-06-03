@@ -69,7 +69,7 @@ namespace TileDB.Cloud.Rest.Model
             this.Company = company;
             this.Logo = logo;
             this.Timezone = timezone;
-            this.AllowedActions = allowedActions;
+            //this.AllowedActions = allowedActions;
             this.DefaultS3Path = defaultS3Path;
             this.DefaultS3PathCredentialsName = defaultS3PathCredentialsName;
             this.DefaultNamespaceCharged = defaultNamespaceCharged;
@@ -158,12 +158,12 @@ namespace TileDB.Cloud.Rest.Model
         [DataMember(Name="organizations", EmitDefaultValue=false)]
         public List<OrganizationUser> Organizations { get; private set; }
 
-        /// <summary>
-        /// list of actions user is allowed to do on this organization
-        /// </summary>
-        /// <value>list of actions user is allowed to do on this organization</value>
-        [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
-        public List<NamespaceActions> AllowedActions { get; set; }
+        ///// <summary>
+        ///// list of actions user is allowed to do on this organization
+        ///// </summary>
+        ///// <value>list of actions user is allowed to do on this organization</value>
+        //[DataMember(Name="allowed_actions", EmitDefaultValue=false)]
+        //public List<NamespaceActions> AllowedActions { get; set; }
 
         /// <summary>
         /// List of extra/optional/beta features to enable for namespace
@@ -220,7 +220,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  LastActivityDate: ").Append(LastActivityDate).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  Organizations: ").Append(Organizations).Append("\n");
-            sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
+            //sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
             sb.Append("  EnabledFeatures: ").Append(EnabledFeatures).Append("\n");
             sb.Append("  UnpaidSubscription: ").Append(UnpaidSubscription).Append("\n");
             sb.Append("  DefaultS3Path: ").Append(DefaultS3Path).Append("\n");
@@ -321,12 +321,12 @@ namespace TileDB.Cloud.Rest.Model
                     input.Organizations != null &&
                     this.Organizations.SequenceEqual(input.Organizations)
                 ) && 
-                (
-                    this.AllowedActions == input.AllowedActions ||
-                    this.AllowedActions != null &&
-                    input.AllowedActions != null &&
-                    this.AllowedActions.SequenceEqual(input.AllowedActions)
-                ) && 
+                //(
+                //    this.AllowedActions == input.AllowedActions ||
+                //    this.AllowedActions != null &&
+                //    input.AllowedActions != null &&
+                //    this.AllowedActions.SequenceEqual(input.AllowedActions)
+                //) && 
                 (
                     this.EnabledFeatures == input.EnabledFeatures ||
                     this.EnabledFeatures != null &&
@@ -388,8 +388,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 if (this.Organizations != null)
                     hashCode = hashCode * 59 + this.Organizations.GetHashCode();
-                if (this.AllowedActions != null)
-                    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
+                //if (this.AllowedActions != null)
+                //    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
                 if (this.EnabledFeatures != null)
                     hashCode = hashCode * 59 + this.EnabledFeatures.GetHashCode();
                 if (this.UnpaidSubscription != null)
