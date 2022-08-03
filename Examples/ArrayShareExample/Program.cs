@@ -13,8 +13,8 @@ namespace ArrayShareExample
             TileDB.Cloud.Client.Login(token: token, host: host);
             var userDetails = TileDB.Cloud.RestUtil.GetUser();
 
-            string fromUriS3 = "s3://shaun.reed/VLDB17_TileDB.pdf";
-            string toUriS3 = "s3://shaun.reed/TileDB-PDF";
+            string fromUriS3 = "s3://tiledb-inc-demo-data/files/original/VLDB17_TileDB.pdf";
+            string toUriS3 = "s3://tiledb-inc-demo-data/files/original/VLDB17_TileDB";
             Console.WriteLine($"Converting file '{fromUriS3}' to TileDB array stored at {toUriS3}");
 
             DeregisterArraysByUriS3(delAll: true);
@@ -65,7 +65,7 @@ namespace ArrayShareExample
             // + An empty list of arraySharing.Actions will remove the namespace from sharing
             // + Permissions do not accumulate; Allowed actions will be replaced with new arraySharing.Actions
             // + Can initialize ArraySharing using ctor or properties
-            var arraySharing = new ArraySharing(new() { ArrayActions.Read }, "shaunrd0");
+            var arraySharing = new ArraySharing(new() { ArrayActions.Read }, "friend-namespace");
             // arraySharing.Namespace = "friend-namespace"; // Namespace to share the array with
             // arraySharing.Actions.Add(ArrayActions.Read); // Actions to allow from the new namespace we are sharing with
 
