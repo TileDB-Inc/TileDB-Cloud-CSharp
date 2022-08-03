@@ -17,7 +17,7 @@ namespace ArrayShareExample
             string toUriS3 = "s3://tiledb-inc-demo-data/files/original/VLDB17_TileDB";
             Console.WriteLine($"Converting file '{fromUriS3}' to TileDB array stored at {toUriS3}");
 
-            DeregisterArraysByUriS3(delAll: true);
+            DeregisterArraysByUriS3(new() {toUriS3});
 
             #region File Creation
 
