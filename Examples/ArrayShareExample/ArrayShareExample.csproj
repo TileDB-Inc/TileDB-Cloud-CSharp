@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TileDB.Cloud" Version="0.2.1" />
+    <PackageReference Include="TileDB.CSharp" Version="5.1.1" />
+  </ItemGroup>
+
+</Project>
