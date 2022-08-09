@@ -40,7 +40,7 @@ namespace TileDB.Cloud.Rest.Model
         /// </summary>
         /// <param name="layout">layout.</param>
         /// <param name="ranges">List of ranges,.</param>
-        public QueryRanges(Layout? layout = default(Layout?), List<List<decimal>> ranges = default(List<List<decimal>>))
+        public QueryRanges(Layout? layout = default(Layout?), List<List<Int32>> ranges = default(List<List<Int32>>))
         {
             this.Layout = layout;
             this.Ranges = ranges;
@@ -52,7 +52,7 @@ namespace TileDB.Cloud.Rest.Model
         /// </summary>
         /// <value>List of ranges,</value>
         [DataMember(Name="ranges", EmitDefaultValue=false)]
-        public List<List<decimal>> Ranges { get; set; }
+        public List<List<Int32>> Ranges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
