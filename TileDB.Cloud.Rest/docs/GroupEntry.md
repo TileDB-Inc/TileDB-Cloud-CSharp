@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**MemberId** | **string** | The unique member id for the entry | [optional] [readonly] 
 **Group** | [**GroupInfo**](GroupInfo.md) |  | [optional] 
 **Array** | [**ArrayInfo**](ArrayInfo.md) |  | [optional] 
 

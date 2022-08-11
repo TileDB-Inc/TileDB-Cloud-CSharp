@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **CpuUsage** | **int** | current cpu usage in millicpu | [optional] 
 **MemoryUsage** | **int** | memory usage in bytes | [optional] 
 **MemoryLimit** | **int** | memory allocated to notebook server in bytes | [optional] 
+**StorageUsage** | **int** | storage usage in bytes | [optional] 
+**StorageLimit** | **int** | storage allocated to notebook server in bytes | [optional] 
 **CpuCount** | **int** | millicpu allocated to notebook server | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

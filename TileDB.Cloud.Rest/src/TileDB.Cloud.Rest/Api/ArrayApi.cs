@@ -196,8 +196,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <returns>ArrayBrowserData</returns>
-        ArrayBrowserData ArraysBrowserSharedGet (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>));
+        ArrayBrowserData ArraysBrowserSharedGet (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>));
 
         /// <summary>
         /// 
@@ -217,8 +218,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <returns>ApiResponse of ArrayBrowserData</returns>
-        ApiResponse<ArrayBrowserData> ArraysBrowserSharedGetWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>));
+        ApiResponse<ArrayBrowserData> ArraysBrowserSharedGetWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>));
         /// <summary>
         /// 
         /// </summary>
@@ -1011,9 +1013,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayBrowserData</returns>
-        System.Threading.Tasks.Task<ArrayBrowserData> ArraysBrowserSharedGetAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ArrayBrowserData> ArraysBrowserSharedGetAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -1033,9 +1036,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayBrowserData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ArrayBrowserData>> ArraysBrowserSharedGetWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ArrayBrowserData>> ArraysBrowserSharedGetWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -2732,10 +2736,11 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <returns>ArrayBrowserData</returns>
-        public ArrayBrowserData ArraysBrowserSharedGet (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>))
+        public ArrayBrowserData ArraysBrowserSharedGet (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>))
         {
-             ApiResponse<ArrayBrowserData> localVarResponse = ArraysBrowserSharedGetWithHttpInfo(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty);
+             ApiResponse<ArrayBrowserData> localVarResponse = ArraysBrowserSharedGetWithHttpInfo(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty, sharedTo);
              return localVarResponse.Data;
         }
 
@@ -2754,8 +2759,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <returns>ApiResponse of ArrayBrowserData</returns>
-        public ApiResponse<ArrayBrowserData> ArraysBrowserSharedGetWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>))
+        public ApiResponse<ArrayBrowserData> ArraysBrowserSharedGetWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>))
         {
 
             var localVarPath = "/arrays/browser/shared";
@@ -2790,6 +2796,7 @@ namespace TileDB.Cloud.Rest.Api
             if (fileType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "file_type", fileType)); // query parameter
             if (excludeFileType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "exclude_file_type", excludeFileType)); // query parameter
             if (fileProperty != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "file_property", fileProperty)); // query parameter
+            if (sharedTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "shared_to", sharedTo)); // query parameter
 
             // authentication (ApiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
@@ -2836,11 +2843,12 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ArrayBrowserData</returns>
-        public async System.Threading.Tasks.Task<ArrayBrowserData> ArraysBrowserSharedGetAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ArrayBrowserData> ArraysBrowserSharedGetAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ArrayBrowserData> localVarResponse = await ArraysBrowserSharedGetWithHttpInfoAsync(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty, cancellationToken);
+             ApiResponse<ArrayBrowserData> localVarResponse = await ArraysBrowserSharedGetWithHttpInfoAsync(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty, sharedTo, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2860,9 +2868,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="fileType">file_type to search for, more than one can be included (optional)</param>
         /// <param name="excludeFileType">file_type to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="fileProperty">file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there arrays were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ArrayBrowserData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ArrayBrowserData>> ArraysBrowserSharedGetWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ArrayBrowserData>> ArraysBrowserSharedGetWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), List<string> fileType = default(List<string>), List<string> excludeFileType = default(List<string>), List<string> fileProperty = default(List<string>), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/arrays/browser/shared";
@@ -2897,6 +2906,7 @@ namespace TileDB.Cloud.Rest.Api
             if (fileType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "file_type", fileType)); // query parameter
             if (excludeFileType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "exclude_file_type", excludeFileType)); // query parameter
             if (fileProperty != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "file_property", fileProperty)); // query parameter
+            if (sharedTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "shared_to", sharedTo)); // query parameter
 
             // authentication (ApiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))

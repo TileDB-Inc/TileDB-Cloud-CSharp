@@ -58,10 +58,10 @@ namespace TileDB.Cloud.Rest.Model
         RUNNING = 4,
 
         /// <summary>
-        /// Enum DENIED for value: DENIED
+        /// Enum RESOURCESUNAVAILABLE for value: RESOURCES_UNAVAILABLE
         /// </summary>
-        [EnumMember(Value = "DENIED")]
-        DENIED = 5,
+        [EnumMember(Value = "RESOURCES_UNAVAILABLE")]
+        RESOURCESUNAVAILABLE = 5,
 
         /// <summary>
         /// Enum UNKNOWN for value: UNKNOWN
@@ -73,7 +73,13 @@ namespace TileDB.Cloud.Rest.Model
         /// Enum CANCELLED for value: CANCELLED
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
-        CANCELLED = 7
+        CANCELLED = 7,
+
+        /// <summary>
+        /// Enum DENIED for value: DENIED
+        /// </summary>
+        [EnumMember(Value = "DENIED")]
+        DENIED = 8
 
     }
 

@@ -67,6 +67,7 @@ namespace TileDB.Cloud.Rest.Model
                 this.Name = name;
             }
 
+            this.Logo = logo;
             this.Description = description;
             this.Id = id;
             this.Role = role;
@@ -75,7 +76,7 @@ namespace TileDB.Cloud.Rest.Model
             this.Logo = logo;
             this.Description = description;
             this.Users = users;
-            //this.AllowedActions = allowedActions;
+            this.AllowedActions = allowedActions;
             this.NumOfArrays = numOfArrays;
             this.DefaultS3Path = defaultS3Path;
             this.DefaultS3PathCredentialsName = defaultS3PathCredentialsName;
@@ -114,7 +115,7 @@ namespace TileDB.Cloud.Rest.Model
         /// Organization logo
         /// </summary>
         /// <value>Organization logo</value>
-        [DataMember(Name="logo", EmitDefaultValue=false)]
+        [DataMember(Name="logo", EmitDefaultValue=true)]
         public string Logo { get; set; }
 
         /// <summary>
@@ -130,12 +131,12 @@ namespace TileDB.Cloud.Rest.Model
         [DataMember(Name="users", EmitDefaultValue=false)]
         public List<OrganizationUser> Users { get; set; }
 
-        ///// <summary>
-        ///// list of actions user is allowed to do on this organization
-        ///// </summary>
-        ///// <value>list of actions user is allowed to do on this organization</value>
-        //[DataMember(Name="allowed_actions", EmitDefaultValue=false)]
-        //public List<NamespaceActions> AllowedActions { get; set; }
+        /// <summary>
+        /// list of actions user is allowed to do on this organization
+        /// </summary>
+        /// <value>list of actions user is allowed to do on this organization</value>
+        [DataMember(Name="allowed_actions", EmitDefaultValue=false)]
+        public List<NamespaceActions> AllowedActions { get; set; }
 
         /// <summary>
         /// number of registered arrays for this organization
@@ -195,7 +196,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  Logo: ").Append(Logo).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
-            //sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
+            sb.Append("  AllowedActions: ").Append(AllowedActions).Append("\n");
             sb.Append("  NumOfArrays: ").Append(NumOfArrays).Append("\n");
             sb.Append("  EnabledFeatures: ").Append(EnabledFeatures).Append("\n");
             sb.Append("  UnpaidSubscription: ").Append(UnpaidSubscription).Append("\n");
@@ -277,12 +278,12 @@ namespace TileDB.Cloud.Rest.Model
                     input.Users != null &&
                     this.Users.SequenceEqual(input.Users)
                 ) && 
-                //(
-                //    this.AllowedActions == input.AllowedActions ||
-                //    this.AllowedActions != null &&
-                //    input.AllowedActions != null &&
-                //    this.AllowedActions.SequenceEqual(input.AllowedActions)
-                //) && 
+                (
+                    this.AllowedActions == input.AllowedActions ||
+                    this.AllowedActions != null &&
+                    input.AllowedActions != null &&
+                    this.AllowedActions.SequenceEqual(input.AllowedActions)
+                ) && 
                 (
                     this.NumOfArrays == input.NumOfArrays ||
                     (this.NumOfArrays != null &&
@@ -341,8 +342,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Users != null)
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
-                //if (this.AllowedActions != null)
-                //    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
+                if (this.AllowedActions != null)
+                    hashCode = hashCode * 59 + this.AllowedActions.GetHashCode();
                 if (this.NumOfArrays != null)
                     hashCode = hashCode * 59 + this.NumOfArrays.GetHashCode();
                 if (this.EnabledFeatures != null)

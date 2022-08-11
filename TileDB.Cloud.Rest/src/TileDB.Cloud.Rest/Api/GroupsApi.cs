@@ -358,8 +358,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <returns>GroupBrowserData</returns>
-        GroupBrowserData ListSharedGroups (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string));
+        GroupBrowserData ListSharedGroups (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>));
 
         /// <summary>
         /// 
@@ -378,8 +379,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <returns>ApiResponse of GroupBrowserData</returns>
-        ApiResponse<GroupBrowserData> ListSharedGroupsWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string));
+        ApiResponse<GroupBrowserData> ListSharedGroupsWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>));
         /// <summary>
         /// 
         /// </summary>
@@ -814,9 +816,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of GroupBrowserData</returns>
-        System.Threading.Tasks.Task<GroupBrowserData> ListSharedGroupsAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<GroupBrowserData> ListSharedGroupsAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -835,9 +838,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (GroupBrowserData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupBrowserData>> ListSharedGroupsWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupBrowserData>> ListSharedGroupsWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -3152,10 +3156,11 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <returns>GroupBrowserData</returns>
-        public GroupBrowserData ListSharedGroups (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string))
+        public GroupBrowserData ListSharedGroups (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>))
         {
-             ApiResponse<GroupBrowserData> localVarResponse = ListSharedGroupsWithHttpInfo(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent);
+             ApiResponse<GroupBrowserData> localVarResponse = ListSharedGroupsWithHttpInfo(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent, sharedTo);
              return localVarResponse.Data;
         }
 
@@ -3173,8 +3178,9 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <returns>ApiResponse of GroupBrowserData</returns>
-        public ApiResponse<GroupBrowserData> ListSharedGroupsWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string))
+        public ApiResponse<GroupBrowserData> ListSharedGroupsWithHttpInfo (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>))
         {
 
             var localVarPath = "/groups/browser/shared";
@@ -3208,6 +3214,7 @@ namespace TileDB.Cloud.Rest.Api
             if (excludeTag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "exclude_tag", excludeTag)); // query parameter
             if (flat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "flat", flat)); // query parameter
             if (parent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent", parent)); // query parameter
+            if (sharedTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "shared_to", sharedTo)); // query parameter
 
             // authentication (ApiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
@@ -3253,11 +3260,12 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of GroupBrowserData</returns>
-        public async System.Threading.Tasks.Task<GroupBrowserData> ListSharedGroupsAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<GroupBrowserData> ListSharedGroupsAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<GroupBrowserData> localVarResponse = await ListSharedGroupsWithHttpInfoAsync(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent, cancellationToken);
+             ApiResponse<GroupBrowserData> localVarResponse = await ListSharedGroupsWithHttpInfoAsync(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent, sharedTo, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -3276,9 +3284,10 @@ namespace TileDB.Cloud.Rest.Api
         /// <param name="excludeTag">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="flat">if true, ignores the nesting of groups and searches all of them (optional)</param>
         /// <param name="parent">search only the children of the groups with this uuid (optional)</param>
+        /// <param name="sharedTo">namespaces to filter results of where there groups were shared to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (GroupBrowserData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GroupBrowserData>> ListSharedGroupsWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<GroupBrowserData>> ListSharedGroupsWithHttpInfoAsync (int? page = default(int?), int? perPage = default(int?), string search = default(string), string _namespace = default(string), string orderby = default(string), string permissions = default(string), List<string> tag = default(List<string>), List<string> excludeTag = default(List<string>), bool? flat = default(bool?), string parent = default(string), List<string> sharedTo = default(List<string>), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/groups/browser/shared";
@@ -3312,6 +3321,7 @@ namespace TileDB.Cloud.Rest.Api
             if (excludeTag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "exclude_tag", excludeTag)); // query parameter
             if (flat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "flat", flat)); // query parameter
             if (parent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent", parent)); // query parameter
+            if (sharedTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "shared_to", sharedTo)); // query parameter
 
             // authentication (ApiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-TILEDB-REST-API-KEY")))
