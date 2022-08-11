@@ -76,6 +76,7 @@ The version of the OpenAPI document: 2.2.19
              Exclude="obj\**"/>
   </ItemGroup>
   <ItemGroup>
+      <None Include="app.config" />
       <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
