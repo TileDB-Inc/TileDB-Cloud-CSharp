@@ -5,32 +5,32 @@
     <TargetFramework>net5.0</TargetFramework>
     <Platforms>x64</Platforms>
 	  <PackageId>TileDB.Cloud</PackageId>
-	  <Version>0.2.1</Version>
+	  <Version>0.2.2</Version>
 	  <Authors>TileDB</Authors>
-	  <Company>TileDB Inc</Company>	  
+	  <Company>TileDB Inc</Company>
     <!-- don't compile everything under path by default -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>  
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
-	
+
   <ItemGroup>
     <!-- compile files in ./ -->
     <Compile Include="*.cs" />
-  </ItemGroup>  
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="RestSharp" Version="105.2.3" />
-    <PackageReference Include="TileDB.Cloud.Rest" Version="0.2.1" />
+    <PackageReference Include="TileDB.Cloud.Rest" Version="0.2.2" />
     <PackageReference Include="TileDB.CSharp" Version="5.0.1" />
   </ItemGroup>
 
   <PropertyGroup>
     <OutputPath>./lib</OutputPath>
-  </PropertyGroup>  
+  </PropertyGroup>
 
   <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
     <ItemGroup>

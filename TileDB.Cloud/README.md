@@ -13,7 +13,7 @@ TileDB Cloud
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 13.0.1 or later
 - [Polly](https://www.nuget.org/packages/Polly) - 7.2.3 or later
 - [TileDB.CSharp](https://www.nuget.org/packages/TileDB.CSharp/) - 5.0.1 or later
-- Internal - TileDB.Cloud.Rest - 0.2.1 or later
+- Internal - TileDB.Cloud.Rest - 0.2.2 or later
 
 ## Development
 
