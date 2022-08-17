@@ -42,6 +42,13 @@ namespace TileDB.Cloud.Rest.Model
         }
 
         /// <summary>
+        /// The unique member id for the entry
+        /// </summary>
+        /// <value>The unique member id for the entry</value>
+        [DataMember(Name="member_id", EmitDefaultValue=false)]
+        public string MemberId { get; private set; }
+
+        /// <summary>
         /// Gets or Sets Group
         /// </summary>
         [DataMember(Name="group", EmitDefaultValue=false)]
@@ -61,6 +68,7 @@ namespace TileDB.Cloud.Rest.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GroupEntry {\n");
+            sb.Append("  MemberId: ").Append(MemberId).Append("\n");
             sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("  Array: ").Append(Array).Append("\n");
             sb.Append("}\n");
@@ -98,6 +106,11 @@ namespace TileDB.Cloud.Rest.Model
 
             return 
                 (
+                    this.MemberId == input.MemberId ||
+                    (this.MemberId != null &&
+                    this.MemberId.Equals(input.MemberId))
+                ) && 
+                (
                     this.Group == input.Group ||
                     (this.Group != null &&
                     this.Group.Equals(input.Group))
@@ -118,6 +131,8 @@ namespace TileDB.Cloud.Rest.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.MemberId != null)
+                    hashCode = hashCode * 59 + this.MemberId.GetHashCode();
                 if (this.Group != null)
                     hashCode = hashCode * 59 + this.Group.GetHashCode();
                 if (this.Array != null)

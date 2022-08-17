@@ -42,12 +42,14 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="languageVersion">The language version used to execute this UDF. Neither this nor &#x60;language&#x60; needs to be set for registered UDFs, since the language and version are stored server-side with the UDF itself. .</param>
         /// <param name="imageName">The name of the image to use for the execution environment. .</param>
         /// <param name="resourceClass">The resource class to use for the UDF execution. Resource classes define resource limits for memory and CPUs. If this is empty, then the UDF will execute in the standard resource class of the TileDB Cloud provider. .</param>
-        public TGUDFEnvironment(UDFLanguage? language = default(UDFLanguage?), string languageVersion = default(string), string imageName = default(string), string resourceClass = default(string))
+        /// <param name="runClientSide">A hint that, if possible, this function should be executed on the client side rather than on the server. Registered UDFs and functions which take arrays as inputs can never be executed client-side. If the client’s environment is incompatible, or the client does not support client-side execution, the function will be executed on the server. .</param>
+        public TGUDFEnvironment(UDFLanguage? language = default(UDFLanguage?), string languageVersion = default(string), string imageName = default(string), string resourceClass = default(string), bool runClientSide = default(bool))
         {
             this.Language = language;
             this.LanguageVersion = languageVersion;
             this.ImageName = imageName;
             this.ResourceClass = resourceClass;
+            this.RunClientSide = runClientSide;
         }
 
 
@@ -73,6 +75,13 @@ namespace TileDB.Cloud.Rest.Model
         public string ResourceClass { get; set; }
 
         /// <summary>
+        /// A hint that, if possible, this function should be executed on the client side rather than on the server. Registered UDFs and functions which take arrays as inputs can never be executed client-side. If the client’s environment is incompatible, or the client does not support client-side execution, the function will be executed on the server. 
+        /// </summary>
+        /// <value>A hint that, if possible, this function should be executed on the client side rather than on the server. Registered UDFs and functions which take arrays as inputs can never be executed client-side. If the client’s environment is incompatible, or the client does not support client-side execution, the function will be executed on the server. </value>
+        [DataMember(Name="run_client_side", EmitDefaultValue=false)]
+        public bool RunClientSide { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +93,7 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  LanguageVersion: ").Append(LanguageVersion).Append("\n");
             sb.Append("  ImageName: ").Append(ImageName).Append("\n");
             sb.Append("  ResourceClass: ").Append(ResourceClass).Append("\n");
+            sb.Append("  RunClientSide: ").Append(RunClientSide).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,11 @@ namespace TileDB.Cloud.Rest.Model
                     this.ResourceClass == input.ResourceClass ||
                     (this.ResourceClass != null &&
                     this.ResourceClass.Equals(input.ResourceClass))
+                ) && 
+                (
+                    this.RunClientSide == input.RunClientSide ||
+                    (this.RunClientSide != null &&
+                    this.RunClientSide.Equals(input.RunClientSide))
                 );
         }
 
@@ -157,6 +172,8 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.ImageName.GetHashCode();
                 if (this.ResourceClass != null)
                     hashCode = hashCode * 59 + this.ResourceClass.GetHashCode();
+                if (this.RunClientSide != null)
+                    hashCode = hashCode * 59 + this.RunClientSide.GetHashCode();
                 return hashCode;
             }
         }

@@ -43,6 +43,7 @@ namespace TileDB.Cloud.Rest.Model
         public GroupUpdate(string description = default(string), string name = default(string), string logo = default(string), string accessCredentialsName = default(string), List<string> tags = default(List<string>), string licenseId = default(string), string licenseText = default(string))
         {
             this.Description = description;
+            this.Description = description;
             this.Name = name;
             this.Logo = logo;
             this.AccessCredentialsName = accessCredentialsName;
@@ -55,7 +56,7 @@ namespace TileDB.Cloud.Rest.Model
         /// A human readable description of the content of the group
         /// </summary>
         /// <value>A human readable description of the content of the group</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>

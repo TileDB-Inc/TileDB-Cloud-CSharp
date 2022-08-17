@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TileDB.Cloud</id>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <title>$title$</title>
     <authors>TileDB Inc</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -17,13 +17,13 @@
         <dependency id="TileDB.CSharp" version="5.0.1" />
         <dependency id="Newtonsoft.Json" version="13.0.1" />
         <dependency id="RestSharp" version="105.2.3" />
-        <dependency id="Polly" version="7.2.3" />        
+        <dependency id="Polly" version="7.2.3" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <!-- binding libraries -->
     <file src="lib\net5.0\TileDB.Cloud.Rest.dll" target="lib\net5.0"/>
-    <file src="lib\net5.0\TileDB.Cloud.dll" target="lib\net5.0"/>   
-  </files>	
+    <file src="lib\net5.0\TileDB.Cloud.dll" target="lib\net5.0"/>
+  </files>
 </package>

@@ -1089,7 +1089,7 @@ Name | Type | Description  | Notes
 
 ## ListSharedGroups
 
-> GroupBrowserData ListSharedGroups (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, bool? flat = null, string parent = null)
+> GroupBrowserData ListSharedGroups (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, bool? flat = null, string parent = null, List<string> sharedTo = null)
 
 
 
@@ -1130,10 +1130,11 @@ namespace Example
             var excludeTag = new List<string>(); // List<string> | tags to exclude matching array in results, more than one can be included (optional) 
             var flat = true;  // bool? | if true, ignores the nesting of groups and searches all of them (optional) 
             var parent = "parent_example";  // string | search only the children of the groups with this uuid (optional) 
+            var sharedTo = new List<string>(); // List<string> | namespaces to filter results of where there groups were shared to (optional) 
 
             try
             {
-                GroupBrowserData result = apiInstance.ListSharedGroups(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent);
+                GroupBrowserData result = apiInstance.ListSharedGroups(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent, sharedTo);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1162,6 +1163,7 @@ Name | Type | Description  | Notes
  **excludeTag** | [**List&lt;string&gt;**](string.md)| tags to exclude matching array in results, more than one can be included | [optional] 
  **flat** | **bool?**| if true, ignores the nesting of groups and searches all of them | [optional] 
  **parent** | **string**| search only the children of the groups with this uuid | [optional] 
+ **sharedTo** | [**List&lt;string&gt;**](string.md)| namespaces to filter results of where there groups were shared to | [optional] 
 
 ### Return type
 

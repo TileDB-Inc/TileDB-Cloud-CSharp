@@ -55,7 +55,13 @@ namespace TileDB.Cloud.Rest.Model
         /// Enum GENERICUDF for value: GENERIC_UDF
         /// </summary>
         [EnumMember(Value = "GENERIC_UDF")]
-        GENERICUDF = 4
+        GENERICUDF = 4,
+
+        /// <summary>
+        /// Enum CLIENTCOMPUTATION for value: CLIENT_COMPUTATION
+        /// </summary>
+        [EnumMember(Value = "CLIENT_COMPUTATION")]
+        CLIENTCOMPUTATION = 5
 
     }
 

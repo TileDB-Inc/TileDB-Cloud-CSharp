@@ -38,14 +38,18 @@ namespace TileDB.Cloud.Rest.Model
         /// <param name="cpuUsage">current cpu usage in millicpu.</param>
         /// <param name="memoryUsage">memory usage in bytes.</param>
         /// <param name="memoryLimit">memory allocated to notebook server in bytes.</param>
+        /// <param name="storageUsage">storage usage in bytes.</param>
+        /// <param name="storageLimit">storage allocated to notebook server in bytes.</param>
         /// <param name="cpuCount">millicpu allocated to notebook server.</param>
-        public NotebookStatus(string _namespace = default(string), int uptime = default(int), int cpuUsage = default(int), int memoryUsage = default(int), int memoryLimit = default(int), int cpuCount = default(int))
+        public NotebookStatus(string _namespace = default(string), int uptime = default(int), int cpuUsage = default(int), int memoryUsage = default(int), int memoryLimit = default(int), int storageUsage = default(int), int storageLimit = default(int), int cpuCount = default(int))
         {
             this.Namespace = _namespace;
             this.Uptime = uptime;
             this.CpuUsage = cpuUsage;
             this.MemoryUsage = memoryUsage;
             this.MemoryLimit = memoryLimit;
+            this.StorageUsage = storageUsage;
+            this.StorageLimit = storageLimit;
             this.CpuCount = cpuCount;
         }
 
@@ -85,6 +89,20 @@ namespace TileDB.Cloud.Rest.Model
         public int MemoryLimit { get; set; }
 
         /// <summary>
+        /// storage usage in bytes
+        /// </summary>
+        /// <value>storage usage in bytes</value>
+        [DataMember(Name="storage_usage", EmitDefaultValue=false)]
+        public int StorageUsage { get; set; }
+
+        /// <summary>
+        /// storage allocated to notebook server in bytes
+        /// </summary>
+        /// <value>storage allocated to notebook server in bytes</value>
+        [DataMember(Name="storage_limit", EmitDefaultValue=false)]
+        public int StorageLimit { get; set; }
+
+        /// <summary>
         /// millicpu allocated to notebook server
         /// </summary>
         /// <value>millicpu allocated to notebook server</value>
@@ -104,6 +122,8 @@ namespace TileDB.Cloud.Rest.Model
             sb.Append("  CpuUsage: ").Append(CpuUsage).Append("\n");
             sb.Append("  MemoryUsage: ").Append(MemoryUsage).Append("\n");
             sb.Append("  MemoryLimit: ").Append(MemoryLimit).Append("\n");
+            sb.Append("  StorageUsage: ").Append(StorageUsage).Append("\n");
+            sb.Append("  StorageLimit: ").Append(StorageLimit).Append("\n");
             sb.Append("  CpuCount: ").Append(CpuCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -165,6 +185,16 @@ namespace TileDB.Cloud.Rest.Model
                     this.MemoryLimit.Equals(input.MemoryLimit))
                 ) && 
                 (
+                    this.StorageUsage == input.StorageUsage ||
+                    (this.StorageUsage != null &&
+                    this.StorageUsage.Equals(input.StorageUsage))
+                ) && 
+                (
+                    this.StorageLimit == input.StorageLimit ||
+                    (this.StorageLimit != null &&
+                    this.StorageLimit.Equals(input.StorageLimit))
+                ) && 
+                (
                     this.CpuCount == input.CpuCount ||
                     (this.CpuCount != null &&
                     this.CpuCount.Equals(input.CpuCount))
@@ -190,6 +220,10 @@ namespace TileDB.Cloud.Rest.Model
                     hashCode = hashCode * 59 + this.MemoryUsage.GetHashCode();
                 if (this.MemoryLimit != null)
                     hashCode = hashCode * 59 + this.MemoryLimit.GetHashCode();
+                if (this.StorageUsage != null)
+                    hashCode = hashCode * 59 + this.StorageUsage.GetHashCode();
+                if (this.StorageLimit != null)
+                    hashCode = hashCode * 59 + this.StorageLimit.GetHashCode();
                 if (this.CpuCount != null)
                     hashCode = hashCode * 59 + this.CpuCount.GetHashCode();
                 return hashCode;

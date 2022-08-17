@@ -504,7 +504,7 @@ This endpoint does not need any parameter.
 
 ## ArraysBrowserSharedGet
 
-> ArrayBrowserData ArraysBrowserSharedGet (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null)
+> ArrayBrowserData ArraysBrowserSharedGet (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null, List<string> sharedTo = null)
 
 
 
@@ -546,10 +546,11 @@ namespace Example
             var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
             var excludeFileType = new List<string>(); // List<string> | file_type to exclude matching array in results, more than one can be included (optional) 
             var fileProperty = new List<string>(); // List<string> | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional) 
+            var sharedTo = new List<string>(); // List<string> | namespaces to filter results of where there arrays were shared to (optional) 
 
             try
             {
-                ArrayBrowserData result = apiInstance.ArraysBrowserSharedGet(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty);
+                ArrayBrowserData result = apiInstance.ArraysBrowserSharedGet(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty, sharedTo);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -579,6 +580,7 @@ Name | Type | Description  | Notes
  **fileType** | [**List&lt;string&gt;**](string.md)| file_type to search for, more than one can be included | [optional] 
  **excludeFileType** | [**List&lt;string&gt;**](string.md)| file_type to exclude matching array in results, more than one can be included | [optional] 
  **fileProperty** | [**List&lt;string&gt;**](string.md)| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
+ **sharedTo** | [**List&lt;string&gt;**](string.md)| namespaces to filter results of where there arrays were shared to | [optional] 
 
 ### Return type
 
