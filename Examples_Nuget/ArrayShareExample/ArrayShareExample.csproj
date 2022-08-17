@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TileDB.Cloud" Version="0.2.1" />
+    <PackageReference Include="TileDB.Cloud" Version="0.2.2" />
     <PackageReference Include="TileDB.CSharp" Version="5.1.1" />
   </ItemGroup>
 
