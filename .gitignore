@@ -5,6 +5,7 @@
 
 # YAML specification from TileDB-Inc/TileDB-Cloud-API-Spec
 openapi-v1.yaml
+nuget.exe
 
 # User-specific files
 *.rsuser
@@ -33,6 +34,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+[Ll]ib/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
