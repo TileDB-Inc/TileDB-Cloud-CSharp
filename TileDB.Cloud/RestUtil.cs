@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using TileDB.Cloud.Rest.Model;
 
 namespace TileDB.Cloud
 {
@@ -17,22 +21,24 @@ namespace TileDB.Cloud
             {
                 return;
             }
+
             var (name_space, array_name) = SplitUri(array_uri);
             Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
             string contentType = "application/json";
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             policywrap.Execute(
                 () => { apiInstance.DeleteArray(name_space, array_name, contentType); }
-                );
-            return ;
+            );
+            return;
         }
 
         public static Rest.Model.ArrayInfo GetArrayInfo(string array_uri)
         {
-            if(string.IsNullOrEmpty(array_uri))
+            if (string.IsNullOrEmpty(array_uri))
             {
                 return new Rest.Model.ArrayInfo();
             }
+
             var (name_space, array_name) = SplitUri(array_uri);
 
             Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
@@ -40,11 +46,12 @@ namespace TileDB.Cloud
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayInfo>(
                 () => { return apiInstance.GetArrayMetadata(name_space, array_name); }
-                );
-            if(policyResult.FinalException != null)
+            );
+            if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -62,27 +69,32 @@ namespace TileDB.Cloud
         /// <param name="per_page">pagination limit (optional)</param>
         /// <returns></returns>
         public static Rest.Model.ArrayBrowserData ListArrays(
-            string name_space, 
-            string permissions = default(string), 
-            List<string> tags = default(List<string>), 
-            List<string> exclude_tags = default(List<string>), 
-            string search = default(string), 
-            List<string> file_types = default(List<string>), 
-            List<string> exclude_file_types = default(List<string>), 
-            int? page = default(int?), 
+            string name_space,
+            string permissions = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
+            string search = default(string),
+            List<string> file_types = default(List<string>),
+            List<string> exclude_file_types = default(List<string>),
+            int? page = default(int?),
             int? per_page = default(int?))
         {
             Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () => { return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
-                );
+                () =>
+                {
+                    return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions,
+                        tags, exclude_tags, file_types, exclude_file_types, null);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
-            return policyResult.Result;     
+
+            return policyResult.Result;
         }
 
         /// <summary>
@@ -99,26 +111,31 @@ namespace TileDB.Cloud
         /// <param name="per_page">pagination limit (optional)</param>
         /// <returns></returns>
         public static Rest.Model.ArrayBrowserData ListPublicArrays(
-            string name_space, 
-            string permissions = default(string), 
-            List<string> tags = default(List<string>), 
-            List<string> exclude_tags = default(List<string>), 
+            string name_space,
+            string permissions = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
             string search = default(string),
-            List<string> file_types = default(List<string>), 
-            List<string> exclude_file_types = default(List<string>), 
-            int? page = default(int?), 
+            List<string> file_types = default(List<string>),
+            List<string> exclude_file_types = default(List<string>),
+            int? page = default(int?),
             int? per_page = default(int?))
         {
             Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () => { return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
-                );
+                () =>
+                {
+                    return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions,
+                        tags, exclude_tags, file_types, exclude_file_types, null);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -136,32 +153,40 @@ namespace TileDB.Cloud
         /// <param name="per_page">pagination limit (optional)</param>
         /// <returns></returns>
         public static Rest.Model.ArrayBrowserData ListSharedArrays(
-            string name_space, 
-            string permissions = default(string), 
-            List<string> tags = default(List<string>), 
-            List<string> exclude_tags = default(List<string>), 
+            string name_space,
+            string permissions = default(string),
+            List<string> tags = default(List<string>),
+            List<string> exclude_tags = default(List<string>),
             string search = default(string),
-            List<string> file_types = default(List<string>), 
-            List<string> exclude_file_types = default(List<string>), 
-            int? page = default(int?), 
-            int? per_page =default(int?))
+            List<string> file_types = default(List<string>),
+            List<string> exclude_file_types = default(List<string>),
+            int? page = default(int?),
+            int? per_page = default(int?))
         {
             Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () => { return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions, tags, exclude_tags, file_types, exclude_file_types, null); }
-             );
+                () =>
+                {
+                    return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions,
+                        tags, exclude_tags, file_types, exclude_file_types, null);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
+
         #endregion Array
 
         #region Files
-        public static Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri, string name = null)
+
+        public static Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri,
+            string name = null)
         {
             Rest.Api.FilesApi apiInstance = Client.GetInstance().GetFilesApi();
             Rest.Model.FileCreate fileCreate = new Rest.Model.FileCreate(input_uri, output_uri, name);
@@ -169,11 +194,12 @@ namespace TileDB.Cloud
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.FileCreated>(
                 () => { return apiInstance.HandleCreateFile(name_space, fileCreate, null); }
-             );
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -186,12 +212,13 @@ namespace TileDB.Cloud
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.FileExported>(
                 () => { return apiInstance.HandleExportFile(name_space, input_uri, fileExport); }
-             );
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
-            return policyResult.Result;  
+
+            return policyResult.Result;
         }
 
         //ToDo: Replace after adding support for save_file_from_path in TileDB.CSharp
@@ -213,7 +240,7 @@ namespace TileDB.Cloud
 
         //ToDo: Replace after adding support for export_file_to_path in TileDB.CSharp
         //[Obsolete("Plase use TileDB.CoreUtil.ExportArrayToFile method.", false)]
-        //public static void ExportFileArrayToLocalFile(TileDB.CSharp.Context ctx, string uri, string local_path) 
+        //public static void ExportFileArrayToLocalFile(TileDB.CSharp.Context ctx, string uri, string local_path)
         //{
         //    if(ctx==null)
         //    {
@@ -223,9 +250,10 @@ namespace TileDB.Cloud
         //    TileDB.CSharp.ArrayUtil.export_file_to_path(ctx, uri, local_path, 0);
         //}
 
-        #endregion Files 
+        #endregion Files
 
         #region Groups
+
         /// <summary>
         /// Delete a group.
         /// </summary>
@@ -236,12 +264,13 @@ namespace TileDB.Cloud
             {
                 return;
             }
+
             var (name_space, group_name) = SplitUri(group_uri);
             Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             policywrap.Execute(
                 () => { apiInstance.DeleteGroup(name_space, group_name); }
-                );
+            );
             return;
         }
 
@@ -255,6 +284,7 @@ namespace TileDB.Cloud
             {
                 return new Rest.Model.GroupInfo();
             }
+
             var (name_space, group_name) = SplitUri(group_uri);
 
             Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
@@ -262,11 +292,12 @@ namespace TileDB.Cloud
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupInfo>(
                 () => { return apiInstance.GetGroup(name_space, group_name); }
-                );
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -298,18 +329,24 @@ namespace TileDB.Cloud
             {
                 return new Rest.Model.GroupContents();
             }
+
             var (group_name_space, group_name) = SplitUri(group_uri);
 
             Rest.Api.GroupsApi apiInstance = Client.GetInstance().GetGroupsApi();
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupContents>(
-                () => { return apiInstance.GetGroupContents(group_name_space, group_name, page, per_page, name_space, search, null, tags, exclude_tags, member_type, exclude_member_type); }
-                );
+                () =>
+                {
+                    return apiInstance.GetGroupContents(group_name_space, group_name, page, per_page, name_space,
+                        search, null, tags, exclude_tags, member_type, exclude_member_type);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -341,12 +378,17 @@ namespace TileDB.Cloud
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
-                () => { return apiInstance.ListOwnedGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
-                );
+                () =>
+                {
+                    return apiInstance.ListOwnedGroups(page, per_page, search, name_space, null, permissions, tags,
+                        exclude_tags, flat, parent);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -380,12 +422,17 @@ namespace TileDB.Cloud
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
-                () => { return apiInstance.ListPublicGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
-                );
+                () =>
+                {
+                    return apiInstance.ListPublicGroups(page, per_page, search, name_space, null, permissions, tags,
+                        exclude_tags, flat, parent);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
@@ -417,34 +464,42 @@ namespace TileDB.Cloud
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
             var policyResult = policywrap.ExecuteAndCapture<Rest.Model.GroupBrowserData>(
-                () => { return apiInstance.ListSharedGroups(page, per_page, search, name_space, null, permissions, tags, exclude_tags, flat, parent); }
-             );
+                () =>
+                {
+                    return apiInstance.ListSharedGroups(page, per_page, search, name_space, null, permissions, tags,
+                        exclude_tags, flat, parent);
+                }
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
+
         #endregion Groups
 
         #region User
-        public static Rest.Model.User GetUser() 
+
+        public static Rest.Model.User GetUser()
         {
             Rest.Api.UserApi apiInstance = Client.GetInstance().GetUserApi();
 
             Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult =  policywrap.ExecuteAndCapture<Rest.Model.User>(
+            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.User>(
                 () => { return apiInstance.GetUser(); }
-                );
+            );
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
             }
+
             return policyResult.Result;
         }
 
         #endregion User
- 
+
         /// <summary>
         /// Split a uri into name_space and array_name.
         /// </summary>
@@ -459,6 +514,53 @@ namespace TileDB.Cloud
             }
             return (uri.Host, uri.LocalPath.TrimStart('/'));
         }
+    }
 
+
+    public class UdfUtil
+    {
+        public static Stream Apply(
+            string udfUri, string arrayUri, List<dynamic> ranges,
+            Layout layout=Layout.RowMajor, string nameSpace=null,
+            string args=null)
+        {
+            var udf = new Udf();
+            var segments = arrayUri.Replace("tiledb://", "").Replace("s3://", "")
+                .Trim('/').Split('/');
+            var ns = nameSpace ?? segments.First();
+            var arrayName = nameSpace ?? segments.Last();
+
+            udf.UdfInfoName = udfUri.Replace("tiledb://", "");
+            udf.Arrays = new List<UDFArrayDetails>();
+            udf.Arrays.Add(new UDFArrayDetails(uri: arrayUri));
+            udf.Ranges = new UdfQueryRanges(layout, new List<dynamic>());
+            udf.Ranges.Ranges.AddRange(ranges);
+            if (args != null)
+            {
+                udf.Argument = args;
+            }
+
+            return TileDB.Cloud.Client.GetInstance().GetUdfApi().SubmitUDF(ns, arrayName, udf);
+        }
+    }
+
+    [DataContract]
+    public class UdfQueryRanges : QueryRanges
+    {
+        public UdfQueryRanges(Layout layout, List<dynamic> ranges)
+        {
+            Layout = layout;
+            Ranges = ranges;
+        }
+
+        [DataMember(Name="ranges", EmitDefaultValue=false)]
+        public new List<dynamic> Ranges { get; set; }
+    }
+
+    [DataContract]
+    public class Udf : MultiArrayUDF
+    {
+        [DataMember(Name="ranges", EmitDefaultValue=false)]
+        public new UdfQueryRanges Ranges { get; set; }
     }
 }

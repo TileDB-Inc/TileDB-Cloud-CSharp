@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using TileDB.Cloud;
 using TileDB.Cloud.Rest.Model;
 
 namespace QuickstartUdf
@@ -51,16 +53,46 @@ namespace QuickstartUdf
         {
             var udfApi = TileDB.Cloud.Client.GetInstance().GetUdfApi();
 
-            var multiUDF = new MultiArrayUDF();
-            multiUDF.UdfInfoName = uri;
-            multiUDF.Argument = $"{{\"attr\": \"{attribute}\",\"scale\": {scalar}}}";
-            multiUDF.Ranges = new QueryRanges(Layout.RowMajor, new List<List<int>>());
-            multiUDF.Ranges.Ranges.Add(new List<int>() {1, 4});
-            multiUDF.Ranges.Ranges.Add(new List<int>() {1, 4});
+            var udfs = new List<TileDB.Cloud.Udf>();
+            var args = $"{{\"attr\": \"{attribute}\",\"scale\": {scalar}}}";
 
-            var chargedOrg = charged ?? arrayUri.Split('/')[0];
-            var result = udfApi.SubmitUDF(chargedOrg, arrayUri.Split('/')[1], multiUDF);
-            result.CopyTo(Console.OpenStandardOutput());
+            // Int dimensions
+            var multiUDF = new TileDB.Cloud.Udf();
+            multiUDF.UdfInfoName = uri;
+            multiUDF.Argument = args;
+            multiUDF.Arrays = new List<UDFArrayDetails>();
+            multiUDF.Arrays.Add(new UDFArrayDetails(uri: "tiledb://shaunreed/dense-array"));
+            multiUDF.Ranges = new TileDB.Cloud.UdfQueryRanges(Layout.RowMajor, new List<dynamic>());
+            multiUDF.Ranges.Ranges.Add(new List<int>() {1, 4});
+            multiUDF.Ranges.Ranges.Add(new List<int>() {1, 4});
+            udfs.Add(multiUDF);
+
+            // String dimensions
+            multiUDF = new TileDB.Cloud.Udf();
+            multiUDF.UdfInfoName = uri;
+            multiUDF.Argument = args;
+            multiUDF.Arrays = new List<UDFArrayDetails>();
+            multiUDF.Arrays.Add(new UDFArrayDetails(uri: "tiledb://shaunreed/sparse-string-dimensions"));
+            multiUDF.Ranges = new TileDB.Cloud.UdfQueryRanges(Layout.Unordered, new List<dynamic>());
+            multiUDF.Ranges.Ranges.Add(new List<string>() {"a", "bb"});
+            multiUDF.Ranges.Ranges.Add(new List<int>() {1, 4});
+            udfs.Add(multiUDF);
+
+            foreach (var udf in udfs)
+            {
+                var uriSegments = udf.Arrays.Last().Uri.Replace("tiledb://", "").Split('/');
+                var nameSpace = uriSegments.First();
+                var arrayName = uriSegments.Last();
+
+                var response = udfApi.SubmitUDF(nameSpace, arrayName, udf);
+                Console.Write($"Result from {udf.UdfInfoName} against {arrayName}: ");
+                response.CopyTo(Console.OpenStandardOutput());
+                Console.WriteLine();
+            }
+
+            // var chargedOrg = charged ?? arrayUri.Split('/')[0];
+            // var result = udfApi.SubmitUDF(chargedOrg, arrayUri.Split('/')[1], multiUDF);
+            // result.CopyTo(Console.OpenStandardOutput());
         }
 
         static void UdfUpdate(string uri, string readmeText)
@@ -94,7 +126,7 @@ namespace QuickstartUdf
 
             uri = "shaunreed/test-array-udf";
             string arrayUri = "shaunreed/dense-array";
-            UdfArrayExec(uri, arrayUri, "a1", 8);
+            UdfArrayExec(uri, arrayUri, "a1", 2);
         }
 
         // Serverless UDFs
@@ -103,6 +135,31 @@ namespace QuickstartUdf
             TileDB.Cloud.Client.Login();
             var user = TileDB.Cloud.RestUtil.GetUser();
             Console.WriteLine($"User: {user.ToJson()}");
+
+            var a = $"{{\"attr\": \"a1\",\"scale\": 2}}";
+            var udfUri = "tiledb://shaunreed/test-array-udf";
+            var arrayUri = "tiledb://shaunreed/dense-array";
+
+            // Int dimensions
+            var response = TileDB.Cloud.UdfUtil.Apply(
+                udfUri, arrayUri, args: a,
+                ranges: new List<dynamic>() { new[] { 1, 4 }, new[] { 1, 4 } }
+            );
+            Console.Write($"Result from {udfUri} against {arrayUri}: ");
+            response.CopyTo(Console.OpenStandardOutput());
+            Console.WriteLine();
+
+            // String dimensions
+            arrayUri = "tiledb://shaunreed/sparse-string-dimensions";
+            response = TileDB.Cloud.UdfUtil.Apply(
+                udfUri, arrayUri, args: a, layout: Layout.Unordered,
+                ranges: new List<dynamic>() { new[] { "a", "c" }, new[] { 1, 4 }}
+            );
+            Console.Write($"Result from {udfUri} against {arrayUri}: ");
+            response.CopyTo(Console.OpenStandardOutput());
+            Console.WriteLine();
+
+            response.CopyTo(Console.OpenStandardOutput());
 
             Run();
         }
