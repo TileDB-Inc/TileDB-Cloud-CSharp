@@ -17,11 +17,13 @@ jobs:
       # Checks out repository
       - uses: actions/checkout@v3
 
+      # Limit GH runner environment to the one version of .NET that we install in next step
       - name: Remove existing .NET versions
         shell: bash
         run: |
           rm -rf $DOTNET_ROOT
 
+      # Following action sets up dotnet and uses the strategy matrix to test on specific versions
       - name: Set up dotnet
         uses: actions/setup-dotnet@v2
         with:
@@ -81,13 +83,13 @@ jobs:
           name: TileDB.Cloud NuGet Package
           path: TileDB.Cloud/out
 
+      # Limit GH runner environment to the one version of .NET that we install in next step
       - name: Remove existing .NET versions
         shell: bash
         run: |
           rm -rf $DOTNET_ROOT
 
-      # Following action sets up dotnet and uses the strategy matrix to test on
-      # specific versions
+      # Following action sets up dotnet and uses the strategy matrix to test on specific versions
       - name: Set up dotnet
         uses: actions/setup-dotnet@v2
         with:
