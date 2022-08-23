@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Platforms>x64</Platforms>
-	  <PackageId>TileDB.Cloud</PackageId>
-	  <Version>0.2.2</Version>
-	  <Authors>TileDB</Authors>
-	  <Company>TileDB Inc</Company>
+    <PackageId>TileDB.Cloud</PackageId>
+    <Version>0.2.3</Version>
+    <Authors>TileDB</Authors>
+    <Company>TileDB Inc</Company>
     <!-- don't compile everything under path by default -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -24,8 +23,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="RestSharp" Version="105.2.3" />
-    <PackageReference Include="TileDB.Cloud.Rest" Version="0.2.2" />
-    <PackageReference Include="TileDB.CSharp" Version="5.0.1" />
+    <PackageReference Include="TileDB.Cloud.Rest" Version="0.2.3" />
+    <PackageReference Include="TileDB.CSharp" Version="5.2.0" />
   </ItemGroup>
 
   <PropertyGroup>

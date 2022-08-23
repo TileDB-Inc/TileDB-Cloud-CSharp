@@ -1,47 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <Nullable>enable</Nullable>
+    <RollForward>Major</RollForward>
     <RootNamespace>TileDB.Cloud.Test</RootNamespace>
     <TargetFrameworks>net5.0</TargetFrameworks>
-    <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-
-
   <ItemGroup>
-    <ProjectReference Include="..\TileDB.Cloud.Rest\src\TileDB.Cloud.Rest\TileDB.Cloud.Rest.csproj" >
-        <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TileDB.Cloud\TileDB.Cloud.csproj" >
-	  <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-    </ProjectReference>
-  </ItemGroup>
-
-	<ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="JsonSubTypes" Version="1.6.0" />
-    <PackageReference Include="RestSharp" Version="105.1.0" />
-	<PackageReference Include="Polly" Version="7.2.2" />
-	<PackageReference Include="TileDB.CSharp" Version="2.5.0" />
-  </ItemGroup>  
-
-
- 
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
- 
-
-   <PropertyGroup>
+  <PropertyGroup>
     <OutputPath>./lib</OutputPath>
   </PropertyGroup>  
 

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TileDB.Cloud</id>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
     <title>$title$</title>
     <authors>TileDB Inc</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

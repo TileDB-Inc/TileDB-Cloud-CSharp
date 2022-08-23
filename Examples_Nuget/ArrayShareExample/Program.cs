@@ -14,9 +14,9 @@ namespace ArrayShareExample
             var userDetails = TileDB.Cloud.RestUtil.GetUser();
 
             // S3 location of file to convert to TileDB array
-            string fromUriS3 = "s3://iledb-inc-demo-data/files/original/VLDB17_TileDB.pdf";
+            string fromUriS3 = "s3://tiledb-inc-demo-data/files/original/VLDB17_TileDB.pdf";
             // S3 location to store TileDB file array data
-            string toUriS3 = "s3://iledb-inc-demo-data/files/original/VLDB17_TileDB";
+            string toUriS3 = "s3://tiledb-inc-demo-data/files/original/VLDB17_TileDB";
             // Namespace to share array with
             string friendNamespace = "friend-namespace";
             Console.WriteLine($"Converting file '{fromUriS3}' to TileDB array stored at {toUriS3}");

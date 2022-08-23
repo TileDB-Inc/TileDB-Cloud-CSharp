@@ -1,0 +1,106 @@
+name: TileDB-Cloud-CSharp
+
+on:
+  push:
+    tags: [ '*' ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  Pack-TileDB-Cloud:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out repository
+      - uses: actions/checkout@v3
+
+      # Limit GH runner environment to the one version of .NET that we install in next step
+      - name: Remove existing .NET versions
+        shell: bash
+        run: |
+          rm -rf $DOTNET_ROOT
+
+      # Following action sets up dotnet and uses the strategy matrix to test on specific versions
+      - name: Set up dotnet
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - name: Display .NET versions
+        run: dotnet --info
+
+      - name: Test TileDB.Cloud.Rest
+        shell: bash
+        run: cd TileDB.Cloud.Rest && sh mono_nunit_test.sh
+
+      - name: Pack TileDB.Cloud.Rest
+        shell: bash
+        run: |
+          nuget install TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/packages.config -o TileDB.Cloud.Rest/packages
+          mkdir TileDB.Cloud.Rest/bin
+          find TileDB.Cloud.Rest/packages/ -wholename */net45/*.dll | xargs -I{} cp {} TileDB.Cloud.Rest/bin/ 
+          nuget pack -Build -OutputDirectory TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out \
+            TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/TileDB.Cloud.Rest.csproj -Properties Configuration=Release
+
+      - name: Pack TileDB.Cloud
+        shell: bash
+        run: |
+          mkdir -p TileDB.Cloud/lib/net5.0 
+          cp TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/bin/Release/TileDB.Cloud.Rest.dll TileDB.Cloud/lib/net5.0/
+          dotnet add TileDB.Cloud/TileDB.Cloud.csproj package TileDB.Cloud.Rest --source \
+            TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out/ --no-restore
+          dotnet restore TileDB.Cloud/TileDB.Cloud.csproj -s TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out \
+            -s https://api.nuget.org/v3/index.json --verbosity n
+          nuget pack -Build -OutputDirectory TileDB.Cloud/out TileDB.Cloud/TileDB.Cloud.csproj \
+            -Properties Configuration=Release
+
+      - name: Upload TileDB.Cloud NuGet Package
+        uses: actions/upload-artifact@v3
+        with:
+          name: TileDB.Cloud NuGet Package
+          path: TileDB.Cloud/out/TileDB.Cloud.*.nupkg
+
+  Test-TileDB-Cloud:
+    needs: Pack-TileDB-Cloud
+    strategy:
+      fail-fast: false
+      matrix:
+        # Will be checking following versions
+        dotnet: ['5.0', '6.0']
+        # Repeat this test for each os
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      # Checks out repository
+      - uses: actions/checkout@v3
+
+      - name: Download TileDB.Cloud NuGet Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: TileDB.Cloud NuGet Package
+          path: TileDB.Cloud/out
+
+      # Limit GH runner environment to the one version of .NET that we install in next step
+      - name: Remove existing .NET versions
+        shell: bash
+        run: |
+          rm -rf $DOTNET_ROOT
+
+      # Following action sets up dotnet and uses the strategy matrix to test on specific versions
+      - name: Set up dotnet
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - name: Test TileDB.Cloud NuGet Package
+        shell: bash
+        run: |
+          dotnet add TileDB.Cloud.Test/TileDB.Cloud.Test.csproj package TileDB.Cloud --source TileDB.Cloud/out/ \
+            --no-restore
+          dotnet restore TileDB.Cloud.Test/TileDB.Cloud.Test.csproj --configfile TileDB.Cloud.Test/nuget.config \
+            --verbosity n
+          dotnet test TileDB.Cloud.Test/TileDB.Cloud.Test.csproj --no-restore
+          dotnet remove TileDB.Cloud.Test/TileDB.Cloud.Test.csproj package TileDB.Cloud
