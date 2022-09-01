@@ -3,186 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using TileDB.Cloud.Rest.Model;
 
 namespace TileDB.Cloud
 {
-    public class RestUtil
+    public static partial class RestUtil
     {
-        #region Array
-
-        /// <summary>
-        /// Delete an array.
-        /// </summary>
-        /// <param name="array_uri"></param>
-        public static void DeleteArray(string array_uri)
-        {
-            if (string.IsNullOrEmpty(array_uri))
-            {
-                return;
-            }
-
-            var (name_space, array_name) = SplitUri(array_uri);
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-            string contentType = "application/json";
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            policywrap.Execute(
-                () => { apiInstance.DeleteArray(name_space, array_name, contentType); }
-            );
-            return;
-        }
-
-        public static Rest.Model.ArrayInfo GetArrayInfo(string array_uri)
-        {
-            if (string.IsNullOrEmpty(array_uri))
-            {
-                return new Rest.Model.ArrayInfo();
-            }
-
-            var (name_space, array_name) = SplitUri(array_uri);
-
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayInfo>(
-                () => { return apiInstance.GetArrayMetadata(name_space, array_name); }
-            );
-            if (policyResult.FinalException != null)
-            {
-                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
-            }
-
-            return policyResult.Result;
-        }
-
-        /// <summary>
-        /// List owned arrays in a name_space.
-        /// </summary>
-        /// <param name="name_space"></param>
-        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
-        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
-        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
-        /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
-        /// <returns></returns>
-        public static Rest.Model.ArrayBrowserData ListArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
-        {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
-            if (policyResult.FinalException != null)
-            {
-                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
-            }
-
-            return policyResult.Result;
-        }
-
-        /// <summary>
-        /// List public arrays in a name_space.
-        /// </summary>
-        /// <param name="name_space"></param>
-        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
-        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
-        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
-        /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
-        /// <returns></returns>
-        public static Rest.Model.ArrayBrowserData ListPublicArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
-        {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
-            if (policyResult.FinalException != null)
-            {
-                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
-            }
-
-            return policyResult.Result;
-        }
-
-        /// <summary>
-        /// List shared arrays in a name_space.
-        /// </summary>
-        /// <param name="name_space"></param>
-        /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
-        /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
-        /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
-        /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
-        /// <returns></returns>
-        public static Rest.Model.ArrayBrowserData ListSharedArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
-        {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
-            if (policyResult.FinalException != null)
-            {
-                System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
-            }
-
-            return policyResult.Result;
-        }
-
-        #endregion Array
-
         #region Files
 
         public static Rest.Model.FileCreated CreateFile(string name_space, string input_uri, string output_uri,
@@ -498,6 +325,18 @@ namespace TileDB.Cloud
             return policyResult.Result;
         }
 
+        public static string GetDefaultChargedNamespace()
+        {
+            var user = GetUser();
+            var chargedOrg = user.Username;
+            if (user.DefaultNamespaceCharged != String.Empty)
+            {
+                chargedOrg = user.DefaultNamespaceCharged;
+            }
+
+            return chargedOrg;
+        }
+
         #endregion User
 
         /// <summary>
@@ -514,5 +353,64 @@ namespace TileDB.Cloud
             }
             return (uri.Host, uri.LocalPath.TrimStart('/'));
         }
+
+        public static string SerializeArguments(Dictionary<string, dynamic> args)
+        {
+            return JsonConvert.SerializeObject(args);
+        }
+
+        # region OpenAPI Overrides
+
+        // Overrides members of OpenAPI generated code to support variable range type serialization
+        // + These overrides are only accessible within classes encapsulated by RestUtil
+
+        [DataContract]
+        private class UdfQueryRanges : QueryRanges
+        {
+            public UdfQueryRanges(Layout layout, List<dynamic> ranges)
+            {
+                Layout = layout;
+                Ranges = ranges;
+            }
+
+            [DataMember(Name = "ranges", EmitDefaultValue = false)]
+            public new List<dynamic> Ranges { get; set; }
+        }
+
+        [DataContract]
+        private class ArrayUdf : MultiArrayUDF
+        {
+            [DataMember(Name = "ranges", EmitDefaultValue = false)]
+            public new UdfQueryRanges? Ranges { get; set; }
+
+            public ArrayUdf() { }
+
+            public ArrayUdf(string udfUri, string arrayUri, Layout layout, List<dynamic> ranges, string args)
+            {
+                UdfInfoName = udfUri.Replace("tiledb://", "");
+                Arrays = new List<UDFArrayDetails>() { new UDFArrayDetails(uri: arrayUri) };
+                Ranges = new UdfQueryRanges(layout, new List<dynamic>());
+                Ranges.Ranges.AddRange(ranges);
+                Argument = args;
+            }
+
+            public ArrayUdf(string udfUri, ArrayList arrayList, string args)
+            {
+                UdfInfoName = udfUri.Replace("tiledb://", "");
+                Argument = args;
+                Arrays = new List<UDFArrayDetails>();
+                Arrays.AddRange(arrayList.Arrays);
+            }
+
+        }
+
+        [DataContract]
+        private class ArrayDetails : UDFArrayDetails
+        {
+            [DataMember(Name = "ranges", EmitDefaultValue = false)]
+            public new UdfQueryRanges? Ranges { get; set; }
+        }
+
+        #endregion
     }
 }

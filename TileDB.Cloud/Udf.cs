@@ -1,309 +1,432 @@
-using System;
-using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using TileDB.Cloud.Rest.Api;
 using TileDB.Cloud.Rest.Model;
 
 namespace TileDB.Cloud
 {
-    public static class Udf
+    public partial class RestUtil
     {
-        private static readonly UdfApi UdfApi;
-
-        static Udf()
+        public static class Udf
         {
-            UdfApi = TileDB.Cloud.Client.GetInstance().GetUdfApi();
-        }
+            public static readonly UdfApi UdfApi;
 
-        #region Execute
-
-        /// <summary>
-        /// Execute an array UDF
-        ///
-        /// If no `chargedOrg` is provided we will charge the namespace that owns the UDF
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF to execute</param>
-        /// <param name="arrayUri">TileDB uri for array to run against</param>
-        /// <param name="ranges">Ranges to use for slicing array</param>
-        /// <param name="args">JSON formatted arguments to pass to UDF</param>
-        /// <param name="layout">Layout to perform array slicing</param>
-        /// <param name="chargedOrg">Organization to charge for UDF execution</param>
-        /// <returns>Stream containing UDF result</returns>
-        public static Stream Exec(
-            string udfUri, string arrayUri, List<dynamic> ranges,
-            string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
-        {
-            var udf = new ArrayUdf();
-            var (nameSpace, arrayPath) = RestUtil.SplitUri(arrayUri);
-
-            udf.UdfInfoName = udfUri.Replace("tiledb://", "");
-            udf.Arrays = new List<UDFArrayDetails>();
-            udf.Arrays.Add(new UDFArrayDetails(uri: arrayUri));
-            udf.Ranges = new UdfQueryRanges(layout, new List<dynamic>());
-            udf.Ranges.Ranges.AddRange(ranges);
-            udf.Argument = args;
-
-            return UdfApi.SubmitUDF(nameSpace, arrayPath, udf);
-        }
-
-        /// <summary>
-        /// Execute an array UDF asynchronously
-        ///
-        /// If no `chargedOrg` is provided we will charge the namespace that owns the UDF
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF to execute</param>
-        /// <param name="arrayUri">TileDB uri for array to run against</param>
-        /// <param name="ranges">Ranges to use for slicing array</param>
-        /// <param name="args">JSON formatted arguments to pass to UDF</param>
-        /// <param name="layout">Layout to perform array slicing</param>
-        /// <param name="chargedOrg">Organization to charge for UDF execution</param>
-        /// <returns>Asynchronous Task containing UDF Stream result</returns>
-        public static Task<Stream> ExecAsync(
-            string udfUri, string arrayUri, List<dynamic> ranges,
-            string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
-        {
-            return Task.Run(() => Exec(udfUri, arrayUri, ranges, args, layout, chargedOrg));
-        }
-
-        /// <summary>
-        /// Execute a generic UDF
-        ///
-        /// If no `chargedOrg` is provided we will charge the namespace that owns the UDF
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF to execute</param>
-        /// <param name="args">JSON formatted arguments to pass to UDF</param>
-        /// <param name="chargedOrg">Organization to charge for UDF execution</param>
-        /// <returns>Stream containing UDF result</returns>
-        public static Stream ExecGeneric(
-            string udfUri, string? args = null, string? chargedOrg = null)
-        {
-            var (nameSpace, arrayName) = RestUtil.SplitUri(udfUri);
-            var genericUdf = new GenericUDF();
-            genericUdf.UdfInfoName = udfUri.Replace("tiledb://", "");
-            genericUdf.Argument = args;
-            // If an org was specified to charge use it; Else use UDF owner namespace
-            return UdfApi.SubmitGenericUDF(chargedOrg ?? nameSpace, genericUdf);
-        }
-
-        /// <summary>
-        /// Execute a generic UDF asynchronously
-        ///
-        /// If no `chargedOrg` is provided we will charge the namespace that owns the UDF
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF to execute</param>
-        /// <param name="args">JSON formatted arguments to pass to UDF</param>
-        /// <param name="chargedOrg">Organization to charge for UDF execution</param>
-        /// <returns>Asynchronous Task containing UDF result Stream</returns>
-        public static Task<Stream> ExecGenericAsync(
-            string udfUri, string? args = null, string? chargedOrg = null)
-        {
-            return Task.Run(() => ExecGeneric(udfUri, args, chargedOrg));
-        }
-
-        #endregion
-
-        // TODO: (de)Register, (un)Share, Delete; Add to QuickstartUdf example
-        // TODO: Use Async methods generated by OpenAPI
-        #region Register, Deregister, Delete
-
-        public static void Delete(string udfUri)
-        {
-            var (udfNamespace, udfPath) = RestUtil.SplitUri(udfUri);
-            UdfApi.DeleteUDFInfo(udfNamespace, udfPath);
-        }
-
-        #endregion
-
-        #region Share
-
-        // Can reshare with a namespace to update UDFActions for that org
-        public static void Share(string udfUri, string shareNamespace, UDFActions[]? udfActions = null)
-        {
-            var (udfNamespace, udfPath) = RestUtil.SplitUri(udfUri);
-
-            var udfSharing = new UDFSharing();
-            udfSharing.Actions = new List<UDFActions>();
-            if (udfActions != null)
+            static Udf()
             {
-                udfSharing.Actions.AddRange(udfActions);
-            }
-            else
-            {
-                udfSharing.Actions.Add(UDFActions.Fetchudf);
-            }
-            udfSharing.Namespace = shareNamespace;
-            UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
-        }
-
-        public static void Unshare(string udfUri, string unshareNamespace)
-        {
-            var (udfNamespace, udfPath) = RestUtil.SplitUri(udfUri);
-            var udfSharing = new UDFSharing() { Namespace = unshareNamespace };
-            // Remove shared actions from a previously shared namespace
-            UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
-        }
-
-        #endregion
-
-        # region Info
-
-        /// <summary>
-        /// Gets UDF info from TileDB Cloud
-        /// </summary>
-        /// <param name="udfUri">TileDB uri to retrieve info</param>
-        /// <returns>UDFInfo object with properties initialized to match current cloud UDF info</returns>
-        public static UDFInfo GetInfo(string udfUri)
-        {
-            var (nameSpace, udfPath) = RestUtil.SplitUri(udfUri);
-            return UdfApi.GetUDFInfo(nameSpace, udfPath);
-        }
-
-        /// <summary>
-        /// Updates information for TileDB Cloud UDF.
-        ///
-        /// Tags will be replaced with tags passed to this function.
-        /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF we're updating</param>
-        /// <param name="readmeText">UDF README text</param>
-        /// <param name="tags">Complete list of tags to associate with UDF</param>
-        /// <param name="name">Name of UDF</param>
-        /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
-        /// <param name="licenseText">License textual information</param>
-        /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
-        /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
-        /// <param name="language">Programming language UDF is written in</param>
-        /// <param name="imageName">Optional docker image name to run UDF</param>
-        /// <param name="udfType">UDFType to assign to cloud UDF</param>
-        public static void UpdateUdf(
-            string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
-            string? licenseId = null, string? licenseText = null, string? execRaw = null,
-            string? exec = null, UDFLanguage? language = null, string? imageName = null,
-            UDFType? udfType = null)
-        {
-            var (nameSpace, arrayPath) = RestUtil.SplitUri(udfUri);
-
-            // If a UDFInfoUpdate property is null, no updates will be applied to that field
-            var udfInfoUpdate = new UDFInfoUpdate
-            {
-                Readme = readmeText,
-                Tags = tags?.ToList(),
-                Name = name,
-                LicenseId = licenseId,
-                LicenseText = licenseText,
-                Exec = exec,
-                ExecRaw = execRaw,
-                Language = language,
-                ImageName = imageName,
-                Type = udfType,
-            };
-            UdfApi.UpdateUDFInfo(nameSpace, arrayPath, udfInfoUpdate);
-        }
-
-        /// <summary>
-        /// Updates information for TileDB Cloud generic UDF.
-        ///
-        /// Tags will be replaced with tags passed to this function.
-        /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF we're updating</param>
-        /// <param name="readmeText">UDF README text</param>
-        /// <param name="tags">Complete list of tags to associate with UDF</param>
-        /// <param name="name">Name of UDF</param>
-        /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
-        /// <param name="licenseText">License textual information</param>
-        /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
-        /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
-        /// <param name="language">Programming language UDF is written in</param>
-        /// <param name="imageName">Optional docker image name to run UDF</param>
-        public static void UpdateGenericUdf(
-            string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
-            string? licenseId = null, string? licenseText = null, string? execRaw = null,
-            string? exec = null, UDFLanguage? language = null, string? imageName = null)
-        {
-            UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                UDFType.Generic);
-        }
-
-        /// <summary>
-        /// Updates information for TileDB Cloud single-array UDF.
-        ///
-        /// Tags will be replaced with tags passed to this function.
-        /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF we're updating</param>
-        /// <param name="readmeText">UDF README text</param>
-        /// <param name="tags">Complete list of tags to associate with UDF</param>
-        /// <param name="name">Name of UDF</param>
-        /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
-        /// <param name="licenseText">License textual information</param>
-        /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
-        /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
-        /// <param name="language">Programming language UDF is written in</param>
-        /// <param name="imageName">Optional docker image name to run UDF</param>
-        public static void UpdateSingleArrayUdf(
-            string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
-            string? licenseId = null, string? licenseText = null, string? execRaw = null,
-            string? exec = null, UDFLanguage? language = null, string? imageName = null)
-        {
-            UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                UDFType.Singlearray);
-        }
-
-        /// <summary>
-        /// Updates information for TileDB Cloud multi-array UDF.
-        ///
-        /// Tags will be replaced with tags passed to this function.
-        /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
-        /// </summary>
-        /// <param name="udfUri">TileDB uri for UDF we're updating</param>
-        /// <param name="readmeText">UDF README text</param>
-        /// <param name="tags">Complete list of tags to associate with UDF</param>
-        /// <param name="name">Name of UDF</param>
-        /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
-        /// <param name="licenseText">License textual information</param>
-        /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
-        /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
-        /// <param name="language">Programming language UDF is written in</param>
-        /// <param name="imageName">Optional docker image name to run UDF</param>
-        public static void UpdateMultiArrayUdf(
-            string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
-            string? licenseId = null, string? licenseText = null, string? execRaw = null,
-            string? exec = null, UDFLanguage? language = null, string? imageName = null)
-        {
-            UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                UDFType.Multiarray);
-        }
-
-        #endregion
-
-        # region OpenAPI Overrides
-
-        // Overrides members of OpenAPI generated code to support variable range type serialization
-        [DataContract]
-        private class UdfQueryRanges : QueryRanges
-        {
-            public UdfQueryRanges(Layout layout, List<dynamic> ranges)
-            {
-                Layout = layout;
-                Ranges = ranges;
+                UdfApi = Client.GetInstance().GetUdfApi();
             }
 
-            [DataMember(Name = "ranges", EmitDefaultValue = false)]
-            public new List<dynamic> Ranges { get; set; }
-        }
+            #region Execute
 
-        [DataContract]
-        private class ArrayUdf : MultiArrayUDF
-        {
-            [DataMember(Name = "ranges", EmitDefaultValue = false)]
-            public new UdfQueryRanges Ranges { get; set; }
-        }
+            /// <summary>
+            /// Execute a generic UDF
+            ///
+            /// If no `chargedOrg` is provided we will charge the current user's default charged namespace.
+            /// This defaults to the current username, but this can be reconfigured on TileDB Cloud Console
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF to execute</param>
+            /// <param name="args">JSON formatted arguments to pass to UDF</param>
+            /// <param name="chargedOrg">Organization to charge for UDF execution</param>
+            /// <returns>Stream containing UDF result</returns>
+            public static Stream ExecGeneric(
+                string udfUri, string? args = null, string? chargedOrg = null)
+            {
+                var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
+                return UdfApi.SubmitGenericUDF(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf);
+            }
 
-        #endregion
+            /// <summary>
+            /// Execute a generic UDF asynchronously
+            ///
+            /// If no `chargedOrg` is provided we will charge the current user's default charged namespace.
+            /// This defaults to the current username, but this can be reconfigured on TileDB Cloud Console
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF to execute</param>
+            /// <param name="args">JSON formatted arguments to pass to UDF</param>
+            /// <param name="chargedOrg">Organization to charge for UDF execution</param>
+            /// <returns>Asynchronous Task containing UDF result Stream</returns>
+            public static Task<Stream> ExecGenericAsync(
+                string udfUri, string? args = null, string? chargedOrg = null)
+            {
+                var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
+                return UdfApi.SubmitGenericUDFAsync(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf);
+            }
+
+            #endregion
+
+            #region Copy / Delete
+
+            /// <summary>
+            /// Copy an existing UDF
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for existing UDF to copy</param>
+            /// <param name="uriS3">S3 uri to store copied UDF data</param>
+            /// <param name="copyNamespace">Destination namespace for copied UDF. If empty use the namespace of current user</param>
+            /// <param name="copyName">Destination name for copied UDF. If empty use the UDF name being copied</param>
+            public static void Copy(
+                string udfUri, string uriS3, string? copyNamespace = null, string? copyName = null)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                var udfCopy = new UDFCopy(uriS3, copyNamespace, copyName);
+                UdfApi.HandleCopyUDF(udfNamespace, udfPath, udfCopy);
+            }
+
+            /// <summary>
+            /// Copy an existing UDF asynchronously
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for existing UDF to copy</param>
+            /// <param name="uriS3">S3 uri to store copied UDF data</param>
+            /// <param name="copyNamespace">Destination namespace for copied UDF. If empty use the namespace of current user</param>
+            /// <param name="copyName">Destination name for copied UDF. If empty use the UDF name being copied</param>
+            public static Task CopyAsync(
+                string udfUri, string uriS3, string? copyNamespace = null, string? copyName = null)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                var udfCopy = new UDFCopy(uriS3, copyNamespace, copyName);
+                return UdfApi.HandleCopyUDFAsync(udfNamespace, udfPath, udfCopy);
+            }
+
+            /// <summary>
+            /// Delete an existing TileDB Cloud UDF
+            /// UDF data stored on S3 will also be deleted
+            /// </summary>
+            /// <param name="udfUri">TileDB uri of existing UDF to delete</param>
+            public static void Delete(string udfUri)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                UdfApi.DeleteUDFInfo(udfNamespace, udfPath);
+            }
+
+            /// <summary>
+            /// Delete an existing TileDB Cloud UDF asynchronously
+            /// UDF data stored on S3 will also be deleted
+            /// </summary>
+            /// <param name="udfUri">TileDB uri of existing UDF to delete</param>
+            public static Task DeleteAsync(string udfUri)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                return UdfApi.DeleteUDFInfoAsync(udfNamespace, udfPath);
+            }
+
+            #endregion
+
+            #region Share
+
+            /// <summary>
+            /// Share a UDF with a namespace
+            ///
+            /// Permitted actions will not accumulate
+            /// By default user is granted UDF fetch access unless `udfActions` are explicitly provided
+            /// </summary>
+            /// <param name="udfUri">UDF uri to share</param>
+            /// <param name="shareNamespace">Namespace to share UDF with</param>
+            /// <param name="udfActions">Permitted actions for the shared namespace to take upon the UDF</param>
+            public static void Share(string udfUri, string shareNamespace, UDFActions[]? udfActions = null)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+
+                var udfSharing = new UDFSharing(new List<UDFActions>(), shareNamespace);
+                if (udfActions != null)
+                {
+                    udfSharing.Actions.AddRange(udfActions);
+                }
+                else
+                {
+                    udfSharing.Actions.Add(UDFActions.Fetchudf);
+                }
+                UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
+            }
+
+            /// <summary>
+            /// Share a UDF with a namespace asynchronously
+            ///
+            /// Permitted actions will not accumulate
+            /// By default user is granted UDF fetch access unless `udfActions` are explicitly provided
+            /// </summary>
+            /// <param name="udfUri">UDF uri to share</param>
+            /// <param name="shareNamespace">Namespace to share UDF with</param>
+            /// <param name="udfActions">Permitted actions for the shared namespace to take upon the UDF</param>
+            public static Task ShareAsync(string udfUri, string shareNamespace, UDFActions[]? udfActions = null)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+
+                var udfSharing = new UDFSharing(new List<UDFActions>(), shareNamespace);
+                if (udfActions != null)
+                {
+                    udfSharing.Actions.AddRange(udfActions);
+                }
+                else
+                {
+                    udfSharing.Actions.Add(UDFActions.Fetchudf);
+                }
+                return UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing);
+            }
+
+            /// <summary>
+            /// Unshare UDF with previously shared namespace
+            /// </summary>
+            /// <param name="udfUri">UDF uri to unshare</param>
+            /// <param name="unshareNamespace">Namespace to unshare</param>
+            public static void Unshare(string udfUri, string unshareNamespace)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                var udfSharing = new UDFSharing() { Namespace = unshareNamespace };
+                // Remove shared actions from a previously shared namespace by providing `null` actions
+                UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
+            }
+
+            /// <summary>
+            /// Unshare UDF with previously shared namespace asynchronously
+            /// </summary>
+            /// <param name="udfUri">UDF uri to unshare</param>
+            /// <param name="unshareNamespace">Namespace to unshare</param>
+            public static Task UnshareAsync(string udfUri, string unshareNamespace)
+            {
+                var (udfNamespace, udfPath) = SplitUri(udfUri);
+                var udfSharing = new UDFSharing() { Namespace = unshareNamespace };
+                // Remove shared actions from a previously shared namespace by providing `null` actions
+                return UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing);
+            }
+
+            #endregion
+
+            #region Info
+
+            /// <summary>
+            /// Gets UDF info from TileDB Cloud
+            /// </summary>
+            /// <param name="udfUri">TileDB uri to retrieve info</param>
+            /// <returns>UDFInfo object with properties initialized to match current cloud UDF info</returns>
+            public static UDFInfo GetInfo(string udfUri)
+            {
+                var (nameSpace, udfPath) = SplitUri(udfUri);
+                return UdfApi.GetUDFInfo(nameSpace, udfPath);
+            }
+
+            /// <summary>
+            /// Gets UDF info from TileDB Cloud asynchronously
+            /// </summary>
+            /// <param name="udfUri">TileDB uri to retrieve info</param>
+            /// <returns>UDFInfo object with properties initialized to match current cloud UDF info</returns>
+            public static Task<UDFInfo> GetInfoAsync(string udfUri)
+            {
+                var (nameSpace, udfPath) = SplitUri(udfUri);
+                return UdfApi.GetUDFInfoAsync(nameSpace, udfPath);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud UDF.
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            /// <param name="udfType">UDFType to assign to cloud UDF</param>
+            private static void UpdateUdf(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null,
+                UDFType? udfType = null)
+            {
+                var (nameSpace, arrayPath) = SplitUri(udfUri);
+                // If a UDFInfoUpdate property is null, no updates will be applied to that field
+                var udfInfoUpdate = new UDFInfoUpdate(name, language, null, imageName, udfType, exec, execRaw, readmeText,
+                    licenseId, licenseText, tags?.ToList());
+                UdfApi.UpdateUDFInfo(nameSpace, arrayPath, udfInfoUpdate);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud UDF asynchronously
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            /// <param name="udfType">UDFType to assign to cloud UDF</param>
+            private static Task UpdateUdfAsync(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null,
+                UDFType? udfType = null)
+            {
+                var (nameSpace, arrayPath) = SplitUri(udfUri);
+                // If a UDFInfoUpdate property is null, no updates will be applied to that field
+                var udfInfoUpdate = new UDFInfoUpdate(name, language, null, imageName, udfType, exec, execRaw, readmeText,
+                    licenseId, licenseText, tags?.ToList());
+                return UdfApi.UpdateUDFInfoAsync(nameSpace, arrayPath, udfInfoUpdate);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud generic UDF.
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static void UpdateGenericUdf(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                    UDFType.Generic);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud generic UDF asynchronously
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static Task UpdateGenericUdfAsync(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
+                    imageName, UDFType.Generic);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud single-array UDF.
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static void UpdateSingleArrayUdf(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                    UDFType.Singlearray);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud single-array UDF asynchronously
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static Task UpdateSingleArrayUdfAsync(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                    UDFType.Singlearray);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud multi-array UDF.
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static void UpdateMultiArrayUdf(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                    UDFType.Multiarray);
+            }
+
+            /// <summary>
+            /// Updates information for TileDB Cloud multi-array UDF.
+            ///
+            /// Tags will be replaced with tags passed to this function.
+            /// To update existing tags call Udf.GetInfo to retrieve and build an updated tag list.
+            /// </summary>
+            /// <param name="udfUri">TileDB uri for UDF we're updating</param>
+            /// <param name="readmeText">UDF README text</param>
+            /// <param name="tags">Complete list of tags to associate with UDF</param>
+            /// <param name="name">Name of UDF</param>
+            /// <param name="licenseId">SPDX license ID to associate license with UDF</param>
+            /// <param name="licenseText">License textual information</param>
+            /// <param name="execRaw">Raw text used to display UDF function definition in TileDB Cloud UI</param>
+            /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
+            /// <param name="language">Programming language UDF is written in</param>
+            /// <param name="imageName">Optional docker image name to run UDF</param>
+            public static Task UpdateMultiArrayUdfAsync(
+                string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
+                string? licenseId = null, string? licenseText = null, string? execRaw = null,
+                string? exec = null, UDFLanguage? language = null, string? imageName = null)
+            {
+                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
+                    imageName, UDFType.Multiarray);
+            }
+
+            #endregion
+        }
     }
 }
