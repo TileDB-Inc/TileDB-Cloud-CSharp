@@ -197,10 +197,11 @@ namespace TileDB.Cloud
                 string udfUri, string arrayUri, List<dynamic> ranges,
                 string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
             {
-                var (_, arrayName) = SplitUri(arrayUri);
+                var (arrayNamespace, arrayName) = SplitUri(arrayUri);
                 var udf = new ArrayUdf(udfUri, arrayUri, layout, ranges, args!);
                 var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
-                    () => Udf.UdfApi.SubmitUDF(chargedOrg ?? GetDefaultChargedNamespace(), arrayName, udf));
+                    () => Udf.UdfApi.SubmitUDF(arrayNamespace, arrayName, udf,
+                        chargedOrg ?? GetDefaultChargedNamespace()));
                 CheckPolicyResult(policyResult);
                 return policyResult.Result;
             }
@@ -222,10 +223,11 @@ namespace TileDB.Cloud
                 string udfUri, string arrayUri, List<dynamic> ranges,
                 string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
             {
-                var (_, arrayName) = SplitUri(arrayUri);
+                var (arrayNamespace, arrayName) = SplitUri(arrayUri);
                 var udf = new ArrayUdf(udfUri, arrayUri, layout, ranges, args!);
                 var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
-                    () => Udf.UdfApi.SubmitUDFAsync(chargedOrg ?? GetDefaultChargedNamespace(), arrayName, udf));
+                    () => Udf.UdfApi.SubmitUDFAsync(arrayNamespace, arrayName, udf,
+                        chargedOrg ?? GetDefaultChargedNamespace()));
                 policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
                 return policyResult;
             }
@@ -235,15 +237,15 @@ namespace TileDB.Cloud
             /// </summary>
             /// <param name="udfUri">TileDB uri for UDF to execute</param>
             /// <param name="arrayList">Constructed ArrayList object</param>
+            /// <param name="arrayNamespace">Namespace arrays are in</param>
             /// <param name="args">JSON formatted arguments to pass to UDF</param>
-            /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Stream containing multi-array UDF result</returns>
             public static Stream ApplyMultiArray(
-                string udfUri, ArrayList arrayList, string? args = null, string? chargedOrg = null)
+                string udfUri, ArrayList arrayList, string arrayNamespace, string? args = null)
             {
                 var udf = new ArrayUdf(udfUri, arrayList, args!);
                 var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
-                    () => Udf.UdfApi.SubmitMultiArrayUDF(chargedOrg ?? GetDefaultChargedNamespace(), udf));
+                    () => Udf.UdfApi.SubmitMultiArrayUDF(arrayNamespace, udf));
                 CheckPolicyResult(policyResult);
                 return policyResult.Result;
             }
@@ -253,15 +255,15 @@ namespace TileDB.Cloud
             /// </summary>
             /// <param name="udfUri">TileDB uri for UDF to execute</param>
             /// <param name="arrayList">Constructed ArrayList object</param>
+            /// <param name="arrayNamespace">Namespace arrays are in</param>
             /// <param name="args">JSON formatted arguments to pass to UDF</param>
-            /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Asynchronous Task containing multi-array UDF result Stream</returns>
             public static Task<PolicyResult<Stream>> ApplyMultiArrayAsync(
-                string udfUri, ArrayList arrayList, string? args = null, string? chargedOrg = null)
+                string udfUri, ArrayList arrayList, string arrayNamespace, string? args = null)
             {
                 var udf = new ArrayUdf(udfUri, arrayList, args!);
                 var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync<Stream>(
-                    () => Udf.UdfApi.SubmitMultiArrayUDFAsync(chargedOrg ?? GetDefaultChargedNamespace(), udf));
+                    () => Udf.UdfApi.SubmitMultiArrayUDFAsync(arrayNamespace, udf));
                 policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
                 return policyResult;
             }

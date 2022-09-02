@@ -42,16 +42,14 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def array_udf(data, attr, scalar)
-        static void UdfArrayExec(string udfUri, string arrayUri, string attribute, int scalar, string charged=null)
+        static void UdfArrayExec(string udfUri, string arrayUri, string attribute, int scalar, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayUri}...");
             var args = RestUtil.SerializeArguments(
                 new Dictionary<string, dynamic>() {{"attr", attribute}, {"scale", scalar}});
-            var chargedOrg = charged ?? RestUtil.SplitUri(arrayUri).name_space;
             DebugOutput(udfUri, chargedOrg, args);
 
             // Run against an array with string dimensions
-            arrayUri = "tiledb://shaunreed/sparse-string-dimensions";
             var response = TileDB.Cloud.RestUtil.Array.Apply(
                 udfUri, arrayUri, ranges: new List<dynamic>() { new[] { "a", "c" }, new[] { 1, 4 }},
                 args, Layout.Unordered, chargedOrg
@@ -73,7 +71,7 @@ namespace QuickstartUdf
             // Run against an array with integer dimensions
             var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyAsync(
                 udfUri, arrayUri, args: args,
-                ranges: new List<dynamic>() { new[] { 1, 4 }, new[] { 1, 4 } }, chargedOrg: "shaunreed"
+                ranges: new List<dynamic>() { new[] { "a", "c" }, new[] { 1, 4 } }
             );
             Console.WriteLine($"Waiting for result...");
             Console.Write($"Result from {udfUri} against {arrayUri}: ");
@@ -84,15 +82,15 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def multi_array_udf(data, attr, scalar)
-        static void UdfMultiArrayExec(string udfUri, RestUtil.ArrayList arrayList, string attribute, string charged=null)
+        static void UdfMultiArrayExec(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
+            string attribute, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayList.Arrays.Count} arrays...");
             var args = RestUtil.SerializeArguments(new Dictionary<string, dynamic>() {{"attr", attribute}});
-            var chargedOrg = charged ?? RestUtil.SplitUri(udfUri).name_space;
             DebugOutput(udfUri, chargedOrg, args);
 
             // Run against an array with string dimensions
-            var response = TileDB.Cloud.RestUtil.Array.ApplyMultiArray(udfUri, arrayList, args, chargedOrg);
+            var response = TileDB.Cloud.RestUtil.Array.ApplyMultiArray(udfUri, arrayList, arrayNamespace, args);
             Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
             response.CopyTo(Console.OpenStandardOutput());
             Console.WriteLine("\n");
@@ -100,15 +98,15 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def multi_array_udf(data, attr, scalar)
-        static void UdfMultiArrayExecAsync(string udfUri, RestUtil.ArrayList arrayList, string attribute, string charged=null)
+        static void UdfMultiArrayExecAsync(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
+            string attribute, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayList.Arrays.Count} arrays asynchronously...");
             var args = RestUtil.SerializeArguments(new Dictionary<string, dynamic>() {{"attr", attribute}});
-            var chargedOrg = charged ?? RestUtil.SplitUri(udfUri).name_space;
             DebugOutput(udfUri, chargedOrg, args);
 
             // Run against an array with string dimensions
-            var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyMultiArrayAsync(udfUri, arrayList, args, chargedOrg);
+            var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyMultiArrayAsync(udfUri, arrayList, arrayNamespace, args);
             Console.WriteLine($"Waiting for result...");
             Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
             // Accessing the `Result` property of `taskResponse` will block until async task completes
@@ -145,9 +143,6 @@ namespace QuickstartUdf
 
         static void Run()
         {
-            var udfUri = "tiledb://shaunreed/array-udf";
-            string arrayUri = "tiledb://shaunreed/dense-array";
-
             RestUtil.Udf.Unshare("tiledb://shaunreed/array-udf", "shaunrd0");
             RestUtil.Udf.Share("tiledb://shaunreed/array-udf", "shaunrd0",
                 new [] { UDFActions.Fetchudf });
@@ -170,9 +165,11 @@ namespace QuickstartUdf
             UdfGenericExec("tiledb://shaunreed/args-udf", args: RestUtil.SerializeArguments(argsDict));
 
             // Execute udf on an existing TileDB Cloud array
-            UdfArrayExec("tiledb://shaunreed/array-udf", arrayUri, "a1", 2);
+            UdfArrayExec("tiledb://shaunreed/array-udf", "tiledb://shaunreed/sparse-string-dimensions",
+             "a1", 2);
             // Execute the same udf asynchronously
-            UdfArrayExecAsync("tiledb://shaunreed/array-udf", arrayUri, "a1", 2);
+            UdfArrayExecAsync("tiledb://shaunreed/array-udf", "tiledb://shaunreed/sparse-string-dimensions",
+             "a1", 2);
 
             var arrayList = new RestUtil.ArrayList();
             arrayList.Add("tiledb://shaunreed/dense-array-2",
@@ -181,11 +178,11 @@ namespace QuickstartUdf
             arrayList.Add("tiledb://shaunreed/dense-array",
                 new List<dynamic>() { new[] { 1, 4 }, new[] { 1, 4 } },
                 new List<string>() { "rows", "cols", "a1" }, Layout.RowMajor);
-            UdfMultiArrayExec("tiledb://shaunreed/multi-array-udf", arrayList, "a1");
-            UdfMultiArrayExecAsync("tiledb://shaunreed/multi-array-udf", arrayList, "a1");
+            UdfMultiArrayExec("tiledb://shaunreed/multi-array-udf", arrayList, "shaunreed", "a1");
+            UdfMultiArrayExecAsync("tiledb://shaunreed/multi-array-udf", arrayList, "shaunreed", "a1");
 
             RestUtil.Udf.Copy("tiledb://shaunreed/array-udf", "s3://shaun.reed/registered_udfs/copied-udf",
-                "shaunreed", "copied-udf");
+                copyName: "copied-udf");
             UdfUpdate("tiledb://shaunreed/copied-udf",
                 $"This README was updated using TileDB-Cloud-CSharp on {System.DateTime.Now}");
 
