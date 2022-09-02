@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Polly;
 using TileDB.Cloud.Rest.Model;
 
 namespace TileDB.Cloud
@@ -357,6 +356,29 @@ namespace TileDB.Cloud
         public static string SerializeArguments(Dictionary<string, dynamic> args)
         {
             return JsonConvert.SerializeObject(args);
+        }
+
+        /// <summary>
+        /// Helper function to check PolicyResult for final exception
+        /// </summary>
+        /// <param name="policyResult"></param>
+        private static void CheckPolicyResult(PolicyResult policyResult)
+        {
+            if (policyResult.FinalException != null)
+            {
+                Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
+        }
+        /// <summary>
+        /// Helper function to check PolicyResult for final exception
+        /// </summary>
+        /// <param name="policyResult"></param>
+        private static void CheckPolicyResult<T>(PolicyResult<T> policyResult)
+        {
+            if (policyResult.FinalException != null)
+            {
+                Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
+            }
         }
 
         # region OpenAPI Overrides

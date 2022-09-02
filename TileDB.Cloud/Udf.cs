@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Polly;
 using TileDB.Cloud.Rest.Api;
 using TileDB.Cloud.Rest.Model;
 
@@ -34,7 +35,11 @@ namespace TileDB.Cloud
                 string udfUri, string? args = null, string? chargedOrg = null)
             {
                 var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
-                return UdfApi.SubmitGenericUDF(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.SubmitGenericUDF(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf)
+                );
+                CheckPolicyResult(policyResult);
+                return policyResult.Result;
             }
 
             /// <summary>
@@ -47,11 +52,14 @@ namespace TileDB.Cloud
             /// <param name="args">JSON formatted arguments to pass to UDF</param>
             /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Asynchronous Task containing UDF result Stream</returns>
-            public static Task<Stream> ExecGenericAsync(
+            public static Task<PolicyResult<Stream>> ExecGenericAsync(
                 string udfUri, string? args = null, string? chargedOrg = null)
             {
                 var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
-                return UdfApi.SubmitGenericUDFAsync(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.SubmitGenericUDFAsync(chargedOrg ?? GetDefaultChargedNamespace(), genericUdf));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             #endregion
@@ -70,7 +78,9 @@ namespace TileDB.Cloud
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
                 var udfCopy = new UDFCopy(uriS3, copyNamespace, copyName);
-                UdfApi.HandleCopyUDF(udfNamespace, udfPath, udfCopy);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.HandleCopyUDF(udfNamespace, udfPath, udfCopy));
+                CheckPolicyResult(policyResult);
             }
 
             /// <summary>
@@ -80,12 +90,16 @@ namespace TileDB.Cloud
             /// <param name="uriS3">S3 uri to store copied UDF data</param>
             /// <param name="copyNamespace">Destination namespace for copied UDF. If empty use the namespace of current user</param>
             /// <param name="copyName">Destination name for copied UDF. If empty use the UDF name being copied</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task CopyAsync(
                 string udfUri, string uriS3, string? copyNamespace = null, string? copyName = null)
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
                 var udfCopy = new UDFCopy(uriS3, copyNamespace, copyName);
-                return UdfApi.HandleCopyUDFAsync(udfNamespace, udfPath, udfCopy);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.HandleCopyUDFAsync(udfNamespace, udfPath, udfCopy));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             /// <summary>
@@ -96,7 +110,9 @@ namespace TileDB.Cloud
             public static void Delete(string udfUri)
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
-                UdfApi.DeleteUDFInfo(udfNamespace, udfPath);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.DeleteUDFInfo(udfNamespace, udfPath));
+                CheckPolicyResult(policyResult);
             }
 
             /// <summary>
@@ -104,10 +120,14 @@ namespace TileDB.Cloud
             /// UDF data stored on S3 will also be deleted
             /// </summary>
             /// <param name="udfUri">TileDB uri of existing UDF to delete</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task DeleteAsync(string udfUri)
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
-                return UdfApi.DeleteUDFInfoAsync(udfNamespace, udfPath);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.DeleteUDFInfoAsync(udfNamespace, udfPath));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             #endregion
@@ -136,7 +156,9 @@ namespace TileDB.Cloud
                 {
                     udfSharing.Actions.Add(UDFActions.Fetchudf);
                 }
-                UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing));
+                CheckPolicyResult(policyResult);
             }
 
             /// <summary>
@@ -148,6 +170,7 @@ namespace TileDB.Cloud
             /// <param name="udfUri">UDF uri to share</param>
             /// <param name="shareNamespace">Namespace to share UDF with</param>
             /// <param name="udfActions">Permitted actions for the shared namespace to take upon the UDF</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task ShareAsync(string udfUri, string shareNamespace, UDFActions[]? udfActions = null)
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
@@ -161,7 +184,10 @@ namespace TileDB.Cloud
                 {
                     udfSharing.Actions.Add(UDFActions.Fetchudf);
                 }
-                return UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             /// <summary>
@@ -174,7 +200,9 @@ namespace TileDB.Cloud
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
                 var udfSharing = new UDFSharing() { Namespace = unshareNamespace };
                 // Remove shared actions from a previously shared namespace by providing `null` actions
-                UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing));
+                CheckPolicyResult(policyResult);
             }
 
             /// <summary>
@@ -182,12 +210,16 @@ namespace TileDB.Cloud
             /// </summary>
             /// <param name="udfUri">UDF uri to unshare</param>
             /// <param name="unshareNamespace">Namespace to unshare</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task UnshareAsync(string udfUri, string unshareNamespace)
             {
                 var (udfNamespace, udfPath) = SplitUri(udfUri);
                 var udfSharing = new UDFSharing() { Namespace = unshareNamespace };
                 // Remove shared actions from a previously shared namespace by providing `null` actions
-                return UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             #endregion
@@ -202,18 +234,24 @@ namespace TileDB.Cloud
             public static UDFInfo GetInfo(string udfUri)
             {
                 var (nameSpace, udfPath) = SplitUri(udfUri);
-                return UdfApi.GetUDFInfo(nameSpace, udfPath);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.GetUDFInfo(nameSpace, udfPath));
+                CheckPolicyResult(policyResult);
+                return policyResult.Result;
             }
 
             /// <summary>
             /// Gets UDF info from TileDB Cloud asynchronously
             /// </summary>
             /// <param name="udfUri">TileDB uri to retrieve info</param>
-            /// <returns>UDFInfo object with properties initialized to match current cloud UDF info</returns>
-            public static Task<UDFInfo> GetInfoAsync(string udfUri)
+            /// <returns>Asynchronous Task containing UDFInfo object</returns>
+            public static Task<PolicyResult<UDFInfo>> GetInfoAsync(string udfUri)
             {
                 var (nameSpace, udfPath) = SplitUri(udfUri);
-                return UdfApi.GetUDFInfoAsync(nameSpace, udfPath);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.GetUDFInfoAsync(nameSpace, udfPath));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             /// <summary>
@@ -243,7 +281,9 @@ namespace TileDB.Cloud
                 // If a UDFInfoUpdate property is null, no updates will be applied to that field
                 var udfInfoUpdate = new UDFInfoUpdate(name, language, null, imageName, udfType, exec, execRaw, readmeText,
                     licenseId, licenseText, tags?.ToList());
-                UdfApi.UpdateUDFInfo(nameSpace, arrayPath, udfInfoUpdate);
+                var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
+                    () => UdfApi.UpdateUDFInfo(nameSpace, arrayPath, udfInfoUpdate));
+                CheckPolicyResult(policyResult);
             }
 
             /// <summary>
@@ -263,6 +303,7 @@ namespace TileDB.Cloud
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <param name="udfType">UDFType to assign to cloud UDF</param>
+            /// <returns>Asynchronous Task</returns>
             private static Task UpdateUdfAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
@@ -273,7 +314,10 @@ namespace TileDB.Cloud
                 // If a UDFInfoUpdate property is null, no updates will be applied to that field
                 var udfInfoUpdate = new UDFInfoUpdate(name, language, null, imageName, udfType, exec, execRaw, readmeText,
                     licenseId, licenseText, tags?.ToList());
-                return UdfApi.UpdateUDFInfoAsync(nameSpace, arrayPath, udfInfoUpdate);
+                var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
+                    () => UdfApi.UpdateUDFInfoAsync(nameSpace, arrayPath, udfInfoUpdate));
+                policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
+                return policyResult;
             }
 
             /// <summary>
@@ -317,6 +361,7 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task UpdateGenericUdfAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
@@ -367,6 +412,7 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task UpdateSingleArrayUdfAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
@@ -417,6 +463,7 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
+            /// <returns>Asynchronous Task</returns>
             public static Task UpdateMultiArrayUdfAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,

@@ -4,7 +4,7 @@ namespace TileDB.Cloud
 {
     public class Client
     {
-   
+
         public static void Login(string token = default(string), string username = default(string), string password = default(string), string host=default(string))
         {
             TileDB.Cloud.Config cfg = new Config();
@@ -14,17 +14,17 @@ namespace TileDB.Cloud
                 cfg.GetConfig().AccessToken = token;
             }
 
-            if(!string.IsNullOrEmpty(username)) 
+            if(!string.IsNullOrEmpty(username))
             {
                 cfg.GetConfig().Username = username;
             }
 
-            if(!string.IsNullOrEmpty(password)) 
+            if(!string.IsNullOrEmpty(password))
             {
                 cfg.GetConfig().Password = password;
             }
 
-            if(!string.IsNullOrEmpty(host)) 
+            if(!string.IsNullOrEmpty(host))
             {
                 if (host.EndsWith("/v1"))
                 {
@@ -58,18 +58,18 @@ namespace TileDB.Cloud
                 {
                     System.Console.WriteLine("caught Exception:{0}", e.Message);
                 }
-                
+
             }
 
             string cloud_json_file = Config.DefaultConfigFile;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             System.IO.StringWriter sw = new System.IO.StringWriter(sb);
 
-            using(Newtonsoft.Json.JsonWriter jsonWritter = new Newtonsoft.Json.JsonTextWriter(sw)) 
+            using(Newtonsoft.Json.JsonWriter jsonWritter = new Newtonsoft.Json.JsonTextWriter(sw))
             {
                 jsonWritter.Formatting = Newtonsoft.Json.Formatting.Indented;
                 jsonWritter.WriteStartObject();
-                
+
                 if(!string.IsNullOrEmpty(cfg.GetConfig().AccessToken))
                 {
                     jsonWritter.WritePropertyName("api_key");
@@ -77,9 +77,9 @@ namespace TileDB.Cloud
                     jsonWritter.WritePropertyName("X-TILEDB-REST-API-KEY");
                     jsonWritter.WriteValue(cfg.GetConfig().AccessToken);
                     jsonWritter.WriteEndObject();
-                } 
+                }
 
-                if(!string.IsNullOrEmpty(cfg.GetConfig().BasePath)) 
+                if(!string.IsNullOrEmpty(cfg.GetConfig().BasePath))
                 {
                     string temp_host = cfg.GetConfig().BasePath;
                     if (temp_host.EndsWith("/v1"))
@@ -94,7 +94,7 @@ namespace TileDB.Cloud
                     jsonWritter.WriteValue(temp_host);
                 }
 
-                if(!string.IsNullOrEmpty(cfg.GetConfig().Username)) 
+                if(!string.IsNullOrEmpty(cfg.GetConfig().Username))
                 {
                     jsonWritter.WritePropertyName("username");
                     jsonWritter.WriteValue(cfg.GetConfig().Username);
@@ -116,7 +116,7 @@ namespace TileDB.Cloud
             System.IO.File.WriteAllText(cloud_json_file, sb.ToString());
 
             _instance = new Client(cfg);
- 
+
             TileDB.CSharp.Config tdb_config = new TileDB.CSharp.Config();
             if (!string.IsNullOrEmpty(cfg.GetConfig().Username))
             {
@@ -144,9 +144,9 @@ namespace TileDB.Cloud
                 {
                     tdb_config.Set("rest.server_address", temp_host);
                 }
-                
+
             }
-                            
+
             _context = new TileDB.CSharp.Context(tdb_config);
         }
 
@@ -245,7 +245,7 @@ namespace TileDB.Cloud
             {
                 retryNumber = v;
             }
-  
+
             return retryNumber;
         }
 
@@ -273,16 +273,14 @@ namespace TileDB.Cloud
             return result;
         }
 
-
-   
         public Polly.Wrap.AsyncPolicyWrap GetRetryAsyncPolicyWrap()
         {
             int retryNumber = GetRetryNumber();
             int retrySleep = GetSleepMilliseconds();
             int timeoutSeconds = GetTimeoutSeconds();
             var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
-                .WaitAndRetryAsync(retryNumber, 
-                retryAttemp => System.TimeSpan.FromMilliseconds(retryNumber * retrySleep),
+                .WaitAndRetryAsync(retryNumber,
+                retryAttempt => System.TimeSpan.FromMilliseconds(retryNumber * retrySleep),
                 (ex, timeSpan, context) =>
                 {
                     System.Console.WriteLine("Caught exception and start to retry! {0}", ex.Message);
@@ -298,9 +296,9 @@ namespace TileDB.Cloud
             int retrySleep = GetSleepMilliseconds();
             int timeoutSeconds = GetTimeoutSeconds();
             var retry = Polly.Policy.Handle<Rest.Client.ApiException>()
-                .WaitAndRetry(retryNumber, 
-                retryAttemp => System.TimeSpan.FromMilliseconds( retryNumber * retrySleep),
-                (ex,timeSpan,context) => 
+                .WaitAndRetry(retryNumber,
+                retryAttempt => System.TimeSpan.FromMilliseconds( retryNumber * retrySleep),
+                (ex,timeSpan,context) =>
                 {
                     System.Console.WriteLine("Caught exception and start to retry! {0}",ex.Message);
                 }

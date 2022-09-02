@@ -34,9 +34,9 @@ namespace QuickstartUdf
             // Here we are free to do some work while waiting on resultTask...
             Console.WriteLine("Started async UDF task...");
 
-            var result = resultTask.Result; // Blocks execution until we get a result
             Console.Write($"Async UDF task completed with output: ");
-            result.CopyTo(Console.OpenStandardOutput());
+            // Accessing the `Result` property of `taskResponse` will block until async task completes
+            resultTask.Result.Result.CopyTo(Console.OpenStandardOutput());
             Console.WriteLine("\n");
         }
 
@@ -78,7 +78,7 @@ namespace QuickstartUdf
             Console.WriteLine($"Waiting for result...");
             Console.Write($"Result from {udfUri} against {arrayUri}: ");
             // Accessing the `Result` property of `taskResponse` will block until async task completes
-            taskResponse.Result.CopyTo(Console.OpenStandardOutput());
+            taskResponse.Result.Result.CopyTo(Console.OpenStandardOutput());
             Console.WriteLine("\n");
         }
 
@@ -108,10 +108,11 @@ namespace QuickstartUdf
             DebugOutput(udfUri, chargedOrg, args);
 
             // Run against an array with string dimensions
-            var response = TileDB.Cloud.RestUtil.Array.ApplyMultiArrayAsync(udfUri, arrayList, args, chargedOrg);
+            var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyMultiArrayAsync(udfUri, arrayList, args, chargedOrg);
             Console.WriteLine($"Waiting for result...");
             Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
-            response.Result.CopyTo(Console.OpenStandardOutput());
+            // Accessing the `Result` property of `taskResponse` will block until async task completes
+            taskResponse.Result.Result.CopyTo(Console.OpenStandardOutput());
             Console.WriteLine("\n");
         }
 
