@@ -7,6 +7,7 @@
     <authors>TileDB Inc</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
+	<icon>logo.png</icon>
     <projectUrl>https://github.com/TileDB-Inc/TileDB-Cloud-CSharp</projectUrl>
     <description>CSharp REST Api of TileDB cloud</description>
     <releaseNotes>This package is the csharp REST Api for TileDB cloud.</releaseNotes>
@@ -22,6 +23,7 @@
     </dependencies>
   </metadata>
   <files>
+	<file src="../art/logo.png" target=""/>
     <!-- binding libraries -->
     <file src="lib\net5.0\TileDB.Cloud.Rest.dll" target="lib\net5.0"/>
     <file src="lib\net5.0\TileDB.Cloud.dll" target="lib\net5.0"/>
