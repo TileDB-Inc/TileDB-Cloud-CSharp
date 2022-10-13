@@ -25,7 +25,6 @@
   <files>
 	<file src="../art/logo.png" target=""/>
     <!-- binding libraries -->
-    <file src="lib\net5.0\TileDB.Cloud.Rest.dll" target="lib\net5.0"/>
     <file src="lib\net5.0\TileDB.Cloud.dll" target="lib\net5.0"/>
   </files>
 </package>

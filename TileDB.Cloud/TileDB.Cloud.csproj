@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,29 +12,22 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <OutputPath>./lib</OutputPath>
+    <NuspecFile>./TileDB.Cloud.nuspec</NuspecFile>
+    <Nullable>annotations</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- compile files in ./ -->
     <Compile Include="*.cs" />
+    <Compile Include="../TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/**/*.cs" LinkBase="Rest" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="RestSharp" Version="105.2.3" />
-    <PackageReference Include="TileDB.Cloud.Rest" Version="0.2.3" />
-    <PackageReference Include="TileDB.CSharp" Version="5.2.0" />
+	<PackageReference Include="TileDB.CSharp" Version="5.2.0" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <OutputPath>./lib</OutputPath>
-  </PropertyGroup>
-
-  <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
-    <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-    </ItemGroup>
-  </Target>
-
 </Project>
