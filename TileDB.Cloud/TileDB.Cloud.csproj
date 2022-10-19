@@ -15,13 +15,12 @@
     <OutputPath>./lib</OutputPath>
     <NuspecFile>./TileDB.Cloud.nuspec</NuspecFile>
     <Nullable>annotations</Nullable>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- compile files in ./ -->
     <Compile Include="*.cs" />
-    <Compile Include="../TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/**/*.cs" LinkBase="Rest" />
+    <Compile Include="../TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/**/*.cs" Exclude="**/AssemblyInfo.cs" LinkBase="Rest" />
   </ItemGroup>
 
   <ItemGroup>
