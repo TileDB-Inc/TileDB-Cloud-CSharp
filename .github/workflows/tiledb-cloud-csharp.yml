@@ -32,30 +32,9 @@ jobs:
       - name: Display .NET versions
         run: dotnet --info
 
-      - name: Test TileDB.Cloud.Rest
-        shell: bash
-        run: cd TileDB.Cloud.Rest && sh mono_nunit_test.sh
-
-      - name: Pack TileDB.Cloud.Rest
-        shell: bash
-        run: |
-          nuget install TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/packages.config -o TileDB.Cloud.Rest/packages
-          mkdir TileDB.Cloud.Rest/bin
-          find TileDB.Cloud.Rest/packages/ -wholename */net45/*.dll | xargs -I{} cp {} TileDB.Cloud.Rest/bin/ 
-          nuget pack -Build -OutputDirectory TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out \
-            TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/TileDB.Cloud.Rest.csproj -Properties Configuration=Release
-
       - name: Pack TileDB.Cloud
         shell: bash
-        run: |
-          mkdir -p TileDB.Cloud/lib/net5.0 
-          cp TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/bin/Release/TileDB.Cloud.Rest.dll TileDB.Cloud/lib/net5.0/
-          dotnet add TileDB.Cloud/TileDB.Cloud.csproj package TileDB.Cloud.Rest --source \
-            TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out/ --no-restore
-          dotnet restore TileDB.Cloud/TileDB.Cloud.csproj -s TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/out \
-            -s https://api.nuget.org/v3/index.json --verbosity n
-          nuget pack -Build -OutputDirectory TileDB.Cloud/out TileDB.Cloud/TileDB.Cloud.csproj \
-            -Properties Configuration=Release
+        run: dotnet pack -c Release TileDB.Cloud/TileDB.Cloud.csproj -o TileDB.Cloud/out
 
       - name: Upload TileDB.Cloud NuGet Package
         uses: actions/upload-artifact@v3
@@ -97,10 +76,4 @@ jobs:
 
       - name: Test TileDB.Cloud NuGet Package
         shell: bash
-        run: |
-          dotnet add TileDB.Cloud.Test/TileDB.Cloud.Test.csproj package TileDB.Cloud --source TileDB.Cloud/out/ \
-            --no-restore
-          dotnet restore TileDB.Cloud.Test/TileDB.Cloud.Test.csproj --configfile TileDB.Cloud.Test/nuget.config \
-            --verbosity n
-          dotnet test TileDB.Cloud.Test/TileDB.Cloud.Test.csproj --no-restore
-          dotnet remove TileDB.Cloud.Test/TileDB.Cloud.Test.csproj package TileDB.Cloud
+        run: dotnet test TileDB.Cloud.Test/TileDB.Cloud.Test.csproj
