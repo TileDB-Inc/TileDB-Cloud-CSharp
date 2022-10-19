@@ -5,15 +5,18 @@
     <Platforms>x64</Platforms>
     <PackageId>TileDB.Cloud</PackageId>
     <Version>0.2.3</Version>
-    <Authors>TileDB</Authors>
-    <Company>TileDB Inc</Company>
+    <Authors>TileDB Inc</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/TileDB-Inc/TileDB-Cloud-CSharp</PackageProjectUrl>
+    <PackageDescription>C# REST API of TileDB Cloud</PackageDescription>
+    <PackageTags>tiledb;cloud</PackageTags>
     <!-- don't compile everything under path by default -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <OutputPath>./lib</OutputPath>
-    <NuspecFile>./TileDB.Cloud.nuspec</NuspecFile>
     <Nullable>annotations</Nullable>
   </PropertyGroup>
 
@@ -21,6 +24,7 @@
     <!-- compile files in ./ -->
     <Compile Include="*.cs" />
     <Compile Include="../TileDB.Cloud.Rest/src/TileDB.Cloud.Rest/**/*.cs" Exclude="**/AssemblyInfo.cs" LinkBase="Rest" />
+    <None Include="../art/logo.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
