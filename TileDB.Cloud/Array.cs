@@ -1,3 +1,4 @@
+#nullable enable
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,39 +12,38 @@ namespace TileDB.Cloud
         /// <summary>
         /// Delete an array.
         /// </summary>
-        /// <param name="array_uri"></param>
-        public static void DeleteArray(string array_uri)
+        /// <param name="arrayUri"></param>
+        public static void DeleteArray(string arrayUri)
         {
-            if (string.IsNullOrEmpty(array_uri))
+            if (string.IsNullOrEmpty(arrayUri))
             {
                 return;
             }
 
-            var (name_space, array_name) = RestUtil.SplitUri(array_uri);
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
-            string contentType = "application/json";
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            policywrap.Execute(
-                () => { apiInstance.DeleteArray(name_space, array_name, contentType); }
+            var (nameSpace, arrayName) = RestUtil.SplitUri(arrayUri);
+            var apiInstance = Client.GetInstance().GetArrayApi();
+            const string contentType = "application/json";
+            var policyWrap = Client.GetInstance().GetRetryPolicyWrap();
+            policyWrap.Execute(
+                () => { apiInstance.DeleteArray(nameSpace, arrayName, contentType); }
             );
             return;
         }
 
-        public static Rest.Model.ArrayInfo GetArrayInfo(string array_uri)
+        public static ArrayInfo GetArrayInfo(string arrayUri)
         {
-            if (string.IsNullOrEmpty(array_uri))
+            if (string.IsNullOrEmpty(arrayUri))
             {
-                return new Rest.Model.ArrayInfo();
+                return new ArrayInfo();
             }
 
-            var (name_space, array_name) = RestUtil.SplitUri(array_uri);
+            var (nameSpace, arrayName) = RestUtil.SplitUri(arrayUri);
 
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
+            var apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayInfo>(
-                () => { return apiInstance.GetArrayMetadata(name_space, array_name); }
-            );
+            var policyWrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policyWrap.ExecuteAndCapture<Rest.Model.ArrayInfo>(
+                () => apiInstance.GetArrayMetadata(nameSpace, arrayName));
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
@@ -55,37 +55,33 @@ namespace TileDB.Cloud
         /// <summary>
         /// List owned arrays in a name_space.
         /// </summary>
-        /// <param name="name_space"></param>
+        /// <param name="nameSpace"></param>
         /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
         /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="excludeTags">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
+        /// <param name="fileTypes">file_type to search for, more than one can be included (optional)</param>
+        /// <param name="excludeFileTypes">file_type to exclude matching array in results, more than one can be included</param>
         /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
+        /// <param name="perPage">pagination limit (optional)</param>
         /// <returns></returns>
-        public static Rest.Model.ArrayBrowserData ListArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
+        public static ArrayBrowserData ListArrays(
+            string nameSpace,
+            string? permissions = null,
+            List<string>? tags = null,
+            List<string>? excludeTags = null,
+            string? search = null,
+            List<string>? fileTypes = null,
+            List<string>? excludeFileTypes = null,
+            int? page = default,
+            int? perPage = default)
         {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
+            var apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserOwnedGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
+            var policyWrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policyWrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => apiInstance.ArraysBrowserOwnedGet(page, perPage, search, nameSpace, null, permissions,
+                    tags, excludeTags, fileTypes, excludeFileTypes, null));
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
@@ -97,37 +93,33 @@ namespace TileDB.Cloud
         /// <summary>
         /// List public arrays in a name_space.
         /// </summary>
-        /// <param name="name_space"></param>
+        /// <param name="nameSpace"></param>
         /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
         /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="excludeTags">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
+        /// <param name="fileTypes">file_type to search for, more than one can be included (optional)</param>
+        /// <param name="excludeFileTypes">file_type to exclude matching array in results, more than one can be included</param>
         /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
+        /// <param name="perPage">pagination limit (optional)</param>
         /// <returns></returns>
         public static Rest.Model.ArrayBrowserData ListPublicArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
+            string nameSpace,
+            string? permissions = null,
+            List<string>? tags = null,
+            List<string>? excludeTags = null,
+            string? search = null,
+            List<string>? fileTypes = null,
+            List<string>? excludeFileTypes = null,
+            int? page = default,
+            int? perPage = default)
         {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
+            var apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserPublicGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
+            var policyWrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policyWrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => apiInstance.ArraysBrowserPublicGet(page, perPage, search, nameSpace, null, permissions,
+                    tags, excludeTags, fileTypes, excludeFileTypes, null));
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
@@ -139,37 +131,33 @@ namespace TileDB.Cloud
         /// <summary>
         /// List shared arrays in a name_space.
         /// </summary>
-        /// <param name="name_space"></param>
+        /// <param name="nameSpace"></param>
         /// <param name="permissions">permissions valid values include read, read_write, write, admin (optional)</param>
         /// <param name="tags">tag to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_tags">tags to exclude matching array in results, more than one can be included (optional)</param>
+        /// <param name="excludeTags">tags to exclude matching array in results, more than one can be included (optional)</param>
         /// <param name="search">search string that will look at name, namespace or description fields (optional)</param>
-        /// <param name="file_types">file_type to search for, more than one can be included (optional)</param>
-        /// <param name="exclude_file_types">file_type to exclude matching array in results, more than one can be included</param>
+        /// <param name="fileTypes">file_type to search for, more than one can be included (optional)</param>
+        /// <param name="excludeFileTypes">file_type to exclude matching array in results, more than one can be included</param>
         /// <param name="page">pagination offset (optional)</param>
-        /// <param name="per_page">pagination limit (optional)</param>
+        /// <param name="perPage">pagination limit (optional)</param>
         /// <returns></returns>
         public static Rest.Model.ArrayBrowserData ListSharedArrays(
-            string name_space,
-            string permissions = default(string),
-            List<string> tags = default(List<string>),
-            List<string> exclude_tags = default(List<string>),
-            string search = default(string),
-            List<string> file_types = default(List<string>),
-            List<string> exclude_file_types = default(List<string>),
-            int? page = default(int?),
-            int? per_page = default(int?))
+            string nameSpace,
+            string? permissions = null,
+            List<string>? tags = null,
+            List<string>? excludeTags = null,
+            string? search = null,
+            List<string>? fileTypes = null,
+            List<string>? excludeFileTypes = null,
+            int? page = default,
+            int? perPage = default)
         {
-            Rest.Api.ArrayApi apiInstance = Client.GetInstance().GetArrayApi();
+            var apiInstance = Client.GetInstance().GetArrayApi();
 
-            Polly.Wrap.PolicyWrap policywrap = Client.GetInstance().GetRetryPolicyWrap();
-            var policyResult = policywrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
-                () =>
-                {
-                    return apiInstance.ArraysBrowserSharedGet(page, per_page, search, name_space, null, permissions,
-                        tags, exclude_tags, file_types, exclude_file_types, null);
-                }
-            );
+            var policyWrap = Client.GetInstance().GetRetryPolicyWrap();
+            var policyResult = policyWrap.ExecuteAndCapture<Rest.Model.ArrayBrowserData>(
+                () => apiInstance.ArraysBrowserSharedGet(page, perPage, search, nameSpace, null, permissions,
+                    tags, excludeTags, fileTypes, excludeFileTypes, null));
             if (policyResult.FinalException != null)
             {
                 System.Console.WriteLine("Caught final exception! {0}", policyResult.FinalException.Message);
@@ -285,7 +273,6 @@ namespace TileDB.Cloud
 
             public void Add(string arrayUri, List<dynamic> ranges, List<string> buffers, Layout layout)
             {
-                var (arrayNamespace, arrayName) = SplitUri(arrayUri);
                 var array = new ArrayDetails()
                 {
                     Uri = arrayUri,

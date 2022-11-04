@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="TileDB.Cloud" Version="0.2.4" />
-    <PackageReference Include="TileDB.CSharp" Version="5.2.1" />
+    <PackageReference Include="TileDB.CSharp" Version="5.2.4" />
   </ItemGroup>
 
 </Project>

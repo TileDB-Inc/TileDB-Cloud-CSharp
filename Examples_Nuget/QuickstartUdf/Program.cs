@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using TileDB.Cloud;
 using TileDB.Cloud.Rest.Model;
 
@@ -7,6 +9,8 @@ namespace QuickstartUdf
 {
     class Program
     {
+        private static readonly Stream OutputStream = Console.OpenStandardOutput();
+
         static UDFInfo UdfGetInfo(string uri)
         {
             return TileDB.Cloud.RestUtil.Udf.GetInfo(uri);
@@ -22,11 +26,12 @@ namespace QuickstartUdf
             var result = TileDB.Cloud.RestUtil.Udf.ExecGeneric(udfUri, args, chargedOrg);
             // Output result to console
             Console.Write("Result from generic UDF: ");
-            result.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            result.CopyTo(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
-        static void UdfGenericExecAsync(string udfUri, string args=null, string chargedOrg=null)
+        static async Task UdfGenericExecAsync(string udfUri, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running generic UDF {udfUri} asynchronously...");
             DebugOutput(udfUri, chargedOrg, args);
@@ -34,12 +39,13 @@ namespace QuickstartUdf
             // Call UDF asynchronously; Does not block execution on call to SubmitGenericUDFAsync()
             var resultTask = TileDB.Cloud.RestUtil.Udf.ExecGenericAsync(udfUri, args, chargedOrg);
             // Here we are free to do some work while waiting on resultTask...
-            Console.WriteLine("Started async UDF task...");
+            Console.WriteLine($"Waiting for result...");
+            var result = await resultTask;
 
             Console.Write($"Async UDF task completed with output: ");
-            // Accessing the `Result` property of `taskResponse` will block until async task completes
-            resultTask.Result.Result.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            await result.Result.CopyToAsync(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
@@ -55,13 +61,14 @@ namespace QuickstartUdf
                 udfUri, arrayUri, ranges, args, Layout.Unordered, chargedOrg);
 
             Console.Write($"Result from {udfUri} against {arrayUri}: ");
-            response.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            response.CopyTo(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def array_udf(data, attr, scalar)
-        static void UdfArrayExecAsync(
+        static async Task UdfArrayExecAsync(
             string udfUri, string arrayUri, List<dynamic> ranges, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayUri} asynchronously...");
@@ -70,11 +77,12 @@ namespace QuickstartUdf
             // Run against an array with integer dimensions
             var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyAsync(udfUri, arrayUri, ranges, args);
             Console.WriteLine($"Waiting for result...");
-            Console.Write($"Result from {udfUri} against {arrayUri}: ");
+            var result = await taskResponse;
 
-            // Accessing the `Result` property of `taskResponse` will block until async task completes
-            taskResponse.Result.Result.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            Console.Write($"Result from {udfUri} against {arrayUri}: ");
+            await result.Result.CopyToAsync(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
@@ -88,13 +96,14 @@ namespace QuickstartUdf
             // Run against an array with string dimensions
             var response = TileDB.Cloud.RestUtil.Array.ApplyMultiArray(udfUri, arrayList, arrayNamespace, args);
             Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
-            response.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            response.CopyTo(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def multi_array_udf(data, attr, scalar)
-        static void UdfMultiArrayExecAsync(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
+        static async Task UdfMultiArrayExecAsync(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
             string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayList.Arrays.Count} arrays asynchronously...");
@@ -104,11 +113,12 @@ namespace QuickstartUdf
             var taskResponse = TileDB.Cloud.RestUtil.Array.ApplyMultiArrayAsync(
                 udfUri, arrayList, arrayNamespace, args);
             Console.WriteLine($"Waiting for result...");
-            Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
+            var result = await taskResponse;
 
-            // Accessing the `Result` property of `taskResponse` will block until async task completes
-            taskResponse.Result.Result.CopyTo(Console.OpenStandardOutput());
-            Console.WriteLine("\n");
+            Console.Write($"Result from {udfUri} against {arrayList.Arrays.Count} arrays: ");
+            await result.Result.CopyToAsync(OutputStream);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         static void UdfUpdate(string uri, string readmeText)
@@ -138,7 +148,7 @@ namespace QuickstartUdf
             }
         }
 
-        static void Run()
+        static async Task Run()
         {
             string arrayUdfUri = "tiledb://shaunreed/array-udf";
             string friendNamespace = "shaunrd0";
@@ -170,7 +180,7 @@ namespace QuickstartUdf
             string udfNoArgs = "tiledb://shaunreed/print-udf";
             UdfGenericExec(udfNoArgs); // Charge the namespace that owns the UDF
             UdfGenericExec(udfNoArgs, chargedOrg: "TileDB-Inc"); // Charge the TileDB-Inc namespace
-            UdfGenericExecAsync(udfNoArgs);
+            await UdfGenericExecAsync(udfNoArgs);
 
             // Executing generic UDFs with arguments
             string udfArgs = "tiledb://shaunreed/args-udf";
@@ -187,14 +197,14 @@ namespace QuickstartUdf
 
             // Construct args and ranges to pass to array UDF
             var args = RestUtil.SerializeArguments(
-                new Dictionary<string, dynamic>() {{"attr", "a1"}, {"scale", 2}});
+            new Dictionary<string, dynamic>() {{"attr", "a1"}, {"scale", 2}});
             var ranges = new List<dynamic>() { new[] { "a", "c" }, new[] { 1, 4 } };
 
             // Execute udf on an existing TileDB Cloud array
             string sparseUri = "tiledb://shaunreed/sparse-string-dimensions";
             UdfArrayExec(arrayUdfUri, sparseUri, ranges, args);
             // Execute the same udf asynchronously
-            UdfArrayExecAsync(arrayUdfUri, sparseUri, ranges, args);
+            await UdfArrayExecAsync(arrayUdfUri, sparseUri, ranges, args);
 
             // Execute multi-array UDF against 2 or more arrays
             string multiArrayUdf = "tiledb://shaunreed/multi-array-udf";
@@ -211,18 +221,18 @@ namespace QuickstartUdf
 
             args = RestUtil.SerializeArguments(new Dictionary<string, dynamic>() {{"attr", "a1"}});
             UdfMultiArrayExec(multiArrayUdf, arrayList, arrayNamespace, args);
-            UdfMultiArrayExecAsync(multiArrayUdf, arrayList, arrayNamespace, args);
+            await UdfMultiArrayExecAsync(multiArrayUdf, arrayList, arrayNamespace, args);
 
             #endregion
         }
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             TileDB.Cloud.Client.Login();
             var user = TileDB.Cloud.RestUtil.GetUser();
             Console.WriteLine($"Logged in as TileDB Cloud user: {user.ToJson()}\n");
 
-            Run();
+            await Run();
         }
     }
 }
