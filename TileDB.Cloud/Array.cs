@@ -73,8 +73,8 @@ namespace TileDB.Cloud
             string? search = null,
             List<string>? fileTypes = null,
             List<string>? excludeFileTypes = null,
-            int? page = default,
-            int? perPage = default)
+            int? page = null,
+            int? perPage = null)
         {
             var apiInstance = Client.GetInstance().GetArrayApi();
 
@@ -111,8 +111,8 @@ namespace TileDB.Cloud
             string? search = null,
             List<string>? fileTypes = null,
             List<string>? excludeFileTypes = null,
-            int? page = default,
-            int? perPage = default)
+            int? page = null,
+            int? perPage = null)
         {
             var apiInstance = Client.GetInstance().GetArrayApi();
 
@@ -149,8 +149,8 @@ namespace TileDB.Cloud
             string? search = null,
             List<string>? fileTypes = null,
             List<string>? excludeFileTypes = null,
-            int? page = default,
-            int? perPage = default)
+            int? page = null,
+            int? perPage = null)
         {
             var apiInstance = Client.GetInstance().GetArrayApi();
 
