@@ -15,6 +15,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TileDB.Cloud\TileDB.Cloud.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputPath>./lib</OutputPath>
   </PropertyGroup>  

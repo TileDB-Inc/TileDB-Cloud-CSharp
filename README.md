@@ -1,4 +1,7 @@
+[![Nuget](https://img.shields.io/nuget/v/TileDB.Cloud)](https://www.nuget.org/packages/TileDB.Cloud)
+
 # TileDB-Cloud-CSharp
+
 This repository contains the CSharp client for the TileDB Cloud Service.
 
 ## Quick Links
