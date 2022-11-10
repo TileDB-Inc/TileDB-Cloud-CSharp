@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <Platforms>x64</Platforms>
     <PackageId>TileDB.Cloud</PackageId>
-    <Version>0.2.3</Version>
+    <Version>0.2.4</Version>
     <Authors>TileDB Inc</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
@@ -28,9 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="TileDB.CSharp" Version="5.2.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="RestSharp" Version="105.2.3" />
-    <PackageReference Include="TileDB.CSharp" Version="5.2.4" />
   </ItemGroup>
 </Project>

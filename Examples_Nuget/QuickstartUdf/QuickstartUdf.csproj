@@ -8,6 +8,9 @@
   <ItemGroup>
     <PackageReference Include="TileDB.Cloud" Version="0.2.4" />
     <PackageReference Include="TileDB.CSharp" Version="5.2.4" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="105.2.3" />
   </ItemGroup>
 
 </Project>
