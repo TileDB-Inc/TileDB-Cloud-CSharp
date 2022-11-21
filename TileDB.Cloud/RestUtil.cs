@@ -333,11 +333,6 @@ namespace TileDB.Cloud
             return (uri.Host, uri.LocalPath.TrimStart('/'));
         }
 
-        public static string SerializeArguments(Dictionary<string, dynamic> args)
-        {
-            return JsonConvert.SerializeObject(args);
-        }
-
         /// <summary>
         /// Helper function to check PolicyResult for final exception
         /// </summary>
@@ -369,14 +364,14 @@ namespace TileDB.Cloud
         [DataContract]
         private class UdfQueryRanges : QueryRanges
         {
-            public UdfQueryRanges(Layout layout, List<dynamic> ranges)
+            public UdfQueryRanges(Layout layout, List<object> ranges)
             {
                 Layout = layout;
                 Ranges = ranges;
             }
 
             [DataMember(Name = "ranges", EmitDefaultValue = false)]
-            public new List<dynamic> Ranges { get; set; }
+            public new List<object> Ranges { get; set; }
         }
 
         [DataContract]
@@ -387,11 +382,11 @@ namespace TileDB.Cloud
 
             public ArrayUdf() { }
 
-            public ArrayUdf(string udfUri, string arrayUri, Layout layout, List<dynamic> ranges, string args)
+            public ArrayUdf(string udfUri, string arrayUri, Layout layout, List<object> ranges, string args)
             {
                 UdfInfoName = udfUri.Replace("tiledb://", "");
                 Arrays = new List<UDFArrayDetails>() { new UDFArrayDetails(uri: arrayUri) };
-                Ranges = new UdfQueryRanges(layout, new List<dynamic>());
+                Ranges = new UdfQueryRanges(layout, new List<object>());
                 Ranges.Ranges.AddRange(ranges);
                 Argument = args;
             }

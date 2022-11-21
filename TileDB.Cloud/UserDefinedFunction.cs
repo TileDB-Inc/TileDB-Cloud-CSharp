@@ -11,11 +11,11 @@ namespace TileDB.Cloud
 {
     public partial class RestUtil
     {
-        public static class Udf
+        public static class UserDefinedFunction
         {
             public static readonly UdfApi UdfApi;
 
-            static Udf()
+            static UserDefinedFunction()
             {
                 UdfApi = Client.GetInstance().GetUdfApi();
             }

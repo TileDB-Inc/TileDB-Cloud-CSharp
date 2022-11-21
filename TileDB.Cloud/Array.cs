@@ -182,13 +182,13 @@ namespace TileDB.Cloud
             /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Stream containing single-array UDF result</returns>
             public static Stream Apply(
-                string udfUri, string arrayUri, List<dynamic> ranges,
+                string udfUri, string arrayUri, List<object> ranges,
                 string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
             {
                 var (arrayNamespace, arrayName) = SplitUri(arrayUri);
                 var udf = new ArrayUdf(udfUri, arrayUri, layout, ranges, args!);
                 var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
-                    () => Udf.UdfApi.SubmitUDF(arrayNamespace, arrayName, udf,
+                    () => UserDefinedFunction.UdfApi.SubmitUDF(arrayNamespace, arrayName, udf,
                         chargedOrg ?? GetDefaultChargedNamespace()));
                 CheckPolicyResult(policyResult);
                 return policyResult.Result;
@@ -208,13 +208,13 @@ namespace TileDB.Cloud
             /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Asynchronous Task containing single-array UDF result Stream</returns>
             public static Task<PolicyResult<Stream>> ApplyAsync(
-                string udfUri, string arrayUri, List<dynamic> ranges,
+                string udfUri, string arrayUri, List<object> ranges,
                 string? args = null, Layout layout = Layout.RowMajor, string? chargedOrg = null)
             {
                 var (arrayNamespace, arrayName) = SplitUri(arrayUri);
                 var udf = new ArrayUdf(udfUri, arrayUri, layout, ranges, args!);
                 var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
-                    () => Udf.UdfApi.SubmitUDFAsync(arrayNamespace, arrayName, udf,
+                    () => UserDefinedFunction.UdfApi.SubmitUDFAsync(arrayNamespace, arrayName, udf,
                         chargedOrg ?? GetDefaultChargedNamespace()));
                 policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
                 return policyResult;
@@ -233,7 +233,7 @@ namespace TileDB.Cloud
             {
                 var udf = new ArrayUdf(udfUri, arrayList, args!);
                 var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
-                    () => Udf.UdfApi.SubmitMultiArrayUDF(arrayNamespace, udf));
+                    () => UserDefinedFunction.UdfApi.SubmitMultiArrayUDF(arrayNamespace, udf));
                 CheckPolicyResult(policyResult);
                 return policyResult.Result;
             }
@@ -251,7 +251,7 @@ namespace TileDB.Cloud
             {
                 var udf = new ArrayUdf(udfUri, arrayList, args!);
                 var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync<Stream>(
-                    () => Udf.UdfApi.SubmitMultiArrayUDFAsync(arrayNamespace, udf));
+                    () => UserDefinedFunction.UdfApi.SubmitMultiArrayUDFAsync(arrayNamespace, udf));
                 policyResult.ContinueWith(t => CheckPolicyResult(t.Result));
                 return policyResult;
             }
@@ -271,12 +271,12 @@ namespace TileDB.Cloud
                 Arrays = arrayList;
             }
 
-            public void Add(string arrayUri, List<dynamic> ranges, List<string> buffers, Layout layout)
+            public void Add(string arrayUri, List<object> ranges, List<string> buffers, Layout layout)
             {
                 var array = new ArrayDetails()
                 {
                     Uri = arrayUri,
-                    Ranges = new UdfQueryRanges(layout, new List<dynamic>()),
+                    Ranges = new UdfQueryRanges(layout, new List<object>()),
                     Buffers = buffers
                 };
                 array.Ranges.Ranges.AddRange(ranges);
