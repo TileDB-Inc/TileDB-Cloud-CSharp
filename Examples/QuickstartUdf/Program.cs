@@ -12,19 +12,14 @@ namespace QuickstartUdf
     {
         private static readonly Stream OutputStream = Console.OpenStandardOutput();
 
-        static UDFInfo UdfGetInfo(string uri)
-        {
-            return TileDB.Cloud.RestUtil.UserDefinedFunction.GetInfo(uri);
-        }
-
         // Run generic UDF using JSON to pass args
         // + (Python) UDF declaration for this example: def args_udf(arg1, arg2="default")
-        static void UdfGenericExec(string udfUri, string args=null, string chargedOrg=null)
+        static void ExecuteGeneric(string udfUri, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running generic UDF {udfUri}...");
             DebugOutput(udfUri, chargedOrg, args);
 
-            var result = TileDB.Cloud.RestUtil.UserDefinedFunction.ExecGeneric(udfUri, args, chargedOrg);
+            var result = TileDB.Cloud.RestUtil.UserDefinedFunction.ExecuteGeneric(udfUri, args, chargedOrg);
             // Output result to console
             Console.Write("Result from generic UDF: ");
             result.CopyTo(OutputStream);
@@ -32,13 +27,13 @@ namespace QuickstartUdf
             Console.WriteLine();
         }
 
-        static async Task UdfGenericExecAsync(string udfUri, string args=null, string chargedOrg=null)
+        static async Task ExecuteGenericAsync(string udfUri, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running generic UDF {udfUri} asynchronously...");
             DebugOutput(udfUri, chargedOrg, args);
 
             // Call UDF asynchronously; Does not block execution on call to SubmitGenericUDFAsync()
-            var resultTask = TileDB.Cloud.RestUtil.UserDefinedFunction.ExecGenericAsync(udfUri, args, chargedOrg);
+            var resultTask = TileDB.Cloud.RestUtil.UserDefinedFunction.ExecuteGenericAsync(udfUri, args, chargedOrg);
             // Here we are free to do some work while waiting on resultTask...
             Console.WriteLine($"Waiting for result...");
             var result = await resultTask;
@@ -51,7 +46,7 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def array_udf(data, attr, scalar)
-        static void UdfArrayExec(
+        static void ExecuteArray(
             string udfUri, string arrayUri, List<object> ranges, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayUri}...");
@@ -69,7 +64,7 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def array_udf(data, attr, scalar)
-        static async Task UdfArrayExecAsync(
+        static async Task ExecuteArrayAsync(
             string udfUri, string arrayUri, List<object> ranges, string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayUri} asynchronously...");
@@ -88,7 +83,7 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def multi_array_udf(data, attr, scalar)
-        static void UdfMultiArrayExec(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
+        static void ExecuteMultiArray(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
             string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayList.Arrays.Count} arrays...");
@@ -104,7 +99,7 @@ namespace QuickstartUdf
 
         // Run Array UDF using array as input; `data` arg in the UDF below will contain array slice data
         // + (Python) UDF declaration for this example: def multi_array_udf(data, attr, scalar)
-        static async Task UdfMultiArrayExecAsync(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
+        static async Task ExecuteMultiArrayAsync(string udfUri, RestUtil.ArrayList arrayList, string arrayNamespace,
             string args=null, string chargedOrg=null)
         {
             Console.WriteLine($"Running {udfUri} against {arrayList.Arrays.Count} arrays asynchronously...");
@@ -122,19 +117,20 @@ namespace QuickstartUdf
             Console.WriteLine();
         }
 
-        static void UdfUpdate(string uri, string readmeText)
+        static void Update(string uri, string readmeText)
         {
-            Console.WriteLine($"UDF info before update: {UdfGetInfo(uri).ToJson()}");
+            var info = RestUtil.UserDefinedFunction.GetInfo(uri);
+            Console.WriteLine($"UDF info before update: {info.ToJson()}");
 
             // Update existing UDF tags
-            var curTags = UdfGetInfo(uri).Tags;
+            var curTags = info.Tags;
             if (!curTags.Contains("csharp-test"))
             {
                 curTags.Add("csharp-test");
             }
-            RestUtil.UserDefinedFunction.UpdateGenericUdf(uri, readmeText, curTags.ToArray());
+            RestUtil.UserDefinedFunction.UpdateGeneric(uri, readmeText, curTags.ToArray());
 
-            Console.WriteLine($"UDF info after update: {UdfGetInfo(uri).ToJson()}\n");
+            Console.WriteLine($"UDF info after update: {RestUtil.UserDefinedFunction.GetInfo(uri).ToJson()}\n");
         }
 
         static void DebugOutput(string uri, string chargedOrg = null, string args = null)
@@ -151,46 +147,50 @@ namespace QuickstartUdf
 
         static async Task Run()
         {
-            string arrayUdfUri = "tiledb://shaunreed/array-udf";
-            string friendNamespace = "shaunrd0";
-            RestUtil.UserDefinedFunction.Unshare(arrayUdfUri, friendNamespace);
-            RestUtil.UserDefinedFunction.Share(arrayUdfUri, friendNamespace, new[] { UDFActions.Fetchudf });
-            RestUtil.UserDefinedFunction.Share(arrayUdfUri, friendNamespace, new[] { UDFActions.Fetchudf, UDFActions.Shareudf });
+            string arrayUdfUri = "tiledb://TileDB-Inc/array-udf";
 
             // Get information on cloud UDF
-            var udfInfo = UdfGetInfo(arrayUdfUri);
+            var udfInfo = RestUtil.UserDefinedFunction.GetInfo(arrayUdfUri);
             Console.WriteLine($"Info for UDF: \n{udfInfo.ToJson()}\n");
 
             // S3 location to store copied UDF data
-            string copyUdfStorageS3 = "s3://shaun.reed/registered_udfs/copied-udf";
+            var user = RestUtil.GetUser();
+            string copyUdfStorageS3 = $"{user.DefaultS3Path}/copied-udf";
             string copyUdfName = "copied-udf-name";
-            string copyUdfNamespace = "shaunreed";
+            // Post the copied UDF example to your user namespace instead of your default org.
+            string copyUdfNamespace = user.Username;
             // To use the default namespace, we can leave `copyNamespace` parameter unset in call to Udf.Copy()
             // + Default namespace can be obtained in C# with RestUtil.GetDefaultChargedNamespace()
             RestUtil.UserDefinedFunction.Copy(arrayUdfUri, copyUdfStorageS3, copyNamespace: copyUdfNamespace, copyName: copyUdfName);
+            string copiedUri = $"tiledb://{copyUdfNamespace}/{copyUdfName}";
+
+            // Share our copied UDF with TileDB-Inc
+            string friendNamespace = "TileDB-Inc";
+            RestUtil.UserDefinedFunction.Unshare(copiedUri, friendNamespace);
+            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.Fetchudf });
+            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.Fetchudf, UDFActions.Shareudf });
 
             // Update info for the UDF we copied above; Delete the copied UDF
-            string resultUri = $"tiledb://{copyUdfNamespace}/{copyUdfName}";
-            UdfUpdate(resultUri, $"This README was updated using TileDB-Cloud-CSharp on {DateTime.Now}");
+            Update(copiedUri, $"This README was updated using TileDB-Cloud-CSharp on {DateTime.Now}");
             // Udf.Delete also removes UDF data stored on S3
-            RestUtil.UserDefinedFunction.Delete(resultUri);
+            RestUtil.UserDefinedFunction.Delete(copiedUri);
 
             #region GenericUDFs
 
             // Executing generic UDFs with no arguments
-            string udfNoArgs = "tiledb://shaunreed/print-udf";
-            UdfGenericExec(udfNoArgs); // Charge the namespace that owns the UDF
-            UdfGenericExec(udfNoArgs, chargedOrg: "TileDB-Inc"); // Charge the TileDB-Inc namespace
-            await UdfGenericExecAsync(udfNoArgs);
+            string udfNoArgs = "tiledb://TileDB-Inc/print-udf";
+            ExecuteGeneric(udfNoArgs); // Charge the namespace that owns the UDF
+            ExecuteGeneric(udfNoArgs, chargedOrg: "TileDB-Inc"); // Charge the TileDB-Inc namespace
+            await ExecuteGenericAsync(udfNoArgs);
 
             // Executing generic UDFs with arguments
-            string udfArgs = "tiledb://shaunreed/args-udf";
+            string udfArgs = "tiledb://TileDB-Inc/args-udf";
             // Build dictionary to represent arguments that will be passed to generic UDF
             var argsDict = new Dictionary<string, object>() { { "arg1", "1st argument" } };
-            UdfGenericExec(udfArgs, JsonConvert.SerializeObject(argsDict));
+            ExecuteGeneric(udfArgs, JsonConvert.SerializeObject(argsDict));
             // Add an additional argument
             argsDict.Add("arg2", "2nd argument");
-            UdfGenericExec(udfArgs, JsonConvert.SerializeObject(argsDict));
+            ExecuteGeneric(udfArgs, JsonConvert.SerializeObject(argsDict));
 
             #endregion
 
@@ -202,14 +202,14 @@ namespace QuickstartUdf
             var ranges = new List<object>() { new[] { "a", "c" }, new[] { 1, 4 } };
 
             // Execute udf on an existing TileDB Cloud array
-            string sparseUri = "tiledb://shaunreed/sparse-string-dimensions";
-            UdfArrayExec(arrayUdfUri, sparseUri, ranges, args);
+            string sparseUri = "tiledb://TileDB-Inc/sparse-string-dimensions";
+            ExecuteArray(arrayUdfUri, sparseUri, ranges, args);
             // Execute the same udf asynchronously
-            await UdfArrayExecAsync(arrayUdfUri, sparseUri, ranges, args);
+            await ExecuteArrayAsync(arrayUdfUri, sparseUri, ranges, args);
 
             // Execute multi-array UDF against 2 or more arrays
-            string multiArrayUdf = "tiledb://shaunreed/multi-array-udf";
-            string arrayUri1 = "tiledb://shaunreed/dense-array";
+            string multiArrayUdf = "tiledb://TileDB-Inc/multi-array-udf";
+            string arrayUri1 = "tiledb://TileDB-Inc/dense-array";
             string arrayUri2 = "tiledb://TileDB-Inc/quickstart_dense";
             string arrayNamespace = RestUtil.SplitUri(arrayUri1).name_space;
 
@@ -222,8 +222,8 @@ namespace QuickstartUdf
             arrayList.Add(arrayUri2, ranges: ranges, buffers: buffers, Layout.RowMajor);
 
             args = JsonConvert.SerializeObject(new Dictionary<string, object>() {{"attr1", "a1"}, {"attr2", "a"}});
-            UdfMultiArrayExec(multiArrayUdf, arrayList, arrayNamespace, args);
-            await UdfMultiArrayExecAsync(multiArrayUdf, arrayList, arrayNamespace, args);
+            ExecuteMultiArray(multiArrayUdf, arrayList, arrayNamespace, args);
+            await ExecuteMultiArrayAsync(multiArrayUdf, arrayList, arrayNamespace, args);
 
             #endregion
         }

@@ -32,7 +32,7 @@ namespace TileDB.Cloud
             /// <param name="args">JSON formatted arguments to pass to UDF</param>
             /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Stream containing UDF result</returns>
-            public static Stream ExecGeneric(
+            public static Stream ExecuteGeneric(
                 string udfUri, string? args = null, string? chargedOrg = null)
             {
                 var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
@@ -53,7 +53,7 @@ namespace TileDB.Cloud
             /// <param name="args">JSON formatted arguments to pass to UDF</param>
             /// <param name="chargedOrg">Organization to charge for UDF execution</param>
             /// <returns>Asynchronous Task containing UDF result Stream</returns>
-            public static Task<PolicyResult<Stream>> ExecGenericAsync(
+            public static Task<PolicyResult<Stream>> ExecuteGenericAsync(
                 string udfUri, string? args = null, string? chargedOrg = null)
             {
                 var genericUdf = new GenericUDF(udfInfoName: udfUri.Replace("tiledb://", ""), argument: args);
@@ -272,7 +272,7 @@ namespace TileDB.Cloud
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <param name="udfType">UDFType to assign to cloud UDF</param>
-            private static void UpdateUdf(
+            private static void Update(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null,
@@ -305,7 +305,7 @@ namespace TileDB.Cloud
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <param name="udfType">UDFType to assign to cloud UDF</param>
             /// <returns>Asynchronous Task</returns>
-            private static Task UpdateUdfAsync(
+            private static Task UpdateAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null,
@@ -337,12 +337,12 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
-            public static void UpdateGenericUdf(
+            public static void UpdateGeneric(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                Update(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
                     UDFType.Generic);
             }
 
@@ -363,12 +363,12 @@ namespace TileDB.Cloud
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <returns>Asynchronous Task</returns>
-            public static Task UpdateGenericUdfAsync(
+            public static Task UpdateGenericAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
+                return UpdateAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
                     imageName, UDFType.Generic);
             }
 
@@ -388,12 +388,12 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
-            public static void UpdateSingleArrayUdf(
+            public static void UpdateSingleArray(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                Update(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
                     UDFType.Singlearray);
             }
 
@@ -414,12 +414,12 @@ namespace TileDB.Cloud
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <returns>Asynchronous Task</returns>
-            public static Task UpdateSingleArrayUdfAsync(
+            public static Task UpdateSingleArrayAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                return UpdateAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
                     UDFType.Singlearray);
             }
 
@@ -439,12 +439,12 @@ namespace TileDB.Cloud
             /// <param name="exec">Type-specific executable text to run when UDF is executed</param>
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
-            public static void UpdateMultiArrayUdf(
+            public static void UpdateMultiArray(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                UpdateUdf(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
+                Update(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
                     UDFType.Multiarray);
             }
 
@@ -465,12 +465,12 @@ namespace TileDB.Cloud
             /// <param name="language">Programming language UDF is written in</param>
             /// <param name="imageName">Optional docker image name to run UDF</param>
             /// <returns>Asynchronous Task</returns>
-            public static Task UpdateMultiArrayUdfAsync(
+            public static Task UpdateMultiArrayAsync(
                 string udfUri, string? readmeText = null, string[]? tags = null, string? name = null,
                 string? licenseId = null, string? licenseText = null, string? execRaw = null,
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
-                return UpdateUdfAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
+                return UpdateAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
                     imageName, UDFType.Multiarray);
             }
 
