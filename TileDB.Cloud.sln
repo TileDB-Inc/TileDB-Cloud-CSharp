@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{4B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileExample", "Examples\FileExample\FileExample.csproj", "{21FFCD84-3DF8-4724-9A52-95D499ED3C4A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayShareExample", "Examples_Nuget\ArrayShareExample\ArrayShareExample.csproj", "{0061178A-518B-43C2-ABCA-8563AA81879B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayShareExample", "Examples\ArrayShareExample\ArrayShareExample.csproj", "{0061178A-518B-43C2-ABCA-8563AA81879B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quickstart_cloud", "Examples_Nuget\quickstart_cloud\quickstart_cloud.csproj", "{6F35528F-5B40-43C5-B35A-D480971700F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickstartCloud", "Examples\QuickstartCloud\QuickstartCloud.csproj", "{6F35528F-5B40-43C5-B35A-D480971700F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApi", "Examples_Nuget\TestWebApi\TestWebApi.csproj", "{4A21B7A3-F0FC-488F-BC05-1ACCDC33B36E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApi", "Examples\TestWebApi\TestWebApi.csproj", "{4A21B7A3-F0FC-488F-BC05-1ACCDC33B36E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TileDB.Cloud.Test", "TileDB.Cloud.Test\TileDB.Cloud.Test.csproj", "{AD56A14A-F347-47F7-9788-7DAB09ADE8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickstartUdf", "Examples\QuickstartUdf\QuickstartUdf.csproj", "{B9E44399-E1AD-47FE-8F19-D64836856ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,14 @@ Global
 		{AD56A14A-F347-47F7-9788-7DAB09ADE8AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD56A14A-F347-47F7-9788-7DAB09ADE8AD}.Release|x64.ActiveCfg = Release|Any CPU
 		{AD56A14A-F347-47F7-9788-7DAB09ADE8AD}.Release|x64.Build.0 = Release|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Debug|x64.Build.0 = Debug|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Release|x64.ActiveCfg = Release|Any CPU
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +98,7 @@ Global
 		{6F35528F-5B40-43C5-B35A-D480971700F4} = {4B25A3AB-9A9F-44EF-85F6-01FA67E7B51C}
 		{4A21B7A3-F0FC-488F-BC05-1ACCDC33B36E} = {4B25A3AB-9A9F-44EF-85F6-01FA67E7B51C}
 		{AD56A14A-F347-47F7-9788-7DAB09ADE8AD} = {DDD9A269-0154-4519-B01F-553E883B37A7}
+		{B9E44399-E1AD-47FE-8F19-D64836856ED1} = {4B25A3AB-9A9F-44EF-85F6-01FA67E7B51C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F280E9D-0FEF-4AAB-86A1-46403EDB6C39}

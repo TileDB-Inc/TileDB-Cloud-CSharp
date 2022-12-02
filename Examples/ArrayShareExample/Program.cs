@@ -25,10 +25,10 @@ namespace ArrayShareExample
 
             #region File Creation
 
-            string destArrayName = null; // Set name for TileDB Cloud array
+            string? destArrayName = null; // Set name for TileDB Cloud array
             destArrayName ??= GetFileName(toUriS3); // If no preferred name was provided use file base name
 
-            string destArrayNamespace = null; // Set namespace here for registering new TileDB Cloud array
+            string? destArrayNamespace = null; // Set namespace here for registering new TileDB Cloud array
             destArrayNamespace ??= userDetails.Username; // Use username as namespace if not set
 
             // Get TileDB ArrayApi from current Cloud Client
