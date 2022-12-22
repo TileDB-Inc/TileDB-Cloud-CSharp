@@ -7,7 +7,7 @@ This repository contains the CSharp client for the TileDB Cloud Service.
 ## Quick Links
 
 ### Installation 
-The dependency packages(Newtonsoft.Json, JsonSubTypes, RestSharp, Polly, TileDB.CSharp) will also be added.
+The dependency packages(Newtonsoft.Json, RestSharp, Polly, TileDB.CSharp) will also be added.
 
 ```
 dotnet add package TileDB.Cloud
