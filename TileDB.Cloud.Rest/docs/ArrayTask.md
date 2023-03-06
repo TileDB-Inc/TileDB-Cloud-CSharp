@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.ArrayTask
+Synchronous Task to Run
 
 ## Properties
 
@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | task ID | [optional] 
 **Name** | **string** | Optional task name | [optional] 
+**Username** | **string** | username that executed this task | [optional] 
 **Description** | **string** | Optional task description (Tasks purpose) | [optional] 
 **ArrayMetadata** | [**ArrayInfo**](ArrayInfo.md) |  | [optional] 
 **Subarray** | [**DomainArray**](DomainArray.md) |  | [optional] 
@@ -33,7 +34,5 @@ Name | Type | Description | Notes
 **TaskGraphUuid** | **string** | If set, the ID of the log for the task graph that this was part of.  | [optional] 
 **ClientNodeUuid** | **string** | If set, the client-defined ID of the node within this task&#39;s graph.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

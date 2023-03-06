@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.LastAccessedArray
+Information related to last access of an array
 
 ## Properties
 
@@ -11,7 +11,5 @@ Name | Type | Description | Notes
 **AccessedTime** | **decimal** | timestamp (epoch milliseconds) array is last accessed | [optional] 
 **AccessType** | **ActivityEventType** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

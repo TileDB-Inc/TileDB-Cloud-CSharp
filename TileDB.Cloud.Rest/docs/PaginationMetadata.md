@@ -1,4 +1,3 @@
-
 # TileDB.Cloud.Rest.Model.PaginationMetadata
 
 ## Properties
@@ -10,7 +9,5 @@ Name | Type | Description | Notes
 **TotalPages** | **decimal** | number of total pages with current limit | [optional] 
 **TotalItems** | **decimal** | number of total available items | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.TaskGraphLog
+Logging information about the execution of a task graph.
 
 ## Properties
 
@@ -20,7 +20,5 @@ Name | Type | Description | Notes
 **StatusCount** | **Dictionary&lt;string, decimal&gt;** | A mapping from &#x60;ArrayTaskStatus&#x60; string value to the number of nodes in this graph that are in that status.  | [optional] 
 **Nodes** | [**List&lt;TaskGraphNodeMetadata&gt;**](TaskGraphNodeMetadata.md) | The structure of the graph. This is provided by the client when first setting up the task graph. Thereafter, it is read-only. This must be topographically sorted; that is, each node must appear after all nodes that it depends upon.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

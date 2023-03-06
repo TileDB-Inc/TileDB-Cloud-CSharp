@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.Subscription
+Subscription of a user (customer) to another user's arrays
 
 ## Properties
 
@@ -10,7 +10,5 @@ Name | Type | Description | Notes
 **CustomerNamespaceUuid** | **string** | Unique ID of the array (product) user (customer) | [optional] 
 **Pricing** | [**List&lt;Pricing&gt;**](Pricing.md) | list of pricing used by this subscription | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.UDFArrayDetails
+Contains array details for multi-array query including uri, ranges buffers
 
 ## Properties
 
@@ -10,7 +10,5 @@ Name | Type | Description | Notes
 **Ranges** | [**QueryRanges**](QueryRanges.md) |  | [optional] 
 **Buffers** | **List&lt;string&gt;** | List of buffers to fetch (attributes + dimensions) | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

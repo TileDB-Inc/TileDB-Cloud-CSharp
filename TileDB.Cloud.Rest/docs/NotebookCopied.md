@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.NotebookCopied
+Copied notebook uri and information
 
 ## Properties
 
@@ -10,7 +10,5 @@ Name | Type | Description | Notes
 **Namespace** | **string** | namespace copied to | [optional] 
 **Id** | **string** | unique ID of the copied notebook | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

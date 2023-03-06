@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.GroupInfo
+metadata of a group
 
 ## Properties
 
@@ -24,7 +24,5 @@ Name | Type | Description | Notes
 **LicenseId** | **string** | License identifier from SPDX License List or Custom | [optional] 
 **LicenseText** | **string** | License text | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

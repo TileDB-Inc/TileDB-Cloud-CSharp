@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.ArrayInfo
+metadata of an array
 
 ## Properties
 
@@ -30,7 +30,5 @@ Name | Type | Description | Notes
 **ReadOnly** | **bool?** | Suggests if the array is in read_only mode | [optional] 
 **IsFavorite** | **bool** | Indicates whether the array is in user favorites | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

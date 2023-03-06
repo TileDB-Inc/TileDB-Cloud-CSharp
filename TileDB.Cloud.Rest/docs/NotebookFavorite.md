@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.NotebookFavorite
+A user-favorite notebook item
 
 ## Properties
 
@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **Namespace** | **string** | the namespace of the notebook | [optional] 
 **Name** | **string** | the name of the notebook | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

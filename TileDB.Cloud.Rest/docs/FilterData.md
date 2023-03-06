@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.FilterData
+Filter data
 
 ## Properties
 
@@ -16,7 +16,5 @@ Name | Type | Description | Notes
 **Float32** | **int** |  | [optional] 
 **Float64** | **int** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

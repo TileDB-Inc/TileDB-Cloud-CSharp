@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.ArrayInfoUpdate
+metadata of an array
 
 ## Properties
 
@@ -17,7 +17,5 @@ Name | Type | Description | Notes
 **LicenseText** | **string** | License text | [optional] 
 **ReadOnly** | **bool** | Suggests if the array is in read_only mode | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

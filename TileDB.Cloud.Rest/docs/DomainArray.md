@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.DomainArray
+Domain object for an array of each type
 
 ## Properties
 
@@ -16,7 +16,5 @@ Name | Type | Description | Notes
 **Float32** | **List&lt;float&gt;** |  | [optional] 
 **Float64** | **List&lt;double&gt;** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

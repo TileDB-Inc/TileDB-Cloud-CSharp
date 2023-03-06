@@ -5,7 +5,7 @@ namespace TileDB.Cloud
     public class Client
     {
 
-        public static void Login(string token = default(string), string username = default(string), string password = default(string), string host=default(string))
+        public static void Login(string? token = null, string? username = null, string? password = null, string? host = null)
         {
             TileDB.Cloud.Config cfg = new Config();
             if(!string.IsNullOrEmpty(token))
@@ -202,7 +202,7 @@ namespace TileDB.Cloud
             //Set timeout for restclient to 3600 seconds
             _cfg.GetConfig().Timeout = 3600000;
 
-            _apiClient = new Rest.Client.ApiClient(_cfg.GetConfig());
+            _apiClient = new Rest.Client.ApiClient(_cfg.GetConfig().BasePath);
             _arrayApi = new Rest.Api.ArrayApi(_cfg.GetConfig());
             _filesApi = new Rest.Api.FilesApi(_cfg.GetConfig());
             _groupsApi = new Rest.Api.GroupsApi(_cfg.GetConfig());

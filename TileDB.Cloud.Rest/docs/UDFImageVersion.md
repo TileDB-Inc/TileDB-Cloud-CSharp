@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.UDFImageVersion
+Defines an image that belongs to a set of images having a version
 
 ## Properties
 
@@ -13,7 +13,5 @@ Name | Type | Description | Notes
 **Default** | **bool** | If current image is default version | [optional] 
 **Latest** | **bool** | If current image is latest version | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

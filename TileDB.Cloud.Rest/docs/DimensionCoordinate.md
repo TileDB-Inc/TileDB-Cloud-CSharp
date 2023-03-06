@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.DimensionCoordinate
+A single, typed coordinate for a dimension
 
 ## Properties
 
@@ -16,7 +16,5 @@ Name | Type | Description | Notes
 **Float32** | **float** |  | [optional] 
 **Float64** | **double** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

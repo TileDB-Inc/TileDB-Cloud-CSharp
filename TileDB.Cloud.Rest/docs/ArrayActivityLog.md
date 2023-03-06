@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.ArrayActivityLog
+Actvity of an Array
 
 ## Properties
 
@@ -15,7 +15,5 @@ Name | Type | Description | Notes
 **QueryRanges** | **string** | ranges for query | [optional] 
 **QueryStats** | **string** | stats for query | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

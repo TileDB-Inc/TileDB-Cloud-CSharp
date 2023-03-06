@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.Pricing
+Pricing created by converting an array to product
 
 ## Properties
 
@@ -19,7 +19,5 @@ Name | Type | Description | Notes
 **Charge** | **double** | Price in cents (decimal) per unitlabel | [optional] 
 **Activated** | **bool** | If pricing is activated | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

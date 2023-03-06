@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**CreateArray**](ArrayApi.md#createarray) | **POST** /arrays/{namespace}/{array} | 
 [**DeleteArray**](ArrayApi.md#deletearray) | **DELETE** /arrays/{namespace}/{array} | 
 [**DeregisterArray**](ArrayApi.md#deregisterarray) | **DELETE** /arrays/{namespace}/{array}/deregister | 
+[**FragmentInfo**](ArrayApi.md#fragmentinfo) | **POST** /arrays/{namespace}/{array}/fragment_info | 
 [**GetActivityLogById**](ArrayApi.md#getactivitylogbyid) | **GET** /arrays/{namespace}/{array}/activity/{id} | 
 [**GetAllArrayMetadata**](ArrayApi.md#getallarraymetadata) | **GET** /arrays | 
 [**GetArray**](ArrayApi.md#getarray) | **GET** /arrays/{namespace}/{array} | 
@@ -37,9 +38,8 @@ Method | HTTP request | Description
 [**VacuumArray**](ArrayApi.md#vacuumarray) | **POST** /arrays/{namespace}/{array}/vacuum | 
 
 
-
-## ArrayActivityLog
-
+<a name="arrayactivitylog"></a>
+# **ArrayActivityLog**
 > List&lt;ArrayActivityLog&gt; ArrayActivityLog (string _namespace, string array, int? start = null, int? end = null, string eventTypes = null, string taskId = null, bool? hasTaskId = null)
 
 
@@ -47,7 +47,6 @@ Method | HTTP request | Description
 get array activity logs
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -61,21 +60,22 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var start = 56;  // int? | Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) (optional) 
             var end = 56;  // int? | End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional) 
-            var eventTypes = "eventTypes_example";  // string | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional) 
+            var eventTypes = "eventTypes_example";  // string | Refer to ActivityEventType for possible values (optional) 
             var taskId = "taskId_example";  // string | Array task ID To filter activity to (optional) 
             var hasTaskId = true;  // bool? | Excludes activity log results that do not contain an array task UUID (optional) 
 
@@ -84,7 +84,7 @@ namespace Example
                 List<ArrayActivityLog> result = apiInstance.ArrayActivityLog(_namespace, array, start, end, eventTypes, taskId, hasTaskId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArrayActivityLog: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -97,14 +97,13 @@ namespace Example
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
  **start** | **int?**| Start time of window of fetch logs, unix epoch in seconds (default: seven days ago) | [optional] 
  **end** | **int?**| End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) | [optional] 
- **eventTypes** | **string**| Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated | [optional] 
+ **eventTypes** | **string**| Refer to ActivityEventType for possible values | [optional] 
  **taskId** | **string**| Array task ID To filter activity to | [optional] 
  **hasTaskId** | **bool?**| Excludes activity log results that do not contain an array task UUID | [optional] 
 
@@ -118,24 +117,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | log of array activity |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserOwnedGet
-
+<a name="arraysbrowserownedget"></a>
+# **ArraysBrowserOwnedGet**
 > ArrayBrowserData ArraysBrowserOwnedGet (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null)
 
 
@@ -143,7 +139,6 @@ Name | Type | Description  | Notes
 Fetch a list of all arrays that are owned directly by user or user's organizations
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -157,16 +152,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -184,7 +180,7 @@ namespace Example
                 ArrayBrowserData result = apiInstance.ArraysBrowserOwnedGet(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserOwnedGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -196,7 +192,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -222,32 +217,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that are owned directly by user or user&#39;s organizations |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserOwnedSidebarGet
-
-> ArrayBrowserSidebar ArraysBrowserOwnedSidebarGet ()
+<a name="arraysbrowserownedsidebarget"></a>
+# **ArraysBrowserOwnedSidebarGet**
+> ArrayBrowserSidebar ArraysBrowserOwnedSidebarGet (List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null)
 
 
 
 Fetch a sidebar for arrays that are owned directly by user or user's organizations
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -261,23 +252,27 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
+            var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
+            var excludeFileType = new List<string>(); // List<string> | file_type to exclude matching array in results, more than one can be included (optional) 
+            var fileProperty = new List<string>(); // List<string> | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional) 
 
             try
             {
-                ArrayBrowserSidebar result = apiInstance.ArraysBrowserOwnedSidebarGet();
+                ArrayBrowserSidebar result = apiInstance.ArraysBrowserOwnedSidebarGet(fileType, excludeFileType, fileProperty);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserOwnedSidebarGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -290,7 +285,11 @@ namespace Example
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileType** | [**List&lt;string&gt;**](string.md)| file_type to search for, more than one can be included | [optional] 
+ **excludeFileType** | [**List&lt;string&gt;**](string.md)| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **fileProperty** | [**List&lt;string&gt;**](string.md)| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
 
 ### Return type
 
@@ -302,24 +301,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that are owned directly by user or user&#39;s organizations |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserPublicGet
-
+<a name="arraysbrowserpublicget"></a>
+# **ArraysBrowserPublicGet**
 > ArrayBrowserData ArraysBrowserPublicGet (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null)
 
 
@@ -327,7 +323,6 @@ This endpoint does not need any parameter.
 Fetch a list of all arrays that have been shared publically
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -341,16 +336,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -368,7 +364,7 @@ namespace Example
                 ArrayBrowserData result = apiInstance.ArraysBrowserPublicGet(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserPublicGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -380,7 +376,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -406,32 +401,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that has been shared publically |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserPublicSidebarGet
-
-> ArrayBrowserSidebar ArraysBrowserPublicSidebarGet ()
+<a name="arraysbrowserpublicsidebarget"></a>
+# **ArraysBrowserPublicSidebarGet**
+> ArrayBrowserSidebar ArraysBrowserPublicSidebarGet (List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null)
 
 
 
 Fetch a sidebar of all arrays that have been shared publically
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -445,23 +436,27 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
+            var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
+            var excludeFileType = new List<string>(); // List<string> | file_type to exclude matching array in results, more than one can be included (optional) 
+            var fileProperty = new List<string>(); // List<string> | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional) 
 
             try
             {
-                ArrayBrowserSidebar result = apiInstance.ArraysBrowserPublicSidebarGet();
+                ArrayBrowserSidebar result = apiInstance.ArraysBrowserPublicSidebarGet(fileType, excludeFileType, fileProperty);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserPublicSidebarGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -474,7 +469,11 @@ namespace Example
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileType** | [**List&lt;string&gt;**](string.md)| file_type to search for, more than one can be included | [optional] 
+ **excludeFileType** | [**List&lt;string&gt;**](string.md)| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **fileProperty** | [**List&lt;string&gt;**](string.md)| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
 
 ### Return type
 
@@ -486,24 +485,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that has been shared publically |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserSharedGet
-
+<a name="arraysbrowsersharedget"></a>
+# **ArraysBrowserSharedGet**
 > ArrayBrowserData ArraysBrowserSharedGet (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null, List<string> sharedTo = null)
 
 
@@ -511,7 +507,6 @@ This endpoint does not need any parameter.
 Fetch a list of all arrays that have been shared with the user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -525,16 +520,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -553,7 +549,7 @@ namespace Example
                 ArrayBrowserData result = apiInstance.ArraysBrowserSharedGet(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, fileType, excludeFileType, fileProperty, sharedTo);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserSharedGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -565,7 +561,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -592,32 +587,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that has been shared with the user |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysBrowserSharedSidebarGet
-
-> ArrayBrowserSidebar ArraysBrowserSharedSidebarGet ()
+<a name="arraysbrowsersharedsidebarget"></a>
+# **ArraysBrowserSharedSidebarGet**
+> ArrayBrowserSidebar ArraysBrowserSharedSidebarGet (List<string> fileType = null, List<string> excludeFileType = null, List<string> fileProperty = null, List<string> sharedTo = null)
 
 
 
 Fetch a list of all arrays that have been shared with the user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -631,23 +622,28 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
+            var fileType = new List<string>(); // List<string> | file_type to search for, more than one can be included (optional) 
+            var excludeFileType = new List<string>(); // List<string> | file_type to exclude matching array in results, more than one can be included (optional) 
+            var fileProperty = new List<string>(); // List<string> | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional) 
+            var sharedTo = new List<string>(); // List<string> | namespaces to filter results of where there groups were shared to (optional) 
 
             try
             {
-                ArrayBrowserSidebar result = apiInstance.ArraysBrowserSharedSidebarGet();
+                ArrayBrowserSidebar result = apiInstance.ArraysBrowserSharedSidebarGet(fileType, excludeFileType, fileProperty, sharedTo);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysBrowserSharedSidebarGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -660,7 +656,12 @@ namespace Example
 
 ### Parameters
 
-This endpoint does not need any parameter.
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileType** | [**List&lt;string&gt;**](string.md)| file_type to search for, more than one can be included | [optional] 
+ **excludeFileType** | [**List&lt;string&gt;**](string.md)| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **fileProperty** | [**List&lt;string&gt;**](string.md)| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
+ **sharedTo** | [**List&lt;string&gt;**](string.md)| namespaces to filter results of where there groups were shared to | [optional] 
 
 ### Return type
 
@@ -672,24 +673,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that has been shared with the user |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ArraysNamespaceArrayEndTimestampsGet
-
+<a name="arraysnamespacearrayendtimestampsget"></a>
+# **ArraysNamespaceArrayEndTimestampsGet**
 > ArrayEndTimestampData ArraysNamespaceArrayEndTimestampsGet (string _namespace, string array, int? page = null, int? perPage = null)
 
 
@@ -697,7 +695,6 @@ This endpoint does not need any parameter.
 retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -711,16 +708,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var page = 56;  // int? | pagination offset (optional) 
@@ -731,7 +729,7 @@ namespace Example
                 ArrayEndTimestampData result = apiInstance.ArraysNamespaceArrayEndTimestampsGet(_namespace, array, page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ArraysNamespaceArrayEndTimestampsGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -743,7 +741,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -762,32 +759,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | list of timestamps in milliseconds, paginated |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ConsolidateArray
-
-> void ConsolidateArray (string _namespace, string array, TileDBConfig tiledbConfig)
+<a name="consolidatearray"></a>
+# **ConsolidateArray**
+> void ConsolidateArray (string _namespace, string array, ArrayConsolidationRequest consolidateRequest)
 
 
 
 consolidate an array at a specified URI
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -801,25 +794,26 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
-            var tiledbConfig = new TileDBConfig(); // TileDBConfig | tiledb configuration
+            var consolidateRequest = new ArrayConsolidationRequest(); // ArrayConsolidationRequest | Consolidate Request
 
             try
             {
-                apiInstance.ConsolidateArray(_namespace, array, tiledbConfig);
+                apiInstance.ConsolidateArray(_namespace, array, consolidateRequest);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ConsolidateArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -832,12 +826,11 @@ namespace Example
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
- **tiledbConfig** | [**TileDBConfig**](TileDBConfig.md)| tiledb configuration | 
+ **consolidateRequest** | [**ArrayConsolidationRequest**](ArrayConsolidationRequest.md)| Consolidate Request | 
 
 ### Return type
 
@@ -849,24 +842,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | array consolidated successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## CreateArray
-
+<a name="createarray"></a>
+# **CreateArray**
 > void CreateArray (string _namespace, string array, string contentType, ArraySchema arraySchema, string X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = null)
 
 
@@ -874,7 +864,6 @@ void (empty response body)
 create a array schema at a specified URI registered to a group/project
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -888,16 +877,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -908,7 +898,7 @@ namespace Example
             {
                 apiInstance.CreateArray(_namespace, array, contentType, arraySchema, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.CreateArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -920,7 +910,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -940,24 +929,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | schema created successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteArray
-
+<a name="deletearray"></a>
+# **DeleteArray**
 > void DeleteArray (string _namespace, string array, string contentType)
 
 
@@ -965,7 +951,6 @@ void (empty response body)
 delete a array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -979,16 +964,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -997,7 +983,7 @@ namespace Example
             {
                 apiInstance.DeleteArray(_namespace, array, contentType);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.DeleteArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1009,7 +995,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1027,24 +1012,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | delete array successful |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeregisterArray
-
+<a name="deregisterarray"></a>
+# **DeregisterArray**
 > void DeregisterArray (string _namespace, string array)
 
 
@@ -1052,7 +1034,6 @@ void (empty response body)
 deregister a array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1066,16 +1047,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
 
@@ -1083,7 +1065,7 @@ namespace Example
             {
                 apiInstance.DeregisterArray(_namespace, array);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.DeregisterArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1095,7 +1077,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1112,24 +1093,106 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | deregistered array successful |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="fragmentinfo"></a>
+# **FragmentInfo**
+> FragmentInfo FragmentInfo (string _namespace, string array, string contentType, FragmentInfoRequest fragmentInfoRequest)
 
 
-## GetActivityLogById
 
+fetch an array's fragment info
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TileDB.Cloud.Rest.Api;
+using TileDB.Cloud.Rest.Client;
+using TileDB.Cloud.Rest.Model;
+
+namespace Example
+{
+    public class FragmentInfoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // Configure HTTP basic authorization: BasicAuth
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new ArrayApi(config);
+            var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
+            var array = "array_example";  // string | name/uri of array that is url-encoded
+            var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
+            var fragmentInfoRequest = new FragmentInfoRequest(); // FragmentInfoRequest | ArraySchema being created
+
+            try
+            {
+                FragmentInfo result = apiInstance.FragmentInfo(_namespace, array, contentType, fragmentInfoRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ArrayApi.FragmentInfo: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **string**| name/uri of array that is url-encoded | 
+ **contentType** | **string**| Content Type of input and return mime | [default to &quot;application/json&quot;]
+ **fragmentInfoRequest** | [**FragmentInfoRequest**](FragmentInfoRequest.md)| ArraySchema being created | 
+
+### Return type
+
+[**FragmentInfo**](FragmentInfo.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | fragment info |  -  |
+| **0** | error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getactivitylogbyid"></a>
+# **GetActivityLogById**
 > ArrayActivityLog GetActivityLogById (string _namespace, string array, string id)
 
 
@@ -1137,7 +1200,6 @@ void (empty response body)
 get activity log by ID
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1151,16 +1213,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var id = "id_example";  // string | ID of the activity
@@ -1170,7 +1233,7 @@ namespace Example
                 ArrayActivityLog result = apiInstance.GetActivityLogById(_namespace, array, id);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetActivityLogById: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1182,7 +1245,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1200,24 +1262,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array activity |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetAllArrayMetadata
-
+<a name="getallarraymetadata"></a>
+# **GetAllArrayMetadata**
 > List&lt;ArrayInfo&gt; GetAllArrayMetadata (string publicShare = null)
 
 
@@ -1225,7 +1284,6 @@ Name | Type | Description  | Notes
 get all array metadata user has access to
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1239,16 +1297,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var publicShare = "publicShare_example";  // string | Public share values can be one of exclude, only (optional) 
 
             try
@@ -1256,7 +1315,7 @@ namespace Example
                 List<ArrayInfo> result = apiInstance.GetAllArrayMetadata(publicShare);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetAllArrayMetadata: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1268,7 +1327,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1284,24 +1342,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array metadata for all arrays user has access to |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArray
-
+<a name="getarray"></a>
+# **GetArray**
 > ArraySchema GetArray (string _namespace, string array, string contentType)
 
 
@@ -1309,7 +1364,6 @@ Name | Type | Description  | Notes
 get an ArraySchema using a url encoded uri
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1323,16 +1377,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -1342,7 +1397,7 @@ namespace Example
                 ArraySchema result = apiInstance.GetArray(_namespace, array, contentType);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1354,7 +1409,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1372,24 +1426,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get ArraySchema |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayMaxBufferSizes
-
+<a name="getarraymaxbuffersizes"></a>
+# **GetArrayMaxBufferSizes**
 > MaxBufferSizes GetArrayMaxBufferSizes (string _namespace, string array, string subarray, string contentType, string xPayer = null)
 
 
@@ -1397,7 +1448,6 @@ Name | Type | Description  | Notes
 get the max buffer sizes of an array for a subarray
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1411,16 +1461,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var subarray = "subarray_example";  // string | CSV string of subarray to get max buffer sizes for
@@ -1432,7 +1483,7 @@ namespace Example
                 MaxBufferSizes result = apiInstance.GetArrayMaxBufferSizes(_namespace, array, subarray, contentType, xPayer);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayMaxBufferSizes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1444,7 +1495,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1464,24 +1514,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get the max buffer sizes of an array for a subarray |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayMetaDataJson
-
+<a name="getarraymetadatajson"></a>
+# **GetArrayMetaDataJson**
 > Object GetArrayMetaDataJson (string _namespace, string array, int? length = null, int? endTimestamp = null)
 
 
@@ -1489,7 +1536,6 @@ Name | Type | Description  | Notes
 get metadata from the array in JSON format
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1503,16 +1549,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var length = 56;  // int? | (optional) limit character length of returned values (optional) 
@@ -1523,7 +1570,7 @@ namespace Example
                 Object result = apiInstance.GetArrayMetaDataJson(_namespace, array, length, endTimestamp);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayMetaDataJson: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1535,7 +1582,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1554,24 +1600,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get array metadata |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayMetadata
-
+<a name="getarraymetadata"></a>
+# **GetArrayMetadata**
 > ArrayInfo GetArrayMetadata (string _namespace, string array)
 
 
@@ -1579,7 +1622,6 @@ Name | Type | Description  | Notes
 get metadata on an array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1593,16 +1635,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
 
@@ -1611,7 +1654,7 @@ namespace Example
                 ArrayInfo result = apiInstance.GetArrayMetadata(_namespace, array);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayMetadata: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1623,7 +1666,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1640,24 +1682,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array metadata for an array |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayMetadataCapnp
-
+<a name="getarraymetadatacapnp"></a>
+# **GetArrayMetadataCapnp**
 > ArrayMetadata GetArrayMetadataCapnp (string _namespace, string array)
 
 
@@ -1665,7 +1704,6 @@ Name | Type | Description  | Notes
 get metadata on an array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1679,16 +1717,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
 
@@ -1697,7 +1736,7 @@ namespace Example
                 ArrayMetadata result = apiInstance.GetArrayMetadataCapnp(_namespace, array);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayMetadataCapnp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1709,7 +1748,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1726,24 +1764,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array metadata for an array |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayNonEmptyDomain
-
+<a name="getarraynonemptydomain"></a>
+# **GetArrayNonEmptyDomain**
 > NonEmptyDomain GetArrayNonEmptyDomain (string _namespace, string array, string contentType, string xPayer = null)
 
 
@@ -1751,7 +1786,6 @@ Name | Type | Description  | Notes
 get the non empty domain of an array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1765,16 +1799,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -1785,7 +1820,7 @@ namespace Example
                 NonEmptyDomain result = apiInstance.GetArrayNonEmptyDomain(_namespace, array, contentType, xPayer);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayNonEmptyDomain: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1797,7 +1832,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1816,24 +1850,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get the non empty domain of an array |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayNonEmptyDomainJson
-
+<a name="getarraynonemptydomainjson"></a>
+# **GetArrayNonEmptyDomainJson**
 > Object GetArrayNonEmptyDomainJson (string _namespace, string array)
 
 
@@ -1841,7 +1872,6 @@ Name | Type | Description  | Notes
 get non-empty domain from the array in json format
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1855,16 +1885,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
 
@@ -1873,7 +1904,7 @@ namespace Example
                 Object result = apiInstance.GetArrayNonEmptyDomainJson(_namespace, array);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArrayNonEmptyDomainJson: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1885,7 +1916,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1902,24 +1932,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get array non-empty domaim |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArraySampleData
-
+<a name="getarraysampledata"></a>
+# **GetArraySampleData**
 > ArraySample GetArraySampleData (string _namespace, string array, decimal? samples = null)
 
 
@@ -1927,7 +1954,6 @@ Name | Type | Description  | Notes
 get an sample set of data from the array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1941,16 +1967,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var samples = 5.0MD;  // decimal? | Number of sample results to return (optional)  (default to 5.0M)
@@ -1960,7 +1987,7 @@ namespace Example
                 ArraySample result = apiInstance.GetArraySampleData(_namespace, array, samples);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArraySampleData: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1972,7 +1999,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1990,24 +2016,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get array sample data |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArraySharingPolicies
-
+<a name="getarraysharingpolicies"></a>
+# **GetArraySharingPolicies**
 > List&lt;ArraySharing&gt; GetArraySharingPolicies (string _namespace, string array)
 
 
@@ -2015,7 +2038,6 @@ Name | Type | Description  | Notes
 Get all sharing details of the array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2029,16 +2051,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
 
@@ -2047,7 +2070,7 @@ namespace Example
                 List<ArraySharing> result = apiInstance.GetArraySharingPolicies(_namespace, array);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArraySharingPolicies: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2059,7 +2082,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2076,8 +2098,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -2085,16 +2107,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | List of all specific sharing policies |  -  |
 | **404** | Array does not exist or user does not have permissions to view array-sharing policies |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArraysInNamespace
-
+<a name="getarraysinnamespace"></a>
+# **GetArraysInNamespace**
 > List&lt;ArrayInfo&gt; GetArraysInNamespace (string _namespace)
 
 
@@ -2102,7 +2121,6 @@ Name | Type | Description  | Notes
 get metadata on all arrays in a namespace
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2116,16 +2134,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
 
             try
@@ -2133,7 +2152,7 @@ namespace Example
                 List<ArrayInfo> result = apiInstance.GetArraysInNamespace(_namespace);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetArraysInNamespace: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2145,7 +2164,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2161,24 +2179,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array metadata for all arrays in a namespace |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFragmentEndTimestamp
-
+<a name="getfragmentendtimestamp"></a>
+# **GetFragmentEndTimestamp**
 > int GetFragmentEndTimestamp (string _namespace, string array, int? endTimestamp = null)
 
 
@@ -2186,7 +2201,6 @@ Name | Type | Description  | Notes
 Get fragment end_timestamp on an array, will search for the closest end_timestamp to the timestamp asked
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2200,16 +2214,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var endTimestamp = 56;  // int? | Milliseconds since Unix epoch (optional) 
@@ -2219,7 +2234,7 @@ namespace Example
                 int result = apiInstance.GetFragmentEndTimestamp(_namespace, array, endTimestamp);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetFragmentEndTimestamp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2231,7 +2246,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2249,30 +2263,26 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | fragment end_timestamp on an array |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetLastAccessedArrays
-
+<a name="getlastaccessedarrays"></a>
+# **GetLastAccessedArrays**
 > List&lt;LastAccessedArray&gt; GetLastAccessedArrays ()
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2286,23 +2296,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
 
             try
             {
                 List<LastAccessedArray> result = apiInstance.GetLastAccessedArrays();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.GetLastAccessedArrays: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2314,7 +2325,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -2327,24 +2337,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | gets last accessed arrays |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## RegisterArray
-
+<a name="registerarray"></a>
+# **RegisterArray**
 > ArrayInfo RegisterArray (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
 
 
@@ -2352,7 +2359,6 @@ This endpoint does not need any parameter.
 register an array at a specified URI registered to the given namespace
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2366,16 +2372,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadata = new ArrayInfoUpdate(); // ArrayInfoUpdate | metadata associated with array
@@ -2385,7 +2392,7 @@ namespace Example
                 ArrayInfo result = apiInstance.RegisterArray(_namespace, array, arrayMetadata);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.RegisterArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2397,7 +2404,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2415,24 +2421,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array registered successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ShareArray
-
+<a name="sharearray"></a>
+# **ShareArray**
 > void ShareArray (string _namespace, string array, ArraySharing arraySharing)
 
 
@@ -2440,7 +2443,6 @@ Name | Type | Description  | Notes
 Share an array with a user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2454,16 +2456,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var arraySharing = new ArraySharing(); // ArraySharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the array will not be shared with the namespace at all.
@@ -2472,7 +2475,7 @@ namespace Example
             {
                 apiInstance.ShareArray(_namespace, array, arraySharing);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.ShareArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2484,7 +2487,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2502,8 +2504,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -2511,16 +2513,13 @@ void (empty response body)
 |-------------|-------------|------------------|
 | **204** | Array shared successfully |  -  |
 | **404** | Array does not exist or user does not have permissions to share array |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateArrayMetadata
-
+<a name="updatearraymetadata"></a>
+# **UpdateArrayMetadata**
 > void UpdateArrayMetadata (string _namespace, string array, ArrayInfoUpdate arrayMetadata)
 
 
@@ -2528,7 +2527,6 @@ void (empty response body)
 update metadata on an array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2542,16 +2540,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadata = new ArrayInfoUpdate(); // ArrayInfoUpdate | array metadata to update
@@ -2560,7 +2559,7 @@ namespace Example
             {
                 apiInstance.UpdateArrayMetadata(_namespace, array, arrayMetadata);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.UpdateArrayMetadata: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2572,7 +2571,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2590,24 +2588,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | array metadata updated successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateArrayMetadataCapnp
-
+<a name="updatearraymetadatacapnp"></a>
+# **UpdateArrayMetadataCapnp**
 > void UpdateArrayMetadataCapnp (string _namespace, string array, ArrayMetadata arrayMetadataEntries)
 
 
@@ -2615,7 +2610,6 @@ void (empty response body)
 update metadata on an array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2629,16 +2623,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var arrayMetadataEntries = new ArrayMetadata(); // ArrayMetadata | List of metadata entries
@@ -2647,7 +2642,7 @@ namespace Example
             {
                 apiInstance.UpdateArrayMetadataCapnp(_namespace, array, arrayMetadataEntries);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.UpdateArrayMetadataCapnp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2659,7 +2654,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2677,32 +2671,28 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/capnp
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: application/json, application/capnp
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | array metadata updated successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## VacuumArray
-
-> void VacuumArray (string _namespace, string array, TileDBConfig tiledbConfig)
+<a name="vacuumarray"></a>
+# **VacuumArray**
+> void VacuumArray (string _namespace, string array, ArrayVacuumRequest vaccumRequest)
 
 
 
 vacuum an array at a specified URI
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -2716,25 +2706,26 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayApi(Configuration.Default);
+            var apiInstance = new ArrayApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
-            var tiledbConfig = new TileDBConfig(); // TileDBConfig | tiledb configuration
+            var vaccumRequest = new ArrayVacuumRequest(); // ArrayVacuumRequest | Vaccum Request
 
             try
             {
-                apiInstance.VacuumArray(_namespace, array, tiledbConfig);
+                apiInstance.VacuumArray(_namespace, array, vaccumRequest);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayApi.VacuumArray: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -2747,12 +2738,11 @@ namespace Example
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_namespace** | **string**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **string**| name/uri of array that is url-encoded | 
- **tiledbConfig** | [**TileDBConfig**](TileDBConfig.md)| tiledb configuration | 
+ **vaccumRequest** | [**ArrayVacuumRequest**](ArrayVacuumRequest.md)| Vaccum Request | 
 
 ### Return type
 
@@ -2764,18 +2754,16 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | array vacuumed successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -155,7 +155,7 @@ namespace TileDB.Cloud
                 }
                 else
                 {
-                    udfSharing.Actions.Add(UDFActions.Fetchudf);
+                    udfSharing.Actions.Add(UDFActions.FetchUdf);
                 }
                 var policyResult = Client.GetInstance().GetRetryPolicyWrap().ExecuteAndCapture(
                     () => UdfApi.ShareUDFInfo(udfNamespace, udfPath, udfSharing));
@@ -183,7 +183,7 @@ namespace TileDB.Cloud
                 }
                 else
                 {
-                    udfSharing.Actions.Add(UDFActions.Fetchudf);
+                    udfSharing.Actions.Add(UDFActions.FetchUdf);
                 }
                 var policyResult = Client.GetInstance().GetRetryAsyncPolicyWrap().ExecuteAndCaptureAsync(
                     () => UdfApi.ShareUDFInfoAsync(udfNamespace, udfPath, udfSharing));
@@ -394,7 +394,7 @@ namespace TileDB.Cloud
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
                 Update(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                    UDFType.Singlearray);
+                    UDFType.SingleArray);
             }
 
             /// <summary>
@@ -420,7 +420,7 @@ namespace TileDB.Cloud
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
                 return UpdateAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                    UDFType.Singlearray);
+                    UDFType.SingleArray);
             }
 
             /// <summary>
@@ -445,7 +445,7 @@ namespace TileDB.Cloud
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
                 Update(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language, imageName,
-                    UDFType.Multiarray);
+                    UDFType.MultiArray);
             }
 
             /// <summary>
@@ -471,7 +471,7 @@ namespace TileDB.Cloud
                 string? exec = null, UDFLanguage? language = null, string? imageName = null)
             {
                 return UpdateAsync(udfUri, readmeText, tags, name, licenseId, licenseText, execRaw, exec, language,
-                    imageName, UDFType.Multiarray);
+                    imageName, UDFType.MultiArray);
             }
 
             #endregion
