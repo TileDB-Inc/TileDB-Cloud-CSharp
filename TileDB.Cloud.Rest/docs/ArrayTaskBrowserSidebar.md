@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.ArrayTaskBrowserSidebar
+Object for ui array tasks browser page
 
 ## Properties
 
@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **ResultCountForAll** | **int** | A count of \&quot;all\&quot; | [optional] 
 **ResultCountByNamespace** | **Object** | A map that includes the result count by namespace | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

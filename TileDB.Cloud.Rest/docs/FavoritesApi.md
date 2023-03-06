@@ -26,9 +26,8 @@ Method | HTTP request | Description
 [**ListUDFFavoritesUUIDs**](FavoritesApi.md#listudffavoritesuuids) | **GET** /udfs/favorites/uuids | 
 
 
-
-## AddArrayFavorite
-
+<a name="addarrayfavorite"></a>
+# **AddArrayFavorite**
 > void AddArrayFavorite (string _namespace, string name)
 
 
@@ -36,7 +35,6 @@ Method | HTTP request | Description
 Add a new array favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,16 +48,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the array
             var name = "name_example";  // string | The name of the array
 
@@ -67,7 +66,7 @@ namespace Example
             {
                 apiInstance.AddArrayFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.AddArrayFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -79,7 +78,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -96,24 +94,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Item added to favorites successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## AddMLModelFavorite
-
+<a name="addmlmodelfavorite"></a>
+# **AddMLModelFavorite**
 > void AddMLModelFavorite (string _namespace, string name)
 
 
@@ -121,7 +116,6 @@ void (empty response body)
 Add a new ML model favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -135,16 +129,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the ML model
             var name = "name_example";  // string | The name of the ML model
 
@@ -152,7 +147,7 @@ namespace Example
             {
                 apiInstance.AddMLModelFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.AddMLModelFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -164,7 +159,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -181,24 +175,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Item added to favorites successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## AddNotebookFavorite
-
+<a name="addnotebookfavorite"></a>
+# **AddNotebookFavorite**
 > void AddNotebookFavorite (string _namespace, string name)
 
 
@@ -206,7 +197,6 @@ void (empty response body)
 Add a new notebook favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -220,16 +210,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the notebook
             var name = "name_example";  // string | The name of the notebook
 
@@ -237,7 +228,7 @@ namespace Example
             {
                 apiInstance.AddNotebookFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.AddNotebookFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -249,7 +240,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -266,24 +256,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Item added to favorites successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## AddUDFFavorite
-
+<a name="addudffavorite"></a>
+# **AddUDFFavorite**
 > void AddUDFFavorite (string _namespace, string name)
 
 
@@ -291,7 +278,6 @@ void (empty response body)
 Add a new UDF favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -305,16 +291,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the UDF
             var name = "name_example";  // string | The name of the UDF
 
@@ -322,7 +309,7 @@ namespace Example
             {
                 apiInstance.AddUDFFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.AddUDFFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -334,7 +321,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -351,24 +337,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Item added to favorites successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteArrayFavorite
-
+<a name="deletearrayfavorite"></a>
+# **DeleteArrayFavorite**
 > void DeleteArrayFavorite (string _namespace, string name)
 
 
@@ -376,7 +359,6 @@ void (empty response body)
 Delete specific array favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -390,16 +372,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the array
             var name = "name_example";  // string | The name of the array
 
@@ -407,7 +390,7 @@ namespace Example
             {
                 apiInstance.DeleteArrayFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.DeleteArrayFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -419,7 +402,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -436,24 +418,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | array favorite item deleted successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteMLModelFavorite
-
+<a name="deletemlmodelfavorite"></a>
+# **DeleteMLModelFavorite**
 > void DeleteMLModelFavorite (string _namespace, string name)
 
 
@@ -461,7 +440,6 @@ void (empty response body)
 Delete specific ML model favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -475,16 +453,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the ML model
             var name = "name_example";  // string | The name of the ML model
 
@@ -492,7 +471,7 @@ namespace Example
             {
                 apiInstance.DeleteMLModelFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.DeleteMLModelFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -504,7 +483,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -521,24 +499,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | ML model favorite item deleted successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteNotebookFavorite
-
+<a name="deletenotebookfavorite"></a>
+# **DeleteNotebookFavorite**
 > void DeleteNotebookFavorite (string _namespace, string name)
 
 
@@ -546,7 +521,6 @@ void (empty response body)
 Delete specific notebook favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -560,16 +534,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the notebook
             var name = "name_example";  // string | The name of the notebook
 
@@ -577,7 +552,7 @@ namespace Example
             {
                 apiInstance.DeleteNotebookFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.DeleteNotebookFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -589,7 +564,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -606,24 +580,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | notebook favorite item deleted successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteUDFFavorite
-
+<a name="deleteudffavorite"></a>
+# **DeleteUDFFavorite**
 > void DeleteUDFFavorite (string _namespace, string name)
 
 
@@ -631,7 +602,6 @@ void (empty response body)
 Delete specific UDF favorite
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -645,16 +615,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the UDF
             var name = "name_example";  // string | The name of the UDF
 
@@ -662,7 +633,7 @@ namespace Example
             {
                 apiInstance.DeleteUDFFavorite(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.DeleteUDFFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -674,7 +645,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -691,24 +661,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | UDF favorite item deleted successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetArrayFavorite
-
+<a name="getarrayfavorite"></a>
+# **GetArrayFavorite**
 > ArrayFavorite GetArrayFavorite (string _namespace, string name)
 
 
@@ -716,7 +683,6 @@ void (empty response body)
 Fetch array favorite of a specific array
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -730,16 +696,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the array
             var name = "name_example";  // string | The name of the array
 
@@ -748,7 +715,7 @@ namespace Example
                 ArrayFavorite result = apiInstance.GetArrayFavorite(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.GetArrayFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -760,7 +727,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -777,24 +743,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetMLModelFavorite
-
+<a name="getmlmodelfavorite"></a>
+# **GetMLModelFavorite**
 > MLModelFavorite GetMLModelFavorite (string _namespace, string name)
 
 
@@ -802,7 +765,6 @@ Name | Type | Description  | Notes
 Fetch ML model favorite of a specific ML model
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -816,16 +778,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the ML model
             var name = "name_example";  // string | The name of the ML model
 
@@ -834,7 +797,7 @@ namespace Example
                 MLModelFavorite result = apiInstance.GetMLModelFavorite(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.GetMLModelFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -846,7 +809,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -863,24 +825,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetNotebookFavorite
-
+<a name="getnotebookfavorite"></a>
+# **GetNotebookFavorite**
 > NotebookFavorite GetNotebookFavorite (string _namespace, string name)
 
 
@@ -888,7 +847,6 @@ Name | Type | Description  | Notes
 Fetch notebook favorite of a specific notebook
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -902,16 +860,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the notebook
             var name = "name_example";  // string | The name of the notebook
 
@@ -920,7 +879,7 @@ namespace Example
                 NotebookFavorite result = apiInstance.GetNotebookFavorite(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.GetNotebookFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -932,7 +891,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -949,24 +907,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetUDFFavorite
-
+<a name="getudffavorite"></a>
+# **GetUDFFavorite**
 > UDFFavorite GetUDFFavorite (string _namespace, string name)
 
 
@@ -974,7 +929,6 @@ Name | Type | Description  | Notes
 Fetch UDF favorite of a specific UDF
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -988,16 +942,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the UDF
             var name = "name_example";  // string | The name of the UDF
 
@@ -1006,7 +961,7 @@ namespace Example
                 UDFFavorite result = apiInstance.GetUDFFavorite(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.GetUDFFavorite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1018,7 +973,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1035,24 +989,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListArrayFavorites
-
+<a name="listarrayfavorites"></a>
+# **ListArrayFavorites**
 > ArrayFavoritesData ListArrayFavorites (int? page = null, int? perPage = null)
 
 
@@ -1060,7 +1011,6 @@ Name | Type | Description  | Notes
 Fetch a page of array favorites of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1074,16 +1024,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
 
@@ -1092,7 +1043,7 @@ namespace Example
                 ArrayFavoritesData result = apiInstance.ListArrayFavorites(page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListArrayFavorites: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1104,7 +1055,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1121,24 +1071,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available array favorites are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListArrayFavoritesUUIDs
-
+<a name="listarrayfavoritesuuids"></a>
+# **ListArrayFavoritesUUIDs**
 > List&lt;ArrayFavorite&gt; ListArrayFavoritesUUIDs ()
 
 
@@ -1146,7 +1093,6 @@ Name | Type | Description  | Notes
 Fetch all favorite array uuids of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1160,23 +1106,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
 
             try
             {
                 List<ArrayFavorite> result = apiInstance.ListArrayFavoritesUUIDs();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListArrayFavoritesUUIDs: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1188,7 +1135,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1201,24 +1147,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available favorites array uuids are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListMLModelFavorites
-
+<a name="listmlmodelfavorites"></a>
+# **ListMLModelFavorites**
 > MLModelFavoritesData ListMLModelFavorites (int? page = null, int? perPage = null)
 
 
@@ -1226,7 +1169,6 @@ This endpoint does not need any parameter.
 Fetch a page of ML models favorites of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1240,16 +1182,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
 
@@ -1258,7 +1201,7 @@ namespace Example
                 MLModelFavoritesData result = apiInstance.ListMLModelFavorites(page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListMLModelFavorites: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1270,7 +1213,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1287,24 +1229,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available ML models favorites are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListMLModelFavoritesUUIDs
-
+<a name="listmlmodelfavoritesuuids"></a>
+# **ListMLModelFavoritesUUIDs**
 > List&lt;MLModelFavorite&gt; ListMLModelFavoritesUUIDs ()
 
 
@@ -1312,7 +1251,6 @@ Name | Type | Description  | Notes
 Fetch all favorite ML models uuids of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1326,23 +1264,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
 
             try
             {
                 List<MLModelFavorite> result = apiInstance.ListMLModelFavoritesUUIDs();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListMLModelFavoritesUUIDs: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1354,7 +1293,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1367,24 +1305,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available favorites ML model uuids are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListNotebookFavorites
-
+<a name="listnotebookfavorites"></a>
+# **ListNotebookFavorites**
 > NotebookFavoritesData ListNotebookFavorites (bool? isDashboard = null, int? page = null, int? perPage = null)
 
 
@@ -1392,7 +1327,6 @@ This endpoint does not need any parameter.
 Fetch a page of notebook favorites of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1406,16 +1340,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var isDashboard = true;  // bool? | return only dashboards (optional) 
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
@@ -1425,7 +1360,7 @@ namespace Example
                 NotebookFavoritesData result = apiInstance.ListNotebookFavorites(isDashboard, page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListNotebookFavorites: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1437,7 +1372,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1455,24 +1389,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available notebook favorites are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListNotebookFavoritesUUIDs
-
+<a name="listnotebookfavoritesuuids"></a>
+# **ListNotebookFavoritesUUIDs**
 > List&lt;NotebookFavorite&gt; ListNotebookFavoritesUUIDs ()
 
 
@@ -1480,7 +1411,6 @@ Name | Type | Description  | Notes
 Fetch all favorite notebook uuids of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1494,23 +1424,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
 
             try
             {
                 List<NotebookFavorite> result = apiInstance.ListNotebookFavoritesUUIDs();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListNotebookFavoritesUUIDs: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1522,7 +1453,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1535,24 +1465,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available favorites notebook uuids are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListUDFFavorites
-
+<a name="listudffavorites"></a>
+# **ListUDFFavorites**
 > UDFFavoritesData ListUDFFavorites (int? page = null, int? perPage = null)
 
 
@@ -1560,7 +1487,6 @@ This endpoint does not need any parameter.
 Fetch a page of UDF favorites of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1574,16 +1500,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
 
@@ -1592,7 +1519,7 @@ namespace Example
                 UDFFavoritesData result = apiInstance.ListUDFFavorites(page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListUDFFavorites: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1604,7 +1531,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1621,24 +1547,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available UDF favorites are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListUDFFavoritesUUIDs
-
+<a name="listudffavoritesuuids"></a>
+# **ListUDFFavoritesUUIDs**
 > List&lt;UDFFavorite&gt; ListUDFFavoritesUUIDs ()
 
 
@@ -1646,7 +1569,6 @@ Name | Type | Description  | Notes
 Fetch all favorite UDF uuids of connected user
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1660,23 +1582,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
+            var apiInstance = new FavoritesApi(config);
 
             try
             {
                 List<UDFFavorite> result = apiInstance.ListUDFFavoritesUUIDs();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FavoritesApi.ListUDFFavoritesUUIDs: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1688,7 +1611,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1701,18 +1623,16 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Available favorites UDF uuids are returned |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

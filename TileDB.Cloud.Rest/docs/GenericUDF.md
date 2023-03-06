@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.GenericUDF
+User-defined function
 
 ## Properties
 
@@ -22,7 +22,5 @@ Name | Type | Description | Notes
 **TaskGraphUuid** | **string** | If set, the ID of the log for the task graph that this was part of.  | [optional] 
 **ClientNodeUuid** | **string** | If set, the client-defined ID of the node within this task&#39;s graph.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

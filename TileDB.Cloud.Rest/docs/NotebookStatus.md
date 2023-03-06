@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.NotebookStatus
+Status details of a notebook server
 
 ## Properties
 
@@ -14,7 +14,5 @@ Name | Type | Description | Notes
 **StorageLimit** | **int** | storage allocated to notebook server in bytes | [optional] 
 **CpuCount** | **int** | millicpu allocated to notebook server | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

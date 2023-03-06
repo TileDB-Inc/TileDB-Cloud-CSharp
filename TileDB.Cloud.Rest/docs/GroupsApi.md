@@ -22,9 +22,8 @@ Method | HTTP request | Description
 [**UpdateGroup**](GroupsApi.md#updategroup) | **PATCH** /groups/{group_namespace}/{group_name} | 
 
 
-
-## ChangeGroupContents
-
+<a name="changegroupcontents"></a>
+# **ChangeGroupContents**
 > void ChangeGroupContents (string groupNamespace, string groupName, GroupChanges groupChanges = null)
 
 
@@ -32,7 +31,6 @@ Method | HTTP request | Description
 Changes the contents of the group by adding/removing members.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,16 +44,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
             var groupChanges = new GroupChanges(); // GroupChanges |  (optional) 
@@ -64,7 +63,7 @@ namespace Example
             {
                 apiInstance.ChangeGroupContents(groupNamespace, groupName, groupChanges);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.ChangeGroupContents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -76,7 +75,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -94,24 +92,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | all changes applied successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## CreateGroup
-
+<a name="creategroup"></a>
+# **CreateGroup**
 > void CreateGroup (string _namespace, GroupCreate groupCreate = null)
 
 
@@ -119,7 +114,6 @@ void (empty response body)
 Creates a new group in the namespace.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -133,16 +127,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the group
             var groupCreate = new GroupCreate(); // GroupCreate |  (optional) 
 
@@ -150,7 +145,7 @@ namespace Example
             {
                 apiInstance.CreateGroup(_namespace, groupCreate);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.CreateGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -162,7 +157,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -179,24 +173,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | group created successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteGroup
-
+<a name="deletegroup"></a>
+# **DeleteGroup**
 > void DeleteGroup (string groupNamespace, string groupName)
 
 
@@ -204,7 +195,6 @@ void (empty response body)
 Deletes the group. The assets are not deleted nor are not relocated to any other group
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -218,16 +208,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
 
@@ -235,7 +226,7 @@ namespace Example
             {
                 apiInstance.DeleteGroup(groupNamespace, groupName);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.DeleteGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -247,7 +238,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -264,24 +254,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | group deleted successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetGroup
-
+<a name="getgroup"></a>
+# **GetGroup**
 > GroupInfo GetGroup (string groupNamespace, string groupName)
 
 
@@ -289,7 +276,6 @@ void (empty response body)
 Returns the the group
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -303,16 +289,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
 
@@ -321,7 +308,7 @@ namespace Example
                 GroupInfo result = apiInstance.GetGroup(groupNamespace, groupName);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GetGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -333,7 +320,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -350,24 +336,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | the group metadata |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetGroupContents
-
+<a name="getgroupcontents"></a>
+# **GetGroupContents**
 > GroupContents GetGroupContents (string groupNamespace, string groupName, int? page = null, int? perPage = null, string _namespace = null, string search = null, string orderby = null, List<string> tag = null, List<string> excludeTag = null, List<string> memberType = null, List<string> excludeMemberType = null)
 
 
@@ -375,7 +358,6 @@ Name | Type | Description  | Notes
 Returns the contents of the group
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -389,16 +371,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
             var page = 56;  // int? | pagination offset for assets (optional) 
@@ -416,7 +399,7 @@ namespace Example
                 GroupContents result = apiInstance.GetGroupContents(groupNamespace, groupName, page, perPage, _namespace, search, orderby, tag, excludeTag, memberType, excludeMemberType);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GetGroupContents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -428,7 +411,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -454,24 +436,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | the group contents |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetGroupSharingPolicies
-
+<a name="getgroupsharingpolicies"></a>
+# **GetGroupSharingPolicies**
 > List&lt;GroupSharing&gt; GetGroupSharingPolicies (string groupNamespace, string groupName)
 
 
@@ -479,7 +458,6 @@ Name | Type | Description  | Notes
 Get all sharing details of the group
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -493,16 +471,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
 
@@ -511,7 +490,7 @@ namespace Example
                 List<GroupSharing> result = apiInstance.GetGroupSharingPolicies(groupNamespace, groupName);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GetGroupSharingPolicies: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -523,7 +502,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -540,8 +518,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -549,16 +527,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | List of all specific sharing policies |  -  |
 | **404** | Group does not exist or user does not have permissions to view group-sharing policies |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GroupsBrowserOwnedFiltersGet
-
+<a name="groupsbrowserownedfiltersget"></a>
+# **GroupsBrowserOwnedFiltersGet**
 > GroupBrowserFilterData GroupsBrowserOwnedFiltersGet ()
 
 
@@ -566,7 +541,6 @@ Name | Type | Description  | Notes
 Fetch data to initialize filters for the groups browser
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -580,23 +554,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
 
             try
             {
                 GroupBrowserFilterData result = apiInstance.GroupsBrowserOwnedFiltersGet();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GroupsBrowserOwnedFiltersGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -608,7 +583,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -621,24 +595,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Filter data |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GroupsBrowserPublicFiltersGet
-
+<a name="groupsbrowserpublicfiltersget"></a>
+# **GroupsBrowserPublicFiltersGet**
 > GroupBrowserFilterData GroupsBrowserPublicFiltersGet ()
 
 
@@ -646,7 +617,6 @@ This endpoint does not need any parameter.
 Fetch data to initialize filters for the groups browser
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -660,23 +630,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
 
             try
             {
                 GroupBrowserFilterData result = apiInstance.GroupsBrowserPublicFiltersGet();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GroupsBrowserPublicFiltersGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -688,7 +659,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -701,24 +671,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Filter data |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GroupsBrowserSharedFiltersGet
-
+<a name="groupsbrowsersharedfiltersget"></a>
+# **GroupsBrowserSharedFiltersGet**
 > GroupBrowserFilterData GroupsBrowserSharedFiltersGet ()
 
 
@@ -726,7 +693,6 @@ This endpoint does not need any parameter.
 Fetch data to initialize filters for the groups browser
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -740,23 +706,24 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
 
             try
             {
                 GroupBrowserFilterData result = apiInstance.GroupsBrowserSharedFiltersGet();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GroupsBrowserSharedFiltersGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -768,7 +735,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -781,24 +747,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Filter data |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GroupsGroupNamespaceGroupNameContentsFiltersGet
-
+<a name="groupsgroupnamespacegroupnamecontentsfiltersget"></a>
+# **GroupsGroupNamespaceGroupNameContentsFiltersGet**
 > GroupContentsFilterData GroupsGroupNamespaceGroupNameContentsFiltersGet (string groupNamespace, string groupName)
 
 
@@ -806,7 +769,6 @@ This endpoint does not need any parameter.
 Fetch data to initialize filters for the group contents
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -820,16 +782,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
 
@@ -838,7 +801,7 @@ namespace Example
                 GroupContentsFilterData result = apiInstance.GroupsGroupNamespaceGroupNameContentsFiltersGet(groupNamespace, groupName);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.GroupsGroupNamespaceGroupNameContentsFiltersGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -850,7 +813,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -867,24 +829,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Filter data |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListOwnedGroups
-
+<a name="listownedgroups"></a>
+# **ListOwnedGroups**
 > GroupBrowserData ListOwnedGroups (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, bool? flat = null, string parent = null)
 
 
@@ -892,7 +851,6 @@ Name | Type | Description  | Notes
 Returns one page of owned groups.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -906,16 +864,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -932,7 +891,7 @@ namespace Example
                 GroupBrowserData result = apiInstance.ListOwnedGroups(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.ListOwnedGroups: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -944,7 +903,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -969,24 +927,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | the group contents |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListPublicGroups
-
+<a name="listpublicgroups"></a>
+# **ListPublicGroups**
 > GroupBrowserData ListPublicGroups (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, bool? flat = null, string parent = null)
 
 
@@ -994,7 +949,6 @@ Name | Type | Description  | Notes
 Returns one page of public groups.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1008,16 +962,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -1034,7 +989,7 @@ namespace Example
                 GroupBrowserData result = apiInstance.ListPublicGroups(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.ListPublicGroups: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1046,7 +1001,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1071,24 +1025,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | the group contents |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListSharedGroups
-
+<a name="listsharedgroups"></a>
+# **ListSharedGroups**
 > GroupBrowserData ListSharedGroups (int? page = null, int? perPage = null, string search = null, string _namespace = null, string orderby = null, string permissions = null, List<string> tag = null, List<string> excludeTag = null, bool? flat = null, string parent = null, List<string> sharedTo = null)
 
 
@@ -1096,7 +1047,6 @@ Name | Type | Description  | Notes
 Returns one page of shared groups.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1110,16 +1060,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var page = 56;  // int? | pagination offset (optional) 
             var perPage = 56;  // int? | pagination limit (optional) 
             var search = "search_example";  // string | search string that will look at name, namespace or description fields (optional) 
@@ -1137,7 +1088,7 @@ namespace Example
                 GroupBrowserData result = apiInstance.ListSharedGroups(page, perPage, search, _namespace, orderby, permissions, tag, excludeTag, flat, parent, sharedTo);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.ListSharedGroups: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1149,7 +1100,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1175,24 +1125,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | the group contents |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## RegisterGroup
-
+<a name="registergroup"></a>
+# **RegisterGroup**
 > void RegisterGroup (string _namespace, string array, GroupRegister groupRegister = null)
 
 
@@ -1200,7 +1147,6 @@ Name | Type | Description  | Notes
 Registers an existing group in the namespace.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1214,16 +1160,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace of the group
             var array = "array_example";  // string | The unique name or id of the group
             var groupRegister = new GroupRegister(); // GroupRegister |  (optional) 
@@ -1232,7 +1179,7 @@ namespace Example
             {
                 apiInstance.RegisterGroup(_namespace, array, groupRegister);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.RegisterGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1244,7 +1191,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1262,24 +1208,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | group created successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ShareGroup
-
+<a name="sharegroup"></a>
+# **ShareGroup**
 > void ShareGroup (string groupNamespace, string groupName, GroupSharingRequest groupSharingRequest)
 
 
@@ -1287,7 +1230,6 @@ void (empty response body)
 Share a group with a namespace
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1301,16 +1243,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
             var groupSharingRequest = new GroupSharingRequest(); // GroupSharingRequest | Namespace and list of permissions to share with. Sharing is recursive, it is applied to all reachable subgroups and arrays of the group. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the group will not be shared with the namespace at all.
@@ -1319,7 +1262,7 @@ namespace Example
             {
                 apiInstance.ShareGroup(groupNamespace, groupName, groupSharingRequest);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.ShareGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1331,7 +1274,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1349,8 +1291,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1358,16 +1300,13 @@ void (empty response body)
 |-------------|-------------|------------------|
 | **204** | Group shared successfully |  -  |
 | **404** | Group does not exist or user does not have permissions to share group |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateGroup
-
+<a name="updategroup"></a>
+# **UpdateGroup**
 > void UpdateGroup (string groupNamespace, string groupName, GroupUpdate groupUpdate = null)
 
 
@@ -1375,7 +1314,6 @@ void (empty response body)
 Changes attributes of the group
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1389,16 +1327,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new GroupsApi(Configuration.Default);
+            var apiInstance = new GroupsApi(config);
             var groupNamespace = "groupNamespace_example";  // string | The namespace of the group
             var groupName = "groupName_example";  // string | The unique name or id of the group
             var groupUpdate = new GroupUpdate(); // GroupUpdate |  (optional) 
@@ -1407,7 +1346,7 @@ namespace Example
             {
                 apiInstance.UpdateGroup(groupNamespace, groupName, groupUpdate);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling GroupsApi.UpdateGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1419,7 +1358,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1437,18 +1375,16 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | attributes changed successfully |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

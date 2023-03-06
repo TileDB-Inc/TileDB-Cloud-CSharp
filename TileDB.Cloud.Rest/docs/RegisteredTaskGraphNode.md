@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.RegisteredTaskGraphNode
+Information about a single node within a registered task graph. A single node represents one piece of data or a computational step; either as an input value, a data source, or a computation that acts upon earlier nodes. The structure parallels the existing `TaskGraphNodeMetadata`. 
 
 ## Properties
 
@@ -13,7 +13,5 @@ Name | Type | Description | Notes
 **SqlNode** | [**TGSQLNodeData**](TGSQLNodeData.md) |  | [optional] 
 **UdfNode** | [**TGUDFNodeData**](TGUDFNodeData.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

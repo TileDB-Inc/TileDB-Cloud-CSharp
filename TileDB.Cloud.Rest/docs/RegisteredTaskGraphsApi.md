@@ -12,9 +12,8 @@ Method | HTTP request | Description
 [**UpdateRegisteredTaskGraph**](RegisteredTaskGraphsApi.md#updateregisteredtaskgraph) | **PATCH** /taskgraphs/{namespace}/registered/{name} | 
 
 
-
-## DeleteRegisteredTaskGraph
-
+<a name="deleteregisteredtaskgraph"></a>
+# **DeleteRegisteredTaskGraph**
 > void DeleteRegisteredTaskGraph (string _namespace, string name)
 
 
@@ -22,7 +21,6 @@ Method | HTTP request | Description
 Delete the given registered task graph. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -36,16 +34,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this registered UDF.
             var name = "name_example";  // string | The name of the registered task graph.
 
@@ -53,7 +52,7 @@ namespace Example
             {
                 apiInstance.DeleteRegisteredTaskGraph(_namespace, name);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.DeleteRegisteredTaskGraph: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -65,7 +64,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -82,24 +80,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Task graph successfully deleted. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetRegisteredTaskGraph
-
+<a name="getregisteredtaskgraph"></a>
+# **GetRegisteredTaskGraph**
 > RegisteredTaskGraph GetRegisteredTaskGraph (string _namespace, string name)
 
 
@@ -107,7 +102,6 @@ void (empty response body)
 Fetch the contents of this registered task graph. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -121,16 +115,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this registered UDF.
             var name = "name_example";  // string | The name of the registered task graph.
 
@@ -139,7 +134,7 @@ namespace Example
                 RegisteredTaskGraph result = apiInstance.GetRegisteredTaskGraph(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.GetRegisteredTaskGraph: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -151,7 +146,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,24 +162,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The contents of the registered task graph. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetRegisteredTaskGraphSharingPolicies
-
+<a name="getregisteredtaskgraphsharingpolicies"></a>
+# **GetRegisteredTaskGraphSharingPolicies**
 > List&lt;TaskGraphSharing&gt; GetRegisteredTaskGraphSharingPolicies (string _namespace, string name)
 
 
@@ -193,7 +184,6 @@ Name | Type | Description  | Notes
 Get sharing policies for the task graph.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -207,16 +197,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns the registered task graph.
             var name = "name_example";  // string | The name of the task graph.
 
@@ -225,7 +216,7 @@ namespace Example
                 List<TaskGraphSharing> result = apiInstance.GetRegisteredTaskGraphSharingPolicies(_namespace, name);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.GetRegisteredTaskGraphSharingPolicies: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -237,7 +228,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -254,8 +244,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -263,16 +253,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | List of all specific sharing policies |  -  |
 | **404** | The task graph does not exist (or the user does not have permission to view policies)  |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## RegisterRegisteredTaskGraph
-
+<a name="registerregisteredtaskgraph"></a>
+# **RegisterRegisteredTaskGraph**
 > void RegisterRegisteredTaskGraph (string _namespace, string name, RegisteredTaskGraph graph = null)
 
 
@@ -280,7 +267,6 @@ Name | Type | Description  | Notes
 Register a task graph in the given namespace, with the given name. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -294,16 +280,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this registered UDF.
             var name = "name_example";  // string | The name of the registered task graph.
             var graph = new RegisteredTaskGraph(); // RegisteredTaskGraph | Task graph to register. (optional) 
@@ -312,7 +299,7 @@ namespace Example
             {
                 apiInstance.RegisterRegisteredTaskGraph(_namespace, name, graph);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.RegisterRegisteredTaskGraph: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -324,7 +311,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -342,24 +328,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Task graph registered successfully. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ShareRegisteredTaskGraph
-
+<a name="shareregisteredtaskgraph"></a>
+# **ShareRegisteredTaskGraph**
 > void ShareRegisteredTaskGraph (string _namespace, string name, TaskGraphSharing taskGraphSharing)
 
 
@@ -367,7 +350,6 @@ void (empty response body)
 Share a task graph.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -381,16 +363,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns the registered task graph.
             var name = "name_example";  // string | The name of the task graph.
             var taskGraphSharing = new TaskGraphSharing(); // TaskGraphSharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the UDF will not be shared with the namespace at all. 
@@ -399,7 +382,7 @@ namespace Example
             {
                 apiInstance.ShareRegisteredTaskGraph(_namespace, name, taskGraphSharing);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.ShareRegisteredTaskGraph: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -411,7 +394,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -429,8 +411,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -438,16 +420,13 @@ void (empty response body)
 |-------------|-------------|------------------|
 | **204** | UDF shared successfully |  -  |
 | **404** | UDF does not exist or user does not have permissions to share UDF |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateRegisteredTaskGraph
-
+<a name="updateregisteredtaskgraph"></a>
+# **UpdateRegisteredTaskGraph**
 > void UpdateRegisteredTaskGraph (string _namespace, string name, RegisteredTaskGraph graph = null)
 
 
@@ -455,7 +434,6 @@ void (empty response body)
 Update the contents of an existing registered task graph. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -469,16 +447,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new RegisteredTaskGraphsApi(Configuration.Default);
+            var apiInstance = new RegisteredTaskGraphsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this registered UDF.
             var name = "name_example";  // string | The name of the registered task graph.
             var graph = new RegisteredTaskGraph(); // RegisteredTaskGraph | The new contents of the task graph. (optional) 
@@ -487,7 +466,7 @@ namespace Example
             {
                 apiInstance.UpdateRegisteredTaskGraph(_namespace, name, graph);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling RegisteredTaskGraphsApi.UpdateRegisteredTaskGraph: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -499,7 +478,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -517,18 +495,16 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Task graph updated successfully. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.FileCreate
+Input/Output information required to create a new file
 
 ## Properties
 
@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **OutputUri** | **string** | output location of the TileDB File | [optional] 
 **Name** | **string** | name to set for registered file | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

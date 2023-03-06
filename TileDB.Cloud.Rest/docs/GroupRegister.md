@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.GroupRegister
+Initial attributes for the registration of a an existing group.
 
 ## Properties
 
@@ -15,7 +15,5 @@ Name | Type | Description | Notes
 **LicenseId** | **string** | License identifier from SPDX License List or Custom. | [optional] 
 **LicenseText** | **string** | License text | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

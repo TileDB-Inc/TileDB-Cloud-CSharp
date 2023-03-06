@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.UDFSubarrayRange
+A dimension range to query
 
 ## Properties
 
@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **RangeStart** | [**DimensionCoordinate**](DimensionCoordinate.md) |  | [optional] 
 **RangeEnd** | [**DimensionCoordinate**](DimensionCoordinate.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**UpdateTaskGraphLog**](TaskGraphLogsApi.md#updatetaskgraphlog) | **PATCH** /taskgraphs/{namespace}/logs/{id} | 
 
 
-
-## CreateTaskGraphLog
-
+<a name="createtaskgraphlog"></a>
+# **CreateTaskGraphLog**
 > TaskGraphLog CreateTaskGraphLog (string _namespace, TaskGraphLog log)
 
 
@@ -21,7 +20,6 @@ Method | HTTP request | Description
 Create a task graph log.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,16 +33,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new TaskGraphLogsApi(Configuration.Default);
+            var apiInstance = new TaskGraphLogsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that will own this task graph log.
             var log = new TaskGraphLog(); // TaskGraphLog | 
 
@@ -53,7 +52,7 @@ namespace Example
                 TaskGraphLog result = apiInstance.CreateTaskGraphLog(_namespace, log);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling TaskGraphLogsApi.CreateTaskGraphLog: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -65,7 +64,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -82,24 +80,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The task graph was created. The returned TaskGraphLog will include the data the client sent, with the server-defined fields added in.  |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetTaskGraphLog
-
+<a name="gettaskgraphlog"></a>
+# **GetTaskGraphLog**
 > TaskGraphLog GetTaskGraphLog (string _namespace, string id)
 
 
@@ -107,7 +102,6 @@ Name | Type | Description  | Notes
 Fetch information about a single task graph execution. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -121,16 +115,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new TaskGraphLogsApi(Configuration.Default);
+            var apiInstance = new TaskGraphLogsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this task graph log.
             var id = "id_example";  // string | The UUID of the task graph log entry.
 
@@ -139,7 +134,7 @@ namespace Example
                 TaskGraphLog result = apiInstance.GetTaskGraphLog(_namespace, id);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling TaskGraphLogsApi.GetTaskGraphLog: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -151,7 +146,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,24 +162,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information about the execution of a single task graph. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListTaskGraphLogs
-
+<a name="listtaskgraphlogs"></a>
+# **ListTaskGraphLogs**
 > TaskGraphLogsData ListTaskGraphLogs (string _namespace = null, string createdBy = null, string search = null, DateTime? startTime = null, DateTime? endTime = null, int? page = null, int? perPage = null)
 
 
@@ -193,7 +184,6 @@ Name | Type | Description  | Notes
 Fetch the task graph logs of a namespace the user has access to. The returned entries will include only summary data, and will not include information about the individual tasks that were executed. (This information is available when requesting an individual task graph log.) Entries in the response are ordered from newest to oldest. Pagination parameters work as in other API methods; see PaginationMetadata. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -207,16 +197,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new TaskGraphLogsApi(Configuration.Default);
+            var apiInstance = new TaskGraphLogsApi(config);
             var _namespace = "_namespace_example";  // string | Include logs for this namespace. (optional) 
             var createdBy = "createdBy_example";  // string | Include logs from only this user. (optional) 
             var search = "search_example";  // string | search string that will look at name. (optional) 
@@ -230,7 +221,7 @@ namespace Example
                 TaskGraphLogsData result = apiInstance.ListTaskGraphLogs(_namespace, createdBy, search, startTime, endTime, page, perPage);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling TaskGraphLogsApi.ListTaskGraphLogs: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -242,7 +233,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -264,30 +254,26 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The task graph logs that matched the user&#39;s query. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ReportClientNode
-
+<a name="reportclientnode"></a>
+# **ReportClientNode**
 > void ReportClientNode (string _namespace, string id, TaskGraphClientNodeStatus report)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -301,16 +287,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new TaskGraphLogsApi(Configuration.Default);
+            var apiInstance = new TaskGraphLogsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this task graph log.
             var id = "id_example";  // string | The UUID of the task graph log entry.
             var report = new TaskGraphClientNodeStatus(); // TaskGraphClientNodeStatus | The node status to report.
@@ -319,7 +306,7 @@ namespace Example
             {
                 apiInstance.ReportClientNode(_namespace, id, report);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling TaskGraphLogsApi.ReportClientNode: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -331,7 +318,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -349,24 +335,21 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Status reported successfully. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateTaskGraphLog
-
+<a name="updatetaskgraphlog"></a>
+# **UpdateTaskGraphLog**
 > void UpdateTaskGraphLog (string _namespace, string id, TaskGraphLog log)
 
 
@@ -374,7 +357,6 @@ void (empty response body)
 Update information about a single task graph execution. 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -388,16 +370,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new TaskGraphLogsApi(Configuration.Default);
+            var apiInstance = new TaskGraphLogsApi(config);
             var _namespace = "_namespace_example";  // string | The namespace that owns this task graph log.
             var id = "id_example";  // string | The UUID of the task graph log entry.
             var log = new TaskGraphLog(); // TaskGraphLog | Updates to make to the task graph log. The only manual update that a client should need to make to a task graph log is to update its completion status to `succeeded`, `failed`, or `cancelled`. 
@@ -406,7 +389,7 @@ namespace Example
             {
                 apiInstance.UpdateTaskGraphLog(_namespace, id, log);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling TaskGraphLogsApi.UpdateTaskGraphLog: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -418,7 +401,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -436,18 +418,16 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Log entry updated successfully. |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

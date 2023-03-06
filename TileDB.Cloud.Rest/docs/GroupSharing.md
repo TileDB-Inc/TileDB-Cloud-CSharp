@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.GroupSharing
+sharing state of a group with a namespace
 
 ## Properties
 
@@ -10,7 +10,5 @@ Name | Type | Description | Notes
 **Namespace** | **string** | namespace being granted group access can be a user or organization | [optional] 
 **NamespaceType** | **string** | details on if the namespace is a organization or user | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

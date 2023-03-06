@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**SubmitQueryJson**](QueryApi.md#submitqueryjson) | **POST** /arrays/{namespace}/{array}/query/submit_query_json | 
 
 
-
-## FinalizeQuery
-
+<a name="finalizequery"></a>
+# **FinalizeQuery**
 > Query FinalizeQuery (string _namespace, string array, string type, string contentType, Query query, string xPayer = null, int? openAt = null)
 
 
@@ -21,7 +20,6 @@ Method | HTTP request | Description
 send a query to run against a specified array/URI registered to a group/project
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,16 +33,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new QueryApi(Configuration.Default);
+            var apiInstance = new QueryApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var type = "type_example";  // string | type of query
@@ -58,7 +57,7 @@ namespace Example
                 Query result = apiInstance.FinalizeQuery(_namespace, array, type, contentType, query, xPayer, openAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling QueryApi.FinalizeQuery: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -70,7 +69,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -92,8 +90,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/capnp
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: application/json, application/capnp
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
@@ -101,16 +99,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetEstResultSizes
-
+<a name="getestresultsizes"></a>
+# **GetEstResultSizes**
 > Query GetEstResultSizes (string _namespace, string array, string type, string contentType, Query query, string xPayer = null, int? openAt = null)
 
 
@@ -118,7 +113,6 @@ Name | Type | Description  | Notes
 send a query to run against a specified array/URI registered to a group/project
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -132,16 +126,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new QueryApi(Configuration.Default);
+            var apiInstance = new QueryApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var type = "type_example";  // string | type of query
@@ -155,7 +150,7 @@ namespace Example
                 Query result = apiInstance.GetEstResultSizes(_namespace, array, type, contentType, query, xPayer, openAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling QueryApi.GetEstResultSizes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -167,7 +162,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -189,8 +183,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/capnp
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: application/json, application/capnp
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
@@ -198,16 +192,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | query est result size computed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFile
-
+<a name="getfile"></a>
+# **GetFile**
 > System.IO.Stream GetFile (string _namespace, string array, string contentType, string xPayer = null)
 
 
@@ -215,7 +206,6 @@ Name | Type | Description  | Notes
 send a query to run against a specified array/URI registered to a group/project, returns file bytes
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -229,16 +219,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new QueryApi(Configuration.Default);
+            var apiInstance = new QueryApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -249,7 +240,7 @@ namespace Example
                 System.IO.Stream result = apiInstance.GetFile(_namespace, array, contentType, xPayer);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling QueryApi.GetFile: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -261,7 +252,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -280,24 +270,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/x-ipynb+json
+ - **Content-Type**: Not defined
+ - **Accept**: application/x-ipynb+json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | query completed and result bytes are returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SubmitQuery
-
+<a name="submitquery"></a>
+# **SubmitQuery**
 > Query SubmitQuery (string _namespace, string array, string type, string contentType, Query query, string xPayer = null, int? openAt = null)
 
 
@@ -305,7 +292,6 @@ Name | Type | Description  | Notes
 send a query to run against a specified array/URI registered to a group/project
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -319,16 +305,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new QueryApi(Configuration.Default);
+            var apiInstance = new QueryApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var type = "type_example";  // string | type of query
@@ -342,7 +329,7 @@ namespace Example
                 Query result = apiInstance.SubmitQuery(_namespace, array, type, contentType, query, xPayer, openAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling QueryApi.SubmitQuery: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -354,7 +341,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -376,8 +362,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/capnp
-- **Accept**: application/json, application/capnp
+ - **Content-Type**: application/json, application/capnp
+ - **Accept**: application/json, application/capnp
 
 
 ### HTTP response details
@@ -385,16 +371,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SubmitQueryJson
-
+<a name="submitqueryjson"></a>
+# **SubmitQueryJson**
 > Object SubmitQueryJson (string _namespace, string array, string contentType, QueryJson queryJson, string xPayer = null)
 
 
@@ -402,7 +385,6 @@ Name | Type | Description  | Notes
 send a query to run against a specified array/URI registered to a group/project, returns JSON results
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -416,16 +398,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new QueryApi(Configuration.Default);
+            var apiInstance = new QueryApi(config);
             var _namespace = "_namespace_example";  // string | namespace array is in (an organization name or user's username)
             var array = "array_example";  // string | name/uri of array that is url-encoded
             var contentType = "\"application/json\"";  // string | Content Type of input and return mime (default to "application/json")
@@ -437,7 +420,7 @@ namespace Example
                 Object result = apiInstance.SubmitQueryJson(_namespace, array, contentType, queryJson, xPayer);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling QueryApi.SubmitQueryJson: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -449,7 +432,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -469,18 +451,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | query completed and results are returned in JSON format |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

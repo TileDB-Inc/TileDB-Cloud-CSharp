@@ -7,15 +7,13 @@ Method | HTTP request | Description
 [**GetArrayTasksSidebar**](ArrayTasksApi.md#getarraytaskssidebar) | **GET** /tasks/sidebar | 
 
 
-
-## GetArrayTasksSidebar
-
+<a name="getarraytaskssidebar"></a>
+# **GetArrayTasksSidebar**
 > ArrayTaskBrowserSidebar GetArrayTasksSidebar (int? start = null, int? end = null)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,16 +27,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "/v1";
+            Configuration config = new Configuration();
+            config.BasePath = "/v1";
             // Configure API key authorization: ApiKeyAuth
-            Configuration.Default.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
+            config.AddApiKey("X-TILEDB-REST-API-KEY", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
+            // config.AddApiKeyPrefix("X-TILEDB-REST-API-KEY", "Bearer");
             // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ArrayTasksApi(Configuration.Default);
+            var apiInstance = new ArrayTasksApi(config);
             var start = 56;  // int? | Fetch tasks created after this time, unix epoch in seconds, default 7 days ago (optional) 
             var end = 56;  // int? | Fetch tasks created before this time, unix epoch in seconds, default now (optional) 
 
@@ -47,7 +46,7 @@ namespace Example
                 ArrayTaskBrowserSidebar result = apiInstance.GetArrayTasksSidebar(start, end);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling ArrayTasksApi.GetArrayTasksSidebar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -59,7 +58,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -76,8 +74,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -85,10 +83,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | sidebar metadata for task definitions for all arrays user has access to |  -  |
 | **404** | array tasks not found |  -  |
+| **502** | Bad Gateway |  -  |
 | **0** | error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

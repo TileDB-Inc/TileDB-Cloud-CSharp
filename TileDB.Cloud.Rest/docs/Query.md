@@ -1,4 +1,3 @@
-
 # TileDB.Cloud.Rest.Model.Query
 
 ## Properties
@@ -15,7 +14,5 @@ Name | Type | Description | Notes
 **TotalFixedLengthBufferBytes** | **int** | Total number of bytes in fixed size attribute buffers. | 
 **TotalVarLenBufferBytes** | **int** | Total number of bytes in variable size attribute buffers. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

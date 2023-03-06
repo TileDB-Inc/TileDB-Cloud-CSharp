@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.SubarrayPartitioner
+The subarray partitioner
 
 ## Properties
 
@@ -12,7 +12,5 @@ Name | Type | Description | Notes
 **MemoryBudget** | **int** | The memory budget for the fixed-sized attributes and the offsets of the var-sized attributes | [optional] 
 **MemoryBudgetVar** | **int** | The memory budget for the var-sized attributes | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

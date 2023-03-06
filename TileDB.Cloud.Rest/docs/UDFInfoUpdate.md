@@ -1,5 +1,5 @@
-
 # TileDB.Cloud.Rest.Model.UDFInfoUpdate
+User-defined function that can persist in db, used and shared multiple times
 
 ## Properties
 
@@ -17,7 +17,5 @@ Name | Type | Description | Notes
 **LicenseText** | **string** | License text | [optional] 
 **Tags** | **List&lt;string&gt;** | optional tags for UDF | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
