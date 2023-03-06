@@ -167,8 +167,8 @@ namespace QuickstartUdf
             // Share our copied UDF with TileDB-Inc
             string friendNamespace = "TileDB-Inc";
             RestUtil.UserDefinedFunction.Unshare(copiedUri, friendNamespace);
-            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.Fetchudf });
-            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.Fetchudf, UDFActions.Shareudf });
+            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.FetchUdf });
+            RestUtil.UserDefinedFunction.Share(copiedUri, friendNamespace, new[] { UDFActions.FetchUdf, UDFActions.ShareUdf });
 
             // Update info for the UDF we copied above; Delete the copied UDF
             Update(copiedUri, $"This README was updated using TileDB-Cloud-CSharp on {DateTime.Now}");
