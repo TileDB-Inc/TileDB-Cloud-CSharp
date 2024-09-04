@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks out repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Limit GH runner environment to the one version of .NET that we install in next step
       - name: Remove existing .NET versions
@@ -25,7 +25,7 @@ jobs:
 
       # Following action sets up dotnet and uses the strategy matrix to test on specific versions
       - name: Set up dotnet
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet }}
 
@@ -54,7 +54,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       # Checks out repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Download TileDB.Cloud NuGet Artifact
         uses: actions/download-artifact@v4
@@ -70,7 +70,7 @@ jobs:
 
       # Following action sets up dotnet and uses the strategy matrix to test on specific versions
       - name: Set up dotnet
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet }}
 
