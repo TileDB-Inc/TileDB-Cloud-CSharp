@@ -37,7 +37,7 @@ jobs:
         run: dotnet pack -c Release TileDB.Cloud/TileDB.Cloud.csproj -o TileDB.Cloud/out
 
       - name: Upload TileDB.Cloud NuGet Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: TileDB.Cloud NuGet Package
           path: TileDB.Cloud/out/TileDB.Cloud.*.nupkg
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Download TileDB.Cloud NuGet Artifact
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4
         with:
           name: TileDB.Cloud NuGet Package
           path: TileDB.Cloud/out
